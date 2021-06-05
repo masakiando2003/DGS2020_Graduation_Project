@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Friendly
+  - Fuel
+  - CheckPoint
+  - StartPoint
+  - Wall
+  - MoveableObstacles
+  - SafeZone
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Gasoline
+  - Wall
+  - Plane
+  - Obstacles
+  - 3DView
+  - SafeZone
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 4029152341
+    locked: 0
+  - name: Objects
+    uniqueID: 2414371523
+    locked: 0
