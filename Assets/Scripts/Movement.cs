@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] int playerID = 1;
     [SerializeField] float thrustSpeed = 1500f, rotateThrust = 100, thrustSpeedUpFactor = 2f, thrustSppedNormalFactor = 1f, maxVelocity = 30f;
     [SerializeField] AudioClip mainEngine;
 
     [SerializeField] ParticleSystem boostParticles;
 
+    int playerID;
     float speedFactor;
     Rigidbody rb;
     AudioSource audioSource;
@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
         canControl = true;
         canResetRotation = false;
         speedFactor = thrustSppedNormalFactor;
+        playerID = GetComponent<PlayerStatus>().GetPlayerID();
     }
 
     // Update is called once per frame

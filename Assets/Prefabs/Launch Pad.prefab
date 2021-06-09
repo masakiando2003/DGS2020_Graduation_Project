@@ -320,8 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9674687d4f1a3498f3273ef5d910fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkPointName: Check Point 1
-  checkPointIndex: 1
+  checkPointName: Check Point 3
+  checkPointIndex: 3
   checkPointFlagMaterial: {fileID: 2100000, guid: 6f3ec3aed0af2e444b881413729604bb, type: 2}
 --- !u!1 &1000012502170623
 GameObject:
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 95000011455685029}
   - component: {fileID: 1000013556522516}
   m_Layer: 9
-  m_Name: CheckPoint1Flag
+  m_Name: CheckPoint2Flag
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,10 +485,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.06
-  m_Height: 4.966643
+  m_Radius: 0.02955092
+  m_Height: 4.786349
   m_Direction: 1
-  m_Center: {x: 0, y: 2.3374436, z: 0}
+  m_Center: {x: -0.0000000021778874, y: 2.4275906, z: 0}
 --- !u!1 &1000013917940077
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 4661590404731450544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -40, y: 2, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 10}
+  m_LocalScale: {x: 50, y: 2, z: 20}
   m_Children:
   - {fileID: 4000012749144263}
   m_Father: {fileID: 0}
