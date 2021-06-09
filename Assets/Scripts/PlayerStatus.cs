@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
+    [SerializeField] int playerID = 1;
     [SerializeField] int playerMaxLife = 10;
     [SerializeField] float playerMaxBoost = 100f, boostFactor = 10f;
     [SerializeField] Slider boostSlider;
@@ -117,5 +118,10 @@ public class PlayerStatus : MonoBehaviour
     {
         if(explosionVFX == null) { return; }
         explosionVFX.Play();
+    }
+
+    public int GetPlayerID()
+    {
+        return playerID;
     }
 }

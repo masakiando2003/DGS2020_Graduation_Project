@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdd79e055561d4d91f1a5970180ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionMap: 1P_Instruction
+  difficultyScene: 1P_Choose_Difficulty
   titleMap: Title
   playerNameInput: {fileID: 1106533723}
   errorText: {fileID: 944707095}

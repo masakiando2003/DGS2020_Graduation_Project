@@ -42941,6 +42941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ec8845f6607394e86344ff3f4413fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 1
   playerMaxLife: 5
   playerMaxBoost: 100
   boostFactor: 25
@@ -42962,11 +42963,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771196345f7fb1a44961f872dcadffce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 1
   thrustSpeed: 1500
   rotateThrust: 150
   thrustSpeedUpFactor: 2
   thrustSppedNormalFactor: 1
+  maxVelocity: 30
   mainEngine: {fileID: 8300000, guid: d7914590cc5bf704fa6cd31af611de25, type: 3}
   boostParticles: {fileID: 1337551664698776970}
 --- !u!1 &3730897523753117172

@@ -57,7 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Asset Packs\Particle Dissolve Shader by Moonflower Carnivore\Shaders\unity5\Editor\Shader_softrim_dissolve.cs" />
+    <Compile Include="Assets\Asset Packs\Simple Helvetica\Editor\SimpleHelveticaCustomEditor.cs" />
     <Compile Include="Assets\Asset Packs\Particle Dissolve Shader by Moonflower Carnivore\Shaders\unity5\Editor\CustomMaterialEditor.cs" />
+    <Compile Include="Assets\Asset Packs\TurnTheGameOn\Arrow WayPointer\Scripts\Editor\Editor_WaypointController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
