@@ -94,9 +94,13 @@ public class PlayerStatus : MonoBehaviour
     {
         currentLife--;
     }
-    public void RestorePlayerLifeToMax()
+    public void RecoverPlayerLife(int recoverPlayerLife = 0)
     {
-        currentLife = playerMaxLife;
+        currentLife += recoverPlayerLife;
+        if(currentLife > playerMaxLife)
+        {
+            currentLife = playerMaxLife;
+        }
     }
 
     public int GetCurrentLife()

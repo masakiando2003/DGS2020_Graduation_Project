@@ -54,7 +54,7 @@ public class CollisionHandler : MonoBehaviour
                     !other.gameObject.GetComponentInChildren<CheckPointFlag>().IsChecked())
                 {
                     other.gameObject.GetComponentInChildren<CheckPointFlag>().SetToChecked();
-                    playerStatus.RestorePlayerLifeToMax();
+                    playerStatus.RecoverPlayerLife(other.gameObject.GetComponentInChildren<CheckPointFlag>().GetRecoverPlayerLifes());
                 }
                 StartSaveLatestCheckPointSequence(other.gameObject);
                 break;
@@ -104,7 +104,7 @@ public class CollisionHandler : MonoBehaviour
         {
             case "Fuel":
                 playerStatus.ResetBoostToFull();
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<Fuel>().DeactivateFuelObject();
                 break;
         }
     }
@@ -114,7 +114,7 @@ public class CollisionHandler : MonoBehaviour
         Transform checkPointPos = (checkPoint.GetComponentInChildren<Transform>() != null) ? checkPoint.GetComponentInChildren<Transform>().transform : checkPoint.transform;
         checkPoint.GetComponentInChildren<CheckPointFlag>().PassCheckPoint();
         FindObjectOfType<GameManagerSolo>().SaveLatestCheckPoint(checkPointPos);
-        FindObjectOfType<GameManagerSolo>().ResetRemainingTime();
+        FindObjectOfType<GameManagerSolo>().RecoverRemainingTime(checkPoint.GetComponentInChildren<CheckPointFlag>().GetRecoverRemainingTime());
         playerStatus.ResetBoostToFull();
         //StartCoroutine(AdjustPlayerRotation(this.gameObject));
     }
@@ -144,7 +144,7 @@ public class CollisionHandler : MonoBehaviour
         if (playerStatus.GetCurrentLife() > 0)
         {
             playerStatus.ResetBoostToFull();
-            StartCoroutine(ResetPlayerPosition(gameObject));
+            StartCoroutine(ResetPlayerPositionAndActivateFuelObjects(gameObject));
         }
         else
         {
@@ -163,11 +163,12 @@ public class CollisionHandler : MonoBehaviour
         FindObjectOfType<GameManagerSolo>().ResetPlayerRotation(playerObject);
     }
 
-    private IEnumerator ResetPlayerPosition(GameObject playerObject)
+    private IEnumerator ResetPlayerPositionAndActivateFuelObjects(GameObject playerObject)
     {
         yield return new WaitForSeconds(respawnTime);
         playerStatus.SetPlayerColorToNormal();
         FindObjectOfType<GameManagerSolo>().ResetPlayerToStartPosition(playerObject);
+        FindObjectOfType<GameManagerSolo>().ActiviateAllFuelObjects();
         playerStatus.UpdatePlayerBoostSlider();
         yield return new WaitForSeconds(playerCanControlTime);
         playerMovement.EnablePlayerControl();

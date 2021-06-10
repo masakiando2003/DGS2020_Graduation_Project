@@ -15,6 +15,7 @@ public class GameManagerSolo : MonoBehaviour
     }
 
     [SerializeField] GameObject playerRocket;
+    [SerializeField] GameObject[] fuelObjects;
     [SerializeField] Transform startPosition;
     [SerializeField] Transform[] checkPointPositions;
     [SerializeField] Transform goalPosition;
@@ -248,9 +249,13 @@ public class GameManagerSolo : MonoBehaviour
         }
     }
 
-    public void ResetRemainingTime()
+    public void RecoverRemainingTime(float recoverRemainingTime)
     {
-        remainingTime = maxRemainingTime;
+        remainingTime += recoverRemainingTime;
+        if(recoverRemainingTime >= maxRemainingTime)
+        {
+            recoverRemainingTime = maxRemainingTime;
+        }
     }
 
     public void UpdateFinalPosition(string positionName, int checkPointIndex)
@@ -369,6 +374,16 @@ public class GameManagerSolo : MonoBehaviour
     {
         player.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         player.GetComponent<Movement>().StopMovement();
+    }
+    public void ActiviateAllFuelObjects()
+    {
+        foreach(GameObject fuel in fuelObjects)
+        {
+            if(fuel.GetComponent<Fuel>() != null)
+            {
+                fuel.GetComponent<Fuel>().ActivateFuelObject();
+            }
+        }
     }
 
     public void Clear()

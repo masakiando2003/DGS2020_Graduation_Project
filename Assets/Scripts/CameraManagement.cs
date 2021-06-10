@@ -7,16 +7,17 @@ public class CameraManagement : MonoBehaviour
 {
     [SerializeField] Camera playerCamera, stageViewCamera;
     [SerializeField] Canvas playerRocketCanvas;
+    [SerializeField] GameObject playerRocketCurrentPositionArrowObject;
 
     int playerID;
     bool stageViewFlag;
 
     private void Awake()
     {
-        InitialCamera();
+        Initialization();
     }
 
-    private void InitialCamera()
+    private void Initialization()
     {
         if (playerCamera != null)
         {
@@ -28,6 +29,10 @@ public class CameraManagement : MonoBehaviour
         }
         stageViewFlag = false;
         playerID = GetComponent<PlayerStatus>().GetPlayerID();
+        if(playerRocketCurrentPositionArrowObject != null)
+        {
+            playerRocketCurrentPositionArrowObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -53,11 +58,23 @@ public class CameraManagement : MonoBehaviour
         if (stageViewFlag)
         {
             ChangeToStageViewCamera();
+            ActiveCurrentPositionArrowObject();
         }
         else
         {
             ChangeToPlayerCamera();
+            DeactivateCurrentPositionArrowObject();
         }
+    }
+
+    private void ActiveCurrentPositionArrowObject()
+    {
+        playerRocketCurrentPositionArrowObject.SetActive(true);
+    }
+
+    private void DeactivateCurrentPositionArrowObject()
+    {
+        playerRocketCurrentPositionArrowObject.SetActive(false);
     }
 
     public void ChangeToPlayerCamera()
