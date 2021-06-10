@@ -55,6 +55,7 @@ public class CollisionHandler : MonoBehaviour
                 {
                     other.gameObject.GetComponentInChildren<CheckPointFlag>().SetToChecked();
                     playerStatus.RecoverPlayerLife(other.gameObject.GetComponentInChildren<CheckPointFlag>().GetRecoverPlayerLifes());
+                    FindObjectOfType<GameManagerSolo>().RecoverRemainingTime(other.gameObject.GetComponentInChildren<CheckPointFlag>().GetRecoverRemainingTime());
                 }
                 StartSaveLatestCheckPointSequence(other.gameObject);
                 break;
@@ -114,7 +115,6 @@ public class CollisionHandler : MonoBehaviour
         Transform checkPointPos = (checkPoint.GetComponentInChildren<Transform>() != null) ? checkPoint.GetComponentInChildren<Transform>().transform : checkPoint.transform;
         checkPoint.GetComponentInChildren<CheckPointFlag>().PassCheckPoint();
         FindObjectOfType<GameManagerSolo>().SaveLatestCheckPoint(checkPointPos);
-        FindObjectOfType<GameManagerSolo>().RecoverRemainingTime(checkPoint.GetComponentInChildren<CheckPointFlag>().GetRecoverRemainingTime());
         playerStatus.ResetBoostToFull();
         //StartCoroutine(AdjustPlayerRotation(this.gameObject));
     }
