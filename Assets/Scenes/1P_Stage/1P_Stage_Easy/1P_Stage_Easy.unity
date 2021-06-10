@@ -6316,6 +6316,11 @@ Transform:
   m_Father: {fileID: 1791954360}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &383530697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 707477167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &387508905
 GameObject:
   m_ObjectHideFlags: 0
@@ -6557,6 +6562,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403425967}
   m_Mesh: {fileID: 4300114, guid: 83e5ddd5977f64451bf5d8f291b767be, type: 3}
+--- !u!1 &405930891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 468929939}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &408464268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7022,6 +7032,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432120950}
   m_Mesh: {fileID: 4300016, guid: 83e5ddd5977f64451bf5d8f291b767be, type: 3}
+--- !u!1 &437156436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 2001017437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &438260594
 GameObject:
   m_ObjectHideFlags: 0
@@ -9632,6 +9647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointName: Goal
   checkPointIndex: 99
+  recoverPlayerLifes: 0
+  recoverRemainingTime: 0
   checkPointFlagMaterial: {fileID: 2100000, guid: 6f3ec3aed0af2e444b881413729604bb, type: 2}
 --- !u!137 &699397823
 SkinnedMeshRenderer:
@@ -15945,6 +15962,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRocket: {fileID: 1612263097}
+  fuelObjects:
+  - {fileID: 1476627571}
+  - {fileID: 1204385304}
+  - {fileID: 437156436}
+  - {fileID: 405930891}
+  - {fileID: 383530697}
   startPosition: {fileID: 1377634408}
   checkPointPositions: []
   goalPosition: {fileID: 1795527744}
@@ -16673,6 +16696,11 @@ Transform:
   m_Father: {fileID: 26473030}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1204385304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 1125759731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1209211287
 GameObject:
   m_ObjectHideFlags: 0
@@ -20498,6 +20526,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475197606}
   m_CullTransparentMesh: 1
+--- !u!1 &1476627571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 1758847982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1479178997
 GameObject:
   m_ObjectHideFlags: 0
@@ -22108,6 +22141,7 @@ MonoBehaviour:
   playerCamera: {fileID: 963194227}
   stageViewCamera: {fileID: 274844051}
   playerRocketCanvas: {fileID: 1992705754}
+  playerRocketCurrentPositionArrowObject: {fileID: 2986873144323505211}
 --- !u!1 &1614457485
 GameObject:
   m_ObjectHideFlags: 0
@@ -22640,6 +22674,14 @@ PrefabInstance:
     - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: checkPointIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverPlayerLifes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverRemainingTime
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1000013556522515, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: m_Name
@@ -33955,6 +33997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef639431dd944034caebd3f6226bee4a, type: 3}
+--- !u!1 &2986873144323505211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 790960888, guid: ef639431dd944034caebd3f6226bee4a, type: 3}
+  m_PrefabInstance: {fileID: 2986873144323505210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2989903702485691630
 GameObject:
   m_ObjectHideFlags: 0

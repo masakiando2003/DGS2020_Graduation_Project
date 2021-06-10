@@ -5,7 +5,8 @@ using UnityEngine;
 public class CheckPointFlag : MonoBehaviour
 {
     [SerializeField] string checkPointName;
-    [SerializeField] int checkPointIndex;
+    [SerializeField] int checkPointIndex, recoverPlayerLifes;
+    [SerializeField] float recoverRemainingTime;
     [SerializeField] Material checkPointFlagMaterial;
     private Material originalMaterial;
     private bool isChecked;
@@ -45,5 +46,15 @@ public class CheckPointFlag : MonoBehaviour
     public void ResetCheckPointMaterial()
     {
         GetComponent<Renderer>().material = originalMaterial;
+    }
+
+    public int GetRecoverPlayerLifes()
+    {
+        return recoverPlayerLifes;
+    }
+
+    public float GetRecoverRemainingTime()
+    {
+        return recoverRemainingTime;
     }
 }

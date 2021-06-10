@@ -5198,6 +5198,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4019842263635558406, guid: dfc8b67ca0b3a9f408a1f04fc665157f, type: 3}
   m_PrefabInstance: {fileID: 235149738}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &236538653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 468929939}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &243921065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6589,6 +6594,14 @@ PrefabInstance:
       propertyPath: checkPointIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverPlayerLifes
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverRemainingTime
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013556522515, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: m_Name
       value: CheckPoint3Flag
@@ -7498,6 +7511,11 @@ Transform:
   m_Father: {fileID: 1791954360}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &385041702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 1125759731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &385814706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9418,6 +9436,14 @@ PrefabInstance:
     - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: checkPointIndex
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverPlayerLifes
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverRemainingTime
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1000013556522515, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: m_Name
@@ -12681,6 +12707,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointName: Goal
   checkPointIndex: 99
+  recoverPlayerLifes: 0
+  recoverRemainingTime: 0
   checkPointFlagMaterial: {fileID: 2100000, guid: 6f3ec3aed0af2e444b881413729604bb, type: 2}
 --- !u!137 &699397823
 SkinnedMeshRenderer:
@@ -17880,6 +17908,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970226112}
   m_CullTransparentMesh: 1
+--- !u!1 &972504873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 1298922244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &972867619
 GameObject:
   m_ObjectHideFlags: 0
@@ -18134,6 +18167,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994598531}
   m_CullTransparentMesh: 1
+--- !u!1 &1001407517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 773934743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1001594338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4019842263635558406, guid: dfc8b67ca0b3a9f408a1f04fc665157f, type: 3}
@@ -18367,6 +18405,11 @@ Transform:
   m_Father: {fileID: 760007248}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019264404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 790960888, guid: ef639431dd944034caebd3f6226bee4a, type: 3}
+  m_PrefabInstance: {fileID: 2986873144323505210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1019279176
 GameObject:
   m_ObjectHideFlags: 0
@@ -19423,6 +19466,11 @@ MonoBehaviour:
   movementVector: {x: 0, y: 7, z: 0}
   movementFactor: 0
   period: 10
+--- !u!1 &1061314370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 510489917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1065123521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21316,6 +21364,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRocket: {fileID: 1612263097}
+  fuelObjects:
+  - {fileID: 1736206422}
+  - {fileID: 385041702}
+  - {fileID: 2110799123}
+  - {fileID: 236538653}
+  - {fileID: 2119952926}
+  - {fileID: 1200001745}
+  - {fileID: 972504873}
+  - {fileID: 1001407517}
+  - {fileID: 1169452330}
+  - {fileID: 2020223807}
+  - {fileID: 1061314370}
   startPosition: {fileID: 1377634408}
   checkPointPositions: []
   goalPosition: {fileID: 1795527744}
@@ -21889,6 +21949,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1169452330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 1087628372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1170174732
 GameObject:
   m_ObjectHideFlags: 0
@@ -22122,6 +22187,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4019842263635558406, guid: dfc8b67ca0b3a9f408a1f04fc665157f, type: 3}
   m_PrefabInstance: {fileID: 1194118303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1200001745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 228188069}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1200940773
 GameObject:
@@ -29746,6 +29816,7 @@ MonoBehaviour:
   playerCamera: {fileID: 963194227}
   stageViewCamera: {fileID: 274844051}
   playerRocketCanvas: {fileID: 1992705754}
+  playerRocketCurrentPositionArrowObject: {fileID: 1019264404}
 --- !u!1 &1614457485
 GameObject:
   m_ObjectHideFlags: 0
@@ -30389,6 +30460,14 @@ PrefabInstance:
     - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: checkPointIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverPlayerLifes
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverRemainingTime
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1000013556522515, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: m_Name
@@ -31789,6 +31868,11 @@ MonoBehaviour:
   movementVector: {x: 0, y: 10, z: 0}
   movementFactor: 0
   period: 2
+--- !u!1 &1736206422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 1758847982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1738126683
 GameObject:
   m_ObjectHideFlags: 0
@@ -32047,6 +32131,14 @@ PrefabInstance:
     - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: checkPointIndex
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverPlayerLifes
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverRemainingTime
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1000013556522515, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: m_Name
@@ -34433,6 +34525,14 @@ PrefabInstance:
       propertyPath: checkPointIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverPlayerLifes
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000009495341122, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
+      propertyPath: recoverRemainingTime
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1000013556522516, guid: e53e6b134ea31e542901eee7c0590c98, type: 3}
       propertyPath: m_Height
       value: 4.9484544
@@ -36063,6 +36163,11 @@ Transform:
   m_Father: {fileID: 1015662598}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2020223807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 1344206747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2023550038
 GameObject:
   m_ObjectHideFlags: 0
@@ -37264,6 +37369,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4019842263635558406, guid: dfc8b67ca0b3a9f408a1f04fc665157f, type: 3}
   m_PrefabInstance: {fileID: 2108797281}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2110799123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 2001017437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2111589735
 GameObject:
   m_ObjectHideFlags: 0
@@ -37535,6 +37645,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116134101}
   m_CullTransparentMesh: 1
+--- !u!1 &2119952926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6850346260803899546, guid: 7838a1abfd6048d42bdc427157cea93b, type: 3}
+  m_PrefabInstance: {fileID: 707477167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2138745414
 GameObject:
   m_ObjectHideFlags: 0
