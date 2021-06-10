@@ -113,7 +113,10 @@ public class CollisionHandler : MonoBehaviour
     private void StartSaveLatestCheckPointSequence(GameObject checkPoint)
     {
         Transform checkPointPos = (checkPoint.GetComponentInChildren<Transform>() != null) ? checkPoint.GetComponentInChildren<Transform>().transform : checkPoint.transform;
-        checkPoint.GetComponentInChildren<CheckPointFlag>().PassCheckPoint();
+        if(checkPoint.GetComponentInChildren<CheckPointFlag>() != null)
+        {
+            checkPoint.GetComponentInChildren<CheckPointFlag>().PassCheckPoint();
+        }
         FindObjectOfType<GameManagerSolo>().SaveLatestCheckPoint(checkPointPos);
         playerStatus.ResetBoostToFull();
         //StartCoroutine(AdjustPlayerRotation(this.gameObject));
