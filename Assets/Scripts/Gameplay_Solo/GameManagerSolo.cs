@@ -328,7 +328,9 @@ public class GameManagerSolo : MonoBehaviour
     {
         if(playerSpeedText == null) { return; }
         float currentSpeed;
-        if(playerRocket.GetComponent<Rigidbody>().velocity.magnitude > playerRocket.GetComponent<Movement>().GetLimitedMaxVelocity())
+        currentSpeed = Mathf.FloorToInt(playerRocket.GetComponent<Rigidbody>().velocity.magnitude);
+        /*
+        if (playerRocket.GetComponent<Rigidbody>().velocity.magnitude > playerRocket.GetComponent<Movement>().GetLimitedMaxVelocity())
         {
             currentSpeed = playerRocket.GetComponent<Movement>().GetLimitedMaxVelocity();
         }
@@ -336,7 +338,8 @@ public class GameManagerSolo : MonoBehaviour
         {
             currentSpeed = Mathf.FloorToInt(playerRocket.GetComponent<Rigidbody>().velocity.magnitude);
         }
-        playerSpeedText.text = currentSpeed.ToString() + "km / h";
+        */
+        playerSpeedText.text = currentSpeed.ToString() + "Km / s";
     }
 
     private void UpdatePlayerBoostText()
