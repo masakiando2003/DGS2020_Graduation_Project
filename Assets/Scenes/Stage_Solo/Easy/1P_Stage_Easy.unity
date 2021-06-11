@@ -46238,6 +46238,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 599216713348965109, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: thrustSpeed
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 599216713348965109, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: thrustSpeedUpFactor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7126307346140529565, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
       propertyPath: arrowPositionOffsetY
       value: 10

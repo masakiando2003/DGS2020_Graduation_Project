@@ -1775,9 +1775,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Q - Rotate Left\nE - Rotate Right\nSpace - Boost\nS - Speed Up\nX - Reset
-    Rotation \n(Safe Zone or CheckPoint Only)\nR - Slow Down or Move DownWard\nV
-    - Change Camera (Player / Stage View)\nEscape - Pause Game"
+  m_Text: "Q - Rotate Left\nE - Rotate Right\nSpace - Boost\nS - Speed Up \n(Boost
+    will reduce faster)\nX - Reset Rotation \n(Safe Zone or CheckPoint Only)\nR -
+    Slow Down or Move DownWard\nV - Change Camera (Player / Stage View)\nEscape -
+    Pause Game"
 --- !u!222 &894937656
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
                     ResetSpeedFactor();
                 }
                 StartThursting();
-                LimitMaxmimumSpeed();
+                //LimitMaxmimumSpeed();
             }
             playerStatus.ReducePlayerBoost(speedFactor);
         }
