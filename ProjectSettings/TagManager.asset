@@ -25,10 +25,10 @@ TagManager:
   - Obstacles
   - 3DView
   - SafeZone
-  - 
-  - 
-  - 
-  - 
+  - Player1CurrentPositionArrow
+  - Player2CurrentPositionArrow
+  - Player3CurrentPositionArrow
+  - Player4CurrentPositionArrow
   - 
   - 
   - 

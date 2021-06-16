@@ -34,7 +34,7 @@ public class EnterPlayerName1P : MonoBehaviour
             if (errorText == null) { return; }
             errorText.enabled = false;
             errorText.text = "";
-            PlayerNameTempSave_1P.playerName = playerNameInput.text.ToString();
+            PlayerNameTempSaveSolo.playerName = playerNameInput.text.ToString();
             if (difficultyScene.Equals("")) { return; }
             SceneManager.LoadScene(difficultyScene);
         }
