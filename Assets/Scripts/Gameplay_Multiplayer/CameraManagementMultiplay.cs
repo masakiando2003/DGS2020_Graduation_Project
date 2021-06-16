@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraManagementMultiplay : MonoBehaviour
 {
     [SerializeField] Camera playerCamera, stageViewCamera;
+    [SerializeField] GameObject boostSlider;
     [SerializeField] GameObject playerRocketCurrentPositionArrowObject;
 
     int playerID;
@@ -80,6 +82,7 @@ public class CameraManagementMultiplay : MonoBehaviour
         if (playerCamera == null || stageViewCamera == null) { return; }
         playerCamera.enabled = true;
         stageViewCamera.enabled = false;
+        boostSlider.SetActive(true);
     }
 
     public void ChangeToStageViewCamera()
@@ -87,5 +90,6 @@ public class CameraManagementMultiplay : MonoBehaviour
         if (playerCamera == null || stageViewCamera == null) { return; }
         stageViewCamera.enabled = true;
         playerCamera.enabled = false;
+        boostSlider.SetActive(false);
     }
 }
