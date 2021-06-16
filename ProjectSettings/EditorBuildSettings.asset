@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage_Solo/Hard/1P_Stage_Hard.unity
     guid: 13007b741f0812e4daa534f91ab4ca5b
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/BattleRoyal/Multiplay_Battle_Royal_Stage_Easy.unity
+    guid: e4c400567b006a34da53d7dffd0ea3d1
   m_configObjects: {}

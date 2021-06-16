@@ -121,8 +121,8 @@ public class GameManagerSolo : MonoBehaviour
         Time.timeScale = 1f;
         remainingTime = maxRemainingTime;
         countDownTimer = startCountDownTime;
-        playerNameText.text = PlayerNameTempSave_1P.playerName;
-        playerRocket.GetComponent<Movement>().DisablePlayerControl();
+        playerNameText.text = PlayerNameTempSaveSolo.playerName;
+        playerRocket.GetComponent<MovementSolo>().DisablePlayerControl();
         UpdatePlayerBoostText(); // For Debug
         finalPosition = "Start";
         finalPositionText.text = finalPosition;
@@ -139,7 +139,6 @@ public class GameManagerSolo : MonoBehaviour
     private void Update()
     {
         UpdatePlayerLifeText();
-        UpdatePlayerSpeedText();
         switch (currentGameState)
         {
             case GameState.CountDown:
@@ -149,6 +148,7 @@ public class GameManagerSolo : MonoBehaviour
                 break;
             case GameState.GameStart:
                 UpdatePlayerBoostText(); // For Debug
+                UpdatePlayerSpeedText();
                 // CalculateRemainingDistance();
                 ShowFinalPosition();
                 UpdateStageMiniSlider();
@@ -183,7 +183,7 @@ public class GameManagerSolo : MonoBehaviour
         {
             Invoke("HideCountDownText", hideCountDownTime);
             Instance.ChangeGameState(GameState.GameStart);
-            playerRocket.GetComponent<Movement>().EnablePlayerControl();
+            playerRocket.GetComponent<MovementSolo>().EnablePlayerControl();
         }
     }
 
@@ -229,7 +229,7 @@ public class GameManagerSolo : MonoBehaviour
             remainingTimeText.text = Mathf.FloorToInt(remainingTime).ToString();
         }
 
-        float t = Time.time - PlayTime_TempSave_1P.totalTimeElapsed - startCountDownTime;
+        float t = Time.time - PlayTimeTempSaveSolo.totalTimeElapsed - startCountDownTime;
         string minutes = ((int)t / 60).ToString("00");
         string seconds = (t % 60).ToString("00");
         string miliseconds = (t * 60 % 60).ToString("00");
@@ -311,17 +311,17 @@ public class GameManagerSolo : MonoBehaviour
 
     private void DisablePlayerMovement()
     {
-        playerRocket.GetComponent<Movement>().enabled = false;
+        playerRocket.GetComponent<MovementSolo>().enabled = false;
     }
     private void DisablePlayerCollision()
     {
-        playerRocket.GetComponent<CollisionHandler>().enabled = false;
+        playerRocket.GetComponent<CollisionHandlerSolo>().enabled = false;
     }
 
     private void UpdatePlayerLifeText()
     {
         if(playerLifeText == null) { return; }
-        playerLifeText.text = playerRocket.GetComponent<PlayerStatus>().GetCurrentLife().ToString();
+        playerLifeText.text = playerRocket.GetComponent<PlayerStatusSolo>().GetCurrentLife().ToString();
     }
 
     private void UpdatePlayerSpeedText()
@@ -345,7 +345,7 @@ public class GameManagerSolo : MonoBehaviour
     private void UpdatePlayerBoostText()
     {
         if (playerBoostText == null) { return; }
-        int playerBoost = Mathf.FloorToInt(playerRocket.GetComponent<PlayerStatus>().GetCurrentBoost());
+        int playerBoost = Mathf.FloorToInt(playerRocket.GetComponent<PlayerStatusSolo>().GetCurrentBoost());
         if(playerBoost < 0)
         {
             playerBoost = 0;
@@ -376,7 +376,7 @@ public class GameManagerSolo : MonoBehaviour
     public void ResetPlayerRotation(GameObject player)
     {
         player.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        player.GetComponent<Movement>().StopMovement();
+        player.GetComponent<MovementSolo>().StopMovement();
     }
     public void ActiviateAllFuelObjects()
     {
@@ -413,7 +413,7 @@ public class GameManagerSolo : MonoBehaviour
     }
     public void RestartGame()
     {
-        PlayTime_TempSave_1P.totalTimeElapsed = Time.time;
+        PlayTimeTempSaveSolo.totalTimeElapsed = Time.time;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -472,7 +472,7 @@ public class GameManagerSolo : MonoBehaviour
     private void UpdateRanking()
     {
         RankingData rankingData = new RankingData();
-        rankingData.playerName = PlayerNameTempSave_1P.playerName;
+        rankingData.playerName = PlayerNameTempSaveSolo.playerName;
         rankingData.finalPosition = finalPosition;
         rankingData.checkPointIndex = currentCheckPointIndex;
         rankingData.remainingTime = Mathf.FloorToInt(remainingTime);
