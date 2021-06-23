@@ -66,6 +66,8 @@ public class CollisionHandlerMultiplay : MonoBehaviour
             case "Finish":
                 StartSuccessSequence(other.gameObject);
                 break;
+            case "Player":
+                break;
             default:
                 StartFailedSequence(other.gameObject.tag);
                 break;
@@ -78,6 +80,8 @@ public class CollisionHandlerMultiplay : MonoBehaviour
 
         switch (other.gameObject.tag)
         {
+            case "Player":
+                break;
             case "CheckPoint":
             case "SafeZone":
             case "StartPoint":

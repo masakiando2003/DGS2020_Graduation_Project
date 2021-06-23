@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soloPlayerInstructionSceneName: 1P_Enter_Player_Name
-  multiPlayerInstructionSceneName: 
+  multiPlayerInstructionSceneName: Multiplayer_Num_of_Players
   creditSceneName: 
   rotationSpeed: 90
   rocketMesh: {fileID: 3125870580133610154}
@@ -993,7 +993,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1599706124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: MultiPlayerStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1599706124
 MonoBehaviour:
   m_ObjectHideFlags: 0

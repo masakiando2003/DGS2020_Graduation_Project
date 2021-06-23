@@ -46,6 +46,15 @@ public class MovementSolo : MonoBehaviour
             {
                 ProcessResetRotation();
             }
+            ProcessPause();
+        }
+    }
+
+    private void ProcessPause()
+    {
+        if (Input.GetButton(playerID + "PPause"))
+        {
+            FindObjectOfType<GameManagerSolo>().PauseGame();
         }
     }
 
