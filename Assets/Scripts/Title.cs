@@ -19,7 +19,7 @@ public class Title : MonoBehaviour
 
     public void MultiPlayerStart()
     {
-        SceneManager.LoadScene(soloPlayerInstructionSceneName);
+        SceneManager.LoadScene(multiPlayerInstructionSceneName);
     }
 
     public void Credit()

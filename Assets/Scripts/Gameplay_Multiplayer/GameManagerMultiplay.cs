@@ -13,6 +13,7 @@ public class GameManagerMultiplay : MonoBehaviour
         get; private set;
     }
 
+    [SerializeField] GameObject rocketMesh;
     [SerializeField] GameObject[] playerRockets;
     [SerializeField] GameObject[] fuelObjects;
     [SerializeField] Transform[] startPositions;
@@ -31,6 +32,7 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] float showFinishPanelTime = 2f;
     [SerializeField] float startCountDownTime = 3.9f;
     [SerializeField] float hideCountDownTime = 1f;
+    [SerializeField] float rotationSpeed = 20f;
     [SerializeField] string startGameText = "GO!";
     [SerializeField] Canvas pauseCanvas;
     [SerializeField] GameObject finishPanel;
@@ -123,6 +125,7 @@ public class GameManagerMultiplay : MonoBehaviour
             default:
                 break;
         }
+        RotateRocketMeshContinously();
     }
 
     private void ChangeGameState(GameState targetGameState)
@@ -331,5 +334,12 @@ public class GameManagerMultiplay : MonoBehaviour
     public GameState GetCurrentGameState()
     {
         return currentGameState;
+    }
+
+    private void RotateRocketMeshContinously()
+    {
+        if(rocketMesh == null) { return; }
+        Time.timeScale = 1f;
+        rocketMesh.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
     }
 }

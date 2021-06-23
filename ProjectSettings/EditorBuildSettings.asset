@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: 7364b5f2ef46b3e47a78d03919aa1f73
   - enabled: 1
     path: Assets/Scenes/Stage_Solo/1P_Instruction.unity
-    guid: 110515f32d389d347975b0e7d4a9e64d
+    guid: 94e1664b98bd1514090dfcf1893a5711
   - enabled: 1
     path: Assets/Scenes/Stage_Solo/Easy/1P_Stage_Easy.unity
     guid: 99164941d9d2aa94cad52c19eae8e5c0
@@ -27,12 +27,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage_Solo/Hard/1P_Stage_Hard.unity
     guid: 13007b741f0812e4daa534f91ab4ca5b
   - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Multiplayer_Instruction.unity
+    guid: 110515f32d389d347975b0e7d4a9e64d
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Multiplayer_Num_of_Players.unity
+    guid: 00d25a1a18a711543aaa8d807dc4744c
+  - enabled: 1
     path: Assets/Scenes/Stage_Multiplay/Multiplayer_Enter_Player_Name.unity
     guid: 2e4739e73dd10b240bfad254648d234f
   - enabled: 1
-    path: Assets/Scenes/Stage_Multiplay/Multiplay_Stage_Easy.unity
-    guid: e4c400567b006a34da53d7dffd0ea3d1
-  - enabled: 1
     path: Assets/Scenes/Stage_Multiplay/Multiplayer_Choose_Difficulty.unity
     guid: 2549f315cf4e42446a8e8468ef459e16
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Easy/2P/Multiplay_Stage_Easy_2P.unity
+    guid: 1ccef6a874b5bf040baf810c054ab61f
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Easy/3P/Multiplay_Stage_Easy_3P.unity
+    guid: 18b857d469651684c9317dfe28b6a7ca
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Easy/4P/Multiplay_Stage_Easy_4P.unity
+    guid: e4c400567b006a34da53d7dffd0ea3d1
   m_configObjects: {}

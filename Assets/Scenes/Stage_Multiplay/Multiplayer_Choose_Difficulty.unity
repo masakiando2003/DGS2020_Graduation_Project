@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66f053eb81223c49857bf2dc7b85dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introductionScene: Multiplay_Stage_Easy
+  introductionScene: Multiplayer_Instruction
   titleMap: Title
   difficulty: Easy
   difficultyText: {fileID: 1533728398}

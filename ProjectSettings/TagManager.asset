@@ -11,6 +11,8 @@ TagManager:
   - Wall
   - MoveableObstacles
   - SafeZone
+  - Item
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -29,9 +31,9 @@ TagManager:
   - Player2CurrentPositionArrow
   - Player3CurrentPositionArrow
   - Player4CurrentPositionArrow
-  - 
-  - 
-  - 
+  - Item
+  - Shield
+  - Missile
   - 
   - 
   - 
