@@ -14,8 +14,8 @@ public class PlayerStatusMultiplay : MonoBehaviour
     [SerializeField] Material playerMaterial;
     [SerializeField] ParticleSystem explosionVFX;
 
-    static int currentLife;
-    static float playerCurrentBoost;
+    bool isInvicible;
+    float playerCurrentBoost;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class PlayerStatusMultiplay : MonoBehaviour
 
     private void Initialization()
     {
+        isInvicible = false;
         playerMaterial.color = Color.white;
         playerCurrentBoost = playerMaxBoost;
         currentBoostFillArea.color = Color.blue;
@@ -107,5 +108,20 @@ public class PlayerStatusMultiplay : MonoBehaviour
     public int GetPlayerID()
     {
         return playerID;
+    }
+
+    public bool IsInvicible()
+    {
+        return isInvicible;
+    }
+
+    public void AcitivateInvicibleMode()
+    {
+        isInvicible = true;
+    }
+
+    public void DeactivateInvicible()
+    {
+        isInvicible = false;
     }
 }

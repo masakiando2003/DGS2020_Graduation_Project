@@ -69,7 +69,17 @@ public class CollisionHandlerMultiplay : MonoBehaviour
             case "Player":
                 break;
             default:
-                StartFailedSequence(other.gameObject.tag);
+                if(GetComponent<PlayerStatusMultiplay>() != null)
+                {
+                    if (!GetComponent<PlayerStatusMultiplay>().IsInvicible())
+                    {
+                        StartFailedSequence(other.gameObject.tag);
+                    }
+                }
+                else
+                {
+                    StartFailedSequence(other.gameObject.tag);
+                }
                 break;
         }
     }
@@ -88,7 +98,17 @@ public class CollisionHandlerMultiplay : MonoBehaviour
                 GetComponent<MovementMultiplay>().EnableResetRotation();
                 break;
             default:
-                StartFailedSequence(other.gameObject.tag);
+                if (GetComponent<PlayerStatusMultiplay>() != null)
+                {
+                    if (!GetComponent<PlayerStatusMultiplay>().IsInvicible())
+                    {
+                        StartFailedSequence(other.gameObject.tag);
+                    }
+                }
+                else
+                {
+                    StartFailedSequence(other.gameObject.tag);
+                }
                 break;
         }
     }
