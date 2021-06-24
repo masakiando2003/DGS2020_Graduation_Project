@@ -8,9 +8,18 @@ using Random = UnityEngine.Random;
 public class PlayerItem : MonoBehaviour
 {
     [SerializeField] int playerID = 1;
+    [SerializeField] float playerInvisibleTime = 3f;
+    [SerializeField] CapsuleCollider playerCollider;
     [SerializeField] GameObject playerItem;
     [SerializeField] Image playerItemImage;
     [SerializeField] Text playerItemText;
+
+    PlayerStatusMultiplay playerStatusMultiplay;
+
+    private void Start()
+    {
+        playerStatusMultiplay = GetComponent<PlayerStatusMultiplay>();
+    }
 
     private void Update()
     {
@@ -40,16 +49,7 @@ public class PlayerItem : MonoBehaviour
         if(playerItem == null) { return; }
         if (Input.GetButtonDown(playerID+"PUseItem"))
         {
-            switch (playerItem.tag)
-            {
-                case "Shield":
-                    GameObject playerShield = Instantiate(playerItem);
-                    playerShield.transform.SetParent(gameObject.transform);
-                    playerShield.transform.localPosition = new Vector3(0f, 0f, 0f);
-                    playerShield.transform.localScale = new Vector3(7f, 7f, 7f);
-                    break;
-            }
-            playerItem = null;
+            UseItem();
         }
     }
 
@@ -74,6 +74,16 @@ public class PlayerItem : MonoBehaviour
 
     public void UseItem()
     {
-
+        switch (playerItem.tag)
+        {
+            case "Shield":
+                GameObject playerShield = Instantiate(playerItem);
+                playerShield.transform.SetParent(gameObject.transform);
+                playerShield.transform.localPosition = new Vector3(0f, 0f, 0f);
+                playerShield.transform.localScale = new Vector3(9f, 9f, 9f);
+                playerStatusMultiplay.AcitivateInvicibleMode();
+                break;
+        }
+        playerItem = null;
     }
 }
