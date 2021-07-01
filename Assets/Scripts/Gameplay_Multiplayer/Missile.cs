@@ -41,8 +41,11 @@ public class Missile : MonoBehaviour
         rb.MoveRotation(Quaternion.RotateTowards(gameObject.transform.rotation, targetRotation, turn));
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        Destroy(gameObject);
+        if(other.gameObject.tag != "Item")
+        {
+            Destroy(gameObject);
+        }
     }
 }
