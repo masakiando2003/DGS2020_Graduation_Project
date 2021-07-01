@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] GameObject rocketMesh;
     [SerializeField] GameObject[] playerRockets;
     [SerializeField] GameObject[] fuelObjects;
+    [SerializeField] Camera[] followPlayerCameras;
+    [SerializeField] Camera[] playerStageViewCameras;
     [SerializeField] Transform[] startPositions;
     [SerializeField] Transform[] checkPointPositions;
     [SerializeField] Transform goalPosition;
@@ -29,6 +32,8 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] float startPointSpawnPositionOffsetY = 10f;
     [SerializeField] float checkPointSpawnPositionOffsetX = 5f;
     [SerializeField] float checkPointSpawnPositionOffsetY = 10f;
+    [SerializeField] float stopOtherPlayersMovementTime = 3f;
+    [SerializeField] float stopMissilesMovementTime = 3f;
     [SerializeField] float showFinishPanelTime = 2f;
     [SerializeField] float startCountDownTime = 3.9f;
     [SerializeField] float hideCountDownTime = 1f;
@@ -85,6 +90,14 @@ public class GameManagerMultiplay : MonoBehaviour
                 lastCheckPointPositions[i] = startPositions[i];
                 playerCheckPointTexts[i].text = "Start";
                 //UpdateStageMiniSlider(i);
+            }
+            if(followPlayerCameras[i] != null)
+            {
+                followPlayerCameras[i].GetComponent<PostProcessLayer>().enabled = false;
+            }
+            if (playerStageViewCameras[i] != null)
+            {
+                playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = false;
             }
         }
         if (finishCanvas != null)
@@ -341,5 +354,79 @@ public class GameManagerMultiplay : MonoBehaviour
         if(rocketMesh == null) { return; }
         Time.timeScale = 1f;
         rocketMesh.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+    }
+
+    public void StopOtherPlayersMovement(int playerID)
+    {
+        int playerIndex = playerID - 1;
+        StartCoroutine(StopPlayersMovementAndGrayScreen(playerIndex));
+    }
+
+    private IEnumerator StopPlayersMovementAndGrayScreen(int playerIndex)
+    {
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                if (followPlayerCameras[i] != null)
+                {
+                    followPlayerCameras[i].GetComponent<PostProcessLayer>().enabled = true;
+                }
+                if (playerStageViewCameras[i] != null)
+                {
+                    playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = true;
+                }
+                playerRockets[i].GetComponent<MovementMultiplay>().DisablePlayerControl();
+                playerRockets[i].GetComponent<PlayerItem>().DisableUseItem();
+                playerRockets[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+        }
+
+        yield return new WaitForSeconds(stopOtherPlayersMovementTime);
+
+
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                if (followPlayerCameras[i] != null)
+                {
+                    followPlayerCameras[i].GetComponent<PostProcessLayer>().enabled = false;
+                }
+                if (playerStageViewCameras[i] != null)
+                {
+                    playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = false;
+                }
+                playerRockets[i].GetComponent<MovementMultiplay>().EnablePlayerControl();
+                playerRockets[i].GetComponent<PlayerItem>().EnableUseItem();
+                playerRockets[i].GetComponent<Rigidbody>().constraints =
+                    RigidbodyConstraints.FreezePositionZ | 
+                    RigidbodyConstraints.FreezeRotationX | 
+                    RigidbodyConstraints.FreezeRotationY;
+            }
+        }
+    }
+
+    public void StopAllMissilesMovement()
+    {
+        StartCoroutine(FreezeAllMissiles());
+    }
+
+    private IEnumerator FreezeAllMissiles()
+    {
+        foreach(Missile missile in FindObjectsOfType<Missile>())
+        {
+            missile.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+
+        yield return new WaitForSeconds(stopMissilesMovementTime);
+
+        foreach (Missile missile in FindObjectsOfType<Missile>())
+        {
+            missile.GetComponent<Rigidbody>().constraints = 
+                    RigidbodyConstraints.FreezePositionZ |
+                    RigidbodyConstraints.FreezeRotationX |
+                    RigidbodyConstraints.FreezeRotationY;
+        }
     }
 }
