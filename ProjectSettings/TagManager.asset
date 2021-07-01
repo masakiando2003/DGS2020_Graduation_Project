@@ -13,6 +13,8 @@ TagManager:
   - SafeZone
   - Item
   - Shield
+  - Missile
+  - Timer
   layers:
   - Default
   - TransparentFX
@@ -34,7 +36,7 @@ TagManager:
   - Item
   - Shield
   - Missile
-  - 
+  - Environment
   - 
   - 
   - 
