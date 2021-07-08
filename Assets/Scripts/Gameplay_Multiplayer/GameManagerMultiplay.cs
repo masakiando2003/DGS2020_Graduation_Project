@@ -429,4 +429,46 @@ public class GameManagerMultiplay : MonoBehaviour
                     RigidbodyConstraints.FreezeRotationY;
         }
     }
+
+    public GameObject GetClossetPlayerRocket(int playerID)
+    {
+        GameObject closetPlayerRocket = null;
+        int playerIndex = playerID - 1;
+        Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
+        float closetDiff = Mathf.Infinity;
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                Vector3 otherplayerPosition = playerRockets[i].transform.position;
+                float posDiff = Vector3.Distance(currentPlayerPosition, otherplayerPosition);
+                if (posDiff < closetDiff)
+                {
+                    closetPlayerRocket = playerRockets[i];
+                }
+            }
+        }
+        return closetPlayerRocket;
+    }
+
+    public string GetClossetPlayerName(int playerID)
+    {
+        string closePlayerName = "";
+        int playerIndex = playerID - 1;
+        Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
+        float closetDiff = Mathf.Infinity;
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                Vector3 otherplayerPosition = playerRockets[i].transform.position;
+                float posDiff = Vector3.Distance(currentPlayerPosition, otherplayerPosition);
+                if(posDiff < closetDiff)
+                {
+                    closePlayerName = PlayerNameTempSaveMultiplay.playerName[i];
+                }
+            }
+        }
+        return closePlayerName;
+    }
 }

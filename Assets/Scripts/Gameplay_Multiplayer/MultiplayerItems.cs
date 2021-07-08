@@ -7,6 +7,7 @@ public class MultiplayerItems : MonoBehaviour
     public enum ItemCategories {
         AttackItem,
         DefenseItem,
-        AbnormalConditionItem
+        AbnormalConditionItem,
+        BoostCanItem
     };
 }

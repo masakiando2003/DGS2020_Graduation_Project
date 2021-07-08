@@ -7,7 +7,7 @@ public class Missile : MonoBehaviour
 {
     [SerializeField] GameObject targetPlayer;
     [SerializeField] float movingSpeed = 5f;
-    [SerializeField] float turn = 20f;
+    [SerializeField] float torqueRatio = 20f;
     Rigidbody rb;
     float distance;
 
@@ -36,15 +36,37 @@ public class Missile : MonoBehaviour
     private void HomingTargetPlayer()
     {
         if(targetPlayer == null) { return; }
+        /*
+        var diff = targetPlayer.transform.position - transform.position;
+        var target_rot = Quaternion.LookRotation(diff);
+        var rot = target_rot * Quaternion.Inverse(transform.rotation);
+        if(rot.w < 0f)
+        {
+            rot.x = -rot.x;
+            rot.y = -rot.y;
+            rot.z = -rot.z;
+            rot.w = -rot.w;
+        }
+        var torque = new Vector3(rot.x, rot.y, rot.z) * torqueRatio;
+        rb.AddTorque(torque);
+        rb.velocity = transform.forward * movingSpeed * Time.deltaTime;
+        */
+        //rb.MovePosition(targetPlayer.transform.position);
+
         rb.velocity = transform.forward * movingSpeed * Time.deltaTime;
         var targetRotation = Quaternion.LookRotation(targetPlayer.transform.position - gameObject.transform.position);
-        rb.MoveRotation(Quaternion.RotateTowards(gameObject.transform.rotation, targetRotation, turn));
+        //rb.MoveRotation(Quaternion.RotateTowards(gameObject.transform.rotation, targetRotation, torqueRatio));
+        rb.MoveRotation(targetRotation);
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag != "Item")
         {
+            if(other.gameObject.tag == "Player")
+            {
+                other.gameObject.GetComponent<PlayerStatusMultiplay>().SetCautionState("", false);
+            }
             Destroy(gameObject);
         }
     }

@@ -10,14 +10,17 @@ public class PlayerItem : MonoBehaviour
     [SerializeField] int playerID = 1;
     [SerializeField] float playerInvisibleTime = 3f;
     [SerializeField] float playerAttackItemOffsetY = 5f;
+    [SerializeField] float waitToTakeItemSeconds = 3f;
     [SerializeField] GameObject targetPlayer;
-    [SerializeField] GameObject playerItem, attackItem, defenceItem, abnormalItem;
-    [SerializeField] RawImage attackItemImage, defenceItemImage;
+    [SerializeField] GameObject playerItem, attackItem, defenceItem, abnormalItem, boostCanItem;
+    [SerializeField] RawImage attackItemImage, defenceItemImage, boostCanItemImage;
     [SerializeField] Image abnormalItemImage;
     [SerializeField] Text playerItemText;
+    [SerializeField] Text playerTargetLabel, playerTargetText;
 
     PlayerStatusMultiplay playerStatusMultiplay;
     bool canUseItem;
+    bool canTakeItem;
 
     private void Awake()
     {
@@ -29,6 +32,9 @@ public class PlayerItem : MonoBehaviour
         playerItem = null;
         playerStatusMultiplay = GetComponent<PlayerStatusMultiplay>();
         canUseItem = true;
+        canTakeItem = true;
+        playerTargetLabel.enabled = false;
+        playerTargetText.enabled = false;
     }
 
     private void Update()
@@ -46,6 +52,7 @@ public class PlayerItem : MonoBehaviour
             playerItemText.enabled = false;
             attackItemImage.enabled = false;
             defenceItemImage.enabled = false;
+            boostCanItemImage.enabled = false;
             abnormalItemImage.enabled = false;
             return false;
         }
@@ -58,16 +65,25 @@ public class PlayerItem : MonoBehaviour
                     attackItemImage.enabled = true;
                     defenceItemImage.enabled = false;
                     abnormalItemImage.enabled = false;
+                    boostCanItemImage.enabled = false;
                     break;
                 case "Shield":
                     defenceItemImage.enabled = true;
                     attackItemImage.enabled = false;
                     abnormalItemImage.enabled = false;
+                    boostCanItemImage.enabled = false;
                     break;
                 case "Timer":
                     abnormalItemImage.enabled = true;
                     attackItemImage.enabled = false;
                     defenceItemImage.enabled = false;
+                    boostCanItemImage.enabled = false;
+                    break;
+                case "Fuel":
+                    boostCanItemImage.enabled = true;
+                    attackItemImage.enabled = false;
+                    defenceItemImage.enabled = false;
+                    abnormalItemImage.enabled = false;
                     break;
             }
             return true;
@@ -84,12 +100,22 @@ public class PlayerItem : MonoBehaviour
 
     public void RandomizeItem()
     {
+        string targetPlayerName;
         Debug.Log("Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length: " + Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
         int randomizedItemCategoryIndex = Random.Range(0, Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
         Debug.Log("randomizedItemCategoryIndex: "+ randomizedItemCategoryIndex);
         if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.AttackItem)
         {
             playerItem = attackItem;
+            targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerRocket(playerID);
+            targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerName(playerID);
+            if (targetPlayer != null && targetPlayerName != "")
+            {
+                playerTargetText.text = targetPlayerName;
+                playerTargetLabel.enabled = true;
+                playerTargetText.enabled = true;
+            }
+
         }
         else if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.DefenseItem)
         {
@@ -99,6 +125,21 @@ public class PlayerItem : MonoBehaviour
         {
             playerItem = abnormalItem;
         }
+        else if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.BoostCanItem)
+        {
+            playerItem = boostCanItem;
+        }
+        /*
+        playerItem = attackItem;
+        targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerRocket(playerID);
+        targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerName(playerID);
+        if(targetPlayer != null && targetPlayerName != "")
+        {
+            playerTargetText.text = targetPlayerName;
+            playerTargetLabel.enabled = true;
+            playerTargetText.enabled = true;
+        }
+        */
     }
 
     public void UseItem()
@@ -109,6 +150,15 @@ public class PlayerItem : MonoBehaviour
                 GameObject playerAttackItem = Instantiate(attackItem);
                 playerAttackItem.transform.position = gameObject.transform.position + new Vector3(0f, playerAttackItemOffsetY, 0f);
                 playerAttackItem.GetComponent<Missile>().SetTargetPlayer(targetPlayer);
+                if(playerAttackItem.transform.position.x >= targetPlayer.transform.position.x)
+                {
+                    targetPlayer.GetComponent<PlayerStatusMultiplay>().SetCautionState("Right", true);
+                }
+                else
+                {
+                    targetPlayer.GetComponent<PlayerStatusMultiplay>().SetCautionState("Left", true);
+                }
+                targetPlayer = null;
                 break;
             case "Shield":
                 GameObject playerDefenItem = Instantiate(playerItem);
@@ -121,8 +171,21 @@ public class PlayerItem : MonoBehaviour
                 FindObjectOfType<GameManagerMultiplay>().StopOtherPlayersMovement(playerID);
                 FindObjectOfType<GameManagerMultiplay>().StopAllMissilesMovement();
                 break;
+            case "Fuel":
+                playerStatusMultiplay.RecoverHalfOfBoost();
+                break;
         }
+        playerTargetLabel.enabled = false;
+        playerTargetText.enabled = false;
         playerItem = null;
+        StartCoroutine(PlayerTakeItemDelay());
+    }
+
+    private IEnumerator PlayerTakeItemDelay()
+    {
+        DisableTakeItem();
+        yield return new WaitForSeconds(waitToTakeItemSeconds);
+        EnableTakeItem();
     }
 
     public void EnableUseItem()
@@ -132,5 +195,20 @@ public class PlayerItem : MonoBehaviour
     public void DisableUseItem()
     {
         canUseItem = false;
+    }
+
+    private void EnableTakeItem()
+    {
+        canTakeItem = true;
+    }
+
+    private void DisableTakeItem()
+    {
+        canTakeItem = false;
+    }
+
+    public bool CanTakeItem()
+    {
+        return canTakeItem;
     }
 }
