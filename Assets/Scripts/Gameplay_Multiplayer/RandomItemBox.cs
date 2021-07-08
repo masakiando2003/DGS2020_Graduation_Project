@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class RandomItemBox : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         switch (other.gameObject.tag)
         {
             case "Player":
-                if (!other.gameObject.GetComponent<PlayerItem>().CheckPlayerItemExists())
+                var player = other.gameObject.GetComponent<PlayerItem>();
+                if (!player.CheckPlayerItemExists()
+                    && player.CanTakeItem())
                 {
-                    other.gameObject.GetComponent<PlayerItem>().RandomizeItem();
+                    player.RandomizeItem();
                 }
                 break;
         }

@@ -1,42 +1,110 @@
 fileFormatVersion: 2
 guid: 2ef14ad9fceea60478230318f53c856e
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Down
-    100002: Down_end
-    100004: Left
-    100006: Left_end
-    100008: //RootNode
-    100010: Pixel_box_01
-    100012: Pixel_box_01_Armature
-    100014: Right
-    100016: Right_end
-    100018: UP
-    100020: UP_end
-    400000: Down
-    400002: Down_end
-    400004: Left
-    400006: Left_end
-    400008: //RootNode
-    400010: Pixel_box_01
-    400012: Pixel_box_01_Armature
-    400014: Right
-    400016: Right_end
-    400018: UP
-    400020: UP_end
-    2100000: Pixel_box
-    4300000: Pixel_box_01
-    7400000: Pixel_box_01_Armature|Case_03_ArmatureAction
-    7400002: Pixel_box_01_Armature|Case_04_ArmatureAction
-    7400004: Pixel_box_01_Armature|Cube.008Action
-    7400006: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.002Action.002|huma
-    7400008: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.002Action|humanita
-    7400010: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.008Action|humanita
-    7400012: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|CubeAction|humanitarian
-    7400014: Pixel_box_01_Armature
-    9500000: //RootNode
-    13700000: Pixel_box_01
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Down
+  - first:
+      1: 100002
+    second: Down_end
+  - first:
+      1: 100004
+    second: Left
+  - first:
+      1: 100006
+    second: Left_end
+  - first:
+      1: 100008
+    second: //RootNode
+  - first:
+      1: 100010
+    second: Pixel_box_01
+  - first:
+      1: 100012
+    second: Pixel_box_01_Armature
+  - first:
+      1: 100014
+    second: Right
+  - first:
+      1: 100016
+    second: Right_end
+  - first:
+      1: 100018
+    second: UP
+  - first:
+      1: 100020
+    second: UP_end
+  - first:
+      4: 400000
+    second: Down
+  - first:
+      4: 400002
+    second: Down_end
+  - first:
+      4: 400004
+    second: Left
+  - first:
+      4: 400006
+    second: Left_end
+  - first:
+      4: 400008
+    second: //RootNode
+  - first:
+      4: 400010
+    second: Pixel_box_01
+  - first:
+      4: 400012
+    second: Pixel_box_01_Armature
+  - first:
+      4: 400014
+    second: Right
+  - first:
+      4: 400016
+    second: Right_end
+  - first:
+      4: 400018
+    second: UP
+  - first:
+      4: 400020
+    second: UP_end
+  - first:
+      21: 2100000
+    second: Pixel_box
+  - first:
+      43: 4300000
+    second: Pixel_box_01
+  - first:
+      74: 7400000
+    second: Pixel_box_01_Armature|Case_03_ArmatureAction
+  - first:
+      74: 7400002
+    second: Pixel_box_01_Armature|Case_04_ArmatureAction
+  - first:
+      74: 7400004
+    second: Pixel_box_01_Armature|Cube.008Action
+  - first:
+      74: 7400006
+    second: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.002Action.002|huma
+  - first:
+      74: 7400008
+    second: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.002Action|humanita
+  - first:
+      74: 7400010
+    second: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|Cube.008Action|humanita
+  - first:
+      74: 7400012
+    second: Pixel_box_01_Armature|humanitarian_box_01|humanitarian_box_01|CubeAction|humanitarian
+  - first:
+      74: 7400014
+    second: Pixel_box_01_Armature
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Pixel_box_01
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -44,7 +112,7 @@ ModelImporter:
       name: Pixel_box
     second: {fileID: 2100000, guid: df5b308118049cb479c4bb0292bc2fa3, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -73,12 +141,13 @@ ModelImporter:
     - serializedVersion: 16
       name: Pixel_box_01_Armature
       takeName: Pixel_box_01_Armature|Pixel_box_01_ArmatureAction
+      internalID: 0
       firstFrame: 0
       lastFrame: 85
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 0
+      cycleOffset: 5
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
@@ -105,25 +174,32 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -132,10 +208,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -145,13 +221,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -126,7 +126,7 @@ public class CollisionHandlerMultiplay : MonoBehaviour
         {
             case "Fuel":
                 playerStatus.ResetBoostToFull();
-                other.gameObject.GetComponent<Fuel>().DeactivateFuelObject();
+                //other.gameObject.GetComponent<Fuel>().DeactivateFuelObject();
                 break;
         }
     }
