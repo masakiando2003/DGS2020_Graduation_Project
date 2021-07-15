@@ -77,14 +77,15 @@ public class Missile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag != "Item")
+        if (other.gameObject.tag == "Player")
         {
-            if(other.gameObject.tag == "Player")
-            {
-                other.gameObject.GetComponent<PlayerStatusMultiplay>().SetCautionState("", false);
-            }
-            Destroy(gameObject);
+            other.gameObject.GetComponent<PlayerStatusMultiplay>().SetCautionState("", false);
         }
+        else
+        {
+            targetPlayer.gameObject.GetComponent<PlayerStatusMultiplay>().SetCautionState("", false);
+        }
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()
