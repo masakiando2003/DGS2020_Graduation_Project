@@ -15,6 +15,7 @@ TagManager:
   - Shield
   - Missile
   - Timer
+  - Stone
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - Shield
   - Missile
   - Environment
-  - 
+  - Stone
   - 
   - 
   - 

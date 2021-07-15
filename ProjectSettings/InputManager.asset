@@ -394,7 +394,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: l
     altNegativeButton: 
     altPositiveButton: joystick 2 button 6
     gravity: 1000
@@ -474,7 +474,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: 
+    positiveButton: i
     altNegativeButton: 
     altPositiveButton: joystick 2 button 4
     gravity: 1000
@@ -489,7 +489,7 @@ InputManager:
     m_Name: 2PRotateRight
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: o
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: joystick 2 button 5

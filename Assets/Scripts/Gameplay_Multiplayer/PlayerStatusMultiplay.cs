@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,19 +8,20 @@ public class PlayerStatusMultiplay : MonoBehaviour
 {
     [SerializeField] int playerID = 1;
     [SerializeField] float playerMaxBoost = 100f, boostFactor = 10f;
-    [SerializeField] float spriteBlinkingMiniDuration = 1f;
+    [SerializeField] float cautionBlinkingMiniDuration = 1f, cannotTakeItemBlinkingMiniDuration = 1f;
     [SerializeField] Slider boostSlider;
     [SerializeField] Image currentBoostFillArea;
     [SerializeField] Image cautionLeftImage, cautionRightImage;
+    [SerializeField] RawImage stopImage, itemBoxImage;
     [SerializeField] Color normalColor;
     [SerializeField] Color explodedColor;
     [SerializeField] Material playerMaterial;
     [SerializeField] ParticleSystem explosionVFX;
 
     bool isInvicible;
-    bool cautionLeftFlag, cautionRightFlag;
+    bool cautionLeftFlag, cautionRightFlag, cannotTakeItemFlag;
     float playerCurrentBoost;
-    float spriteBlinkingTimer;
+    float cautionBlinkingTimer, cannotTakeItemBlinkingTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +37,13 @@ public class PlayerStatusMultiplay : MonoBehaviour
         currentBoostFillArea.color = Color.blue;
         cautionLeftImage.enabled = false;
         cautionRightImage.enabled = false;
+        stopImage.enabled = false;
+        itemBoxImage.enabled = false;
         cautionLeftFlag = false;
         cautionRightFlag = false;
+        cannotTakeItemFlag = false;
+        cautionBlinkingTimer = 1f;
+        cannotTakeItemBlinkingTimer = 1f;
     }
 
     private void Update()
@@ -55,6 +62,15 @@ public class PlayerStatusMultiplay : MonoBehaviour
         {
             DisableCautionImage(cautionLeftImage);
             DisableCautionImage(cautionRightImage);
+        }
+
+        if (cannotTakeItemFlag)
+        {
+            EnableCannotTakeItemFlagImage(stopImage, itemBoxImage);
+        }
+        else
+        {
+            DisableCannotTakeItemFlagImage(stopImage, itemBoxImage);
         }
     }
 
@@ -173,15 +189,20 @@ public class PlayerStatusMultiplay : MonoBehaviour
             cautionLeftFlag = state;
             cautionRightFlag = state;
         }
-        spriteBlinkingTimer = 0f;
+        cautionBlinkingTimer = 0f;
+    }
+
+    public void SetCanntTakeItemState(bool state = true)
+    {
+        cannotTakeItemFlag = state;
     }
 
     private void EnableCautionImage(Image cautionImage)
     {
-        spriteBlinkingTimer += Time.deltaTime;
-        if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
+        cautionBlinkingTimer += Time.deltaTime;
+        if (cautionBlinkingTimer >= cautionBlinkingMiniDuration)
         {
-            spriteBlinkingTimer = 0.0f;
+            cautionBlinkingTimer = 0.0f;
             if (cautionImage.enabled == true)
             {
                 cautionImage.enabled = false;
@@ -196,5 +217,36 @@ public class PlayerStatusMultiplay : MonoBehaviour
     private void DisableCautionImage(Image cautionImage)
     {
         cautionImage.enabled = false;
+    }
+
+    private void EnableCannotTakeItemFlagImage(RawImage stopImage, RawImage itemBoxImage)
+    {
+        cannotTakeItemBlinkingTimer += Time.deltaTime;
+        if (cannotTakeItemBlinkingTimer >= cannotTakeItemBlinkingMiniDuration)
+        {
+            cannotTakeItemBlinkingTimer = 0.0f;
+            if (stopImage.enabled == true)
+            {
+                stopImage.enabled = false;
+            }
+            else
+            {
+                stopImage.enabled = true;
+            }
+            if (itemBoxImage.enabled == true)
+            {
+                itemBoxImage.enabled = false;
+            }
+            else
+            {
+                itemBoxImage.enabled = true;
+            }
+        }
+    }
+
+    private void DisableCannotTakeItemFlagImage(RawImage stopImage, RawImage itemBoxImage)
+    {
+        stopImage.enabled = false;
+        itemBoxImage.enabled = false;
     }
 }

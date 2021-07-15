@@ -8,6 +8,7 @@ public class MultiplayerItems : MonoBehaviour
         AttackItem,
         DefenseItem,
         AbnormalConditionItem,
-        BoostCanItem
+        BoostCanItem,
+        DropbackItem
     };
 }

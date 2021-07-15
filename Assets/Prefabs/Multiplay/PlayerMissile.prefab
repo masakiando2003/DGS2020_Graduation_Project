@@ -5236,8 +5236,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9136330205027459496}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2083082, y: -1.1791667, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 9133376949546207630}
@@ -5245,7 +5245,7 @@ Transform:
   - {fileID: 9141851490283521390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7788384400403366191
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5289,8 +5289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 0}
-  movingSpeed: 1500
-  torqueRatio: 20
+  movingSpeed: 25
+  rayRange: 50
+  adjustYPos: 20
+  targetRot: {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
+  rotateSpeed: 50
 --- !u!1 &9136407588469379162
 GameObject:
   m_ObjectHideFlags: 0

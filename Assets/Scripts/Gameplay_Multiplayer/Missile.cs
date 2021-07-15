@@ -6,8 +6,11 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     [SerializeField] GameObject targetPlayer;
-    [SerializeField] float movingSpeed = 5f;
-    [SerializeField] float torqueRatio = 20f;
+    [SerializeField] float movingSpeed = 50f;
+    [SerializeField] float rayRange = 10f;
+    [SerializeField] float adjustYPos = 15f;
+    [SerializeField] Quaternion targetRot = Quaternion.identity;
+    [SerializeField] float rotateSpeed = 50f;
     Rigidbody rb;
     float distance;
 
@@ -27,7 +30,6 @@ public class Missile : MonoBehaviour
             distance = diff;
         }
     }
-
     private void FixedUpdate()
     {
         HomingTargetPlayer();
@@ -36,27 +38,41 @@ public class Missile : MonoBehaviour
     private void HomingTargetPlayer()
     {
         if(targetPlayer == null) { return; }
-        /*
-        var diff = targetPlayer.transform.position - transform.position;
-        var target_rot = Quaternion.LookRotation(diff);
-        var rot = target_rot * Quaternion.Inverse(transform.rotation);
-        if(rot.w < 0f)
+        Ray ray = new Ray();
+        RaycastHit hitInfo;
+        ray.origin = transform.position;
+        
+        // left of right
+        if (transform.position.x >= targetPlayer.transform.position.x)
         {
-            rot.x = -rot.x;
-            rot.y = -rot.y;
-            rot.z = -rot.z;
-            rot.w = -rot.w;
+            ray.direction = Vector3.left;
         }
-        var torque = new Vector3(rot.x, rot.y, rot.z) * torqueRatio;
-        rb.AddTorque(torque);
-        rb.velocity = transform.forward * movingSpeed * Time.deltaTime;
-        */
-        //rb.MovePosition(targetPlayer.transform.position);
+        else
+        {
+            ray.direction = Vector3.right;
+        }
+        if (Physics.Raycast(ray, out hitInfo, rayRange)) // Front sensor
+        {
+            Debug.DrawRay(transform.position, transform.forward, Color.red);
+            Debug.Log("Hit Info: Collider Tag: "+hitInfo.collider.tag);
+            if (hitInfo.collider.tag == "Wall" ||
+                hitInfo.collider.tag == "CheckPoint" ||
+                hitInfo.collider.tag == "StartPoint" ||
+                hitInfo.collider.tag == "Finish" ||
+                hitInfo.collider.tag == "SafeZone")
+            {
+                if (hitInfo.collider.gameObject.transform.position.y >= transform.position.y)
+                {
+                    transform.position -= new Vector3(0f, adjustYPos, 0f) * Time.deltaTime;
+                }
+                else
+                {
+                    transform.position += new Vector3(0f, adjustYPos, 0f) * Time.deltaTime;
+                }
+            }
+        }
 
-        rb.velocity = transform.forward * movingSpeed * Time.deltaTime;
-        var targetRotation = Quaternion.LookRotation(targetPlayer.transform.position - gameObject.transform.position);
-        //rb.MoveRotation(Quaternion.RotateTowards(gameObject.transform.rotation, targetRotation, torqueRatio));
-        rb.MoveRotation(targetRotation);
+        transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPlayer.transform.position, Time.deltaTime * movingSpeed);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -69,5 +85,11 @@ public class Missile : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(Vector3.zero, 100f);
     }
 }
