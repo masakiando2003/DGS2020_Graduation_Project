@@ -10,10 +10,11 @@ public class PlayerItem : MonoBehaviour
     [SerializeField] int playerID = 1;
     [SerializeField] float playerInvisibleTime = 3f;
     [SerializeField] float playerAttackItemOffsetY = 5f;
+    [SerializeField] float playerDropBackItemOffsetX = -5f;
     [SerializeField] float waitToTakeItemSeconds = 3f;
     [SerializeField] GameObject targetPlayer;
-    [SerializeField] GameObject playerItem, attackItem, defenceItem, abnormalItem, boostCanItem;
-    [SerializeField] RawImage attackItemImage, defenceItemImage, boostCanItemImage;
+    [SerializeField] GameObject playerItem, attackItem, defenceItem, abnormalItem, boostCanItem, dropBackItem;
+    [SerializeField] RawImage attackItemImage, defenceItemImage, boostCanItemImage, dropBackItemImage;
     [SerializeField] Image abnormalItemImage;
     [SerializeField] Text playerItemText;
     [SerializeField] Text playerTargetLabel, playerTargetText;
@@ -54,6 +55,7 @@ public class PlayerItem : MonoBehaviour
             defenceItemImage.enabled = false;
             boostCanItemImage.enabled = false;
             abnormalItemImage.enabled = false;
+            dropBackItemImage.enabled = false;
             return false;
         }
         else
@@ -66,24 +68,35 @@ public class PlayerItem : MonoBehaviour
                     defenceItemImage.enabled = false;
                     abnormalItemImage.enabled = false;
                     boostCanItemImage.enabled = false;
+                    dropBackItemImage.enabled = false;
                     break;
                 case "Shield":
                     defenceItemImage.enabled = true;
                     attackItemImage.enabled = false;
                     abnormalItemImage.enabled = false;
                     boostCanItemImage.enabled = false;
+                    dropBackItemImage.enabled = false;
                     break;
                 case "Timer":
                     abnormalItemImage.enabled = true;
                     attackItemImage.enabled = false;
                     defenceItemImage.enabled = false;
                     boostCanItemImage.enabled = false;
+                    dropBackItemImage.enabled = false;
                     break;
                 case "Fuel":
                     boostCanItemImage.enabled = true;
                     attackItemImage.enabled = false;
                     defenceItemImage.enabled = false;
                     abnormalItemImage.enabled = false;
+                    dropBackItemImage.enabled = false;
+                    break;
+                case "Stone":
+                    dropBackItemImage.enabled = true;
+                    attackItemImage.enabled = false;
+                    defenceItemImage.enabled = false;
+                    abnormalItemImage.enabled = false;
+                    boostCanItemImage.enabled = false;
                     break;
             }
             return true;
@@ -101,9 +114,9 @@ public class PlayerItem : MonoBehaviour
     public void RandomizeItem()
     {
         string targetPlayerName;
-        Debug.Log("Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length: " + Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
+        //Debug.Log("Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length: " + Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
         int randomizedItemCategoryIndex = Random.Range(0, Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
-        Debug.Log("randomizedItemCategoryIndex: "+ randomizedItemCategoryIndex);
+        //Debug.Log("randomizedItemCategoryIndex: "+ randomizedItemCategoryIndex);
         if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.AttackItem)
         {
             playerItem = attackItem;
@@ -129,7 +142,10 @@ public class PlayerItem : MonoBehaviour
         {
             playerItem = boostCanItem;
         }
-        /*
+        else if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.DropbackItem)
+        {
+            playerItem = dropBackItem;
+        }
         playerItem = attackItem;
         targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerRocket(playerID);
         targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerName(playerID);
@@ -139,7 +155,6 @@ public class PlayerItem : MonoBehaviour
             playerTargetLabel.enabled = true;
             playerTargetText.enabled = true;
         }
-        */
     }
 
     public void UseItem()
@@ -147,11 +162,12 @@ public class PlayerItem : MonoBehaviour
         switch (playerItem.tag)
         {
             case "Missile":
-                GameObject playerAttackItem = Instantiate(attackItem);
+                GameObject playerAttackItem = Instantiate(playerItem);
                 playerAttackItem.transform.position = gameObject.transform.position + new Vector3(0f, playerAttackItemOffsetY, 0f);
                 playerAttackItem.GetComponent<Missile>().SetTargetPlayer(targetPlayer);
                 if(playerAttackItem.transform.position.x >= targetPlayer.transform.position.x)
                 {
+                    playerAttackItem.transform.rotation = Quaternion.Euler(0f, 0f, -180f);
                     targetPlayer.GetComponent<PlayerStatusMultiplay>().SetCautionState("Right", true);
                 }
                 else
@@ -174,6 +190,10 @@ public class PlayerItem : MonoBehaviour
             case "Fuel":
                 playerStatusMultiplay.RecoverHalfOfBoost();
                 break;
+            case "Stone":
+                GameObject playerDropBackItem = Instantiate(playerItem);
+                playerDropBackItem.transform.position = gameObject.transform.position + new Vector3(playerDropBackItemOffsetX, 0f, 0f);
+                break;
         }
         playerTargetLabel.enabled = false;
         playerTargetText.enabled = false;
@@ -184,8 +204,10 @@ public class PlayerItem : MonoBehaviour
     private IEnumerator PlayerTakeItemDelay()
     {
         DisableTakeItem();
+        playerStatusMultiplay.SetCanntTakeItemState(true);
         yield return new WaitForSeconds(waitToTakeItemSeconds);
         EnableTakeItem();
+        playerStatusMultiplay.SetCanntTakeItemState(false);
     }
 
     public void EnableUseItem()

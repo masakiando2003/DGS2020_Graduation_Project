@@ -438,6 +438,7 @@ public class GameManagerMultiplay : MonoBehaviour
         float closetDiff = Mathf.Infinity;
         for (int i = 0; i < playerRockets.Length; i++)
         {
+            Debug.Log("playerID: "+playerID+", i: "+i);
             if (i != playerIndex)
             {
                 Vector3 otherplayerPosition = playerRockets[i].transform.position;
