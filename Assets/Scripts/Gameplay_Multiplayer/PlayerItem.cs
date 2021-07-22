@@ -9,7 +9,7 @@ public class PlayerItem : MonoBehaviour
 {
     [SerializeField] int playerID = 1;
     [SerializeField] float playerInvisibleTime = 3f;
-    [SerializeField] float playerAttackItemOffsetY = 5f;
+    [SerializeField] float playerAttackItemOffsetX = 25f;
     [SerializeField] float playerDropBackItemOffsetX = -5f;
     [SerializeField] float waitToTakeItemSeconds = 3f;
     [SerializeField] GameObject targetPlayer;
@@ -163,17 +163,21 @@ public class PlayerItem : MonoBehaviour
         {
             case "Missile":
                 GameObject playerAttackItem = Instantiate(playerItem);
-                playerAttackItem.transform.position = gameObject.transform.position + new Vector3(0f, playerAttackItemOffsetY, 0f);
                 playerAttackItem.GetComponent<Missile>().SetTargetPlayer(targetPlayer);
                 if(playerAttackItem.transform.position.x >= targetPlayer.transform.position.x)
                 {
                     playerAttackItem.transform.rotation = Quaternion.Euler(0f, 0f, -180f);
                     targetPlayer.GetComponent<PlayerStatusMultiplay>().SetCautionState("Right", true);
+                    playerAttackItem.transform.position = targetPlayer.transform.position + new Vector3(playerAttackItemOffsetX, 0f, 0f);
+                    playerAttackItem.GetComponent<Missile>().SetPositionOffSetX(playerAttackItemOffsetX);
                 }
                 else
                 {
                     targetPlayer.GetComponent<PlayerStatusMultiplay>().SetCautionState("Left", true);
+                    playerAttackItem.transform.position = targetPlayer.transform.position + new Vector3(-playerAttackItemOffsetX, 0f, 0f);
+                    playerAttackItem.GetComponent<Missile>().SetPositionOffSetX(-playerAttackItemOffsetX);
                 }
+                targetPlayer.GetComponent<PlayerStatusMultiplay>().ProcessCautionCountDown(playerAttackItem.GetComponent<Missile>().GetMissileWaitToStartMovingTime());
                 targetPlayer = null;
                 break;
             case "Shield":

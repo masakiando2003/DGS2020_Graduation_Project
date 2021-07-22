@@ -5290,10 +5290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 0}
   movingSpeed: 25
-  rayRange: 50
-  adjustYPos: 20
-  targetRot: {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
-  rotateSpeed: 50
+  waitToStartMovingTime: 3.9
 --- !u!1 &9136407588469379162
 GameObject:
   m_ObjectHideFlags: 0

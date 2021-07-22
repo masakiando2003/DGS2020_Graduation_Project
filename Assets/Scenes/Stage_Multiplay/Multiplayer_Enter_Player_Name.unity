@@ -1682,6 +1682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultyScene: Multiplayer_Choose_Difficulty
+  teamSelectionScene: Multiplayer_TeamSelection
   titleMap: Title
   playerNameObjects:
   - {fileID: 223311764}

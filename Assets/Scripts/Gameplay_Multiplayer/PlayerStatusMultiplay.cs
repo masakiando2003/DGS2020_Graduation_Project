@@ -17,11 +17,13 @@ public class PlayerStatusMultiplay : MonoBehaviour
     [SerializeField] Color explodedColor;
     [SerializeField] Material playerMaterial;
     [SerializeField] ParticleSystem explosionVFX;
+    [SerializeField] Text cautionCountDownText;
 
     bool isInvicible;
-    bool cautionLeftFlag, cautionRightFlag, cannotTakeItemFlag;
+    bool cautionLeftFlag, cautionRightFlag, cannotTakeItemFlag, cautionCountDownFlag;
     float playerCurrentBoost;
     float cautionBlinkingTimer, cannotTakeItemBlinkingTimer;
+    float cautionCountDownTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,12 @@ public class PlayerStatusMultiplay : MonoBehaviour
         cannotTakeItemFlag = false;
         cautionBlinkingTimer = 1f;
         cannotTakeItemBlinkingTimer = 1f;
+        if(cautionCountDownText != null)
+        {
+            cautionCountDownText.enabled = false;
+        }
+        cautionCountDownFlag = false;
+        cautionCountDownTimer = 0f;
     }
 
     private void Update()
@@ -71,6 +79,15 @@ public class PlayerStatusMultiplay : MonoBehaviour
         else
         {
             DisableCannotTakeItemFlagImage(stopImage, itemBoxImage);
+        }
+
+        if (cautionCountDownFlag)
+        {
+            StartCautionCountDown();
+        }
+        else
+        {
+            DisableCautionCountDown();
         }
     }
 
@@ -248,5 +265,35 @@ public class PlayerStatusMultiplay : MonoBehaviour
     {
         stopImage.enabled = false;
         itemBoxImage.enabled = false;
+    }
+
+    public void ProcessCautionCountDown(float waitForMissileMoveCountDownTime)
+    {
+        cautionCountDownFlag = true;
+        cautionCountDownText.enabled = true;
+        cautionCountDownTimer = waitForMissileMoveCountDownTime;
+    }
+
+    private void StartCautionCountDown()
+    {
+        cautionCountDownTimer -= Time.deltaTime;
+        ShowCautionCountTimeText(cautionCountDownTimer);
+        if (cautionCountDownTimer <= 0.0f)
+        {
+            cautionCountDownText.enabled = false;
+        }
+    }
+
+    private void DisableCautionCountDown()
+    {
+        cautionCountDownFlag = false;
+    }
+
+    private void ShowCautionCountTimeText(float cautionCountDownTimer)
+    {
+        if (cautionCountDownText == null) { return; }
+        int remainingSeconds = Mathf.FloorToInt(cautionCountDownTimer);
+        Debug.Log("caution remainingSeconds: "+ remainingSeconds);
+        cautionCountDownText.text = remainingSeconds.ToString();
     }
 }

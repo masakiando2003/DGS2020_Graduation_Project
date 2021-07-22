@@ -7,29 +7,33 @@ public class Missile : MonoBehaviour
 {
     [SerializeField] GameObject targetPlayer;
     [SerializeField] float movingSpeed = 50f;
-    [SerializeField] float rayRange = 10f;
-    [SerializeField] float adjustYPos = 15f;
-    [SerializeField] Quaternion targetRot = Quaternion.identity;
-    [SerializeField] float rotateSpeed = 50f;
-    Rigidbody rb;
-    float distance;
+    [SerializeField] float waitToStartMovingTime = 3f;
+
+    CapsuleCollider cc;
+    bool canMoveToTargetPlayer;
+    float offsetX;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        distance = Mathf.Infinity;
+        cc = GetComponent<CapsuleCollider>();
+        cc.enabled = false;
+        canMoveToTargetPlayer = false;
+        offsetX = 0f;
     }
 
     public void SetTargetPlayer(GameObject player)
     {
         targetPlayer = player;
-        distance = Mathf.Infinity;
-        var diff = (targetPlayer.transform.position - gameObject.transform.position).sqrMagnitude;
-        if(diff < distance)
-        {
-            distance = diff;
-        }
+        StartCoroutine(CountDownToMove(waitToStartMovingTime));
     }
+
+    private IEnumerator CountDownToMove(float waitToStartMovingTime)
+    {
+        yield return new WaitForSeconds(waitToStartMovingTime);
+        cc.enabled = true;
+        canMoveToTargetPlayer = true;
+    }
+
     private void FixedUpdate()
     {
         HomingTargetPlayer();
@@ -37,40 +41,12 @@ public class Missile : MonoBehaviour
 
     private void HomingTargetPlayer()
     {
-        if(targetPlayer == null) { return; }
-        Ray ray = new Ray();
-        RaycastHit hitInfo;
-        ray.origin = transform.position;
-        
-        // left of right
-        if (transform.position.x >= targetPlayer.transform.position.x)
+        if (!canMoveToTargetPlayer)
         {
-            ray.direction = Vector3.left;
+            transform.position = targetPlayer.transform.position + new Vector3(offsetX, 0f, 0f);
         }
-        else
-        {
-            ray.direction = Vector3.right;
-        }
-        if (Physics.Raycast(ray, out hitInfo, rayRange)) // Front sensor
-        {
-            Debug.DrawRay(transform.position, transform.forward, Color.red);
-            Debug.Log("Hit Info: Collider Tag: "+hitInfo.collider.tag);
-            if (hitInfo.collider.tag == "Wall" ||
-                hitInfo.collider.tag == "CheckPoint" ||
-                hitInfo.collider.tag == "StartPoint" ||
-                hitInfo.collider.tag == "Finish" ||
-                hitInfo.collider.tag == "SafeZone")
-            {
-                if (hitInfo.collider.gameObject.transform.position.y >= transform.position.y)
-                {
-                    transform.position -= new Vector3(0f, adjustYPos, 0f) * Time.deltaTime;
-                }
-                else
-                {
-                    transform.position += new Vector3(0f, adjustYPos, 0f) * Time.deltaTime;
-                }
-            }
-        }
+
+        if(targetPlayer == null || !canMoveToTargetPlayer) { return; }
 
         transform.position = Vector3.MoveTowards(gameObject.transform.position, targetPlayer.transform.position, Time.deltaTime * movingSpeed);
     }
@@ -92,5 +68,15 @@ public class Missile : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(Vector3.zero, 100f);
+    }
+
+    public float GetMissileWaitToStartMovingTime()
+    {
+        return waitToStartMovingTime;
+    }
+
+    public void SetPositionOffSetX(float posOffSetX)
+    {
+        offsetX = posOffSetX;
     }
 }

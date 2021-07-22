@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class EnterPlayerNameMultiplay : MonoBehaviour
 {
     [SerializeField] string difficultyScene;
+    [SerializeField] string teamSelectionScene;
     [SerializeField] string titleMap;
     [SerializeField] GameObject[] playerNameObjects;
     [SerializeField] InputField[] playerNameInput;
@@ -53,8 +54,15 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
             {
                 PlayerNameTempSaveMultiplay.playerName[playerIndex] = playerNameInput[playerIndex].text.ToString();
             }
-            if (difficultyScene.Equals("")) { return; }
-            SceneManager.LoadScene(difficultyScene);
+            if (difficultyScene.Equals("") || teamSelectionScene.Equals("")) { return; }
+            if(MultiplayPlayerMode.gameMode.Equals("Battle Roayle"))
+            {
+                SceneManager.LoadScene(difficultyScene);
+            }
+            else
+            {
+                SceneManager.LoadScene(teamSelectionScene);
+            }
         }
     }
     public void ToTitle()
