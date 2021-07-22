@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class SelectMulitplayerNumbers : MonoBehaviour
 {
+    [SerializeField] GameObject numberOfPlayersCanvas, battleModeCanvas;
     [SerializeField] GameObject threePlayersButton, fourPlayersButton, proceedButton;
     [SerializeField] Text numOfPlayersText;
     [SerializeField] Text joysticksConnectedText;
     [SerializeField] Text notEnoughJoysticksText;
+    [SerializeField] Text gameModeText;
     [SerializeField] bool debugFlag;
 
     int numOfPlayers;
@@ -25,12 +27,15 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     {
         numOfPlayers = 2;
         notEnoughJoysticksText.enabled = false;
+        numberOfPlayersCanvas.SetActive(true);
+        battleModeCanvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateNumOfPlayers();
+        DisplayGameMode();
         if (!debugFlag)
         {
             CheckNumOfJoysticksConnected();
@@ -74,6 +79,7 @@ public class SelectMulitplayerNumbers : MonoBehaviour
             proceedButton.SetActive(false);
         }
         joysticksConnectedText.text = numJoysticksConnected.ToString();
+        /*
         if (numJoysticksConnected < 4)
         {
             fourPlayersButton.SetActive(false);
@@ -90,6 +96,7 @@ public class SelectMulitplayerNumbers : MonoBehaviour
         {
             fourPlayersButton.SetActive(true);
         }
+        */
     }
 
     private void UpdateNumOfPlayers()
@@ -97,9 +104,29 @@ public class SelectMulitplayerNumbers : MonoBehaviour
         numOfPlayersText.text = numOfPlayers.ToString();
     }
 
+    private void DisplayGameMode()
+    {
+        if(gameModeText == null) { return; }
+        Debug.Log("Display Game Mode: " + MultiplayPlayerMode.gameMode);
+        gameModeText.text = MultiplayPlayerMode.gameMode.ToString();
+    }
+
     public void SetNumOfPlayers(int numPlayers)
     {
         numOfPlayers = numPlayers;
+        if(numPlayers == 4)
+        {
+            numberOfPlayersCanvas.SetActive(false);
+            battleModeCanvas.SetActive(true);
+        }
+    }
+
+    public void SetGameMode(string selectedGameMode)
+    {
+        MultiplayPlayerMode.gameMode = selectedGameMode;
+        Debug.Log("Game Mode: " + MultiplayPlayerMode.gameMode);
+        battleModeCanvas.SetActive(false);
+        numberOfPlayersCanvas.SetActive(true);
     }
 
     public void ProceedNextStage(string sceneName)

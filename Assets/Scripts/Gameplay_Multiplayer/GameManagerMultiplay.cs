@@ -27,6 +27,9 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] Text[] playerSpeedTexts;
     [SerializeField] Text[] playerCheckPointTexts;
     [SerializeField] Text[] playerTimeElapsedTexts;
+    [SerializeField] Text[] playerTeamLabels;
+    [SerializeField] Text[] playerTeamTexts;
+    [SerializeField] Text finishText;
     [SerializeField] Text winnerPlayerNameText;
     [SerializeField] Text countDownTimeText;
     [SerializeField] float startPointSpawnPositionOffsetY = 10f;
@@ -46,6 +49,7 @@ public class GameManagerMultiplay : MonoBehaviour
 
     float countDownTimer, startTime;
     string finalElapsedTime;
+    string winnerTeam;
 
     public enum GameState
     {
@@ -73,6 +77,8 @@ public class GameManagerMultiplay : MonoBehaviour
 
     private void Initialization()
     {
+        int[] teamAIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        int[] teamBIDs = MultiplayPlayerMode.TeamBPlayerIDs;
         for (int i = 0; i < playerRockets.Length; i++)
         {
             if (playerRockets[i] != null)
@@ -99,6 +105,29 @@ public class GameManagerMultiplay : MonoBehaviour
             {
                 playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = false;
             }
+            if(MultiplayPlayerMode.gameMode.Equals("Battle Royale"))
+            {
+                if(playerTeamLabels[i] != null)
+                {
+                    playerTeamLabels[i].enabled = false;
+                }
+                if(playerTeamLabels[i] != null)
+                {
+                    playerTeamTexts[i].enabled = false;
+                }
+            }
+            else
+            {
+                int playerID = i + 1;
+                if (Array.IndexOf(teamAIDs, playerID) >= 0)
+                {
+                    playerTeamTexts[i].text = "A";
+                }
+                else if(Array.IndexOf(teamBIDs, playerID) >= 0)
+                {
+                    playerTeamTexts[i].text = "B";
+                }
+            }
         }
         if (finishCanvas != null)
         {
@@ -109,6 +138,7 @@ public class GameManagerMultiplay : MonoBehaviour
         finalElapsedTime = "";
         Time.timeScale = 1f;
         countDownTimer = startCountDownTime;
+        winnerTeam = "";
     }
 
     private void Update()
@@ -297,12 +327,20 @@ public class GameManagerMultiplay : MonoBehaviour
         }
     }
 
-    public void Finish(int playerID)
+    public void FinishBattleRoyale(int playerID)
     {
         if (finishCanvas == null) { return; }
         finishCanvas.enabled = true;
         ChangeGameState(GameState.Finish);
-        StartCoroutine(ShowFinishPanel(playerID));
+        StartCoroutine(ShowFinishPanelBattleRoyale(playerID));
+    }
+
+    public void FinishTeamPlay()
+    {
+        if (finishCanvas == null) { return; }
+        finishCanvas.enabled = true;
+        ChangeGameState(GameState.Finish);
+        StartCoroutine(ShowFinishPanelTeamPlay());
     }
 
     public void PauseGame()
@@ -329,17 +367,44 @@ public class GameManagerMultiplay : MonoBehaviour
         SceneManager.LoadScene("Title");
     }
 
-    private IEnumerator ShowFinishPanel(int playerIndex)
+    private IEnumerator ShowFinishPanelBattleRoyale(int playerIndex)
     {
         yield return new WaitForSeconds(showFinishPanelTime);
 
         if (finishPanel != null)
         {
+            finishText.enabled = false;
             finishPanel.SetActive(true);
             string winnerPlayerName = PlayerNameTempSaveMultiplay.playerName[playerIndex - 1];
             if(winnerPlayerNameText != null)
             {
                 winnerPlayerNameText.text = winnerPlayerName;
+            }
+        }
+    }
+
+    private IEnumerator ShowFinishPanelTeamPlay()
+    {
+        yield return new WaitForSeconds(showFinishPanelTime);
+
+        if (finishPanel != null)
+        {
+            finishText.enabled = false;   
+            finishPanel.SetActive(true);
+            string winnerPlayerName1 = "", winnerPlayerName2 = "";
+            if (winnerTeam == "Team A")
+            {
+                winnerPlayerName1 = PlayerNameTempSaveMultiplay.playerName[MultiplayPlayerMode.TeamAPlayerIDs[0]];
+                winnerPlayerName2 = PlayerNameTempSaveMultiplay.playerName[MultiplayPlayerMode.TeamAPlayerIDs[1]];
+            }
+            else
+            {
+                winnerPlayerName1 = PlayerNameTempSaveMultiplay.playerName[MultiplayPlayerMode.TeamBPlayerIDs[0]];
+                winnerPlayerName2 = PlayerNameTempSaveMultiplay.playerName[MultiplayPlayerMode.TeamBPlayerIDs[1]];
+            }
+            if (winnerPlayerNameText != null)
+            {
+                winnerPlayerNameText.text = winnerPlayerName1 + Environment.NewLine + winnerPlayerName2;
             }
         }
     }
@@ -359,10 +424,17 @@ public class GameManagerMultiplay : MonoBehaviour
     public void StopOtherPlayersMovement(int playerID)
     {
         int playerIndex = playerID - 1;
-        StartCoroutine(StopPlayersMovementAndGrayScreen(playerIndex));
+        if (MultiplayPlayerMode.gameMode.Equals("Battle Royale"))
+        {
+            StartCoroutine(StopPlayersMovementAndGrayScreenBattleRoyale(playerIndex));
+        }
+        else
+        {
+            StartCoroutine(StopPlayersMovementAndGrayScreenTeamPlay(playerIndex));
+        }
     }
 
-    private IEnumerator StopPlayersMovementAndGrayScreen(int playerIndex)
+    private IEnumerator StopPlayersMovementAndGrayScreenBattleRoyale(int playerIndex)
     {
         for (int i = 0; i < playerRockets.Length; i++)
         {
@@ -402,6 +474,58 @@ public class GameManagerMultiplay : MonoBehaviour
                 playerRockets[i].GetComponent<Rigidbody>().constraints =
                     RigidbodyConstraints.FreezePositionZ | 
                     RigidbodyConstraints.FreezeRotationX | 
+                    RigidbodyConstraints.FreezeRotationY;
+            }
+        }
+    }
+
+    private IEnumerator StopPlayersMovementAndGrayScreenTeamPlay(int playerIndex)
+    {
+        int playerID = playerIndex + 1;
+        int[] teamAIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        int[] teamBIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+        if (Array.IndexOf(teamAIDs, playerID) >= 0)
+        {
+
+        }
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                if (followPlayerCameras[i] != null)
+                {
+                    followPlayerCameras[i].GetComponent<PostProcessLayer>().enabled = true;
+                }
+                if (playerStageViewCameras[i] != null)
+                {
+                    playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = true;
+                }
+                playerRockets[i].GetComponent<MovementMultiplay>().DisablePlayerControl();
+                playerRockets[i].GetComponent<PlayerItem>().DisableUseItem();
+                playerRockets[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+        }
+
+        yield return new WaitForSeconds(stopOtherPlayersMovementTime);
+
+
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                if (followPlayerCameras[i] != null)
+                {
+                    followPlayerCameras[i].GetComponent<PostProcessLayer>().enabled = false;
+                }
+                if (playerStageViewCameras[i] != null)
+                {
+                    playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = false;
+                }
+                playerRockets[i].GetComponent<MovementMultiplay>().EnablePlayerControl();
+                playerRockets[i].GetComponent<PlayerItem>().EnableUseItem();
+                playerRockets[i].GetComponent<Rigidbody>().constraints =
+                    RigidbodyConstraints.FreezePositionZ |
+                    RigidbodyConstraints.FreezeRotationX |
                     RigidbodyConstraints.FreezeRotationY;
             }
         }
