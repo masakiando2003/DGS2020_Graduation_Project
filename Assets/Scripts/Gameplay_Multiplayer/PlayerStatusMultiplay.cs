@@ -293,7 +293,6 @@ public class PlayerStatusMultiplay : MonoBehaviour
     {
         if (cautionCountDownText == null) { return; }
         int remainingSeconds = Mathf.FloorToInt(cautionCountDownTimer);
-        Debug.Log("caution remainingSeconds: "+ remainingSeconds);
         cautionCountDownText.text = remainingSeconds.ToString();
     }
 }
