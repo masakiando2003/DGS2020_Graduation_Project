@@ -32,6 +32,7 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] Text finishText;
     [SerializeField] Text winnerPlayerNameText;
     [SerializeField] Text countDownTimeText;
+    [SerializeField] Color teamAColor, teamBColor;
     [SerializeField] float startPointSpawnPositionOffsetY = 10f;
     [SerializeField] float checkPointSpawnPositionOffsetX = 5f;
     [SerializeField] float checkPointSpawnPositionOffsetY = 10f;
@@ -122,10 +123,14 @@ public class GameManagerMultiplay : MonoBehaviour
                 if (Array.IndexOf(teamAIDs, playerID) >= 0)
                 {
                     playerTeamTexts[i].text = "A";
+                    playerTeamLabels[i].color = teamAColor;
+                    playerTeamTexts[i].color = teamAColor;
                 }
                 else if(Array.IndexOf(teamBIDs, playerID) >= 0)
                 {
                     playerTeamTexts[i].text = "B";
+                    playerTeamLabels[i].color = teamBColor;
+                    playerTeamTexts[i].color = teamBColor;
                 }
             }
         }
@@ -430,7 +435,16 @@ public class GameManagerMultiplay : MonoBehaviour
         }
         else
         {
-            StartCoroutine(StopPlayersMovementAndGrayScreenTeamPlay(playerIndex));
+            string teamBelongsTo;
+            if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+            {
+                teamBelongsTo = "Team A";
+            }
+            else
+            {
+                teamBelongsTo = "Team B";
+            }
+            StartCoroutine(StopPlayersMovementAndGrayScreenTeamPlay(playerIndex, teamBelongsTo));
         }
     }
 
@@ -479,55 +493,56 @@ public class GameManagerMultiplay : MonoBehaviour
         }
     }
 
-    private IEnumerator StopPlayersMovementAndGrayScreenTeamPlay(int playerIndex)
+    private IEnumerator StopPlayersMovementAndGrayScreenTeamPlay(int playerIndex, string teamBelongsTo)
     {
         int playerID = playerIndex + 1;
-        int[] teamAIDs = MultiplayPlayerMode.TeamAPlayerIDs;
-        int[] teamBIDs = MultiplayPlayerMode.TeamBPlayerIDs;
-        if (Array.IndexOf(teamAIDs, playerID) >= 0)
-        {
+        int[] rivalTeamIDs;
 
-        }
-        for (int i = 0; i < playerRockets.Length; i++)
+        if (teamBelongsTo == "Team A")
         {
-            if (i != playerIndex)
+            rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+        }
+        else
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        }
+
+        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        {
+            int rivalTeamMemberPlayerIndex = rivalTeamIDs[i] - 1;
+            if (followPlayerCameras[rivalTeamMemberPlayerIndex] != null)
             {
-                if (followPlayerCameras[i] != null)
-                {
-                    followPlayerCameras[i].GetComponent<PostProcessLayer>().enabled = true;
-                }
-                if (playerStageViewCameras[i] != null)
-                {
-                    playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = true;
-                }
-                playerRockets[i].GetComponent<MovementMultiplay>().DisablePlayerControl();
-                playerRockets[i].GetComponent<PlayerItem>().DisableUseItem();
-                playerRockets[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                followPlayerCameras[rivalTeamMemberPlayerIndex].GetComponent<PostProcessLayer>().enabled = true;
             }
+            if (playerStageViewCameras[rivalTeamMemberPlayerIndex] != null)
+            {
+                playerStageViewCameras[rivalTeamMemberPlayerIndex].GetComponent<PostProcessLayer>().enabled = true;
+            }
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<MovementMultiplay>().DisablePlayerControl();
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<PlayerItem>().DisableUseItem();
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
 
         yield return new WaitForSeconds(stopOtherPlayersMovementTime);
 
 
-        for (int i = 0; i < playerRockets.Length; i++)
+        for (int i = 0; i < rivalTeamIDs.Length; i++)
         {
-            if (i != playerIndex)
+            int rivalTeamMemberPlayerIndex = rivalTeamIDs[i] - 1;
+            if (followPlayerCameras[rivalTeamMemberPlayerIndex] != null)
             {
-                if (followPlayerCameras[i] != null)
-                {
-                    followPlayerCameras[i].GetComponent<PostProcessLayer>().enabled = false;
-                }
-                if (playerStageViewCameras[i] != null)
-                {
-                    playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = false;
-                }
-                playerRockets[i].GetComponent<MovementMultiplay>().EnablePlayerControl();
-                playerRockets[i].GetComponent<PlayerItem>().EnableUseItem();
-                playerRockets[i].GetComponent<Rigidbody>().constraints =
-                    RigidbodyConstraints.FreezePositionZ |
-                    RigidbodyConstraints.FreezeRotationX |
-                    RigidbodyConstraints.FreezeRotationY;
+                followPlayerCameras[rivalTeamMemberPlayerIndex].GetComponent<PostProcessLayer>().enabled = false;
             }
+            if (playerStageViewCameras[rivalTeamMemberPlayerIndex] != null)
+            {
+                playerStageViewCameras[rivalTeamMemberPlayerIndex].GetComponent<PostProcessLayer>().enabled = false;
+            }
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<MovementMultiplay>().EnablePlayerControl();
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<PlayerItem>().EnableUseItem();
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<Rigidbody>().constraints =
+                RigidbodyConstraints.FreezePositionZ |
+                RigidbodyConstraints.FreezeRotationX |
+                RigidbodyConstraints.FreezeRotationY;
         }
     }
 
@@ -554,7 +569,7 @@ public class GameManagerMultiplay : MonoBehaviour
         }
     }
 
-    public GameObject GetClossetPlayerRocket(int playerID)
+    public GameObject GetClosetPlayerRocketBattleRoyale(int playerID)
     {
         GameObject closetPlayerRocket = null;
         int playerIndex = playerID - 1;
@@ -562,7 +577,6 @@ public class GameManagerMultiplay : MonoBehaviour
         float closetDiff = Mathf.Infinity;
         for (int i = 0; i < playerRockets.Length; i++)
         {
-            Debug.Log("playerID: "+playerID+", i: "+i);
             if (i != playerIndex)
             {
                 Vector3 otherplayerPosition = playerRockets[i].transform.position;
@@ -570,13 +584,14 @@ public class GameManagerMultiplay : MonoBehaviour
                 if (posDiff < closetDiff)
                 {
                     closetPlayerRocket = playerRockets[i];
+                    closetDiff = posDiff;
                 }
             }
         }
         return closetPlayerRocket;
     }
 
-    public string GetClossetPlayerName(int playerID)
+    public string GetClosetPlayerNameBattleRoyale(int playerID)
     {
         string closePlayerName = "";
         int playerIndex = playerID - 1;
@@ -591,9 +606,130 @@ public class GameManagerMultiplay : MonoBehaviour
                 if(posDiff < closetDiff)
                 {
                     closePlayerName = PlayerNameTempSaveMultiplay.playerName[i];
+                    closetDiff = posDiff;
                 }
             }
         }
         return closePlayerName;
+    }
+
+    public int GetClosetPlayerIDBattleRoyale(int playerID)
+    {
+        int closetPlayerID = 0;
+        int playerIndex = playerID - 1;
+        Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
+        float closetDiff = Mathf.Infinity;
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                Vector3 otherplayerPosition = playerRockets[i].transform.position;
+                float posDiff = Vector3.Distance(currentPlayerPosition, otherplayerPosition);
+                if (posDiff < closetDiff)
+                {
+                    closetPlayerID =  i+ 1;
+                    closetDiff = posDiff;
+                }
+            }
+        }
+        return closetPlayerID;
+    }
+
+    public GameObject GetClosetPlayerRocketTeamPlay(int playerID, string teamBelongsTo)
+    {
+        GameObject closetPlayerRocket = null;
+        int playerIndex = playerID - 1;
+        Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
+        float closetDiff = Mathf.Infinity;
+        int[] rivalTeamIDs;
+
+        if (teamBelongsTo == "Team A")
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+        }
+        else
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        }
+
+        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        {
+            if (rivalTeamIDs[i] != playerIndex)
+            {
+                Vector3 otherplayerPosition = playerRockets[rivalTeamIDs[i]].transform.position;
+                float posDiff = Vector3.Distance(currentPlayerPosition, otherplayerPosition);
+                if (posDiff < closetDiff)
+                {
+                    closetPlayerRocket = playerRockets[rivalTeamIDs[i] - 1];
+                    closetDiff = posDiff;
+                }
+            }
+        }
+        return closetPlayerRocket;
+    }
+
+    public string GetClosetPlayerNameTeamPlay(int playerID, string teamBelongsTo)
+    {
+        string closePlayerName = "";
+        int playerIndex = playerID - 1;
+        Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
+        float closetDiff = Mathf.Infinity;
+
+        int[] rivalTeamIDs;
+        if (teamBelongsTo == "Team A")
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+        }
+        else
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        }
+
+        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        {
+            if (rivalTeamIDs[i] != playerIndex)
+            {
+                Vector3 otherplayerPosition = playerRockets[rivalTeamIDs[i]].transform.position;
+                float posDiff = Vector3.Distance(currentPlayerPosition, otherplayerPosition);
+                if (posDiff < closetDiff)
+                {
+                    closePlayerName = PlayerNameTempSaveMultiplay.playerName[rivalTeamIDs[i] - 1];
+                    closetDiff = posDiff;
+                }
+            }
+        }
+        return closePlayerName;
+    }
+
+    public int GetClosetPlayerIDTeamPlay(int playerID, string teamBelongsTo)
+    {
+        int closetPlayerID = 0;
+        int playerIndex = playerID - 1;
+        Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
+        float closetDiff = Mathf.Infinity;
+
+        int[] rivalTeamIDs;
+        if (teamBelongsTo == "Team A")
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+        }
+        else
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        }
+        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        {
+            if (rivalTeamIDs[i] != playerIndex)
+            {
+                Vector3 otherplayerPosition = playerRockets[rivalTeamIDs[i]].transform.position;
+                float posDiff = Vector3.Distance(currentPlayerPosition, otherplayerPosition);
+                if (posDiff < closetDiff)
+                {
+                    closetPlayerID = rivalTeamIDs[i];
+                    closetDiff = posDiff;
+                }
+            }
+        }
+        return closetPlayerID;
     }
 }

@@ -9,6 +9,7 @@ public class Missile : MonoBehaviour
     [SerializeField] float movingSpeed = 50f;
     [SerializeField] float waitToStartMovingTime = 3f;
 
+    Camera targetPlayerCamera;
     CapsuleCollider cc;
     bool canMoveToTargetPlayer;
     float offsetX;
@@ -27,10 +28,14 @@ public class Missile : MonoBehaviour
         StartCoroutine(CountDownToMove(waitToStartMovingTime));
     }
 
+    public void SetTargetPlayerCamera(Camera targetCamera)
+    {
+        targetPlayerCamera = targetCamera;
+    }
+
     private IEnumerator CountDownToMove(float waitToStartMovingTime)
     {
         yield return new WaitForSeconds(waitToStartMovingTime);
-        cc.enabled = true;
         canMoveToTargetPlayer = true;
     }
 
@@ -44,6 +49,17 @@ public class Missile : MonoBehaviour
         if (!canMoveToTargetPlayer)
         {
             transform.position = targetPlayer.transform.position + new Vector3(offsetX, 0f, 0f);
+        }
+
+        Vector3 screenPoint = targetPlayerCamera.WorldToViewportPoint(gameObject.transform.position);
+        bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+        if (onScreen)
+        {
+            cc.enabled = true;
+        }
+        else
+        {
+            cc.enabled = false;
         }
 
         if(targetPlayer == null || !canMoveToTargetPlayer) { return; }

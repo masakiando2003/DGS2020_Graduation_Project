@@ -19,6 +19,7 @@ public class PlayerItem : MonoBehaviour
     [SerializeField] Text playerItemText;
     [SerializeField] Text playerTargetLabel, playerTargetText;
 
+    int targetPlayerID;
     PlayerStatusMultiplay playerStatusMultiplay;
     bool canUseItem;
     bool canTakeItem;
@@ -36,6 +37,7 @@ public class PlayerItem : MonoBehaviour
         canTakeItem = true;
         playerTargetLabel.enabled = false;
         playerTargetText.enabled = false;
+        targetPlayerID = 0;
     }
 
     private void Update()
@@ -113,15 +115,36 @@ public class PlayerItem : MonoBehaviour
 
     public void RandomizeItem()
     {
-        string targetPlayerName;
+        string targetPlayerName = "";
+        string teamBelongsTo = "";
         //Debug.Log("Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length: " + Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
         int randomizedItemCategoryIndex = Random.Range(0, Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
         //Debug.Log("randomizedItemCategoryIndex: "+ randomizedItemCategoryIndex);
         if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.AttackItem)
         {
             playerItem = attackItem;
-            targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerRocket(playerID);
-            targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerName(playerID);
+            if(MultiplayPlayerMode.gameMode == "TeamPlay")
+            {
+                Debug.Log("Team Play CASE");
+                if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+                {
+                    teamBelongsTo = "Team A";
+                }
+                else
+                {
+                    teamBelongsTo = "Team B";
+                }
+                targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketTeamPlay(playerID, teamBelongsTo);
+                targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameTeamPlay(playerID, teamBelongsTo);
+                targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDTeamPlay(playerID, teamBelongsTo);
+            }
+            else
+            {
+                Debug.Log("Battle Royale CASE");
+                targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketBattleRoyale(playerID);
+                targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameBattleRoyale(playerID);
+                targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDBattleRoyale(playerID);
+            }
             if (targetPlayer != null && targetPlayerName != "")
             {
                 playerTargetText.text = targetPlayerName;
@@ -146,15 +169,37 @@ public class PlayerItem : MonoBehaviour
         {
             playerItem = dropBackItem;
         }
-        playerItem = attackItem;
-        targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerRocket(playerID);
-        targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClossetPlayerName(playerID);
-        if(targetPlayer != null && targetPlayerName != "")
+        /*
+        playerItem = attackItem; 
+        if (MultiplayPlayerMode.gameMode == "TeamPlay")
+        {
+            Debug.Log("Team Play CASE");
+            if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+            {
+                teamBelongsTo = "Team A";
+            }
+            else
+            {
+                teamBelongsTo = "Team B";
+            }
+            targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketTeamPlay(playerID, teamBelongsTo);
+            targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameTeamPlay(playerID, teamBelongsTo);
+            targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDTeamPlay(playerID, teamBelongsTo);
+        }
+        else
+        {
+            Debug.Log("Battle Royale CASE");
+            targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketBattleRoyale(playerID);
+            targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameBattleRoyale(playerID);
+            targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDBattleRoyale(playerID);
+        }
+        if (targetPlayer != null && targetPlayerName != "")
         {
             playerTargetText.text = targetPlayerName;
             playerTargetLabel.enabled = true;
             playerTargetText.enabled = true;
         }
+        */
     }
 
     public void UseItem()
@@ -164,7 +209,10 @@ public class PlayerItem : MonoBehaviour
             case "Missile":
                 GameObject playerAttackItem = Instantiate(playerItem);
                 playerAttackItem.GetComponent<Missile>().SetTargetPlayer(targetPlayer);
-                if(playerAttackItem.transform.position.x >= targetPlayer.transform.position.x)
+                Debug.Log("Target Player ID: "+targetPlayerID);
+                Camera targetPlayerCamera = GameObject.Find("FollowPlayer" + targetPlayerID + "Camera").GetComponent<Camera>();
+                playerAttackItem.GetComponent<Missile>().SetTargetPlayerCamera(targetPlayerCamera);
+                if (playerAttackItem.transform.position.x >= targetPlayer.transform.position.x)
                 {
                     playerAttackItem.transform.rotation = Quaternion.Euler(0f, 0f, -180f);
                     targetPlayer.GetComponent<PlayerStatusMultiplay>().SetCautionState("Right", true);
