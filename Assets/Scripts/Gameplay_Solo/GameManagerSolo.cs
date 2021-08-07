@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ public class GameManagerSolo : MonoBehaviour
     [SerializeField] GameObject[] fuelObjects;
     [SerializeField] Transform startPosition;
     [SerializeField] Transform[] checkPointPositions;
+    [SerializeField] Waypoint[] wayPoints;
     [SerializeField] Transform goalPosition;
     [SerializeField] Transform lastCheckPointPosition;
     [SerializeField] Text playerNameText;
@@ -52,7 +54,7 @@ public class GameManagerSolo : MonoBehaviour
     [SerializeField] Text[] rankingTimeElaspedText;
 
     int currentCheckPointIndex;
-    float remainingTime, countDownTimer, timeElapsed, startTime;
+    float remainingTime, countDownTimer, timeElapsed, startTime, totalDistance;
     string fromPanel, finalElapsedTime, finalPosition;
 
     public enum GameState
@@ -114,8 +116,6 @@ public class GameManagerSolo : MonoBehaviour
         pauseCanvas.enabled = false;
         rankingCanvas.enabled = false;
         currentGameState = GameState.CountDown;
-        stageMiniSlider.minValue = -Vector3.Distance(goalPosition.position, startPosition.transform.position);
-        stageMiniSlider.maxValue = 0;
         fromPanel = "";
         finalElapsedTime = "";
         Time.timeScale = 1f;
@@ -126,11 +126,11 @@ public class GameManagerSolo : MonoBehaviour
         UpdatePlayerBoostText(); // For Debug
         finalPosition = "Start";
         finalPositionText.text = finalPosition;
+        totalDistance = 0;
         // checkPointIndex: 0 = Start, 99 = Goal, 1 = Check1Point 1, 2 Check Point 2, etc.
         currentCheckPointIndex = 0;
-        //CalculateRemainingDistance();
+        CalculatTotalDistance();
         ShowFinalPosition();
-        UpdateStageMiniSlider();
         CheckRemainingTime();
         InitializeRemainingTime();
         ReadRankingData();
@@ -149,9 +149,8 @@ public class GameManagerSolo : MonoBehaviour
             case GameState.GameStart:
                 UpdatePlayerBoostText(); // For Debug
                 UpdatePlayerSpeedText();
-                // CalculateRemainingDistance();
+                CalculateRemainingDistance();
                 ShowFinalPosition();
-                UpdateStageMiniSlider();
                 CheckRemainingTime();
                 UpdateRemainingTimeAndTimeElapsed();
                 RespondToPauseGame();
@@ -264,44 +263,122 @@ public class GameManagerSolo : MonoBehaviour
        currentCheckPointIndex = checkPointIndex;
     }
 
+    private void CalculatTotalDistance()
+    {
+        if (wayPoints.Length <= 0)
+        {
+            totalDistance = Vector3.Distance(startPosition.position, goalPosition.position);
+        }
+        else if (wayPoints.Length == 1)
+        {
+            totalDistance += Vector3.Distance(startPosition.position, wayPoints[0].transform.position);
+            totalDistance += Vector3.Distance(goalPosition.position, wayPoints[0].transform.position);
+        }
+        else
+        {
+            for(var i = 0; i < wayPoints.Length - 1; i++)
+            {
+                totalDistance += Vector3.Distance(wayPoints[i].transform.position, wayPoints[i+1].transform.position);
+            }
+        }
+        Debug.Log("Calculated Total Distance: "+totalDistance);
+        stageMiniSlider.minValue = 0;
+        stageMiniSlider.maxValue = totalDistance;
+    }
+
     private void CalculateRemainingDistance()
     {
-        /*
-        if(playerRocket == null || checkPointPositions.Length <= 0 || goalPosition == null || remainingDistanceText == null)
+        Dictionary<int, float> ToPlayerDistances = new Dictionary<int, float>();
+        for (var i = 0; i < wayPoints.Length; i++)
         {
-            return;
+            Debug.Log("i: "+i+", Distance: "+ Vector3.Distance(wayPoints[i].transform.position, playerRocket.transform.position)+", Direction: "+ (wayPoints[i].transform.position - playerRocket.transform.position).normalized);
+            ToPlayerDistances.Add(i, Vector3.Distance(wayPoints[i].transform.position, playerRocket.transform.position));
         }
-        goalDistance += Vector3.Distance(checkPointPositions[0].transform.position, playerRocket.);
-        
-        if (playerRocket != null && goalPosition != null && finalPositionText)
+        int positionIndex = 0;
+        float minDistance = Mathf.Infinity;
+        foreach(KeyValuePair<int, float> distanceInfo in ToPlayerDistances)
         {
-            if (playerRocket.transform.position.x > goalPosition.transform.position.x)
+            if(distanceInfo.Value < minDistance)
             {
-                goalDistance = -Vector3.Distance(goalPosition.position, playerRocket.transform.position);
+                positionIndex = distanceInfo.Key;
+                minDistance = distanceInfo.Value;
             }
-            else
-            {
-                goalDistance = Vector3.Distance(goalPosition.position, playerRocket.transform.position);
-            }
-            finalPositionText.text = Mathf.FloorToInt(goalDistance).ToString() + " m";
         }
-        */
+        Debug.Log("positionIndex: " + positionIndex);
+
+        float totalMovedDistance = 0f;
+        if (positionIndex == 0)
+        {
+            totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+        }
+        else if (positionIndex == wayPoints.Length - 1)
+        {
+            for (var i = 0; i < positionIndex; i++)
+            {
+                totalMovedDistance += Vector3.Distance(wayPoints[i].transform.position, wayPoints[i+1].transform.position);
+            }
+            totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+        }
+        else
+        {
+            for (var i = 0; i <= positionIndex - 1; i++)
+            {
+                totalMovedDistance += Vector3.Distance(wayPoints[i].transform.position, wayPoints[i + 1].transform.position);
+            }
+
+            string previousDirection = wayPoints[positionIndex].GetFromPreviousWaypointDirection();
+            if (previousDirection == "Left")
+            {
+                if (playerRocket.transform.position.x <= wayPoints[positionIndex].transform.position.x)
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+                else
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+            }
+            else if (previousDirection == "Right")
+            {
+                if (playerRocket.transform.position.x >= wayPoints[positionIndex].transform.position.x)
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+                else
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+            }
+            else if (previousDirection == "Up")
+            {
+                if (playerRocket.transform.position.y <= wayPoints[positionIndex].transform.position.y)
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+                else
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+            }
+            else if (previousDirection == "Down")
+            {
+                if (playerRocket.transform.position.y >= wayPoints[positionIndex].transform.position.y)
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+                else
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRocket.transform.position);
+                }
+            }
+        }
+        Debug.Log("totalMovedDistance: "+ totalMovedDistance);
+        stageMiniSlider.value = totalMovedDistance;
     }
 
     private void ShowFinalPosition()
     {
         finalPositionText.text = finalPosition;
-    }
-
-    private void UpdateStageMiniSlider()
-    {
-        if(playerRocket.transform.position.x > goalPosition.transform.position.x) {
-            stageMiniSlider.value = 0; 
-        }
-        else
-        {
-            stageMiniSlider.value = -Vector3.Distance(goalPosition.position, playerRocket.transform.position);
-        }
     }
 
     internal void SaveLatestCheckPoint(Transform checkPointPos)
