@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
@@ -23,12 +24,14 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] Transform[] checkPointPositions;
     [SerializeField] Transform goalPosition;
     [SerializeField] Transform[] lastCheckPointPositions;
+    [SerializeField] Waypoint[] wayPoints;
     [SerializeField] Text[] playerNameTexts;
     [SerializeField] Text[] playerSpeedTexts;
     [SerializeField] Text[] playerCheckPointTexts;
     [SerializeField] Text[] playerTimeElapsedTexts;
     [SerializeField] Text[] playerTeamLabels;
     [SerializeField] Text[] playerTeamTexts;
+    [SerializeField] Text[] playerPositionTexts;
     [SerializeField] Text finishText;
     [SerializeField] Text winnerPlayerNameText;
     [SerializeField] Text countDownTimeText;
@@ -47,8 +50,11 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] GameObject finishPanel;
     [SerializeField] Canvas finishCanvas;
     [SerializeField] Slider[] stageMiniSliders;
+    [SerializeField] RandomItemSettings[] playerRandomItemSettings;
 
+    Dictionary<int, float> playerRemainingDistances;
     float countDownTimer, startTime;
+    float[] playerTotalDistance;
     string finalElapsedTime;
     string winnerTeam;
 
@@ -78,6 +84,8 @@ public class GameManagerMultiplay : MonoBehaviour
 
     private void Initialization()
     {
+        playerTotalDistance = new float[playerRockets.Length];
+        playerRemainingDistances = new Dictionary<int, float>();
         int[] teamAIDs = MultiplayPlayerMode.TeamAPlayerIDs;
         int[] teamBIDs = MultiplayPlayerMode.TeamBPlayerIDs;
         for (int i = 0; i < playerRockets.Length; i++)
@@ -133,6 +141,7 @@ public class GameManagerMultiplay : MonoBehaviour
                     playerTeamTexts[i].color = teamBColor;
                 }
             }
+            CalculatTotalDistance(i);
         }
         if (finishCanvas != null)
         {
@@ -156,6 +165,7 @@ public class GameManagerMultiplay : MonoBehaviour
                 CountDown(countDownTimer);
                 break;
             case GameState.GameStart:
+                SortPositions();
                 for (int i = 0; i < playerRockets.Length; i++)
                 {
                     if (playerRockets[i] != null)
@@ -163,7 +173,8 @@ public class GameManagerMultiplay : MonoBehaviour
                         UpdateTimeElapsed(i);
                         UpdatePlayerSpeedText(i);
                         ShowCheckPoint(i);
-                        //UpdateStageMiniSlider(i);
+                        CalculateRemainingDistance(i);
+                        DisplayPosition(i);
                     }
                 }
                 RespondToPauseGame();
@@ -731,5 +742,162 @@ public class GameManagerMultiplay : MonoBehaviour
             }
         }
         return closetPlayerID;
+    }
+
+    private void CalculatTotalDistance(int playerIndex)
+    {
+        if (wayPoints.Length <= 0)
+        {
+            playerTotalDistance[playerIndex] = Vector3.Distance(startPositions[playerIndex].position, goalPosition.position);
+        }
+        else if (wayPoints.Length == 1)
+        {
+            playerTotalDistance[playerIndex] += Vector3.Distance(startPositions[playerIndex].position, wayPoints[0].transform.position);
+            playerTotalDistance[playerIndex] += Vector3.Distance(goalPosition.position, wayPoints[0].transform.position);
+        }
+        else
+        {
+            for (var i = 0; i < wayPoints.Length - 1; i++)
+            {
+                playerTotalDistance[playerIndex] += Vector3.Distance(wayPoints[i].transform.position, wayPoints[i + 1].transform.position);
+            }
+        }
+        stageMiniSliders[playerIndex].minValue = 0;
+        stageMiniSliders[playerIndex].maxValue = playerTotalDistance[playerIndex];
+        Debug.Log("Player Index: "+playerIndex+", "+ playerTotalDistance[playerIndex]);
+        playerRemainingDistances.Add(playerIndex, playerTotalDistance[playerIndex]);
+    }
+
+    private void CalculateRemainingDistance(int playerIndex)
+    {
+        Dictionary<int, float> ToPlayerDistances = new Dictionary<int, float>();
+        for (var i = 0; i < wayPoints.Length; i++)
+        {
+            Debug.Log("i: " + i + ", Distance: " + Vector3.Distance(wayPoints[i].transform.position, playerRockets[playerIndex].transform.position) + 
+                ", Direction: " + (wayPoints[i].transform.position - playerRockets[playerIndex].transform.position).normalized);
+            ToPlayerDistances.Add(i, Vector3.Distance(wayPoints[i].transform.position, playerRockets[playerIndex].transform.position));
+        }
+        int positionIndex = 0;
+        float minDistance = Mathf.Infinity;
+        foreach (KeyValuePair<int, float> distanceInfo in ToPlayerDistances)
+        {
+            if (distanceInfo.Value < minDistance)
+            {
+                positionIndex = distanceInfo.Key;
+                minDistance = distanceInfo.Value;
+            }
+        }
+        Debug.Log("positionIndex: " + positionIndex);
+
+        float totalMovedDistance = 0f;
+        if (positionIndex == 0)
+        {
+            totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+        }
+        else if (positionIndex == wayPoints.Length - 1)
+        {
+            for (var i = 0; i < positionIndex; i++)
+            {
+                totalMovedDistance += Vector3.Distance(wayPoints[i].transform.position, wayPoints[i + 1].transform.position);
+            }
+            totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+        }
+        else
+        {
+            for (var i = 0; i <= positionIndex - 1; i++)
+            {
+                totalMovedDistance += Vector3.Distance(wayPoints[i].transform.position, wayPoints[i + 1].transform.position);
+            }
+
+            string previousDirection = wayPoints[positionIndex].GetFromPreviousWaypointDirection();
+            if (previousDirection == "Left")
+            {
+                if (playerRockets[playerIndex].transform.position.x <= wayPoints[positionIndex].transform.position.x)
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+                else
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+            }
+            else if (previousDirection == "Right")
+            {
+                if (playerRockets[playerIndex].transform.position.x >= wayPoints[positionIndex].transform.position.x)
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+                else
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+            }
+            else if (previousDirection == "Up")
+            {
+                if (playerRockets[playerIndex].transform.position.y <= wayPoints[positionIndex].transform.position.y)
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+                else
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+            }
+            else if (previousDirection == "Down")
+            {
+                if (playerRockets[playerIndex].transform.position.y >= wayPoints[positionIndex].transform.position.y)
+                {
+                    totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+                else
+                {
+                    totalMovedDistance -= Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
+                }
+            }
+        }
+        stageMiniSliders[playerIndex].value = totalMovedDistance;
+        playerRemainingDistances[playerIndex] = playerTotalDistance[playerIndex] - totalMovedDistance;
+        Debug.Log("Player Index: " + playerIndex + ", playerRemainingDistances: " + playerRemainingDistances[playerIndex]);
+    }
+
+    private void SortPositions()
+    {
+        playerRemainingDistances = playerRemainingDistances.OrderBy(key => key.Value).ToDictionary(x => x.Key, x => x.Value);
+
+    }
+
+    private void DisplayPosition(int playerIndex)
+    {
+        switch (playerRemainingDistances.Keys.ToList().IndexOf(playerIndex))
+        {
+            case 0:
+                playerPositionTexts[playerIndex].text = "1st";
+                break;
+            case 1:
+                playerPositionTexts[playerIndex].text = "2nd";
+                break;
+            case 2:
+                playerPositionTexts[playerIndex].text = "3rd";
+                break;
+            case 3:
+                playerPositionTexts[playerIndex].text = "4th";
+                break;
+        }
+    }
+
+    public RandomItemSettings GetPlayerRandomItemSettings(int playerID)
+    {
+        int playerIndex = playerID - 1;
+        int position = 0;
+        foreach (KeyValuePair<int, float> posInfo in playerRemainingDistances)
+        {
+            if (posInfo.Key == playerIndex)
+            {
+                position = playerIndex;
+                break;
+            }
+        }
+        Debug.Log("position: "+position);
+        return playerRandomItemSettings[position];
     }
 }
