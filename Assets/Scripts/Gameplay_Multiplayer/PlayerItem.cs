@@ -115,13 +115,49 @@ public class PlayerItem : MonoBehaviour
 
     public void RandomizeItem()
     {
-        string targetPlayerName = "";
-        string teamBelongsTo = "";
-        //Debug.Log("Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length: " + Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
-        int randomizedItemCategoryIndex = Random.Range(0, Enum.GetNames(typeof(MultiplayerItems.ItemCategories)).Length);
-        //Debug.Log("randomizedItemCategoryIndex: "+ randomizedItemCategoryIndex);
+        RandomItemSettings playerRandomItemSetting = FindObjectOfType<GameManagerMultiplay>().GetPlayerRandomItemSettings(playerID);
+        int randomizedItemCategoryIndex = 0;
+        int randomAttackItemFactor = playerRandomItemSetting.GetAttackItemRandomRate();
+        int randomDefenceItemFactor = playerRandomItemSetting.GetAttackItemRandomRate() + 
+            playerRandomItemSetting.GetDefenceItemRandomRate();
+        int randomAbnormalItemFactor = playerRandomItemSetting.GetAttackItemRandomRate() + 
+            playerRandomItemSetting.GetAttackItemRandomRate() + 
+            playerRandomItemSetting.GetAbnormalItemRandomRate();
+        int randomBoostCanItemFactor = playerRandomItemSetting.GetAttackItemRandomRate() + 
+            playerRandomItemSetting.GetDefenceItemRandomRate() +
+            playerRandomItemSetting.GetAbnormalItemRandomRate() + 
+            playerRandomItemSetting.GetBoostCanItemRandomRate();
+        int randomDropBackItemFactor = playerRandomItemSetting.GetAttackItemRandomRate() +
+            playerRandomItemSetting.GetDefenceItemRandomRate() +
+            playerRandomItemSetting.GetAbnormalItemRandomRate() +
+            playerRandomItemSetting.GetBoostCanItemRandomRate() +
+            playerRandomItemSetting.GetDropBackItemRandomRate();
+        int randomFactor = Random.Range(0, playerRandomItemSetting.GetTotalRate());
+        if(randomFactor >= 0 && randomFactor <= randomAttackItemFactor)
+        {
+            randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.AttackItem;
+        }
+        else if (randomFactor > randomAttackItemFactor && randomFactor <= randomDefenceItemFactor)
+        {
+            randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.DefenseItem;
+        }
+        else if(randomFactor > randomDefenceItemFactor && randomFactor <= randomAbnormalItemFactor)
+        {
+            randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.AbnormalConditionItem;
+        }
+        else if (randomFactor > randomAbnormalItemFactor && randomFactor <= randomBoostCanItemFactor)
+        {
+            randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.BoostCanItem;
+        }
+        else if (randomFactor > randomBoostCanItemFactor && randomFactor <= randomDropBackItemFactor)
+        {
+            randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.DropbackItem;
+        }
+
         if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.AttackItem)
         {
+            string targetPlayerName = "";
+            string teamBelongsTo = "";
             playerItem = attackItem;
             if(MultiplayPlayerMode.gameMode == "TeamPlay")
             {
@@ -169,37 +205,6 @@ public class PlayerItem : MonoBehaviour
         {
             playerItem = dropBackItem;
         }
-        /*
-        playerItem = attackItem; 
-        if (MultiplayPlayerMode.gameMode == "TeamPlay")
-        {
-            Debug.Log("Team Play CASE");
-            if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
-            {
-                teamBelongsTo = "Team A";
-            }
-            else
-            {
-                teamBelongsTo = "Team B";
-            }
-            targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketTeamPlay(playerID, teamBelongsTo);
-            targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameTeamPlay(playerID, teamBelongsTo);
-            targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDTeamPlay(playerID, teamBelongsTo);
-        }
-        else
-        {
-            Debug.Log("Battle Royale CASE");
-            targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketBattleRoyale(playerID);
-            targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameBattleRoyale(playerID);
-            targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDBattleRoyale(playerID);
-        }
-        if (targetPlayer != null && targetPlayerName != "")
-        {
-            playerTargetText.text = targetPlayerName;
-            playerTargetLabel.enabled = true;
-            playerTargetText.enabled = true;
-        }
-        */
     }
 
     public void UseItem()

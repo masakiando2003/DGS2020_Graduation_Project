@@ -50,6 +50,7 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] GameObject finishPanel;
     [SerializeField] Canvas finishCanvas;
     [SerializeField] Slider[] stageMiniSliders;
+    [SerializeField] RandomItemSettings[] playerRandomItemSettings;
 
     Dictionary<int, float> playerRemainingDistances;
     float countDownTimer, startTime;
@@ -882,5 +883,21 @@ public class GameManagerMultiplay : MonoBehaviour
                 playerPositionTexts[playerIndex].text = "4th";
                 break;
         }
+    }
+
+    public RandomItemSettings GetPlayerRandomItemSettings(int playerID)
+    {
+        int playerIndex = playerID - 1;
+        int position = 0;
+        foreach (KeyValuePair<int, float> posInfo in playerRemainingDistances)
+        {
+            if (posInfo.Key == playerIndex)
+            {
+                position = playerIndex;
+                break;
+            }
+        }
+        Debug.Log("position: "+position);
+        return playerRandomItemSettings[position];
     }
 }
