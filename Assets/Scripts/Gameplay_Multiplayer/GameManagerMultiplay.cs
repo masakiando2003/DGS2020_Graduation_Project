@@ -792,6 +792,7 @@ public class GameManagerMultiplay : MonoBehaviour
         float totalMovedDistance = 0f;
         if (positionIndex == 0)
         {
+            int direction = (playerRockets[playerIndex].transform.position.x >= wayPoints[positionIndex].transform.position.x) ? 1 : -1;
             totalMovedDistance += Vector3.Distance(wayPoints[positionIndex].transform.position, playerRockets[playerIndex].transform.position);
         }
         else if (positionIndex == wayPoints.Length - 1)
