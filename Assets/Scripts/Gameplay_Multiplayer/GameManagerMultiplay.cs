@@ -86,8 +86,8 @@ public class GameManagerMultiplay : MonoBehaviour
     {
         playerTotalDistance = new float[playerRockets.Length];
         playerRemainingDistances = new Dictionary<int, float>();
-        int[] teamAIDs = MultiplayPlayerMode.TeamAPlayerIDs;
-        int[] teamBIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+        List<int> teamAIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        List<int> teamBIDs = MultiplayPlayerMode.TeamBPlayerIDs;
         for (int i = 0; i < playerRockets.Length; i++)
         {
             if (playerRockets[i] != null)
@@ -114,7 +114,7 @@ public class GameManagerMultiplay : MonoBehaviour
             {
                 playerStageViewCameras[i].GetComponent<PostProcessLayer>().enabled = false;
             }
-            if(MultiplayPlayerMode.gameMode.Equals("Battle Royale"))
+            if(MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
             {
                 if(playerTeamLabels[i] != null)
                 {
@@ -128,13 +128,15 @@ public class GameManagerMultiplay : MonoBehaviour
             else
             {
                 int playerID = i + 1;
-                if (Array.IndexOf(teamAIDs, playerID) >= 0)
+                //if (Array.IndexOf(teamAIDs, playerID) >= 0)
+                if(teamAIDs.Contains(playerID))
                 {
                     playerTeamTexts[i].text = "A";
                     playerTeamLabels[i].color = teamAColor;
                     playerTeamTexts[i].color = teamAColor;
                 }
-                else if(Array.IndexOf(teamBIDs, playerID) >= 0)
+                //else if(Array.IndexOf(teamBIDs, playerID) >= 0)
+                else if(teamBIDs.Contains(playerID))
                 {
                     playerTeamTexts[i].text = "B";
                     playerTeamLabels[i].color = teamBColor;
@@ -440,14 +442,15 @@ public class GameManagerMultiplay : MonoBehaviour
     public void StopOtherPlayersMovement(int playerID)
     {
         int playerIndex = playerID - 1;
-        if (MultiplayPlayerMode.gameMode.Equals("Battle Royale"))
+        if (MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
         {
             StartCoroutine(StopPlayersMovementAndGrayScreenBattleRoyale(playerIndex));
         }
         else
         {
             string teamBelongsTo;
-            if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+            //if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+            if(MultiplayPlayerMode.TeamAPlayerIDs.Contains(playerID))
             {
                 teamBelongsTo = "Team A";
             }
@@ -507,7 +510,7 @@ public class GameManagerMultiplay : MonoBehaviour
     private IEnumerator StopPlayersMovementAndGrayScreenTeamPlay(int playerIndex, string teamBelongsTo)
     {
         int playerID = playerIndex + 1;
-        int[] rivalTeamIDs;
+        List<int> rivalTeamIDs;
 
         if (teamBelongsTo == "Team A")
         {
@@ -518,7 +521,7 @@ public class GameManagerMultiplay : MonoBehaviour
             rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
         }
 
-        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        for (int i = 0; i < rivalTeamIDs.Count; i++)
         {
             int rivalTeamMemberPlayerIndex = rivalTeamIDs[i] - 1;
             if (followPlayerCameras[rivalTeamMemberPlayerIndex] != null)
@@ -537,7 +540,7 @@ public class GameManagerMultiplay : MonoBehaviour
         yield return new WaitForSeconds(stopOtherPlayersMovementTime);
 
 
-        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        for (int i = 0; i < rivalTeamIDs.Count; i++)
         {
             int rivalTeamMemberPlayerIndex = rivalTeamIDs[i] - 1;
             if (followPlayerCameras[rivalTeamMemberPlayerIndex] != null)
@@ -652,7 +655,7 @@ public class GameManagerMultiplay : MonoBehaviour
         int playerIndex = playerID - 1;
         Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
         float closetDiff = Mathf.Infinity;
-        int[] rivalTeamIDs;
+        List<int> rivalTeamIDs;
 
         if (teamBelongsTo == "Team A")
         {
@@ -663,7 +666,7 @@ public class GameManagerMultiplay : MonoBehaviour
             rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
         }
 
-        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        for (int i = 0; i < rivalTeamIDs.Count; i++)
         {
             if (rivalTeamIDs[i] != playerIndex)
             {
@@ -686,7 +689,7 @@ public class GameManagerMultiplay : MonoBehaviour
         Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
         float closetDiff = Mathf.Infinity;
 
-        int[] rivalTeamIDs;
+        List<int> rivalTeamIDs;
         if (teamBelongsTo == "Team A")
         {
             rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
@@ -696,7 +699,7 @@ public class GameManagerMultiplay : MonoBehaviour
             rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
         }
 
-        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        for (int i = 0; i < rivalTeamIDs.Count; i++)
         {
             if (rivalTeamIDs[i] != playerIndex)
             {
@@ -719,7 +722,7 @@ public class GameManagerMultiplay : MonoBehaviour
         Vector3 currentPlayerPosition = playerRockets[playerIndex].transform.position;
         float closetDiff = Mathf.Infinity;
 
-        int[] rivalTeamIDs;
+        List<int> rivalTeamIDs;
         if (teamBelongsTo == "Team A")
         {
             rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
@@ -728,7 +731,7 @@ public class GameManagerMultiplay : MonoBehaviour
         {
             rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
         }
-        for (int i = 0; i < rivalTeamIDs.Length; i++)
+        for (int i = 0; i < rivalTeamIDs.Count; i++)
         {
             if (rivalTeamIDs[i] != playerIndex)
             {

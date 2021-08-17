@@ -162,7 +162,8 @@ public class PlayerItem : MonoBehaviour
             if(MultiplayPlayerMode.gameMode == "TeamPlay")
             {
                 Debug.Log("Team Play CASE");
-                if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+                //if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+                if(MultiplayPlayerMode.TeamAPlayerIDs.Contains(playerID))
                 {
                     teamBelongsTo = "Team A";
                 }

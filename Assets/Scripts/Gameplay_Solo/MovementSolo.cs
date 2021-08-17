@@ -130,6 +130,7 @@ public class MovementSolo : MonoBehaviour
     private void StartThursting()
     {
         rb.AddRelativeForce(Vector3.up * thrustSpeed * Time.deltaTime * speedFactor);
+        Debug.Log("Speed: "+rb.velocity);
         if (!audioSource.isPlaying && mainEngine != null)
         {
             audioSource.PlayOneShot(mainEngine);
@@ -159,6 +160,7 @@ public class MovementSolo : MonoBehaviour
     private void SlowDownSpeed()
     {
         rb.AddForce(Physics.gravity);
+        Debug.Log("Speed: " + rb.velocity);
         if (!audioSource.isPlaying && mainEngine != null)
         {
             audioSource.PlayOneShot(mainEngine);

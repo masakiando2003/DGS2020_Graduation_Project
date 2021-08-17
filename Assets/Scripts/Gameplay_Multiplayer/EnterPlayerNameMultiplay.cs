@@ -55,7 +55,7 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
                 PlayerNameTempSaveMultiplay.playerName[playerIndex] = playerNameInput[playerIndex].text.ToString();
             }
             if (difficultyScene.Equals("") || teamSelectionScene.Equals("")) { return; }
-            if(MultiplayPlayerMode.gameMode.Equals("Battle Roayle"))
+            if(MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
             {
                 SceneManager.LoadScene(difficultyScene);
             }

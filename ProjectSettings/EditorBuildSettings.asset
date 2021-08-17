@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title/Title/Title.unity
+    path: Assets/Scenes/Title/Title.unity
     guid: 867ba37e633eaf14c998171a72038c6e
   - enabled: 1
     path: Assets/Scenes/Stage_Solo/1P_Enter_Player_Name.unity
@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage_Multiplay/Multiplayer_Enter_Player_Name.unity
     guid: 2e4739e73dd10b240bfad254648d234f
   - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Multiplayer_TeamSelection.unity
+    guid: cc6e06d59e4ae8b43894042740b17127
+  - enabled: 1
     path: Assets/Scenes/Stage_Multiplay/Multiplayer_Choose_Difficulty.unity
     guid: 2549f315cf4e42446a8e8468ef459e16
   - enabled: 1
@@ -47,4 +50,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage_Multiplay/Easy/4P/Multiplay_Stage_Easy_4P.unity
     guid: e4c400567b006a34da53d7dffd0ea3d1
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Normal/2P/Multiplay_Stage_Normal_2P.unity
+    guid: 4839ba445600c1941970eb67b140eedc
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Normal/3P/Multiplay_Stage_Normal_3P.unity
+    guid: 68579ba01c7ac12408e75855f2ac6d81
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Normal/4P/Multiplay_Stage_Normal_4P.unity
+    guid: 0ce9ce55b9e06144a920c19a63e9ef17
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Hard/2P/Multiplay_Stage_Hard_2P.unity
+    guid: c2c4c7fe0ad0fee4782d82e13caf7172
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Hard/3P/Multiplay_Stage_Hard_3P.unity
+    guid: 15e47547a66fc474f9968b8c63cd5ebf
+  - enabled: 1
+    path: Assets/Scenes/Stage_Multiplay/Hard/4P/Multiplay_Stage_Hard_4P.unity
+    guid: 704fc0f22a21cdd408a417ae5721caaf
   m_configObjects: {}

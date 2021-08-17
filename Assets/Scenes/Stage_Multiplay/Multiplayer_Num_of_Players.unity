@@ -529,7 +529,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: Team Play
+          m_StringArgument: TeamPlay
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &109844576
@@ -2627,7 +2627,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: Battle Royale
+          m_StringArgument: BattleRoyale
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2138969741

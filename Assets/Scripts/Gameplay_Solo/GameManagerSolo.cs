@@ -281,7 +281,7 @@ public class GameManagerSolo : MonoBehaviour
                 totalDistance += Vector3.Distance(wayPoints[i].transform.position, wayPoints[i+1].transform.position);
             }
         }
-        Debug.Log("Calculated Total Distance: "+totalDistance);
+        //Debug.Log("Calculated Total Distance: "+totalDistance);
         stageMiniSlider.minValue = 0;
         stageMiniSlider.maxValue = totalDistance;
     }
@@ -291,7 +291,7 @@ public class GameManagerSolo : MonoBehaviour
         Dictionary<int, float> ToPlayerDistances = new Dictionary<int, float>();
         for (var i = 0; i < wayPoints.Length; i++)
         {
-            Debug.Log("i: "+i+", Distance: "+ Vector3.Distance(wayPoints[i].transform.position, playerRocket.transform.position)+", Direction: "+ (wayPoints[i].transform.position - playerRocket.transform.position).normalized);
+            //Debug.Log("i: "+i+", Distance: "+ Vector3.Distance(wayPoints[i].transform.position, playerRocket.transform.position)+", Direction: "+ (wayPoints[i].transform.position - playerRocket.transform.position).normalized);
             ToPlayerDistances.Add(i, Vector3.Distance(wayPoints[i].transform.position, playerRocket.transform.position));
         }
         int positionIndex = 0;
@@ -304,7 +304,7 @@ public class GameManagerSolo : MonoBehaviour
                 minDistance = distanceInfo.Value;
             }
         }
-        Debug.Log("positionIndex: " + positionIndex);
+        //Debug.Log("positionIndex: " + positionIndex);
 
         float totalMovedDistance = 0f;
         if (positionIndex == 0)
@@ -372,7 +372,7 @@ public class GameManagerSolo : MonoBehaviour
                 }
             }
         }
-        Debug.Log("totalMovedDistance: "+ totalMovedDistance);
+        //Debug.Log("totalMovedDistance: "+ totalMovedDistance);
         stageMiniSlider.value = totalMovedDistance;
     }
 
