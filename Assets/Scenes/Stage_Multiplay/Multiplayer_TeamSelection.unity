@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 120143939}
   - component: {fileID: 120143941}
   - component: {fileID: 120143940}
+  - component: {fileID: 120143942}
   m_Layer: 5
   m_Name: Player1NameText
   m_TagString: Untagged
@@ -240,6 +241,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120143938}
   m_CullTransparentMesh: 1
+--- !u!114 &120143942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120143938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &189258728
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +504,7 @@ GameObject:
   - component: {fileID: 339944151}
   - component: {fileID: 339944153}
   - component: {fileID: 339944152}
+  - component: {fileID: 339944154}
   m_Layer: 5
   m_Name: Player4NameText
   m_TagString: Untagged
@@ -556,6 +573,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339944150}
   m_CullTransparentMesh: 1
+--- !u!114 &339944154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339944150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &356895897
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,16 +671,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 1_TeamB
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &356895900
@@ -800,11 +832,11 @@ RectTransform:
   m_Children:
   - {fileID: 680134168}
   m_Father: {fileID: 1924429195}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -270}
+  m_AnchoredPosition: {x: -400, y: -380}
   m_SizeDelta: {x: 360, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377797791
@@ -851,10 +883,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: RandomTeam
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1095,6 +1127,7 @@ GameObject:
   - component: {fileID: 693254130}
   - component: {fileID: 693254132}
   - component: {fileID: 693254131}
+  - component: {fileID: 693254133}
   m_Layer: 5
   m_Name: Player3NameText
   m_TagString: Untagged
@@ -1163,6 +1196,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693254129}
   m_CullTransparentMesh: 1
+--- !u!114 &693254133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693254129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &738883407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,16 +1294,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 2_TeamB
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &738883410
@@ -1379,16 +1427,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 2_TeamA
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &795395688
@@ -1670,16 +1718,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3_TeamB
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1089378955
@@ -1803,16 +1851,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 1_TeamA
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1184287355
@@ -1936,16 +1984,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 4_TeamB
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1257656064
@@ -2029,10 +2077,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec08ff08c177754cb9279a5ddc01912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamAPlayerNameTexts: []
-  teamBPlayerNameTexts: []
-  teamAPlayerButtons: []
-  teamBPlayerButtons: []
+  teamNotSelectedFinishedYetText: {fileID: 1613563597}
+  playerNameTexts:
+  - {fileID: 120143940}
+  - {fileID: 2001497776}
+  - {fileID: 693254131}
+  - {fileID: 339944152}
+  teamAPlayerButtons:
+  - {fileID: 1184287354}
+  - {fileID: 795395687}
+  - {fileID: 1784547465}
+  - {fileID: 1983640538}
+  teamBPlayerButtons:
+  - {fileID: 356895899}
+  - {fileID: 738883409}
+  - {fileID: 1089378954}
+  - {fileID: 1257656063}
   buttonNormalColor: {r: 1, g: 1, b: 1, a: 1}
   buttonSelectedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1606961866
@@ -2125,8 +2185,9 @@ GameObject:
   - component: {fileID: 1613563596}
   - component: {fileID: 1613563598}
   - component: {fileID: 1613563597}
+  - component: {fileID: 1613563599}
   m_Layer: 5
-  m_Name: ErrorText
+  m_Name: TeamSelectNotFinishedYetText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2193,6 +2254,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613563595}
   m_CullTransparentMesh: 1
+--- !u!114 &1613563599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613563595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1719813532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,11 +2394,11 @@ RectTransform:
   m_Children:
   - {fileID: 1606961867}
   m_Father: {fileID: 1924429195}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 240, y: -390}
+  m_AnchoredPosition: {x: 20, y: -380}
   m_SizeDelta: {x: 360, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775374398
@@ -2369,10 +2445,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: ResetTeam
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2502,16 +2578,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 3_TeamA
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1784547466
@@ -2680,6 +2756,7 @@ GameObject:
   - component: {fileID: 1818891275}
   - component: {fileID: 1818891277}
   - component: {fileID: 1818891276}
+  - component: {fileID: 1818891278}
   m_Layer: 5
   m_Name: SelectTeamText
   m_TagString: Untagged
@@ -2748,6 +2825,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818891274}
   m_CullTransparentMesh: 1
+--- !u!114 &1818891278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818891274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1839545552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,11 +2872,11 @@ RectTransform:
   m_Children:
   - {fileID: 1986094559}
   m_Father: {fileID: 1924429195}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -240, y: -390}
+  m_AnchoredPosition: {x: 420, y: -380}
   m_SizeDelta: {x: 360, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1839545554
@@ -2831,16 +2923,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: Proceed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Multiplayer_Choose_Difficulty
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1839545555
@@ -3061,9 +3153,9 @@ RectTransform:
   - {fileID: 1974178710}
   - {fileID: 1791219041}
   - {fileID: 633295606}
-  - {fileID: 1839545553}
   - {fileID: 377797790}
   - {fileID: 1775374397}
+  - {fileID: 1839545553}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3193,16 +3285,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectMulitplayerNumbers, Assembly-CSharp
-        m_MethodName: SetNumOfPlayers
-        m_Mode: 3
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: MultiplayTeamSelection, Assembly-CSharp
+        m_MethodName: SetTeam
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 4_TeamA
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1983640539
@@ -3333,6 +3425,7 @@ GameObject:
   - component: {fileID: 2001497775}
   - component: {fileID: 2001497777}
   - component: {fileID: 2001497776}
+  - component: {fileID: 2001497778}
   m_Layer: 5
   m_Name: Player2NameText
   m_TagString: Untagged
@@ -3401,6 +3494,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001497774}
   m_CullTransparentMesh: 1
+--- !u!114 &2001497778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001497774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2004216262
 GameObject:
   m_ObjectHideFlags: 0

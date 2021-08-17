@@ -31,6 +31,7 @@ public class MultiplayerInstruction : MonoBehaviour
 
     private void LoadMapBaseOnSettings(string difficulty, int numOfPlayers)
     {
+        //Debug.Log("difficulty: "+ difficulty+", numOfPlayers: "+numOfPlayers+", game mode"+MultiplayPlayerMode.gameMode);
         string mapName = "Multiplay_Stage_" + difficulty + "_" + numOfPlayers + "P";
         SceneManager.LoadScene(mapName);
     }

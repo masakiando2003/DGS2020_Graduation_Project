@@ -149,7 +149,7 @@ public class CollisionHandlerMultiplay : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(successSE);
         playerMovement.enabled = false;
-        if (MultiplayPlayerMode.gameMode == "Battle Royale")
+        if (MultiplayPlayerMode.gameMode == "BattleRoyale")
         {
             int playerID = GetComponent<PlayerStatusMultiplay>().GetPlayerID();
             FindObjectOfType<GameManagerMultiplay>().FinishBattleRoyale(playerID);
