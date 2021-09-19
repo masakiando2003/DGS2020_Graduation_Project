@@ -8,7 +8,7 @@ public class MovementSolo : MonoBehaviour
 {
     [SerializeField] float thrustSpeed = 1500f, rotateThrust = 100;
     [SerializeField] float thrustSpeedUpFactor = 2f, thrustSppedNormalFactor = 1f;
-    [SerializeField] float maxSpeed = 50f, slowDownSpeedFactor = 1.01f;
+    [SerializeField] float maxSpeed = 50f, slowDownSpeedFactor = 1.0005f;
     [SerializeField] AudioClip mainEngine;
 
     [SerializeField] ParticleSystem boostParticles;

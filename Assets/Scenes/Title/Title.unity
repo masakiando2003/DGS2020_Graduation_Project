@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 746213650}
   - component: {fileID: 746213649}
   m_Layer: 5
-  m_Name: CreditButton
+  m_Name: CreditsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445,7 +445,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 746213650}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1259122291}
+        m_TargetAssemblyTypeName: Title, Assembly-CSharp
+        m_MethodName: Credits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &746213650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,7 +857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soloPlayerInstructionSceneName: 1P_Enter_Player_Name
   multiPlayerInstructionSceneName: Multiplayer_Num_of_Players
-  creditSceneName: 
+  creditSceneName: Credits
   rotationSpeed: 90
   rocketMesh: {fileID: 3125870580133610154}
 --- !u!1 &1334615098
@@ -860,7 +872,7 @@ GameObject:
   - component: {fileID: 1334615101}
   - component: {fileID: 1334615100}
   m_Layer: 5
-  m_Name: CreditText
+  m_Name: CreditsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,7 +930,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Credit
+  m_Text: Credits
 --- !u!222 &1334615101
 CanvasRenderer:
   m_ObjectHideFlags: 0

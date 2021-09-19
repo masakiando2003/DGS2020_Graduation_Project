@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackItemRandomRate: 5
   defenceItemRandomRate: 30
-  abnormalItemRandomRate: 5
+  abnormalItemRandomRate: 1
   boostCanItemRandomRate: 10
   dropBackItemRandomRate: 50
+  reduceSpeedItemRandomRate: 2
+  reduceBoostItemRandomRate: 2

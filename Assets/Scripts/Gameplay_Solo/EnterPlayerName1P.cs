@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class EnterPlayerName1P : MonoBehaviour
 {
+    [SerializeField] GameObject playerNameCanvas, pleaseWaitCanvas;
     [SerializeField] string difficultyScene;
     [SerializeField] string titleMap;
     [SerializeField] InputField playerNameInput;
@@ -18,6 +19,8 @@ public class EnterPlayerName1P : MonoBehaviour
 
     private void Initialization()
     {
+        playerNameCanvas.SetActive(true);
+        pleaseWaitCanvas.SetActive(false);
         errorText.enabled = false;
     }
 
@@ -36,6 +39,8 @@ public class EnterPlayerName1P : MonoBehaviour
             errorText.text = "";
             PlayerNameTempSaveSolo.playerName = playerNameInput.text.ToString();
             if (difficultyScene.Equals("")) { return; }
+            playerNameCanvas.SetActive(false);
+            pleaseWaitCanvas.SetActive(true);
             SceneManager.LoadScene(difficultyScene);
         }
     }

@@ -43035,7 +43035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRocket: {fileID: 9063929033502015097}
-  arrowPositionOffsetY: 20
+  arrowPositionOffsetY: 10
 --- !u!1 &7457052399490533646
 GameObject:
   m_ObjectHideFlags: 0
@@ -43990,11 +43990,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771196345f7fb1a44961f872dcadffce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrustSpeed: 2000
+  thrustSpeed: 2500
   rotateThrust: 300
   thrustSpeedUpFactor: 2
   thrustSppedNormalFactor: 1
-  maxVelocity: 30
+  maxSpeed: 50
+  slowDownSpeedFactor: 1.0005
   mainEngine: {fileID: 8300000, guid: d7914590cc5bf704fa6cd31af611de25, type: 3}
   boostParticles: {fileID: 5059224656619352432}
 --- !u!114 &6105203387403518521

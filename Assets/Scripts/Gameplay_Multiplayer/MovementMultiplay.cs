@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovementMultiplay : MonoBehaviour
 {
     [SerializeField] float thrustSpeed = 1500f, rotateThrust = 100;
     [SerializeField] float thrustSpeedUpFactor = 2f, thrustSppedNormalFactor = 1f;
-    [SerializeField] float maxSpeed = 50f, slowDownSpeedFactor = 1.01f;
+    [SerializeField] float maxSpeed = 50f, slowDownSpeedFactor = 1.0005f;
+    [SerializeField] Image speedDownImage;
     [SerializeField] AudioClip mainEngine;
 
     [SerializeField] ParticleSystem boostParticles;
 
     int playerID;
-    float speedFactor;
+    float speedFactor, currentMaxSpeed;
     Rigidbody rb;
     AudioSource audioSource;
     PlayerStatusMultiplay playerStatus;
@@ -33,6 +35,8 @@ public class MovementMultiplay : MonoBehaviour
         canResetRotation = false;
         speedFactor = thrustSppedNormalFactor;
         playerID = GetComponent<PlayerStatusMultiplay>().GetPlayerID();
+        currentMaxSpeed = maxSpeed;
+        speedDownImage.enabled = false;
     }
 
     // Update is called once per frame
@@ -76,12 +80,12 @@ public class MovementMultiplay : MonoBehaviour
                 StartThursting();
                 LimitMaxmimumSpeed();
             }
-            playerStatus.ReducePlayerBoost(speedFactor);
+            playerStatus.ReducePlayerBoostContinously(speedFactor);
         }
         else if (Input.GetButton(playerID + "PSlowDown"))
         {
             SlowDownSpeed();
-            playerStatus.ReducePlayerBoost(speedFactor);
+            playerStatus.ReducePlayerBoostContinously(speedFactor);
         }
         else
         {
@@ -138,7 +142,19 @@ public class MovementMultiplay : MonoBehaviour
     }
     private void LimitMaxmimumSpeed()
     {
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, currentMaxSpeed);
+    }
+
+    public void ReduceMaximumSpeed(float reduceMaximumSpeedFactor)
+    {
+        currentMaxSpeed = maxSpeed - reduceMaximumSpeedFactor;
+        speedDownImage.enabled = true;
+    }
+
+    public void RestoreOrginalMaximumSpeed()
+    {
+        currentMaxSpeed = maxSpeed;
+        speedDownImage.enabled = false;
     }
 
     public float GetLimitedMaxVelocity()

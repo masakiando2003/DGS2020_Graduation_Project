@@ -22,7 +22,7 @@ public class Title : MonoBehaviour
         SceneManager.LoadScene(multiPlayerInstructionSceneName);
     }
 
-    public void Credit()
+    public void Credits()
     {
         SceneManager.LoadScene(creditSceneName);
     }
