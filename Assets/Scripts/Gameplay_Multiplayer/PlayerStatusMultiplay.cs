@@ -117,9 +117,14 @@ public class PlayerStatusMultiplay : MonoBehaviour
         }
     }
 
-    public void ReducePlayerBoost(float speedUpFactor)
+    public void ReducePlayerBoostContinously(float speedUpFactor)
     {
         playerCurrentBoost -= Time.deltaTime * boostFactor * speedUpFactor;
+    }
+
+    public void ReducePlayerBoostOnce(float reduceBoostFactor)
+    {
+        playerCurrentBoost *= reduceBoostFactor;
     }
 
     public void RecoverBoost()

@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 public class MultiplayTeamSelection : MonoBehaviour
 {
+    [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
     [SerializeField] Text teamNotSelectedFinishedYetText;
     [SerializeField] Text[] playerNameTexts;
     [SerializeField] Button[] teamAPlayerButtons, teamBPlayerButtons;
@@ -22,6 +23,8 @@ public class MultiplayTeamSelection : MonoBehaviour
 
     private void Initialization()
     {
+        difficultyCanvas.SetActive(true);
+        pleaseWaitCanvas.SetActive(false);
         teamNotSelectedFinishedYetText.enabled = false;
         List<int> teamAPlayerIDs = MultiplayPlayerMode.TeamAPlayerIDs;
         List<int> teamBPlayerIDs = MultiplayPlayerMode.TeamBPlayerIDs;
@@ -186,6 +189,8 @@ public class MultiplayTeamSelection : MonoBehaviour
         }
 
         if (chooseDifficultyScene.Equals("")) { return; }
+        difficultyCanvas.SetActive(false);
+        pleaseWaitCanvas.SetActive(true);
         SceneManager.LoadScene(chooseDifficultyScene);
     }
 

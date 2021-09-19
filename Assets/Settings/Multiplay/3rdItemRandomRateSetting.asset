@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fc3a7ecb9ec3e44a231777f65d63b9, type: 3}
   m_Name: 3rdItemRandomRateSetting
   m_EditorClassIdentifier: 
-  attackItemRandomRate: 40
-  defenceItemRandomRate: 10
-  abnormalItemRandomRate: 30
-  boostCanItemRandomRate: 10
-  dropBackItemRandomRate: 10
+  attackItemRandomRate: 35
+  defenceItemRandomRate: 5
+  abnormalItemRandomRate: 10
+  boostCanItemRandomRate: 25
+  dropBackItemRandomRate: 5
+  reduceSpeedItemRandomRate: 10
+  reduceBoostItemRandomRate: 10

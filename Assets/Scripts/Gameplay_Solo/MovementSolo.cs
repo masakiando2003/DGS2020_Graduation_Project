@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class MovementSolo : MonoBehaviour
 {
-    [SerializeField] float thrustSpeed = 1500f, rotateThrust = 100, thrustSpeedUpFactor = 2f, thrustSppedNormalFactor = 1f, maxVelocity = 30f;
+    [SerializeField] float thrustSpeed = 1500f, rotateThrust = 100;
+    [SerializeField] float thrustSpeedUpFactor = 2f, thrustSppedNormalFactor = 1f;
+    [SerializeField] float maxSpeed = 50f, slowDownSpeedFactor = 1.0005f;
     [SerializeField] AudioClip mainEngine;
 
     [SerializeField] ParticleSystem boostParticles;
@@ -77,7 +79,7 @@ public class MovementSolo : MonoBehaviour
                     ResetSpeedFactor();
                 }
                 StartThursting();
-                //LimitMaxmimumSpeed();
+                LimitMaxmimumSpeed();
             }
             playerStatus.ReducePlayerBoost(speedFactor);
         }
@@ -120,6 +122,7 @@ public class MovementSolo : MonoBehaviour
 
     private void StopThursting()
     {
+        rb.velocity = rb.velocity / slowDownSpeedFactor;
         audioSource.Stop();
         if(boostParticles != null && boostParticles.isPlaying)
         {
@@ -142,25 +145,17 @@ public class MovementSolo : MonoBehaviour
     }
     private void LimitMaxmimumSpeed()
     {
-        if(rb.velocity.magnitude > maxVelocity)
-        {
-            float velocityX = Mathf.Min(Mathf.Abs(rb.velocity.x), maxVelocity) * Mathf.Sign(rb.velocity.x);
-            float velocityY = Mathf.Min(Mathf.Abs(rb.velocity.y), maxVelocity) * Mathf.Sign(rb.velocity.y);
-            float velocityZ = rb.velocity.z;
-
-            rb.velocity = new Vector3(velocityX, velocityY, velocityZ);
-        }
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
-    public float GetLimitedMaxVelocity()
+    public float GetLimitedMaxSpeed()
     {
-        return maxVelocity;
+        return maxSpeed;
     }
 
     private void SlowDownSpeed()
     {
-        rb.AddForce(Physics.gravity);
-        Debug.Log("Speed: " + rb.velocity);
+        rb.velocity = rb.velocity / slowDownSpeedFactor;
         if (!audioSource.isPlaying && mainEngine != null)
         {
             audioSource.PlayOneShot(mainEngine);

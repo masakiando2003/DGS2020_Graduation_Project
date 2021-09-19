@@ -16,6 +16,8 @@ TagManager:
   - Missile
   - Timer
   - Stone
+  - ReduceBoostItem
+  - ReduceSpeedItem
   layers:
   - Default
   - TransparentFX

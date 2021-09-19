@@ -13,9 +13,9 @@ public class PlayerItem : MonoBehaviour
     [SerializeField] float playerDropBackItemOffsetX = -5f;
     [SerializeField] float waitToTakeItemSeconds = 3f;
     [SerializeField] GameObject targetPlayer;
-    [SerializeField] GameObject playerItem, attackItem, defenceItem, abnormalItem, boostCanItem, dropBackItem;
-    [SerializeField] RawImage attackItemImage, defenceItemImage, boostCanItemImage, dropBackItemImage;
-    [SerializeField] Image abnormalItemImage;
+    [SerializeField] GameObject playerItem, attackItem, defenceItem, abnormalItem, boostCanItem, dropBackItem, reduceSpeedItem, reduceBoostItem;
+    [SerializeField] RawImage attackItemImage, defenceItemImage, boostCanItemImage, dropBackItemImage, reduceSpeedItemImage, reduceBoostItemImage;
+    [SerializeField] Image abnormalItemImage, reduceSpeedDownArrowImage, reduceBoostDownArrowImage;
     [SerializeField] Text playerItemText;
     [SerializeField] Text playerTargetLabel, playerTargetText;
 
@@ -58,6 +58,10 @@ public class PlayerItem : MonoBehaviour
             boostCanItemImage.enabled = false;
             abnormalItemImage.enabled = false;
             dropBackItemImage.enabled = false;
+            reduceSpeedItemImage.enabled = false;
+            reduceSpeedDownArrowImage.enabled = false;
+            reduceBoostItemImage.enabled = false;
+            reduceBoostDownArrowImage.enabled = false;
             return false;
         }
         else
@@ -71,6 +75,10 @@ public class PlayerItem : MonoBehaviour
                     abnormalItemImage.enabled = false;
                     boostCanItemImage.enabled = false;
                     dropBackItemImage.enabled = false;
+                    reduceSpeedItemImage.enabled = false;
+                    reduceSpeedDownArrowImage.enabled = false;
+                    reduceBoostItemImage.enabled = false;
+                    reduceBoostDownArrowImage.enabled = false;
                     break;
                 case "Shield":
                     defenceItemImage.enabled = true;
@@ -78,6 +86,10 @@ public class PlayerItem : MonoBehaviour
                     abnormalItemImage.enabled = false;
                     boostCanItemImage.enabled = false;
                     dropBackItemImage.enabled = false;
+                    reduceSpeedItemImage.enabled = false;
+                    reduceSpeedDownArrowImage.enabled = false;
+                    reduceBoostItemImage.enabled = false;
+                    reduceBoostDownArrowImage.enabled = false;
                     break;
                 case "Timer":
                     abnormalItemImage.enabled = true;
@@ -85,6 +97,10 @@ public class PlayerItem : MonoBehaviour
                     defenceItemImage.enabled = false;
                     boostCanItemImage.enabled = false;
                     dropBackItemImage.enabled = false;
+                    reduceSpeedItemImage.enabled = false;
+                    reduceSpeedDownArrowImage.enabled = false;
+                    reduceBoostItemImage.enabled = false;
+                    reduceBoostDownArrowImage.enabled = false;
                     break;
                 case "Fuel":
                     boostCanItemImage.enabled = true;
@@ -92,6 +108,10 @@ public class PlayerItem : MonoBehaviour
                     defenceItemImage.enabled = false;
                     abnormalItemImage.enabled = false;
                     dropBackItemImage.enabled = false;
+                    reduceSpeedItemImage.enabled = false;
+                    reduceSpeedDownArrowImage.enabled = false;
+                    reduceBoostItemImage.enabled = false;
+                    reduceBoostDownArrowImage.enabled = false;
                     break;
                 case "Stone":
                     dropBackItemImage.enabled = true;
@@ -99,6 +119,32 @@ public class PlayerItem : MonoBehaviour
                     defenceItemImage.enabled = false;
                     abnormalItemImage.enabled = false;
                     boostCanItemImage.enabled = false;
+                    reduceSpeedItemImage.enabled = false;
+                    reduceSpeedDownArrowImage.enabled = false;
+                    reduceBoostItemImage.enabled = false;
+                    reduceBoostDownArrowImage.enabled = false;
+                    break;
+                case "ReduceSpeedItem":
+                    reduceSpeedItemImage.enabled = true;
+                    reduceSpeedDownArrowImage.enabled = true;
+                    attackItemImage.enabled = false;
+                    defenceItemImage.enabled = false;
+                    abnormalItemImage.enabled = false;
+                    boostCanItemImage.enabled = false;
+                    dropBackItemImage.enabled = false;
+                    reduceBoostItemImage.enabled = false;
+                    reduceBoostDownArrowImage.enabled = false;
+                    break;
+                case "ReduceBoostItem":
+                    reduceBoostItemImage.enabled = true;
+                    reduceBoostDownArrowImage.enabled = true;
+                    attackItemImage.enabled = false;
+                    defenceItemImage.enabled = false;
+                    abnormalItemImage.enabled = false;
+                    boostCanItemImage.enabled = false;
+                    dropBackItemImage.enabled = false;
+                    reduceSpeedItemImage.enabled = false;
+                    reduceSpeedDownArrowImage.enabled = false;
                     break;
             }
             return true;
@@ -132,6 +178,19 @@ public class PlayerItem : MonoBehaviour
             playerRandomItemSetting.GetAbnormalItemRandomRate() +
             playerRandomItemSetting.GetBoostCanItemRandomRate() +
             playerRandomItemSetting.GetDropBackItemRandomRate();
+        int randomReduceSpeedItemFactor = playerRandomItemSetting.GetAttackItemRandomRate() +
+            playerRandomItemSetting.GetDefenceItemRandomRate() +
+            playerRandomItemSetting.GetAbnormalItemRandomRate() +
+            playerRandomItemSetting.GetBoostCanItemRandomRate() +
+            playerRandomItemSetting.GetDropBackItemRandomRate() +
+            playerRandomItemSetting.GetReduceSpeedItemRandomRate();
+        int randomReduceBoostItemFactor = playerRandomItemSetting.GetAttackItemRandomRate() +
+            playerRandomItemSetting.GetDefenceItemRandomRate() +
+            playerRandomItemSetting.GetAbnormalItemRandomRate() +
+            playerRandomItemSetting.GetBoostCanItemRandomRate() +
+            playerRandomItemSetting.GetDropBackItemRandomRate() +
+            playerRandomItemSetting.GetReduceSpeedItemRandomRate() +
+            playerRandomItemSetting.GetReduceBoostItemRandomRate();
         int randomFactor = Random.Range(0, playerRandomItemSetting.GetTotalRate());
         if(randomFactor >= 0 && randomFactor <= randomAttackItemFactor)
         {
@@ -152,6 +211,14 @@ public class PlayerItem : MonoBehaviour
         else if (randomFactor > randomBoostCanItemFactor && randomFactor <= randomDropBackItemFactor)
         {
             randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.DropbackItem;
+        }
+        else if (randomFactor > randomDropBackItemFactor && randomFactor <= randomReduceSpeedItemFactor)
+        {
+            randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.ReduceSpeedItem;
+        }
+        else if (randomFactor > randomReduceSpeedItemFactor && randomFactor <= randomReduceBoostItemFactor)
+        {
+            randomizedItemCategoryIndex = (int)MultiplayerItems.ItemCategories.ReduceBoostItem;
         }
 
         if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.AttackItem)
@@ -206,6 +273,20 @@ public class PlayerItem : MonoBehaviour
         {
             playerItem = dropBackItem;
         }
+        else if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.ReduceSpeedItem)
+        {
+            playerItem = reduceSpeedItem;
+            playerTargetText.text = "All";
+            playerTargetLabel.enabled = true;
+            playerTargetText.enabled = true;
+        }
+        else if (randomizedItemCategoryIndex == (int)MultiplayerItems.ItemCategories.ReduceBoostItem)
+        {
+            playerItem = reduceBoostItem;
+            playerTargetText.text = "All";
+            playerTargetLabel.enabled = true;
+            playerTargetText.enabled = true;
+        }
     }
 
     public void UseItem()
@@ -251,6 +332,12 @@ public class PlayerItem : MonoBehaviour
             case "Stone":
                 GameObject playerDropBackItem = Instantiate(playerItem);
                 playerDropBackItem.transform.position = gameObject.transform.position + new Vector3(playerDropBackItemOffsetX, 0f, 0f);
+                break;
+            case "ReduceSpeedItem":
+                FindObjectOfType<GameManagerMultiplay>().ReduceOtherPlayersSpeed(playerID);
+                break;
+            case "ReduceBoostItem":
+                FindObjectOfType<GameManagerMultiplay>().ReduceOtherPlayersBoost(playerID);
                 break;
         }
         playerTargetLabel.enabled = false;

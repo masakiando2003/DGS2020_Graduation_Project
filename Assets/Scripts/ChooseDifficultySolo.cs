@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ChooseDifficultySolo : MonoBehaviour
 {
+    [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
     [SerializeField] string introductionScene;
     [SerializeField] string titleMap;
     [SerializeField] string difficulty = "Easy";
@@ -14,6 +15,17 @@ public class ChooseDifficultySolo : MonoBehaviour
     [SerializeField] Image stageEasyViewImage, stageNormalViewImage, stageHardViewImage;
 
     Image stageView;
+
+    private void Awake()
+    {
+        Initialization();
+    }
+
+    private void Initialization()
+    {
+        difficultyCanvas.SetActive(true);
+        pleaseWaitCanvas.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -58,6 +70,8 @@ public class ChooseDifficultySolo : MonoBehaviour
     public void ProceedToIntroduction()
     {
         if (introductionScene.Equals("")) { return; }
+        difficultyCanvas.SetActive(false);
+        pleaseWaitCanvas.SetActive(true);
         SceneManager.LoadScene(introductionScene);
     }
 

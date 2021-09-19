@@ -45,6 +45,9 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] float startCountDownTime = 3.9f;
     [SerializeField] float hideCountDownTime = 1f;
     [SerializeField] float rotationSpeed = 20f;
+    [SerializeField] float reduceOtherPlayerSpeedFactor = 20f;
+    [SerializeField] float reduceOtherPlayerSpeedTime = 3f;
+    [SerializeField] float reduceOtherPlayerBoostFactor = 0.8f;
     [SerializeField] string startGameText = "GO!";
     [SerializeField] Canvas pauseCanvas;
     [SerializeField] GameObject finishPanel;
@@ -93,18 +96,10 @@ public class GameManagerMultiplay : MonoBehaviour
             if (playerRockets[i] != null)
             {
                 playerRockets[i].transform.position = startPositions[i].transform.position + new Vector3(checkPointSpawnPositionOffsetX, startPointSpawnPositionOffsetY, 0f); ;
-                /*
-                if(stageMiniSliders[i] != null)
-                {
-                    stageMiniSliders[i].minValue = -Vector3.Distance(goalPosition.position, startPositions[i].transform.position);
-                    stageMiniSliders[i].maxValue = 0;
-                }
-                */
                 playerNameTexts[i].text = PlayerNameTempSaveMultiplay.playerName[i];
                 playerRockets[i].GetComponent<MovementMultiplay>().DisablePlayerControl();
                 lastCheckPointPositions[i] = startPositions[i];
                 playerCheckPointTexts[i].text = "Start";
-                //UpdateStageMiniSlider(i);
             }
             if(followPlayerCameras[i] != null)
             {
@@ -128,14 +123,12 @@ public class GameManagerMultiplay : MonoBehaviour
             else
             {
                 int playerID = i + 1;
-                //if (Array.IndexOf(teamAIDs, playerID) >= 0)
                 if(teamAIDs.Contains(playerID))
                 {
                     playerTeamTexts[i].text = "A";
                     playerTeamLabels[i].color = teamAColor;
                     playerTeamTexts[i].color = teamAColor;
                 }
-                //else if(Array.IndexOf(teamBIDs, playerID) >= 0)
                 else if(teamBIDs.Contains(playerID))
                 {
                     playerTeamTexts[i].text = "B";
@@ -239,30 +232,6 @@ public class GameManagerMultiplay : MonoBehaviour
         playerTimeElapsedTexts[playerIndex].text = finalElapsedTime;
     }
 
-    private void CalculateRemainingDistance()
-    {
-        /*
-        if(playerRocket == null || checkPointPositions.Length <= 0 || goalPosition == null || remainingDistanceText == null)
-        {
-            return;
-        }
-        goalDistance += Vector3.Distance(checkPointPositions[0].transform.position, playerRocket.);
-        
-        if (playerRocket != null && goalPosition != null && finalPositionText)
-        {
-            if (playerRocket.transform.position.x > goalPosition.transform.position.x)
-            {
-                goalDistance = -Vector3.Distance(goalPosition.position, playerRocket.transform.position);
-            }
-            else
-            {
-                goalDistance = Vector3.Distance(goalPosition.position, playerRocket.transform.position);
-            }
-            finalPositionText.text = Mathf.FloorToInt(goalDistance).ToString() + " m";
-        }
-        */
-    }
-
     private void ShowCheckPoint(int playerIndex)
     {
         string currentCheckPoint = lastCheckPointPositions[playerIndex].gameObject.name;
@@ -295,16 +264,6 @@ public class GameManagerMultiplay : MonoBehaviour
         if (playerSpeedTexts[playerIndex] == null) { return; }
         float currentSpeed;
         currentSpeed = Mathf.FloorToInt(playerRockets[playerIndex].GetComponent<Rigidbody>().velocity.magnitude);
-        /*
-        if (playerRocket.GetComponent<Rigidbody>().velocity.magnitude > playerRocket.GetComponent<Movement>().GetLimitedMaxVelocity())
-        {
-            currentSpeed = playerRocket.GetComponent<Movement>().GetLimitedMaxVelocity();
-        }
-        else
-        {
-            currentSpeed = Mathf.FloorToInt(playerRocket.GetComponent<Rigidbody>().velocity.magnitude);
-        }
-        */
         playerSpeedTexts[playerIndex].text = currentSpeed.ToString() + "Km / s";
     }
 
@@ -462,6 +421,73 @@ public class GameManagerMultiplay : MonoBehaviour
         }
     }
 
+    public void ReduceOtherPlayersSpeed(int playerID)
+    {
+        int playerIndex = playerID - 1;
+        if (MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
+        {
+            StartCoroutine(ReducePlayerSpeedForAWhileBattleRoyale(playerIndex));
+        }
+        else
+        {
+            string teamBelongsTo;
+            //if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
+            if (MultiplayPlayerMode.TeamAPlayerIDs.Contains(playerID))
+            {
+                teamBelongsTo = "Team A";
+            }
+            else
+            {
+                teamBelongsTo = "Team B";
+            }
+            StartCoroutine(ReducePlayerSpeedForAWhileTeamPlay(playerIndex, teamBelongsTo));
+        }
+    }
+
+    public void ReduceOtherPlayersBoost(int playerID)
+    {
+        if (MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
+        {
+            int playerIndex = playerID - 1;
+            for (int i = 0; i < playerRockets.Length; i++)
+            {
+                if (i != playerIndex)
+                {
+                    playerRockets[i].GetComponent<PlayerStatusMultiplay>().ReducePlayerBoostOnce(reduceOtherPlayerBoostFactor);
+                }
+            }
+        }
+        else
+        {
+            string teamBelongsTo;
+            if (MultiplayPlayerMode.TeamAPlayerIDs.Contains(playerID))
+            {
+                teamBelongsTo = "Team A";
+            }
+            else
+            {
+                teamBelongsTo = "Team B";
+            }
+
+            List<int> rivalTeamIDs;
+
+            if (teamBelongsTo == "Team A")
+            {
+                rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+            }
+            else
+            {
+                rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+            }
+
+            for (int i = 0; i < rivalTeamIDs.Count; i++)
+            {
+                int rivalTeamMemberPlayerIndex = rivalTeamIDs[i] - 1;
+                playerRockets[rivalTeamMemberPlayerIndex].GetComponent<PlayerStatusMultiplay>().ReducePlayerBoostOnce(reduceOtherPlayerBoostFactor);
+            }
+        }
+    }
+
     private IEnumerator StopPlayersMovementAndGrayScreenBattleRoyale(int playerIndex)
     {
         for (int i = 0; i < playerRockets.Length; i++)
@@ -580,6 +606,56 @@ public class GameManagerMultiplay : MonoBehaviour
                     RigidbodyConstraints.FreezePositionZ |
                     RigidbodyConstraints.FreezeRotationX |
                     RigidbodyConstraints.FreezeRotationY;
+        }
+    }
+
+    private IEnumerator ReducePlayerSpeedForAWhileBattleRoyale(int playerIndex)
+    {
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                playerRockets[i].GetComponent<MovementMultiplay>().ReduceMaximumSpeed(reduceOtherPlayerSpeedFactor);
+            }
+        }
+        
+        yield return new WaitForSeconds(reduceOtherPlayerSpeedTime);
+
+        for (int i = 0; i < playerRockets.Length; i++)
+        {
+            if (i != playerIndex)
+            {
+                playerRockets[i].GetComponent<MovementMultiplay>().RestoreOrginalMaximumSpeed();
+            }
+        }
+    }
+
+    private IEnumerator ReducePlayerSpeedForAWhileTeamPlay(int playerIndex, string teamBelongsTo)
+    {
+        int playerID = playerIndex + 1;
+        List<int> rivalTeamIDs;
+
+        if (teamBelongsTo == "Team A")
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamBPlayerIDs;
+        }
+        else
+        {
+            rivalTeamIDs = MultiplayPlayerMode.TeamAPlayerIDs;
+        }
+
+        for (int i = 0; i < rivalTeamIDs.Count; i++)
+        {
+            int rivalTeamMemberPlayerIndex = rivalTeamIDs[i] - 1;
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<MovementMultiplay>().ReduceMaximumSpeed(reduceOtherPlayerSpeedFactor);
+        }
+        
+        yield return new WaitForSeconds(reduceOtherPlayerSpeedTime);
+
+        for (int i = 0; i < rivalTeamIDs.Count; i++)
+        {
+            int rivalTeamMemberPlayerIndex = rivalTeamIDs[i] - 1;
+            playerRockets[rivalTeamMemberPlayerIndex].GetComponent<MovementMultiplay>().RestoreOrginalMaximumSpeed();
         }
     }
 
