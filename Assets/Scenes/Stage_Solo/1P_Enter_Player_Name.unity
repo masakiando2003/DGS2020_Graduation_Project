@@ -966,12 +966,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdd79e055561d4d91f1a5970180ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enterPlayerName1P_EN: {fileID: 11400000, guid: 589b8d08346392146add2af64a6f95e0, type: 2}
+  enterPlayerName1P_JP: {fileID: 11400000, guid: fa6a8e8ec8cd1c24fa57dc5af2601ffc, type: 2}
   playerNameCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 726474940}
   difficultyScene: 1P_Choose_Difficulty
   titleMap: Title
   playerNameInput: {fileID: 1106533723}
   errorText: {fileID: 944707095}
+  playerNameTitleText: {fileID: 1324852898}
+  placeholderText: {fileID: 863262156}
+  pleaseWaitLabelText: {fileID: 1710453897}
+  proceedText: {fileID: 1602006916}
+  titleText: {fileID: 1983635315}
 --- !u!1 &1324852896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1134,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1610,7 +1617,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
