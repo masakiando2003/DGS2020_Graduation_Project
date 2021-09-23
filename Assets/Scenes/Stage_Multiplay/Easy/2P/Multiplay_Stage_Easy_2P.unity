@@ -47424,7 +47424,7 @@ MonoBehaviour:
   playerID: 1
   playerInvisibleTime: 3
   playerAttackItemOffsetX: 60
-  playerDropBackItemOffsetX: -9
+  playerDropBackItemOffsetX: -10
   waitToTakeItemSeconds: 3
   targetPlayer: {fileID: 0}
   playerItem: {fileID: 0}
@@ -58173,7 +58173,7 @@ MonoBehaviour:
   playerID: 2
   playerInvisibleTime: 3
   playerAttackItemOffsetX: 53.6
-  playerDropBackItemOffsetX: -9
+  playerDropBackItemOffsetX: -10
   waitToTakeItemSeconds: 3
   targetPlayer: {fileID: 0}
   playerItem: {fileID: 0}
