@@ -359,7 +359,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1298,12 +1298,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66f053eb81223c49857bf2dc7b85dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chooseDifficultySolo_EN: {fileID: 11400000, guid: 474a27778cfaa854ead210a8cd05609e, type: 2}
+  chooseDifficultySolo_JP: {fileID: 11400000, guid: a846b156ff60b6247b6c2ed51502a312, type: 2}
   difficultyCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 446958748}
   introductionScene: 1P_Instruction
   titleMap: Title
   difficulty: Easy
   difficultyText: {fileID: 1533728398}
+  difficultyTitleText: {fileID: 1324852898}
+  easyText: {fileID: 464210813}
+  normalText: {fileID: 1351039902}
+  hardText: {fileID: 1657366650}
+  proceedText: {fileID: 1602006916}
+  titleText: {fileID: 1983635315}
   stageEasyViewImage: {fileID: 16793349}
   stageNormalViewImage: {fileID: 2003919308}
   stageHardViewImage: {fileID: 1018397648}
@@ -1462,7 +1470,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1731,7 +1739,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1810,7 +1818,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -2198,7 +2206,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
