@@ -5,7 +5,6 @@ using UnityEngine;
 public class CollisionHandlerMultiplay : MonoBehaviour
 {
     [SerializeField] float respawnTime = 1f;
-    [SerializeField] float adjustPlayerRotationTime = 0.5f;
     [SerializeField] float playerCanControlTime = 1f;
     [SerializeField] AudioClip successSE;
     [SerializeField] AudioClip crash;

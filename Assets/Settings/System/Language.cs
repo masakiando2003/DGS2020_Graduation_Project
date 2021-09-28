@@ -4,5 +4,12 @@ using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    public static string displayLanguage;
+    public enum DisplayLanauge
+    {
+        None = 0,
+        English,
+        Japanese
+    }
+
+    public static DisplayLanauge gameDisplayLanguage = DisplayLanauge.None;
 }

@@ -25,14 +25,17 @@ public class EnterPlayerName1P : MonoBehaviour
         playerNameCanvas.SetActive(true);
         pleaseWaitCanvas.SetActive(false);
         errorText.enabled = false;
+        if(Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
     }
 
     private void SwitchLanguage()
     {
-        Debug.Log("Display Language: "+Language.displayLanguage);
-        switch (Language.displayLanguage)
+        switch (Language.gameDisplayLanguage)
         {
-            case "English":
+            case Language.DisplayLanauge.English:
                 errorText.text = enterPlayerName1P_EN.GetLabelContent("ErrorText");
                 playerNameTitleText.text = enterPlayerName1P_EN.GetLabelContent("PlayerNameTitleText");
                 placeholderText.text = enterPlayerName1P_EN.GetLabelContent("PlaceholderText");
@@ -40,13 +43,15 @@ public class EnterPlayerName1P : MonoBehaviour
                 proceedText.text = enterPlayerName1P_EN.GetLabelContent("ProceedText");
                 titleText.text = enterPlayerName1P_EN.GetLabelContent("TitleText");
                 break;
-            case "Japanese":
+            case Language.DisplayLanauge.Japanese:
                 errorText.text = enterPlayerName1P_JP.GetLabelContent("ErrorText");
                 playerNameTitleText.text = enterPlayerName1P_JP.GetLabelContent("PlayerNameTitleText");
                 placeholderText.text = enterPlayerName1P_JP.GetLabelContent("PlaceholderText");
                 pleaseWaitLabelText.text = enterPlayerName1P_JP.GetLabelContent("PleaseWaitLabelText");
                 proceedText.text = enterPlayerName1P_JP.GetLabelContent("ProceedText");
+                proceedText.fontStyle = FontStyle.Bold;
                 titleText.text = enterPlayerName1P_JP.GetLabelContent("TitleText");
+                titleText.fontStyle = FontStyle.Bold;
                 break;
         }
     }

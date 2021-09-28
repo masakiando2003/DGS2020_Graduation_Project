@@ -27,29 +27,37 @@ public class ChooseDifficultySolo : MonoBehaviour
     {
         difficultyCanvas.SetActive(true);
         pleaseWaitCanvas.SetActive(false);
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
     }
     private void SwitchLanguage()
     {
-        Debug.Log("Display Language: " + Language.displayLanguage);
-        switch (Language.displayLanguage)
+        switch (Language.gameDisplayLanguage)
         {
-            case "English":
+            case Language.DisplayLanauge.English:
                 difficultyTitleText.text = chooseDifficultySolo_EN.GetLabelContent("ChosenDifficultyText");
                 easyText.text = chooseDifficultySolo_EN.GetLabelContent("EasyText");
                 normalText.text = chooseDifficultySolo_EN.GetLabelContent("NormalText");
                 hardText.text = chooseDifficultySolo_EN.GetLabelContent("HardText");
                 proceedText.text = chooseDifficultySolo_EN.GetLabelContent("ProceedText");
                 titleText.text = chooseDifficultySolo_EN.GetLabelContent("TitleText");
-                pleaseWaitLabelText.text = chooseDifficultySolo_EN.GetLabelContent("PleaseWaitText");
+                pleaseWaitLabelText.text = chooseDifficultySolo_EN.GetLabelContent("PleaseWaitLabelText");
                 break;
-            case "Japanese":
+            case Language.DisplayLanauge.Japanese:
                 difficultyTitleText.text = chooseDifficultySolo_JP.GetLabelContent("ChosenDifficultyText");
                 easyText.text = chooseDifficultySolo_JP.GetLabelContent("EasyText");
+                easyText.fontStyle = FontStyle.Bold;
                 normalText.text = chooseDifficultySolo_JP.GetLabelContent("NormalText");
+                normalText.fontStyle = FontStyle.Bold;
                 hardText.text = chooseDifficultySolo_JP.GetLabelContent("HardText");
+                hardText.fontStyle = FontStyle.Bold;
                 proceedText.text = chooseDifficultySolo_JP.GetLabelContent("ProceedText");
+                proceedText.fontStyle = FontStyle.Bold;
                 titleText.text = chooseDifficultySolo_JP.GetLabelContent("TitleText");
-                pleaseWaitLabelText.text = chooseDifficultySolo_JP.GetLabelContent("PleaseWaitText");
+                titleText.fontStyle = FontStyle.Bold;
+                pleaseWaitLabelText.text = chooseDifficultySolo_JP.GetLabelContent("PleaseWaitLabelText");
                 break;
         }
     }
@@ -63,12 +71,12 @@ public class ChooseDifficultySolo : MonoBehaviour
 
     private void UpdateDifficultyText()
     {
-        switch (Language.displayLanguage)
+        switch (Language.gameDisplayLanguage)
         {
-            case "English":
+            case Language.DisplayLanauge.English:
                 difficultyText.text = chooseDifficultySolo_EN.GetLabelContent(difficulty+"Text");
                 break;
-            case "Japanese":
+            case Language.DisplayLanauge.Japanese:
                 difficultyText.text = chooseDifficultySolo_JP.GetLabelContent(difficulty + "Text");
                 break;
         }
