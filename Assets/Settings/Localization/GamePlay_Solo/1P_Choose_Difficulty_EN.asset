@@ -19,6 +19,7 @@ MonoBehaviour:
   - HardText
   - ProceedText
   - TitleText
+  - PleaseWaitLabelText
   labelText:
   - 'Choose a difficulty:'
   - Easy
@@ -26,3 +27,4 @@ MonoBehaviour:
   - Hard
   - Proceed
   - Title
+  - Please Wait

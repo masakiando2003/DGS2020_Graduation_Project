@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 public class PlayerItem : MonoBehaviour
 {
     [SerializeField] int playerID = 1;
-    [SerializeField] float playerInvisibleTime = 3f;
     [SerializeField] float playerAttackItemOffsetX = 25f;
     [SerializeField] float playerDropBackItemOffsetX = -5f;
     [SerializeField] float waitToTakeItemSeconds = 3f;

@@ -15,6 +15,7 @@ public class GameManagerSolo : MonoBehaviour
         get; private set;
     }
 
+    [SerializeField] Localization gameplaySolo_EN, gameplaySolo_JP;
     [SerializeField] GameObject playerRocket;
     [SerializeField] GameObject[] fuelObjects;
     [SerializeField] Transform startPosition;
@@ -22,6 +23,15 @@ public class GameManagerSolo : MonoBehaviour
     [SerializeField] Waypoint[] wayPoints;
     [SerializeField] Transform goalPosition;
     [SerializeField] Transform lastCheckPointPosition;
+    [SerializeField] Text playerNameLabelText, playerLifeLabelText, playerSpeedLabelText, playerBoostLabelText;
+    [SerializeField] Text remainingTimeLabelText, timeElapsedLabelText, finalPositionLabelText;
+    [SerializeField] Text rankingPlayerNameLabelText, rankingFinalPositionLabelText, rankingRemainingTimeLabelText, rankingTimeElapsedLabelText;
+    [SerializeField] Text rankingLabelText, pauseLabelText, gameOverLabelText, clearLabelText, sliderStartText, sliderGoalText;
+    [SerializeField] Text clearNotInRankingLabelText, pauseResumeLabelText, pauseRestartLabelText, pauseTitleLabelText, clearRankingReturnLabelText;
+    [SerializeField] Text clearThankToyForPlayingLabelText, gameOverThankYouForPlayingLabelText;
+    [SerializeField] Text gameOverNotInRankingLabelText, gameOverRankingButtonText, gameOverRankedLabelText;
+    [SerializeField] Text gameOverRankingPositionText, gameOverRestartButtonText, gameOverTitleButtonText;
+    [SerializeField] Text clearRankedLabelText, clearRankingButtonText, clearRestartButtonText, clearTitleButtonText;
     [SerializeField] Text playerNameText;
     [SerializeField] Text playerLifeText;
     [SerializeField] Text playerSpeedText;
@@ -31,7 +41,7 @@ public class GameManagerSolo : MonoBehaviour
     [SerializeField] Text finalPositionText;
     [SerializeField] Text countDownTimeText;
     [SerializeField] Text clearRankedLabel, clearRankedText, clearOutOfRankText;
-    [SerializeField] Text gameOverRankedLabel, gameOverRankedText, gameOverOutOfRankText;
+    [SerializeField] Text gameOverRankedLabel, gameOverOutOfRankText;
     [SerializeField] float startPointSpawnPositionOffsetY = 10f;
     [SerializeField] float checkPointSpawnPositionOffsetX = 5f;
     [SerializeField] float checkPointSpawnPositionOffsetY = 10f;
@@ -39,7 +49,6 @@ public class GameManagerSolo : MonoBehaviour
     [SerializeField] float showGameOverPanelTime = 2f;
     [SerializeField] float startCountDownTime = 3.9f;
     [SerializeField] float hideCountDownTime = 1f;
-    [SerializeField] string startGameText = "GO!";
     [SerializeField] TextAsset rankingDataFile;
     [SerializeField] Canvas pauseCanvas;
     [SerializeField] Canvas gameOverCanvas;
@@ -124,8 +133,22 @@ public class GameManagerSolo : MonoBehaviour
         playerNameText.text = PlayerNameTempSaveSolo.playerName;
         playerRocket.GetComponent<MovementSolo>().DisablePlayerControl();
         UpdatePlayerBoostText(); // For Debug
-        finalPosition = "Start";
-        finalPositionText.text = finalPosition;
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                finalPosition = "Start";
+                finalPositionText.text = finalPosition;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                finalPosition = "スタート";
+                finalPositionText.text = finalPosition;
+                finalPositionText.fontStyle = FontStyle.Bold;
+                break;
+        }
         totalDistance = 0;
         // checkPointIndex: 0 = Start, 99 = Goal, 1 = Check1Point 1, 2 Check Point 2, etc.
         currentCheckPointIndex = 0;
@@ -134,6 +157,109 @@ public class GameManagerSolo : MonoBehaviour
         CheckRemainingTime();
         InitializeRemainingTime();
         ReadRankingData();
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                playerNameLabelText.text = gameplaySolo_EN.GetLabelContent("PlayerNameLabelText");
+                playerLifeLabelText.text = gameplaySolo_EN.GetLabelContent("PlayerLifeLabelText");
+                playerSpeedLabelText.text = gameplaySolo_EN.GetLabelContent("SpeedLabelText");
+                remainingTimeLabelText.text = gameplaySolo_EN.GetLabelContent("RemainingTimeLabelText");
+                timeElapsedLabelText.text = gameplaySolo_EN.GetLabelContent("TimeElapsedLabelText");
+                finalPositionLabelText.text = gameplaySolo_EN.GetLabelContent("FinalPositionLabelText");
+                rankingLabelText.text = gameplaySolo_EN.GetLabelContent("RankingLabelText");
+                rankingPlayerNameLabelText.text = gameplaySolo_EN.GetLabelContent("RankingPlayerNameLabelText");
+                rankingFinalPositionLabelText.text = gameplaySolo_EN.GetLabelContent("RankingFinalPositionLabelText");
+                rankingRemainingTimeLabelText.text = gameplaySolo_EN.GetLabelContent("RankingRemainingTimeLabelText");
+                rankingTimeElapsedLabelText.text = gameplaySolo_EN.GetLabelContent("RankingTimeElapsedLabelText");
+                pauseLabelText.text = gameplaySolo_EN.GetLabelContent("PausedLabelText");
+                clearNotInRankingLabelText.text = gameplaySolo_EN.GetLabelContent("ClearNotInRankingText").Replace("|", Environment.NewLine);
+                gameOverLabelText.text = gameplaySolo_EN.GetLabelContent("GameOverLabelText");
+                sliderStartText.text = gameplaySolo_EN.GetLabelContent("SliderStartText");
+                sliderGoalText.text = gameplaySolo_EN.GetLabelContent("SliderGoalText");
+                clearLabelText.text = gameplaySolo_EN.GetLabelContent("ClearLabelText");
+                clearThankToyForPlayingLabelText.text = gameplaySolo_EN.GetLabelContent("ThankYouForPlayingText");
+                gameOverThankYouForPlayingLabelText.text = gameplaySolo_EN.GetLabelContent("ThankYouForPlayingText");
+                pauseResumeLabelText.text = gameplaySolo_EN.GetLabelContent("PauseResumeLabelText");
+                pauseRestartLabelText.text = gameplaySolo_EN.GetLabelContent("PauseRestartLabelText");
+                pauseTitleLabelText.text = gameplaySolo_EN.GetLabelContent("PauseTitleLabelText");
+                gameOverNotInRankingLabelText.text = gameplaySolo_EN.GetLabelContent("GameOverNotInRankingLabelText").Replace("|", Environment.NewLine);
+                gameOverRankedLabelText.text = gameplaySolo_EN.GetLabelContent("GameOverRankedLabelText");
+                gameOverRankingButtonText.text = gameplaySolo_EN.GetLabelContent("GameOverRankingButtonText");
+                gameOverRestartButtonText.text = gameplaySolo_EN.GetLabelContent("GameOverRestartButtonText");
+                gameOverTitleButtonText.text = gameplaySolo_EN.GetLabelContent("GameOverTitleButtonText");
+                clearRankedLabelText.text = gameplaySolo_EN.GetLabelContent("ClearRankedLabelText");
+                clearRankingButtonText.text = gameplaySolo_EN.GetLabelContent("ClearRankingButtonText");
+                clearRestartButtonText.text = gameplaySolo_EN.GetLabelContent("ClearRestartButtonText");
+                clearTitleButtonText.text = gameplaySolo_EN.GetLabelContent("ClearTitleButtonText");
+                clearRankingReturnLabelText.text = gameplaySolo_EN.GetLabelContent("ClearRankingReturnLabelText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                playerNameLabelText.text = gameplaySolo_JP.GetLabelContent("PlayerNameLabelText");
+                playerNameLabelText.fontStyle = FontStyle.Bold;
+                playerLifeLabelText.text = gameplaySolo_JP.GetLabelContent("PlayerLifeLabelText");
+                playerLifeLabelText.fontStyle = FontStyle.Bold;
+                playerSpeedLabelText.text = gameplaySolo_JP.GetLabelContent("SpeedLabelText");
+                playerSpeedLabelText.fontStyle = FontStyle.Bold;
+                remainingTimeLabelText.text = gameplaySolo_JP.GetLabelContent("RemainingTimeLabelText");
+                remainingTimeLabelText.fontStyle = FontStyle.Bold;
+                timeElapsedLabelText.text = gameplaySolo_JP.GetLabelContent("TimeElapsedLabelText");
+                timeElapsedLabelText.fontStyle = FontStyle.Bold;
+                finalPositionLabelText.text = gameplaySolo_JP.GetLabelContent("FinalPositionLabelText");
+                finalPositionLabelText.fontStyle = FontStyle.Bold;
+                rankingLabelText.text = gameplaySolo_JP.GetLabelContent("RankingLabelText");
+                rankingLabelText.fontStyle = FontStyle.Bold;
+                rankingPlayerNameLabelText.text = gameplaySolo_JP.GetLabelContent("RankingPlayerNameLabelText");
+                rankingPlayerNameLabelText.fontStyle = FontStyle.Bold;
+                rankingFinalPositionLabelText.text = gameplaySolo_JP.GetLabelContent("RankingFinalPositionLabelText");
+                rankingFinalPositionLabelText.fontStyle = FontStyle.Bold;
+                rankingRemainingTimeLabelText.text = gameplaySolo_JP.GetLabelContent("RankingRemainingTimeLabelText");
+                rankingRemainingTimeLabelText.fontStyle = FontStyle.Bold;
+                rankingTimeElapsedLabelText.text = gameplaySolo_JP.GetLabelContent("RankingTimeElapsedLabelText");
+                rankingTimeElapsedLabelText.fontStyle = FontStyle.Bold;
+                pauseLabelText.text = gameplaySolo_JP.GetLabelContent("PausedLabelText");
+                pauseLabelText.fontStyle = FontStyle.Bold;
+                clearNotInRankingLabelText.text = gameplaySolo_JP.GetLabelContent("ClearNotInRankingText").Replace("|", Environment.NewLine);
+                clearNotInRankingLabelText.fontStyle = FontStyle.Bold;
+                gameOverLabelText.text = gameplaySolo_JP.GetLabelContent("GameOverLabelText");
+                gameOverLabelText.fontStyle = FontStyle.Bold;
+                sliderStartText.text = gameplaySolo_JP.GetLabelContent("SliderStartText");
+                sliderStartText.fontStyle = FontStyle.Bold;
+                sliderGoalText.text = gameplaySolo_JP.GetLabelContent("SliderGoalText");
+                sliderGoalText.fontStyle = FontStyle.Bold;
+                clearLabelText.text = gameplaySolo_JP.GetLabelContent("ClearLabelText");
+                clearLabelText.fontStyle = FontStyle.Bold;
+                clearThankToyForPlayingLabelText.text = gameplaySolo_JP.GetLabelContent("ThankYouForPlayingText");
+                clearThankToyForPlayingLabelText.fontStyle = FontStyle.Bold;
+                gameOverThankYouForPlayingLabelText.text = gameplaySolo_JP.GetLabelContent("ThankYouForPlayingText");
+                gameOverThankYouForPlayingLabelText.fontStyle = FontStyle.Bold;
+                pauseResumeLabelText.text = gameplaySolo_JP.GetLabelContent("PauseResumeLabelText");
+                pauseResumeLabelText.fontStyle = FontStyle.Bold;
+                pauseRestartLabelText.text = gameplaySolo_JP.GetLabelContent("PauseRestartLabelText");
+                pauseRestartLabelText.fontStyle = FontStyle.Bold;
+                pauseTitleLabelText.text = gameplaySolo_JP.GetLabelContent("PauseTitleLabelText");
+                pauseTitleLabelText.fontStyle = FontStyle.Bold;
+                gameOverNotInRankingLabelText.text = gameplaySolo_JP.GetLabelContent("GameOverNotInRankingLabelText").Replace("|", Environment.NewLine);
+                gameOverNotInRankingLabelText.fontStyle = FontStyle.Bold;
+                gameOverRankedLabelText.text = gameplaySolo_JP.GetLabelContent("GameOverRankedLabelText");
+                gameOverRankedLabelText.fontStyle = FontStyle.Bold;
+                gameOverRankingButtonText.text = gameplaySolo_JP.GetLabelContent("GameOverRankingButtonText");
+                gameOverRankingButtonText.fontStyle = FontStyle.Bold;
+                gameOverRestartButtonText.text = gameplaySolo_JP.GetLabelContent("GameOverRestartButtonText");
+                gameOverRestartButtonText.fontStyle = FontStyle.Bold;
+                gameOverTitleButtonText.text = gameplaySolo_JP.GetLabelContent("GameOverTitleButtonText");
+                gameOverTitleButtonText.fontStyle = FontStyle.Bold;
+                clearRankedLabelText.text = gameplaySolo_JP.GetLabelContent("ClearRankedLabelText");
+                clearRankedLabelText.fontStyle = FontStyle.Bold;
+                clearRankingButtonText.text = gameplaySolo_JP.GetLabelContent("ClearRankingButtonText");
+                clearRankingButtonText.fontStyle = FontStyle.Bold;
+                clearRestartButtonText.text = gameplaySolo_JP.GetLabelContent("ClearRestartButtonText");
+                clearRestartButtonText.fontStyle = FontStyle.Bold;
+                clearTitleButtonText.text = gameplaySolo_JP.GetLabelContent("ClearTitleButtonText");
+                clearTitleButtonText.fontStyle = FontStyle.Bold;
+                clearRankingReturnLabelText.text = gameplaySolo_JP.GetLabelContent("ClearRankingReturnLabelText");
+                clearRankingReturnLabelText.fontStyle = FontStyle.Bold;
+                break;
+        }
     }
 
     private void Update()
@@ -189,7 +315,18 @@ public class GameManagerSolo : MonoBehaviour
     private void ShowCountTimeText(float countDownTimer)
     {
         int remainingSeconds = Mathf.FloorToInt(countDownTimer);
-        countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : startGameText;
+        string startGameLabelText;
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                startGameLabelText = gameplaySolo_EN.GetLabelContent("StartGameLabelText");
+                countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : startGameLabelText;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                startGameLabelText = gameplaySolo_JP.GetLabelContent("StartGameLabelText");
+                countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : startGameLabelText;
+                break;
+        }
     }
 
     private void HideCountDownText()
@@ -211,7 +348,19 @@ public class GameManagerSolo : MonoBehaviour
         foreach(RankingData data in rankingJson.detail)
         {
             rankingPlayerNameText[index].text = data.playerName;
-            rankingFinalPositionText[index].text = data.finalPosition.ToString();
+            switch (Language.gameDisplayLanguage)
+            {
+                case Language.DisplayLanauge.English:
+                    rankingFinalPositionText[index].text = data.finalPosition.ToString();
+                    break;
+                case Language.DisplayLanauge.Japanese:
+                    rankingFinalPositionText[index].text = data.finalPosition.ToString()
+                                                                .Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
+                                                                .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
+                                                                .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                    rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
+                    break;
+            }
             rankingRemainingTimeText[index].text = data.remainingTime.ToString();
             rankingTimeElaspedText[index].text = data.timeElapsed;
             index++;
@@ -378,7 +527,18 @@ public class GameManagerSolo : MonoBehaviour
 
     private void ShowFinalPosition()
     {
-        finalPositionText.text = finalPosition;
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                finalPositionText.text = finalPosition;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                finalPositionText.text = finalPosition.Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
+                                                      .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
+                                                      .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                finalPositionText.fontStyle = FontStyle.Bold;
+                break;
+        }
     }
 
     internal void SaveLatestCheckPoint(Transform checkPointPos)
@@ -535,6 +695,8 @@ public class GameManagerSolo : MonoBehaviour
         fromPanel = "Clear";
         if(clearPanel == null || rankingCanvas == null) { return; }
         clearPanel.SetActive(false);
+        clearLabelText.enabled = false;
+        clearThankToyForPlayingLabelText.enabled = false;
         rankingCanvas.enabled = true;
     }
 
@@ -542,6 +704,8 @@ public class GameManagerSolo : MonoBehaviour
     {
         fromPanel = "GameOver";
         if (gameOverPanel == null || rankingCanvas == null) { return; }
+        gameOverLabelText.enabled = false;
+        gameOverThankYouForPlayingLabelText.enabled = false;
         gameOverPanel.SetActive(false);
         rankingCanvas.enabled = true;
     }
@@ -562,7 +726,7 @@ public class GameManagerSolo : MonoBehaviour
             Debug.Log(rankingData.checkPointIndex+" --- "+data.checkPointIndex);
             if(rankingData.checkPointIndex >= data.checkPointIndex)
             {
-                if(rankingData.checkPointIndex == data.checkPointIndex)
+                if (rankingData.checkPointIndex == data.checkPointIndex)
                 {
                     if (rankingData.remainingTime <= data.remainingTime)
                     {
@@ -578,7 +742,19 @@ public class GameManagerSolo : MonoBehaviour
                         rankingJson.detail[index].remainingTime = rankingData.remainingTime;
                         rankingJson.detail[index].timeElapsed = rankingData.timeElapsed;
                         rankingPlayerNameText[index].text = rankingData.playerName;
-                        rankingFinalPositionText[index].text = rankingData.finalPosition.ToString();
+                        switch (Language.gameDisplayLanguage)
+                        {
+                            case Language.DisplayLanauge.English:
+                                rankingFinalPositionText[index].text = rankingData.finalPosition.ToString();
+                                break;
+                            case Language.DisplayLanauge.Japanese:
+                                rankingFinalPositionText[index].text = rankingData.finalPosition.ToString()
+                                                                        .Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
+                                                                        .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
+                                                                        .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                                rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
+                                break;
+                        }
                         rankingRemainingTimeText[index].text = rankingData.remainingTime.ToString();
                         rankingTimeElaspedText[index].text = rankingData.timeElapsed;
                         break;
@@ -598,7 +774,19 @@ public class GameManagerSolo : MonoBehaviour
                     rankingJson.detail[index].remainingTime = rankingData.remainingTime;
                     rankingJson.detail[index].timeElapsed = rankingData.timeElapsed;
                     rankingPlayerNameText[index].text = rankingData.playerName;
-                    rankingFinalPositionText[index].text = rankingData.finalPosition.ToString();
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            rankingFinalPositionText[index].text = rankingData.finalPosition.ToString();
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            rankingFinalPositionText[index].text = rankingData.finalPosition.ToString()
+                                                                        .Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
+                                                                        .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
+                                                                        .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                            rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
+                            break;
+                    }
                     rankingRemainingTimeText[index].text = rankingData.remainingTime.ToString();
                     rankingTimeElaspedText[index].text = rankingData.timeElapsed;
                     break;
@@ -617,7 +805,7 @@ public class GameManagerSolo : MonoBehaviour
 
             gameOverOutOfRankText.enabled = true;
             gameOverRankedLabel.enabled = false;
-            gameOverRankedText.enabled = false;
+            gameOverRankingPositionText.enabled = false;
         }
         else
         {
@@ -627,28 +815,93 @@ public class GameManagerSolo : MonoBehaviour
 
             gameOverOutOfRankText.enabled = false;
             gameOverRankedLabel.enabled = true;
-            gameOverRankedText.enabled = true;
+            gameOverRankingPositionText.enabled = true;
             switch (index)
             {
                 case 0:
-                    clearRankedText.text = "1st";
-                    gameOverRankedText.text = "1st";
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            clearRankedText.text = "1st";
+                            gameOverRankingPositionText.text = "1st";
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            clearRankedText.text = "1位";
+                            gameOverRankingPositionText.text = "1位";
+                            break;
+                        default:
+                            clearRankedText.text = "1st";
+                            gameOverRankingPositionText.text = "1st";
+                            break;
+                    }
                     break;
                 case 1:
-                    clearRankedText.text = "2nd";
-                    gameOverRankedText.text = "2nd";
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            clearRankedText.text = "2nd";
+                            gameOverRankingPositionText.text = "2nd";
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            clearRankedText.text = "2位";
+                            gameOverRankingPositionText.text = "2位";
+                            break;
+                        default:
+                            clearRankedText.text = "2nd";
+                            gameOverRankingPositionText.text = "2nd";
+                            break;
+                    }
                     break;
                 case 2:
-                    clearRankedText.text = "3rd";
-                    gameOverRankedText.text = "3rd";
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            clearRankedText.text = "3rd";
+                            gameOverRankingPositionText.text = "3rd";
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            clearRankedText.text = "3位";
+                            gameOverRankingPositionText.text = "3位";
+                            break;
+                        default:
+                            clearRankedText.text = "3rd";
+                            gameOverRankingPositionText.text = "3rd";
+                            break;
+                    }
                     break;
                 case 3:
-                    clearRankedText.text = "4th";
-                    gameOverRankedText.text = "4th";
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            clearRankedText.text = "4th";
+                            gameOverRankingPositionText.text = "4th";
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            clearRankedText.text = "4位";
+                            gameOverRankingPositionText.text = "4位";
+                            break;
+                        default:
+                            clearRankedText.text = "4th";
+                            gameOverRankingPositionText.text = "4th";
+                            break;
+                    }
                     break;
                 case 4:
-                    clearRankedText.text = "5th";
-                    gameOverRankedText.text = "5th";
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            clearRankedText.text = "5th";
+                            gameOverRankingPositionText.text = "5th";
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            clearRankedText.text = "5位";
+                            gameOverRankingPositionText.text = "5位";
+                            break;
+                        default:
+                            clearRankedText.text = "5th";
+                            gameOverRankingPositionText.text = "5th";
+                            break;
+                    }
                     break;
             }
         }
@@ -666,9 +919,13 @@ public class GameManagerSolo : MonoBehaviour
         switch (fromPanel)
         {
             case "Clear":
+                clearLabelText.enabled = true;
+                clearThankToyForPlayingLabelText.enabled = true;
                 clearPanel.SetActive(true);
                 break;
             case "GameOver":
+                gameOverLabelText.enabled = true;
+                gameOverThankYouForPlayingLabelText.enabled = true;
                 gameOverPanel.SetActive(true);
                 break;
             default:

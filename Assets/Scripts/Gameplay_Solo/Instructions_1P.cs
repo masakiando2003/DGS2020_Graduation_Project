@@ -8,6 +8,7 @@ using static GameManagerSolo;
 
 public class Instructions_1P : MonoBehaviour
 {
+    [SerializeField] Localization instruction1P_EN, instruction1P_JP;
     [SerializeField] GameObject instructionCanvas;
     [SerializeField] GameObject rankingCanvas;
     [SerializeField] GameObject pleaseWaitCanvas;
@@ -17,6 +18,12 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] GameObject stageEasyImage, stageNormalImage, stageHardImage;
     [SerializeField] string targetEasyMap, targetNormalMap, targetHardMap;
     [SerializeField] string titleMap;
+    [SerializeField] Text instructionTitleText, missionButtonText, controlsButtonText, hintsButtonText;
+    [SerializeField] Text missionText, keyboardButtonText, joystickButtonText;
+    [SerializeField] Text hint1ButtonText, hint2ButtonText, hint3ButtonText, hint1Text, hint2Text, hint3Text;
+    [SerializeField] Text startButtonText, rankingButtonText, titleButtonText, returnButtonText;
+    [SerializeField] Text rankingLabelText, rankingPlayerNameLabelText, rankingPlayerFinalPositionText;
+    [SerializeField] Text rankingPlayerRemainingTimeText, rankingPlayerTimeElapsedText, pleaseWaitLabelText;
     [SerializeField] Text[] rankingPlayerNameText;
     [SerializeField] Text[] rankingFinalPositionText;
     [SerializeField] Text[] rankingRemainingTimeText;
@@ -60,6 +67,75 @@ public class Instructions_1P : MonoBehaviour
                 break;
         }
         ReadRankingData();
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                instructionTitleText.text = instruction1P_EN.GetLabelContent("InstructionTitleText");
+                missionButtonText.text = instruction1P_EN.GetLabelContent("MissionButtonText");
+                controlsButtonText.text = instruction1P_EN.GetLabelContent("ControlsButtonText");
+                hintsButtonText.text = instruction1P_EN.GetLabelContent("HintsButtonText");
+                missionText.text = instruction1P_EN.GetLabelContent("MissionText").Replace("|", Environment.NewLine);
+                keyboardButtonText.text = instruction1P_EN.GetLabelContent("KeyboardButtonText");
+                joystickButtonText.text = instruction1P_EN.GetLabelContent("JoystickButtonText");
+                hint1ButtonText.text = instruction1P_EN.GetLabelContent("Hint1ButtonText");
+                hint2ButtonText.text = instruction1P_EN.GetLabelContent("Hint2ButtonText");
+                hint3ButtonText.text = instruction1P_EN.GetLabelContent("Hint3ButtonText");
+                hint1Text.text = instruction1P_EN.GetLabelContent("Hint1Text");
+                hint2Text.text = instruction1P_EN.GetLabelContent("Hint2Text");
+                hint3Text.text = instruction1P_EN.GetLabelContent("Hint3Text");
+                startButtonText.text = instruction1P_EN.GetLabelContent("StartButtonText");
+                rankingButtonText.text = instruction1P_EN.GetLabelContent("RankingButtonText");
+                titleButtonText.text = instruction1P_EN.GetLabelContent("TitleButtonText");
+                returnButtonText.text = instruction1P_EN.GetLabelContent("ReturnButtonText");
+                rankingLabelText.text = instruction1P_EN.GetLabelContent("RankingLabelText");
+                rankingPlayerNameLabelText.text = instruction1P_EN.GetLabelContent("RankingPlayerNameLabelText");
+                rankingPlayerFinalPositionText.text = instruction1P_EN.GetLabelContent("RankingPlayerFinalPositionText");
+                rankingPlayerRemainingTimeText.text = instruction1P_EN.GetLabelContent("RankingPlayerRemainingTimeText");
+                rankingPlayerTimeElapsedText.text = instruction1P_EN.GetLabelContent("RankingPlayerTimeElapsedText");
+                pleaseWaitLabelText.text = instruction1P_EN.GetLabelContent("PleaseWaitText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                instructionTitleText.text = instruction1P_JP.GetLabelContent("InstructionTitleText");
+                missionButtonText.text = instruction1P_JP.GetLabelContent("MissionButtonText");
+                missionButtonText.fontStyle = FontStyle.Bold;
+                controlsButtonText.text = instruction1P_JP.GetLabelContent("ControlsButtonText");
+                controlsButtonText.fontStyle = FontStyle.Bold;
+                hintsButtonText.text = instruction1P_JP.GetLabelContent("HintsButtonText");
+                hint1ButtonText.fontStyle = FontStyle.Bold;
+                missionText.text = instruction1P_JP.GetLabelContent("MissionText").Replace("|", Environment.NewLine);
+                keyboardButtonText.text = instruction1P_JP.GetLabelContent("KeyboardButtonText");
+                keyboardButtonText.fontStyle = FontStyle.Bold;
+                joystickButtonText.text = instruction1P_JP.GetLabelContent("JoystickButtonText");
+                joystickButtonText.fontStyle = FontStyle.Bold;
+                hint1ButtonText.text = instruction1P_JP.GetLabelContent("Hint1ButtonText");
+                hint1ButtonText.fontStyle = FontStyle.Bold;
+                hint2ButtonText.text = instruction1P_JP.GetLabelContent("Hint2ButtonText");
+                hint2ButtonText.fontStyle = FontStyle.Bold;
+                hint3ButtonText.text = instruction1P_JP.GetLabelContent("Hint3ButtonText");
+                hint3ButtonText.fontStyle = FontStyle.Bold;
+                hint1Text.text = instruction1P_JP.GetLabelContent("Hint1Text");
+                hint2Text.text = instruction1P_JP.GetLabelContent("Hint2Text");
+                hint3Text.text = instruction1P_JP.GetLabelContent("Hint3Text");
+                startButtonText.text = instruction1P_JP.GetLabelContent("StartButtonText");
+                startButtonText.fontStyle = FontStyle.Bold;
+                rankingButtonText.text = instruction1P_JP.GetLabelContent("RankingButtonText");
+                rankingButtonText.fontStyle = FontStyle.Bold;
+                titleButtonText.text = instruction1P_JP.GetLabelContent("TitleButtonText");
+                titleButtonText.fontStyle = FontStyle.Bold;
+                returnButtonText.text = instruction1P_JP.GetLabelContent("ReturnButtonText");
+                returnButtonText.fontStyle = FontStyle.Bold;
+                rankingLabelText.text = instruction1P_JP.GetLabelContent("RankingLabelText");
+                rankingPlayerNameLabelText.text = instruction1P_JP.GetLabelContent("RankingPlayerNameLabelText");
+                rankingPlayerFinalPositionText.text = instruction1P_JP.GetLabelContent("RankingPlayerFinalPositionText");
+                rankingPlayerRemainingTimeText.text = instruction1P_JP.GetLabelContent("RankingPlayerRemainingTimeText");
+                rankingPlayerTimeElapsedText.text = instruction1P_JP.GetLabelContent("RankingPlayerTimeElapsedText");
+                pleaseWaitLabelText.text = instruction1P_JP.GetLabelContent("PleaseWaitText");
+                break;
+        }
     }
 
     private void ReadRankingData()

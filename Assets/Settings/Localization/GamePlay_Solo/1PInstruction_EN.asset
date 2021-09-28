@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d4b3602e51dc74284830a34909c955, type: 3}
+  m_Name: 1PInstruction_EN
+  m_EditorClassIdentifier: 
+  labelName:
+  - InstructionTitleText
+  - MissionButtonText
+  - ControlsButtonText
+  - HintsButtonText
+  - MissionText
+  - KeyboardButtonText
+  - JoystickButtonText
+  - Hint1ButtonText
+  - Hint2ButtonText
+  - Hint3ButtonText
+  - Hint1Text
+  - Hint2Text
+  - Hint3Text
+  - StartButtonText
+  - RankingButtonText
+  - TitleButtonText
+  - ReturnButtonText
+  - RankingLabelText
+  - RankingPlayerNameLabelText
+  - RankingPlayerFinalPositionText
+  - RankingPlayerRemainingTimeText
+  - RankingPlayerTimeElapsedText
+  - PleaseWatiText
+  labelText:
+  - Instruction
+  - Mission
+  - Controls
+  - Hints
+  - Mission:|Avoid the Obstacle and get to the goal point!
+  - Keyboard
+  - Joystick
+  - Hint1
+  - Hint2
+  - Hint3
+  - There are safezones and recover boost item.
+  - Use Stage View button to confirm your position.
+  - Control your Speed for rotating your rocket easily.
+  - Start
+  - Ranking
+  - Title
+  - Return
+  - Ranking
+  - Player Name
+  - Final Position
+  - Remaining Time
+  - Time Elapsed
+  - PleaseWait

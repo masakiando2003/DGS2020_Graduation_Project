@@ -19,14 +19,26 @@ public class Title : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("currentLanaguage"))
         {
-            Language.displayLanguage = PlayerPrefs.GetString("currentLanguage");
+            string getLanguage = PlayerPrefs.GetString("currentLanguage");
+            switch (getLanguage)
+            {
+                case "English":
+                    Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+                    break;
+                case "Japanese":
+                    Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+                    break;
+            }
         }
         else
         {
             // Default as English
-            Language.displayLanguage = "English";
-            PlayerPrefs.SetString("currentLanguage", "English");
-            PlayerPrefs.Save();
+            if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+            {
+                Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+                PlayerPrefs.SetString("currentLanguage", "English");
+                PlayerPrefs.Save();
+            }
         }
     }
 
@@ -53,17 +65,23 @@ public class Title : MonoBehaviour
 
     private void SelectLanguage()
     {
-        switch (Language.displayLanguage)
+        switch (Language.gameDisplayLanguage)
         {
-            case "English":
+            case Language.DisplayLanauge.English:
                 soloPlayerStartText.text = title_EN.GetLabelContent("SoloPlay");
+                soloPlayerStartText.fontStyle = FontStyle.Normal;
                 multiPlayerStartText.text = title_EN.GetLabelContent("MultiPlay");
+                multiPlayerStartText.fontStyle = FontStyle.Normal;
                 creditsText.text = title_EN.GetLabelContent("Credits");
+                creditsText.fontStyle = FontStyle.Normal;
                 break;
-            case "Japanese":
+            case Language.DisplayLanauge.Japanese:
                 soloPlayerStartText.text = title_JP.GetLabelContent("SoloPlay");
+                soloPlayerStartText.fontStyle = FontStyle.Bold;
                 multiPlayerStartText.text = title_JP.GetLabelContent("MultiPlay");
+                multiPlayerStartText.fontStyle = FontStyle.Bold;
                 creditsText.text = title_JP.GetLabelContent("Credits");
+                creditsText.fontStyle = FontStyle.Bold;
                 break;
         }
     }
@@ -76,7 +94,15 @@ public class Title : MonoBehaviour
 
     public void SetCurrentLanguage(string selectedLanauge)
     {
-        Language.displayLanguage = selectedLanauge;
+        switch (selectedLanauge)
+        {
+            case "English":
+                Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+                break;
+            case "Japanese":
+                Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+                break;
+        }
         PlayerPrefs.SetString("currentLanguage", selectedLanauge);
         PlayerPrefs.Save();
     }
