@@ -894,7 +894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &721594498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,7 +1242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your name cannot be empty!
+  m_Text: Player 1's name cannot be empty!
 --- !u!222 &944707096
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 1147829861}
   - component: {fileID: 1147829860}
   m_Layer: 5
-  m_Name: PlayerNameCanvas
+  m_Name: EnterPlayerNameCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1846,9 +1846,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97feaceaee5d654faadc92eed342473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplay_enter_name_EN: {fileID: 11400000, guid: cfd26e7d855af3f41a89659fc5d6d48c, type: 2}
+  multiplay_enter_name_JP: {fileID: 11400000, guid: 6575ffff06837fd43b14bb380dcbe75d, type: 2}
   difficultyScene: Multiplayer_Choose_Difficulty
   teamSelectionScene: Multiplayer_TeamSelection
   titleMap: Title
+  enterPlayerNameCanvas: {fileID: 1147829859}
+  pleaseWaitCanvas: {fileID: 721594497}
   playerNameObjects:
   - {fileID: 223311764}
   - {fileID: 850657221}
@@ -1860,6 +1864,14 @@ MonoBehaviour:
   - {fileID: 134150605}
   - {fileID: 2041615325}
   errorText: {fileID: 944707095}
+  enterPlayerNameTitleText: {fileID: 1324852898}
+  proceedButtonText: {fileID: 1602006916}
+  titleButtonText: {fileID: 1983635315}
+  pleaseWaitLabelText: {fileID: 1924829351}
+  player1LabelText: {fileID: 1479487855}
+  player2LabelText: {fileID: 127811633}
+  player3LabelText: {fileID: 1059500920}
+  player4LabelText: {fileID: 1510494853}
 --- !u!1 &1324852896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,7 +2170,7 @@ GameObject:
   - component: {fileID: 1602006916}
   - component: {fileID: 1602006918}
   m_Layer: 5
-  m_Name: ProceedText
+  m_Name: ProceedButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2758,7 +2770,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
+  m_AnchoredPosition: {x: -150, y: 0}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924829350
@@ -2831,7 +2843,7 @@ GameObject:
   - component: {fileID: 1983635315}
   - component: {fileID: 1983635317}
   m_Layer: 5
-  m_Name: TitleText
+  m_Name: TitleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3186,7 +3198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
+  m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127999937

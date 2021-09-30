@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d4b3602e51dc74284830a34909c955, type: 3}
+  m_Name: Multiplay_NumOfPlayers_EN
+  m_EditorClassIdentifier: 
+  labelName:
+  - 2PlayersText
+  - 3PlayersText
+  - 4PlayersText
+  - JoysticksConnectedLabelText
+  - SelectGameModeText
+  - GameModeLabelText
+  - ProceedButtonText
+  - TitleButtonText
+  - NumOfPlayersLabelText
+  - BattleRoyaleButtonText
+  - TeamPlayButtonText
+  - PleaseWaitLabelText
+  - NotEnoughJoysticksText
+  labelText:
+  - 2 Players
+  - 3 Players
+  - 4 Players
+  - 'Joysticks connected:'
+  - 'Select game mode:'
+  - 'Game Mode:'
+  - Proceed
+  - Title
+  - 'Number of players:'
+  - Battle Royale
+  - Team Play
+  - Please wait
+  - Please connect with more joysticks!

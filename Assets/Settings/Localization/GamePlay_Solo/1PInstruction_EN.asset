@@ -35,7 +35,7 @@ MonoBehaviour:
   - RankingPlayerFinalPositionText
   - RankingPlayerRemainingTimeText
   - RankingPlayerTimeElapsedText
-  - PleaseWatiText
+  - PleaseWaitText
   labelText:
   - Instruction
   - Mission

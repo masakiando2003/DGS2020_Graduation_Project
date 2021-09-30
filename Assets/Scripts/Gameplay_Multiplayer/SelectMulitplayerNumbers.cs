@@ -7,12 +7,16 @@ using UnityEngine.UI;
 
 public class SelectMulitplayerNumbers : MonoBehaviour
 {
-    [SerializeField] GameObject numberOfPlayersCanvas, battleModeCanvas;
+    [SerializeField] Localization multiplaySelectNumPlayers_EN, multiplaySelectNumPlayers_JP;
+    [SerializeField] GameObject numberOfPlayersCanvas, battleModeCanvas, pleaseWaitCanvas;
     [SerializeField] GameObject threePlayersButton, fourPlayersButton, proceedButton;
-    [SerializeField] Text numOfPlayersText;
-    [SerializeField] Text joysticksConnectedText;
+    [SerializeField] Text numOfPlayersLabelText, numOfPlayersText;
+    [SerializeField] Text joysticksConnectedLabelText, joysticksConnectedText;
     [SerializeField] Text notEnoughJoysticksText;
-    [SerializeField] Text gameModeText;
+    [SerializeField] Text gameModeLabelText, gameModeText, selectGameModeText;
+    [SerializeField] Text players_2_Button_Text, players_3_Button_Text, players_4_Button_Text;
+    [SerializeField] Text proceedButtonText, titleButtonText, pleaseWaitLabelText;
+    [SerializeField] Text battleRoyaleButtonText, teamPlayButtonText;
     [SerializeField] bool debugFlag;
 
     int numOfPlayers;
@@ -29,6 +33,45 @@ public class SelectMulitplayerNumbers : MonoBehaviour
         notEnoughJoysticksText.enabled = false;
         numberOfPlayersCanvas.SetActive(true);
         battleModeCanvas.SetActive(false);
+        pleaseWaitCanvas.SetActive(false);
+
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                players_2_Button_Text.text = multiplaySelectNumPlayers_EN.GetLabelContent("2PlayersText");
+                players_3_Button_Text.text = multiplaySelectNumPlayers_EN.GetLabelContent("3PlayersText");
+                players_4_Button_Text.text = multiplaySelectNumPlayers_EN.GetLabelContent("4PlayersText");
+                joysticksConnectedLabelText.text = multiplaySelectNumPlayers_EN.GetLabelContent("JoysticksConnectedLabelText");
+                notEnoughJoysticksText.text = multiplaySelectNumPlayers_EN.GetLabelContent("NotEnoughJoysticksText");
+                selectGameModeText.text = multiplaySelectNumPlayers_EN.GetLabelContent("SelectGameModeText");
+                gameModeLabelText.text = multiplaySelectNumPlayers_EN.GetLabelContent("GameModeLabelText");
+                proceedButtonText.text = multiplaySelectNumPlayers_EN.GetLabelContent("ProceedButtonText");
+                titleButtonText.text = multiplaySelectNumPlayers_EN.GetLabelContent("TitleButtonText");
+                numOfPlayersLabelText.text = multiplaySelectNumPlayers_EN.GetLabelContent("NumOfPlayersLabelText");
+                battleRoyaleButtonText.text = multiplaySelectNumPlayers_EN.GetLabelContent("BattleRoyaleButtonText");
+                teamPlayButtonText.text = multiplaySelectNumPlayers_EN.GetLabelContent("TeamPlayButtonText");
+                pleaseWaitLabelText.text = multiplaySelectNumPlayers_EN.GetLabelContent("PleaseWaitLabelText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                players_2_Button_Text.text = multiplaySelectNumPlayers_JP.GetLabelContent("2PlayersText");
+                players_3_Button_Text.text = multiplaySelectNumPlayers_JP.GetLabelContent("3PlayersText");
+                players_4_Button_Text.text = multiplaySelectNumPlayers_JP.GetLabelContent("4PlayersText");
+                joysticksConnectedLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("JoysticksConnectedLabelText");
+                notEnoughJoysticksText.text = multiplaySelectNumPlayers_JP.GetLabelContent("NotEnoughJoysticksText");
+                selectGameModeText.text = multiplaySelectNumPlayers_JP.GetLabelContent("SelectGameModeText");
+                gameModeLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("GameModeLabelText");
+                proceedButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("ProceedButtonText");
+                titleButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("TitleButtonText");
+                numOfPlayersLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("NumOfPlayersLabelText");
+                battleRoyaleButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("BattleRoyaleButtonText");
+                teamPlayButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("TeamPlayButtonText");
+                pleaseWaitLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("PleaseWaitLabelText");
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -79,7 +122,6 @@ public class SelectMulitplayerNumbers : MonoBehaviour
             proceedButton.SetActive(false);
         }
         joysticksConnectedText.text = numJoysticksConnected.ToString();
-        /*
         if (numJoysticksConnected < 4)
         {
             fourPlayersButton.SetActive(false);
@@ -96,7 +138,6 @@ public class SelectMulitplayerNumbers : MonoBehaviour
         {
             fourPlayersButton.SetActive(true);
         }
-        */
     }
 
     private void UpdateNumOfPlayers()
@@ -117,6 +158,7 @@ public class SelectMulitplayerNumbers : MonoBehaviour
         if(numPlayers == 4)
         {
             numberOfPlayersCanvas.SetActive(false);
+            pleaseWaitCanvas.SetActive(false);
             battleModeCanvas.SetActive(true);
         }
     }
@@ -126,6 +168,7 @@ public class SelectMulitplayerNumbers : MonoBehaviour
         MultiplayPlayerMode.gameMode = selectedGameMode;
         Debug.Log("Game Mode: " + MultiplayPlayerMode.gameMode);
         battleModeCanvas.SetActive(false);
+        pleaseWaitCanvas.SetActive(false);
         numberOfPlayersCanvas.SetActive(true);
     }
 
@@ -133,6 +176,9 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     {
         PlayerNameTempSaveMultiplay.numPlayers = numOfPlayers;
         if(sceneName == "") { return; }
+        numberOfPlayersCanvas.SetActive(false);
+        battleModeCanvas.SetActive(false);
+        pleaseWaitCanvas.SetActive(true);
         SceneManager.LoadScene(sceneName);
     }
 
