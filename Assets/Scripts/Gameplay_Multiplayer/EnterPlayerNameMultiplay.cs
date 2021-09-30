@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class EnterPlayerNameMultiplay : MonoBehaviour
 {
+    [SerializeField] Localization multiplay_enter_name_EN, multiplay_enter_name_JP;
     [SerializeField] string difficultyScene;
     [SerializeField] string teamSelectionScene;
     [SerializeField] string titleMap;
+    [SerializeField] GameObject enterPlayerNameCanvas, pleaseWaitCanvas;
     [SerializeField] GameObject[] playerNameObjects;
     [SerializeField] InputField[] playerNameInput;
-    [SerializeField] Text errorText;
+    [SerializeField] Text errorText, enterPlayerNameTitleText, proceedButtonText, titleButtonText, pleaseWaitLabelText;
+    [SerializeField] Text player1LabelText, player2LabelText, player3LabelText, player4LabelText;
 
     private int numOfPlayers;
 
@@ -28,6 +31,45 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
             playerNameObjects[playerIndex].SetActive(false);
         }
         errorText.enabled = false;
+        enterPlayerNameCanvas.SetActive(true);
+        pleaseWaitCanvas.SetActive(false);
+
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                enterPlayerNameTitleText.text = multiplay_enter_name_EN.GetLabelContent("EnterPlayerNameTitleText");
+                proceedButtonText.text = multiplay_enter_name_EN.GetLabelContent("ProceedButtonText");
+                titleButtonText.text = multiplay_enter_name_EN.GetLabelContent("TitleButtonText");
+                pleaseWaitLabelText.text = multiplay_enter_name_EN.GetLabelContent("PleaseWaitLabelText");
+                player1LabelText.text = multiplay_enter_name_EN.GetLabelContent("Player1LabelText");
+                player2LabelText.text = multiplay_enter_name_EN.GetLabelContent("Player2LabelText");
+                player3LabelText.text = multiplay_enter_name_EN.GetLabelContent("Player3LabelText");
+                player4LabelText.text = multiplay_enter_name_EN.GetLabelContent("Player4LabelText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                errorText.fontStyle = FontStyle.Bold;
+                enterPlayerNameTitleText.text = multiplay_enter_name_JP.GetLabelContent("EnterPlayerNameTitleText");
+                enterPlayerNameTitleText.fontStyle = FontStyle.Bold;
+                proceedButtonText.text = multiplay_enter_name_JP.GetLabelContent("ProceedButtonText");
+                proceedButtonText.fontStyle = FontStyle.Bold;
+                titleButtonText.text = multiplay_enter_name_JP.GetLabelContent("TitleButtonText");
+                titleButtonText.fontStyle = FontStyle.Bold;
+                pleaseWaitLabelText.text = multiplay_enter_name_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.fontStyle = FontStyle.Bold;
+                player1LabelText.text = multiplay_enter_name_JP.GetLabelContent("Player1LabelText");
+                player1LabelText.fontStyle = FontStyle.Bold;
+                player2LabelText.text = multiplay_enter_name_JP.GetLabelContent("Player2LabelText");
+                player2LabelText.fontStyle = FontStyle.Bold;
+                player3LabelText.text = multiplay_enter_name_JP.GetLabelContent("Player3LabelText");
+                player3LabelText.fontStyle = FontStyle.Bold;
+                player4LabelText.text = multiplay_enter_name_JP.GetLabelContent("Player4LabelText");
+                player4LabelText.fontStyle = FontStyle.Bold;
+                break;
+        }
     }
 
     public void Proceed()
@@ -39,7 +81,15 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
             {
                 if (errorText == null) { return; }
                 errorText.enabled = true;
-                errorText.text = "Player "+(playerIndex+1)+" 's name cannot be empty!";
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        errorText.text = "Player " + (playerIndex + 1) + multiplay_enter_name_EN.GetLabelContent("ErrorText");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        errorText.text = "ÉvÉåÉCÉÑÅ[ " + (playerIndex + 1) + multiplay_enter_name_JP.GetLabelContent("ErrorText");
+                        break;
+                }
                 proceedFlag = false;
                 break;
             }
@@ -55,7 +105,9 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
                 PlayerNameTempSaveMultiplay.playerName[playerIndex] = playerNameInput[playerIndex].text.ToString();
             }
             if (difficultyScene.Equals("") || teamSelectionScene.Equals("")) { return; }
-            if(MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
+            pleaseWaitCanvas.SetActive(true);
+            enterPlayerNameCanvas.SetActive(false);
+            if (MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
             {
                 SceneManager.LoadScene(difficultyScene);
             }

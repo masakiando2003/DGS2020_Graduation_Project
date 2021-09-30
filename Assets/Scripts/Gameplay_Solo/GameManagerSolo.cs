@@ -135,7 +135,7 @@ public class GameManagerSolo : MonoBehaviour
         UpdatePlayerBoostText(); // For Debug
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
         }
         switch (Language.gameDisplayLanguage)
         {

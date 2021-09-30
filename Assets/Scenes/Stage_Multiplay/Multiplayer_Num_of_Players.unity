@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 25605427}
   - component: {fileID: 25605426}
   m_Layer: 5
-  m_Name: BattleRoyaleText
+  m_Name: BattleRoyaleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 360551593}
   - component: {fileID: 360551592}
   m_Layer: 5
-  m_Name: 4PlayersText
+  m_Name: 4PlayersButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 715259840}
   - component: {fileID: 715259839}
   m_Layer: 5
-  m_Name: TeamPlayText
+  m_Name: TeamPlayButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -962,7 +962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
+  m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726265004
@@ -1057,7 +1057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
+  m_AnchoredPosition: {x: -150, y: 0}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832461388
@@ -1363,7 +1363,7 @@ GameObject:
   - component: {fileID: 910037890}
   - component: {fileID: 910037889}
   m_Layer: 5
-  m_Name: 3PlayersText
+  m_Name: 3PlayersButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1875,15 +1875,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eba005e890e9145a3df2ee621d0d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplaySelectNumPlayers_EN: {fileID: 11400000, guid: 71f3e8f7ec24d5e4c91ba27858033782, type: 2}
+  multiplaySelectNumPlayers_JP: {fileID: 11400000, guid: 01839e8cf2b89d24691d1b52ff9a0587, type: 2}
   numberOfPlayersCanvas: {fileID: 1147829859}
   battleModeCanvas: {fileID: 53999514}
+  pleaseWaitCanvas: {fileID: 903439217}
   threePlayersButton: {fileID: 541919909}
   fourPlayersButton: {fileID: 909491435}
   proceedButton: {fileID: 1020510854}
+  numOfPlayersLabelText: {fileID: 1324852898}
   numOfPlayersText: {fileID: 958556806}
+  joysticksConnectedLabelText: {fileID: 1973633298}
   joysticksConnectedText: {fileID: 1914391996}
   notEnoughJoysticksText: {fileID: 2145450711}
+  gameModeLabelText: {fileID: 1050790734}
   gameModeText: {fileID: 1788785894}
+  selectGameModeText: {fileID: 1310652824}
+  players_2_Button_Text: {fileID: 1387360060}
+  players_3_Button_Text: {fileID: 910037889}
+  players_4_Button_Text: {fileID: 360551592}
+  proceedButtonText: {fileID: 1602006916}
+  titleButtonText: {fileID: 1983635315}
+  pleaseWaitLabelText: {fileID: 832461389}
+  battleRoyaleButtonText: {fileID: 25605426}
+  teamPlayButtonText: {fileID: 715259839}
   debugFlag: 0
 --- !u!1 &1310652822
 GameObject:
@@ -1976,7 +1991,7 @@ GameObject:
   - component: {fileID: 1324852899}
   - component: {fileID: 1324852898}
   m_Layer: 5
-  m_Name: NumberOfPlayersTitleText
+  m_Name: NumberOfPlayersLabelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2055,7 +2070,7 @@ GameObject:
   - component: {fileID: 1387360061}
   - component: {fileID: 1387360060}
   m_Layer: 5
-  m_Name: 2PlayersText
+  m_Name: 2PlayersButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2134,7 +2149,7 @@ GameObject:
   - component: {fileID: 1602006917}
   - component: {fileID: 1602006916}
   m_Layer: 5
-  m_Name: ProceedText
+  m_Name: ProceedButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2680,7 +2695,7 @@ GameObject:
   - component: {fileID: 1973633299}
   - component: {fileID: 1973633298}
   m_Layer: 5
-  m_Name: NumberOfConnectedJoysticksTitleText
+  m_Name: NumberOfConnectedJoysticksLabelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2759,7 +2774,7 @@ GameObject:
   - component: {fileID: 1983635316}
   - component: {fileID: 1983635315}
   m_Layer: 5
-  m_Name: TitleText
+  m_Name: TitleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
