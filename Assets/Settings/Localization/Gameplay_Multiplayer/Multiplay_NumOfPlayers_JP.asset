@@ -26,6 +26,8 @@ MonoBehaviour:
   - TeamPlayButtonText
   - PleaseWaitLabelText
   - NotEnoughJoysticksText
+  - BattleRoyale
+  - TeamPlay
   labelText:
   - "2\u4EBA"
   - "3\u4EBA"
@@ -40,3 +42,5 @@ MonoBehaviour:
   - "\u30C1\u30FC\u30E0\u5BFE\u6226"
   - "\u5C11\u3057\u304A\u5F85\u3061\u304F\u3060\u3055\u3044"
   - "\u63A5\u7D9A\u3057\u305F\u30B8\u30E7\u30A4\u30B9\u30C6\u30A3\u30C3\u30AF\u6570\u304C\u8DB3\u308A\u307E\u305B\u3093!"
+  - "\u30D0\u30C8\u30EB\u30ED\u30A4\u30E4\u30EB"
+  - "\u30C1\u30FC\u30E0\u5BFE\u6226"

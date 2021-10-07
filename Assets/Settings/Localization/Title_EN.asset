@@ -16,7 +16,9 @@ MonoBehaviour:
   - SoloPlay
   - MultiPlay
   - Credits
+  - Option
   labelText:
   - 1 Player
   - 2-4 Players
   - Credits
+  - Option

@@ -15,6 +15,7 @@ public class GameManagerMultiplay : MonoBehaviour
         get; private set;
     }
 
+    [SerializeField] Localization gameManagerMultiplay_EN, gameManagerMultiplay_JP;
     [SerializeField] GameObject rocketMesh;
     [SerializeField] GameObject[] playerRockets;
     [SerializeField] GameObject[] fuelObjects;
@@ -32,9 +33,20 @@ public class GameManagerMultiplay : MonoBehaviour
     [SerializeField] Text[] playerTeamLabels;
     [SerializeField] Text[] playerTeamTexts;
     [SerializeField] Text[] playerPositionTexts;
-    [SerializeField] Text finishText;
+    [SerializeField] Text[] playerNameLabelTexts;
+    [SerializeField] Text[] playerSpeedLabelTexts;
+    [SerializeField] Text[] playerCheckPointLabelTexts;
+    [SerializeField] Text[] playerTimeElapsedLabelTexts;
+    [SerializeField] Text[] playerPositionLabelTexts;
+    [SerializeField] Text[] playerItemLabelTexts;
+    [SerializeField] Text[] targetPlayerLabelTexts;
+    [SerializeField] Text finishText, pauseText, thankYouForPlayingText;
     [SerializeField] Text winnerPlayerNameText;
     [SerializeField] Text countDownTimeText;
+    [SerializeField] Text clearRestartButtonText, clearTitleButtonText;
+    [SerializeField] Text pauseResumeButtonText, pauseRestartButtonText, pauseTitleButtonText;
+    [SerializeField] Text winnerText, congradulationText;
+    [SerializeField] Text[] sliderStartTexts, sliderGoalTexts;
     [SerializeField] Color teamAColor, teamBColor;
     [SerializeField] float startPointSpawnPositionOffsetY = 10f;
     [SerializeField] float checkPointSpawnPositionOffsetX = 5f;
@@ -60,6 +72,7 @@ public class GameManagerMultiplay : MonoBehaviour
     float[] playerTotalDistance;
     string finalElapsedTime;
     string winnerTeam;
+    bool isPaused;
 
     public enum GameState
     {
@@ -100,6 +113,7 @@ public class GameManagerMultiplay : MonoBehaviour
                 playerRockets[i].GetComponent<MovementMultiplay>().DisablePlayerControl();
                 lastCheckPointPositions[i] = startPositions[i];
                 playerCheckPointTexts[i].text = "Start";
+                playerSpeedTexts[i].text = "0Km / s";
             }
             if(followPlayerCameras[i] != null)
             {
@@ -148,6 +162,137 @@ public class GameManagerMultiplay : MonoBehaviour
         Time.timeScale = 1f;
         countDownTimer = startCountDownTime;
         winnerTeam = "";
+        isPaused = false;
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                for(int i = 0; i < playerNameLabelTexts.Length; i++)
+                {
+                    playerNameLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerNameLabelText");
+                }
+                for (int i = 0; i < playerSpeedLabelTexts.Length; i++)
+                {
+                    playerSpeedLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerSpeedLabelText");
+                }
+                for (int i = 0; i < playerCheckPointLabelTexts.Length; i++)
+                {
+                    playerCheckPointLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerCheckPointLabelText");
+                }
+                for (int i = 0; i < playerTimeElapsedLabelTexts.Length; i++)
+                {
+                    playerTimeElapsedLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerTimeElapsedLabelText");
+                }
+                for (int i = 0; i < playerPositionLabelTexts.Length; i++)
+                {
+                    playerPositionLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerPositionLabelText");
+                }
+                for (int i = 0; i < playerItemLabelTexts.Length; i++)
+                {
+                    playerItemLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerItemLabelText");
+                }
+                for (int i = 0; i < targetPlayerLabelTexts.Length; i++)
+                {
+                    targetPlayerLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("TargetPlayerLabelText");
+                }
+                finishText.text = gameManagerMultiplay_EN.GetLabelContent("FinishText");
+                pauseText.text = gameManagerMultiplay_EN.GetLabelContent("PauseText");
+                thankYouForPlayingText.text = gameManagerMultiplay_EN.GetLabelContent("ThankYouForPlayingText");
+                clearRestartButtonText.text = gameManagerMultiplay_EN.GetLabelContent("ClearRestartButtonText");
+                clearTitleButtonText.text = gameManagerMultiplay_EN.GetLabelContent("ClearTitleButtonText");
+                pauseResumeButtonText.text = gameManagerMultiplay_EN.GetLabelContent("PauseResumeButtonText");
+                pauseRestartButtonText.text = gameManagerMultiplay_EN.GetLabelContent("PauseRestartButtonText");
+                pauseTitleButtonText.text = gameManagerMultiplay_EN.GetLabelContent("PauseTitleButtonText");
+                for (int i = 0; i < sliderStartTexts.Length; i++)
+                {
+                    sliderStartTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("SliderStartText");
+                }
+                for (int i = 0; i < sliderGoalTexts.Length; i++)
+                {
+                    sliderGoalTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("SliderGoalText");
+                }
+                winnerText.text = gameManagerMultiplay_EN.GetLabelContent("WinnerText");
+                congradulationText.text = gameManagerMultiplay_EN.GetLabelContent("CongradulationText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                for (int i = 0; i < playerNameLabelTexts.Length; i++)
+                {
+                    playerNameLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerNameLabelText");
+                }
+                for (int i = 0; i < playerSpeedLabelTexts.Length; i++)
+                {
+                    playerSpeedLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerSpeedLabelText");
+                }
+                for (int i = 0; i < playerCheckPointLabelTexts.Length; i++)
+                {
+                    playerCheckPointLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerCheckPointLabelText");
+                }
+                for (int i = 0; i < playerTimeElapsedLabelTexts.Length; i++)
+                {
+                    playerTimeElapsedLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerTimeElapsedLabelText");
+                }
+                for (int i = 0; i < playerPositionLabelTexts.Length; i++)
+                {
+                    playerPositionLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerPositionLabelText");
+                }
+                for (int i = 0; i < playerItemLabelTexts.Length; i++)
+                {
+                    playerItemLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerItemLabelText");
+                }
+                for (int i = 0; i < targetPlayerLabelTexts.Length; i++)
+                {
+                    targetPlayerLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("TargetPlayerLabelText");
+                }
+                finishText.text = gameManagerMultiplay_JP.GetLabelContent("FinishText");
+                pauseText.text = gameManagerMultiplay_JP.GetLabelContent("PauseText");
+                thankYouForPlayingText.text = gameManagerMultiplay_JP.GetLabelContent("ThankYouForPlayingText");
+                clearRestartButtonText.text = gameManagerMultiplay_JP.GetLabelContent("ClearRestartButtonText");
+                clearRestartButtonText.fontStyle = FontStyle.Bold;
+                clearTitleButtonText.text = gameManagerMultiplay_JP.GetLabelContent("ClearTitleButtonText");
+                clearTitleButtonText.fontStyle = FontStyle.Bold;
+                pauseResumeButtonText.text = gameManagerMultiplay_JP.GetLabelContent("PauseResumeButtonText");
+                pauseResumeButtonText.fontStyle = FontStyle.Bold;
+                pauseRestartButtonText.text = gameManagerMultiplay_JP.GetLabelContent("PauseRestartButtonText");
+                pauseRestartButtonText.fontStyle = FontStyle.Bold;
+                pauseTitleButtonText.text = gameManagerMultiplay_JP.GetLabelContent("PauseTitleButtonText");
+                pauseTitleButtonText.fontStyle = FontStyle.Bold;
+                for (int i = 0; i < sliderStartTexts.Length; i++)
+                {
+                    sliderStartTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("SliderStartText");
+                }
+                for (int i = 0; i < sliderGoalTexts.Length; i++)
+                {
+                    sliderGoalTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("SliderGoalText");
+                }
+                winnerText.text = gameManagerMultiplay_JP.GetLabelContent("WinnerText");
+                congradulationText.text = gameManagerMultiplay_JP.GetLabelContent("CongradulationText");
+                for(int i = 0; i < playerPositionTexts.Length; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            playerPositionTexts[i].text = "1ˆÊ";
+                            break;
+                        case 1:
+                            playerPositionTexts[i].text = "2ˆÊ";
+                            break;
+                        case 2:
+                            playerPositionTexts[i].text = "3ˆÊ";
+                            break;
+                        case 3:
+                            playerPositionTexts[i].text = "4ˆÊ";
+                            break;
+                    }
+                }
+                for(int i = 0; i < playerCheckPointTexts.Length; i++)
+                {
+                    playerCheckPointTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("StartText");
+                }
+                break;
+        }
     }
 
     private void Update()
@@ -210,7 +355,15 @@ public class GameManagerMultiplay : MonoBehaviour
     private void ShowCountTimeText(float countDownTimer)
     {
         int remainingSeconds = Mathf.FloorToInt(countDownTimer);
-        countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : startGameText;
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : gameManagerMultiplay_EN.GetLabelContent("GoText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : gameManagerMultiplay_JP.GetLabelContent("GoText");
+                break;
+        }
     }
 
     private void HideCountDownText()
@@ -239,7 +392,17 @@ public class GameManagerMultiplay : MonoBehaviour
         {
             currentCheckPoint = "Start";
         }
-        playerCheckPointTexts[playerIndex].text = currentCheckPoint;
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                playerCheckPointTexts[playerIndex].text = currentCheckPoint;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                playerCheckPointTexts[playerIndex].text = currentCheckPoint.Replace("Start", gameManagerMultiplay_JP.GetLabelContent("StartText"))
+                                                                           .Replace("Checkpoint", gameManagerMultiplay_JP.GetLabelContent("CheckpointText"))
+                                                                           .Replace("Goal", gameManagerMultiplay_JP.GetLabelContent("GoalText"));
+                break;
+        }
     }
 
     private void UpdateStageMiniSlider(int playerIndex)
@@ -327,6 +490,11 @@ public class GameManagerMultiplay : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public bool IsPaused()
+    {
+        return isPaused;
+    }
+
     public void ResumeGame()
     {
         Instance.ChangeGameState(GameState.GameStart);
@@ -350,7 +518,7 @@ public class GameManagerMultiplay : MonoBehaviour
 
         if (finishPanel != null)
         {
-            finishText.enabled = false;
+            finishText.enabled = true;
             finishPanel.SetActive(true);
             string winnerPlayerName = PlayerNameTempSaveMultiplay.playerName[playerIndex - 1];
             if(winnerPlayerNameText != null)
@@ -366,7 +534,7 @@ public class GameManagerMultiplay : MonoBehaviour
 
         if (finishPanel != null)
         {
-            finishText.enabled = false;   
+            finishText.enabled = true;   
             finishPanel.SetActive(true);
             string winnerPlayerName1 = "", winnerPlayerName2 = "";
             if (winnerTeam == "Team A")
@@ -951,16 +1119,48 @@ public class GameManagerMultiplay : MonoBehaviour
         switch (playerRemainingDistances.Keys.ToList().IndexOf(playerIndex))
         {
             case 0:
-                playerPositionTexts[playerIndex].text = "1st";
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        playerPositionTexts[playerIndex].text = "1st";
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        playerPositionTexts[playerIndex].text = "1ˆÊ";
+                        break;
+                }
                 break;
             case 1:
-                playerPositionTexts[playerIndex].text = "2nd";
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        playerPositionTexts[playerIndex].text = "2nd";
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        playerPositionTexts[playerIndex].text = "2ˆÊ";
+                        break;
+                }
                 break;
             case 2:
-                playerPositionTexts[playerIndex].text = "3rd";
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        playerPositionTexts[playerIndex].text = "3rd";
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        playerPositionTexts[playerIndex].text = "3ˆÊ";
+                        break;
+                }
                 break;
             case 3:
-                playerPositionTexts[playerIndex].text = "4th";
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        playerPositionTexts[playerIndex].text = "4th";
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        playerPositionTexts[playerIndex].text = "4ˆÊ";
+                        break;
+                }
                 break;
         }
     }

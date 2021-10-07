@@ -233,8 +233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: -150, y: 0}
+  m_SizeDelta: {x: 1200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20903980
 MonoBehaviour:
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 464210814}
   - component: {fileID: 464210813}
   m_Layer: 5
-  m_Name: EasyText
+  m_Name: EasyButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1787,12 +1787,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf6ea667000e53d41bc05433056c07f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chooseDifficultyMultiplay_EN: {fileID: 11400000, guid: 12b27214e45c2284f8684f0dba29dbad, type: 2}
+  chooseDifficultyMultiplay_JP: {fileID: 11400000, guid: 1018c797b4aaae04aa584f58416ba855, type: 2}
   difficultyCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 485493938}
   introductionScene: Multiplayer_Instruction
   titleMap: Title
   difficulty: Easy
+  chooseDifficultyTitleText: {fileID: 1324852898}
   difficultyText: {fileID: 1533728398}
+  pleaseWaitLabelText: {fileID: 20903981}
+  easyButtonText: {fileID: 464210813}
+  normalButtonText: {fileID: 1351039902}
+  hardButtonText: {fileID: 1657366650}
+  proceedButtonText: {fileID: 1602006916}
+  titleButtonText: {fileID: 1983635315}
   stageEasyViewImageObj: {fileID: 1031221761}
   stageNormalViewImageObj: {fileID: 846881621}
   stageHardViewImageObj: {fileID: 298522812}
@@ -1915,7 +1924,7 @@ GameObject:
   - component: {fileID: 1351039903}
   - component: {fileID: 1351039902}
   m_Layer: 5
-  m_Name: NormalText
+  m_Name: NormalButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1963,7 +1972,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -2301,7 +2310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
+  m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580261564
@@ -2373,7 +2382,7 @@ GameObject:
   - component: {fileID: 1602006917}
   - component: {fileID: 1602006916}
   m_Layer: 5
-  m_Name: ProceedText
+  m_Name: ProceedButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2421,7 +2430,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -2491,7 +2500,7 @@ GameObject:
   - component: {fileID: 1657366651}
   - component: {fileID: 1657366650}
   m_Layer: 5
-  m_Name: HardText
+  m_Name: HardButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2539,7 +2548,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -2954,7 +2963,7 @@ GameObject:
   - component: {fileID: 1983635316}
   - component: {fileID: 1983635315}
   m_Layer: 5
-  m_Name: TitleText
+  m_Name: TitleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3002,7 +3011,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40

@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 279921090}
   - component: {fileID: 279921089}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: InputPlayer2NamePlaceholderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 863262157}
   - component: {fileID: 863262156}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: InputPlayer1NamePlaceholderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 882302545}
   - component: {fileID: 882302544}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: InputPlayer3NamePlaceholderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1863,6 +1863,11 @@ MonoBehaviour:
   - {fileID: 608803310}
   - {fileID: 134150605}
   - {fileID: 2041615325}
+  playerNamePlaceHolderText:
+  - {fileID: 863262156}
+  - {fileID: 279921089}
+  - {fileID: 882302544}
+  - {fileID: 1684437421}
   errorText: {fileID: 944707095}
   enterPlayerNameTitleText: {fileID: 1324852898}
   proceedButtonText: {fileID: 1602006916}
@@ -2218,7 +2223,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -2359,7 +2364,7 @@ GameObject:
   - component: {fileID: 1684437422}
   - component: {fileID: 1684437421}
   m_Layer: 5
-  m_Name: Placeholder
+  m_Name: InputPlayer4NamePlaceholderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2891,7 +2896,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40

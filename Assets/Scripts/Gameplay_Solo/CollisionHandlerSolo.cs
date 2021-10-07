@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionHandlerSolo : MonoBehaviour
 {
+    [SerializeField] float maxSEVolume = 1f;
     [SerializeField] float respawnTime = 1f;
     [SerializeField] float playerCanControlTime = 1f;
     [SerializeField] AudioClip successSE;
@@ -17,6 +18,11 @@ public class CollisionHandlerSolo : MonoBehaviour
     bool collisionDisable = false;
 
     private void Start()
+    {
+        Initialization();
+    }
+
+    private void Initialization()
     {
         audioSource = GetComponent<AudioSource>();
         playerMovement = GetComponent<MovementSolo>();

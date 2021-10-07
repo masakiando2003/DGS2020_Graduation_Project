@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MultiplayerInstruction : MonoBehaviour
 {
+    [SerializeField] Localization multiplayerInstruction_EN, multiplayerInstruction_JP;
     [SerializeField] GameObject instructionCanvas;
     [SerializeField] GameObject pleaseWaitCanvas;
     [SerializeField] GameObject objectionSection, controlsSection, hintsSection, itemsSection;
@@ -16,6 +17,12 @@ public class MultiplayerInstruction : MonoBehaviour
     [SerializeField] Image stageEasy3PViewImage, stageNormal3PViewImage, stageHard3PViewImage;
     [SerializeField] Image stageEasy4PViewImage, stageNormal4PViewImage, stageHard4PViewImage;
     [SerializeField] string titleMap;
+    [SerializeField] Text winConditionButtonText, controlButtonText, hintsButtonText, itemsButtonText;
+    [SerializeField] Text hint1ButtonText, hint2ButtonText, hint3ButtonText, hint4ButtonText;
+    [SerializeField] Text instructionTitleText, startButtonText, titleButtonText, pleaseWaitLabelText;
+    [SerializeField] Text winConditionText, hint1Text, hint2Text, hint3Text, hint4Text;
+    [SerializeField] Text attackItemText, defenceItemText, abnormalItemText;
+    [SerializeField] Text boostCanItemText, reduceSpeedItemText, reduceBoostItemText;
 
 
     private void Awake()
@@ -69,6 +76,73 @@ public class MultiplayerInstruction : MonoBehaviour
                 stageEasyViewImageObj.SetActive(false);
                 stageNormalViewImageObj.SetActive(false);
                 stageHardViewImageObj.SetActive(true);
+                break;
+        }
+        if(Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                instructionTitleText.text = multiplayerInstruction_EN.GetLabelContent("InstructionTitleText");
+                winConditionButtonText.text = multiplayerInstruction_EN.GetLabelContent("WinConditionButtonText");
+                controlButtonText.text = multiplayerInstruction_EN.GetLabelContent("ControlButtonText");
+                hintsButtonText.text = multiplayerInstruction_EN.GetLabelContent("HintsButtonText");
+                itemsButtonText.text = multiplayerInstruction_EN.GetLabelContent("ItemsButtonText");
+                hint1ButtonText.text = multiplayerInstruction_EN.GetLabelContent("Hint1ButtonText");
+                hint2ButtonText.text = multiplayerInstruction_EN.GetLabelContent("Hint2ButtonText");
+                hint3ButtonText.text = multiplayerInstruction_EN.GetLabelContent("Hint3ButtonText");
+                hint4ButtonText.text = multiplayerInstruction_EN.GetLabelContent("Hint4ButtonText");
+                startButtonText.text = multiplayerInstruction_EN.GetLabelContent("StartButtonText");
+                titleButtonText.text = multiplayerInstruction_EN.GetLabelContent("TitleButtonText");
+                pleaseWaitLabelText.text = multiplayerInstruction_EN.GetLabelContent("PleaseWaitLabelText");
+                winConditionText.text = multiplayerInstruction_EN.GetLabelContent("WinConditionText").Replace("|", System.Environment.NewLine);
+                hint1Text.text = multiplayerInstruction_EN.GetLabelContent("Hint1Text").Replace("|", System.Environment.NewLine);
+                hint2Text.text = multiplayerInstruction_EN.GetLabelContent("Hint2Text").Replace("|", System.Environment.NewLine);
+                hint3Text.text = multiplayerInstruction_EN.GetLabelContent("Hint3Text").Replace("|", System.Environment.NewLine);
+                hint4Text.text = multiplayerInstruction_EN.GetLabelContent("Hint4Text").Replace("|", System.Environment.NewLine);
+                attackItemText.text = multiplayerInstruction_EN.GetLabelContent("AttackItemText");
+                defenceItemText.text = multiplayerInstruction_EN.GetLabelContent("DefenceItemText");
+                abnormalItemText.text = multiplayerInstruction_EN.GetLabelContent("AbnormalItemText");
+                boostCanItemText.text = multiplayerInstruction_EN.GetLabelContent("BoostCanItemText");
+                reduceSpeedItemText.text = multiplayerInstruction_EN.GetLabelContent("ReduceSpeedItemText");
+                reduceBoostItemText.text = multiplayerInstruction_EN.GetLabelContent("ReduceBoostItemText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                instructionTitleText.text = multiplayerInstruction_JP.GetLabelContent("InstructionTitleText");
+                winConditionButtonText.text = multiplayerInstruction_JP.GetLabelContent("WinConditionButtonText");
+                winConditionButtonText.fontStyle = FontStyle.Bold;
+                controlButtonText.text = multiplayerInstruction_JP.GetLabelContent("ControlButtonText");
+                controlButtonText.fontStyle = FontStyle.Bold;
+                hintsButtonText.text = multiplayerInstruction_JP.GetLabelContent("HintsButtonText");
+                hintsButtonText.fontStyle = FontStyle.Bold;
+                itemsButtonText.text = multiplayerInstruction_JP.GetLabelContent("ItemsButtonText");
+                itemsButtonText.fontStyle = FontStyle.Bold;
+                hint1ButtonText.text = multiplayerInstruction_JP.GetLabelContent("Hint1ButtonText");
+                hint1ButtonText.fontStyle = FontStyle.Bold;
+                hint2ButtonText.text = multiplayerInstruction_JP.GetLabelContent("Hint2ButtonText");
+                hint2ButtonText.fontStyle = FontStyle.Bold;
+                hint3ButtonText.text = multiplayerInstruction_JP.GetLabelContent("Hint3ButtonText");
+                hint3ButtonText.fontStyle = FontStyle.Bold;
+                hint4ButtonText.text = multiplayerInstruction_JP.GetLabelContent("Hint4ButtonText");
+                hint4ButtonText.fontStyle = FontStyle.Bold;
+                startButtonText.text = multiplayerInstruction_JP.GetLabelContent("StartButtonText");
+                startButtonText.fontStyle = FontStyle.Bold;
+                titleButtonText.text = multiplayerInstruction_JP.GetLabelContent("TitleButtonText");
+                titleButtonText.fontStyle = FontStyle.Bold;
+                pleaseWaitLabelText.text = multiplayerInstruction_JP.GetLabelContent("PleaseWaitLabelText");
+                winConditionText.text = multiplayerInstruction_JP.GetLabelContent("WinConditionText").Replace("|", System.Environment.NewLine);
+                hint1Text.text = multiplayerInstruction_JP.GetLabelContent("Hint1Text").Replace("|", System.Environment.NewLine);
+                hint2Text.text = multiplayerInstruction_JP.GetLabelContent("Hint2Text").Replace("|", System.Environment.NewLine);
+                hint3Text.text = multiplayerInstruction_JP.GetLabelContent("Hint3Text").Replace("|", System.Environment.NewLine);
+                hint4Text.text = multiplayerInstruction_JP.GetLabelContent("Hint4Text").Replace("|", System.Environment.NewLine);
+                attackItemText.text = multiplayerInstruction_JP.GetLabelContent("AttackItemText");
+                defenceItemText.text = multiplayerInstruction_JP.GetLabelContent("DefenceItemText");
+                abnormalItemText.text = multiplayerInstruction_JP.GetLabelContent("AbnormalItemText");
+                boostCanItemText.text = multiplayerInstruction_JP.GetLabelContent("BoostCanItemText");
+                reduceSpeedItemText.text = multiplayerInstruction_JP.GetLabelContent("ReduceSpeedItemText");
+                reduceBoostItemText.text = multiplayerInstruction_JP.GetLabelContent("ReduceBoostItemText");
                 break;
         }
     }

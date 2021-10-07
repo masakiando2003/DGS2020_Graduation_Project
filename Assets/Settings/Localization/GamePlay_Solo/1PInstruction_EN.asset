@@ -47,9 +47,9 @@ MonoBehaviour:
   - Hint1
   - Hint2
   - Hint3
-  - There are safezones and recover boost item.
-  - Use Stage View button to confirm your position.
-  - Control your Speed for rotating your rocket easily.
+  - Hint 1:|There are safezones and recover boost item.
+  - Hint 2:|Use Stage View button to confirm your position.
+  - Hint 3:|Control your Speed for rotating your rocket easily.
   - Start
   - Ranking
   - Title
@@ -59,4 +59,4 @@ MonoBehaviour:
   - Final Position
   - Remaining Time
   - Time Elapsed
-  - PleaseWait
+  - Please Wait

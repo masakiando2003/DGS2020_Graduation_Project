@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
+  m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160755202
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -718,8 +718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 600, y: 200}
+  m_AnchoredPosition: {x: -150, y: 0}
+  m_SizeDelta: {x: 1200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342479397
 MonoBehaviour:
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1239,7 +1239,7 @@ GameObject:
   - component: {fileID: 680134170}
   - component: {fileID: 680134169}
   m_Layer: 5
-  m_Name: RandomTeamText
+  m_Name: RandomTeamButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1806,7 +1806,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -2267,14 +2267,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec08ff08c177754cb9279a5ddc01912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplayTeamSelection_EN: {fileID: 11400000, guid: 5c8d8de1fd6f48c479d69189ab21e857, type: 2}
+  multiplayTeamSelection_JP: {fileID: 11400000, guid: f36a6b05c56c46242926a8e0a18f5e54, type: 2}
   difficultyCanvas: {fileID: 1924429191}
   pleaseWaitCanvas: {fileID: 1468271435}
+  selectTeamText: {fileID: 1818891276}
   teamNotSelectedFinishedYetText: {fileID: 1613563597}
+  pleaseWaitLabelText: {fileID: 342479398}
+  proceedButtonText: {fileID: 1986094560}
+  resetButtonText: {fileID: 1606961868}
+  randomTeamButtonText: {fileID: 680134169}
   playerNameTexts:
   - {fileID: 120143940}
   - {fileID: 2001497776}
   - {fileID: 693254131}
   - {fileID: 339944152}
+  teamAButtonText:
+  - {fileID: 275708359}
+  - {fileID: 1045462020}
+  - {fileID: 189258730}
+  - {fileID: 1806127917}
+  teamBButtonText:
+  - {fileID: 2004216264}
+  - {fileID: 926155610}
+  - {fileID: 227819725}
+  - {fileID: 374161501}
   teamAPlayerButtons:
   - {fileID: 1184287354}
   - {fileID: 795395687}
@@ -2400,7 +2417,7 @@ GameObject:
   - component: {fileID: 1606961869}
   - component: {fileID: 1606961868}
   m_Layer: 5
-  m_Name: ResetText
+  m_Name: ResetButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2448,7 +2465,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -3019,7 +3036,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -3640,7 +3657,7 @@ GameObject:
   - component: {fileID: 1986094561}
   - component: {fileID: 1986094560}
   m_Layer: 5
-  m_Name: ProceedText
+  m_Name: ProceedButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3688,7 +3705,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -3698,7 +3715,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PROCEED
+  m_Text: Proceed
 --- !u!222 &1986094561
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3862,7 +3879,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40

@@ -58,17 +58,24 @@ public class SelectMulitplayerNumbers : MonoBehaviour
                 break;
             case Language.DisplayLanauge.Japanese:
                 players_2_Button_Text.text = multiplaySelectNumPlayers_JP.GetLabelContent("2PlayersText");
+                players_2_Button_Text.fontStyle = FontStyle.Bold;
                 players_3_Button_Text.text = multiplaySelectNumPlayers_JP.GetLabelContent("3PlayersText");
+                players_3_Button_Text.fontStyle = FontStyle.Bold;
                 players_4_Button_Text.text = multiplaySelectNumPlayers_JP.GetLabelContent("4PlayersText");
+                players_4_Button_Text.fontStyle = FontStyle.Bold;
                 joysticksConnectedLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("JoysticksConnectedLabelText");
                 notEnoughJoysticksText.text = multiplaySelectNumPlayers_JP.GetLabelContent("NotEnoughJoysticksText");
                 selectGameModeText.text = multiplaySelectNumPlayers_JP.GetLabelContent("SelectGameModeText");
                 gameModeLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("GameModeLabelText");
                 proceedButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("ProceedButtonText");
+                proceedButtonText.fontStyle = FontStyle.Bold;
                 titleButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("TitleButtonText");
+                titleButtonText.fontStyle = FontStyle.Bold;
                 numOfPlayersLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("NumOfPlayersLabelText");
                 battleRoyaleButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("BattleRoyaleButtonText");
+                battleRoyaleButtonText.fontStyle = FontStyle.Bold;
                 teamPlayButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("TeamPlayButtonText");
+                teamPlayButtonText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("PleaseWaitLabelText");
                 break;
         }
@@ -149,7 +156,31 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     {
         if(gameModeText == null) { return; }
         Debug.Log("Display Game Mode: " + MultiplayPlayerMode.gameMode);
-        gameModeText.text = MultiplayPlayerMode.gameMode.ToString();
+        switch (MultiplayPlayerMode.gameMode)
+        {
+            case "BattleRoyale":
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        gameModeText.text = multiplaySelectNumPlayers_EN.GetLabelContent("BattleRoyale");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        gameModeText.text = multiplaySelectNumPlayers_JP.GetLabelContent("BattleRoyale");
+                        break;
+                }
+                break;
+            case "TeamPlay":
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        gameModeText.text = multiplaySelectNumPlayers_EN.GetLabelContent("TeamPlay");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        gameModeText.text = multiplaySelectNumPlayers_JP.GetLabelContent("TeamPlay");
+                        break;
+                }
+                break;
+        }
     }
 
     public void SetNumOfPlayers(int numPlayers)
