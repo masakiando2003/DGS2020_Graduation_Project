@@ -43973,8 +43973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60cfbd51eb759e549a82d915a0040f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSEVolume: 1
   respawnTime: 3
-  adjustPlayerRotationTime: 0.5
   playerCanControlTime: 1
   successSE: {fileID: 8300000, guid: 04b6c80adad8c0941a2f428b084a8708, type: 3}
   crash: {fileID: 8300000, guid: 2a0fc57d8d5746645b024748c64928b0, type: 3}
@@ -43990,6 +43990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771196345f7fb1a44961f872dcadffce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSEVolume: 1
   thrustSpeed: 2500
   rotateThrust: 300
   thrustSpeedUpFactor: 2
@@ -43997,6 +43998,7 @@ MonoBehaviour:
   maxSpeed: 50
   slowDownSpeedFactor: 1.0005
   mainEngine: {fileID: 8300000, guid: d7914590cc5bf704fa6cd31af611de25, type: 3}
+  movementAudioSource: {fileID: 2242545001966035849}
   boostParticles: {fileID: 5059224656619352432}
 --- !u!114 &6105203387403518521
 MonoBehaviour:
@@ -44027,7 +44029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
-  playerMaxLife: 10
+  playerMaxLife: 3
   playerMaxBoost: 100
   boostFactor: 7
   boostSlider: {fileID: 6554590337372669526}

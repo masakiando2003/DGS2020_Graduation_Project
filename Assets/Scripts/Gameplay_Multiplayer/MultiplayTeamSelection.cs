@@ -9,9 +9,12 @@ using Random = UnityEngine.Random;
 
 public class MultiplayTeamSelection : MonoBehaviour
 {
+    [SerializeField] Localization multiplayTeamSelection_EN, multiplayTeamSelection_JP;
     [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
-    [SerializeField] Text teamNotSelectedFinishedYetText;
+    [SerializeField] Text selectTeamText, teamNotSelectedFinishedYetText, pleaseWaitLabelText;
+    [SerializeField] Text proceedButtonText, resetButtonText, randomTeamButtonText;
     [SerializeField] Text[] playerNameTexts;
+    [SerializeField] Text[] teamAButtonText, teamBButtonText;
     [SerializeField] Button[] teamAPlayerButtons, teamBPlayerButtons;
     [SerializeField] Color buttonNormalColor, buttonSelectedColor;
 
@@ -59,6 +62,50 @@ public class MultiplayTeamSelection : MonoBehaviour
                 teamBPlayerButtons[i].GetComponent<Image>().color = buttonNormalColor;
             }
         }
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                proceedButtonText.text = multiplayTeamSelection_EN.GetLabelContent("ProceedButtonText");
+                resetButtonText.text = multiplayTeamSelection_EN.GetLabelContent("ResetButtonText");
+                randomTeamButtonText.text = multiplayTeamSelection_EN.GetLabelContent("RandomTeamButtonText");
+                selectTeamText.text = multiplayTeamSelection_EN.GetLabelContent("SelectTeamText");
+                teamNotSelectedFinishedYetText.text = multiplayTeamSelection_EN.GetLabelContent("TeamNotSelectedFinishedYetText");
+                pleaseWaitLabelText.text = multiplayTeamSelection_EN.GetLabelContent("PleaseWaitLabelText");
+                for(int i = 0; i < teamAButtonText.Length; i++)
+                {
+                    teamAButtonText[i].text = multiplayTeamSelection_EN.GetLabelContent("TeamAButtonText");
+                }
+                for (int i = 0; i < teamBButtonText.Length; i++)
+                {
+                    teamBButtonText[i].text = multiplayTeamSelection_EN.GetLabelContent("TeamBButtonText");
+                }
+                break;
+            case Language.DisplayLanauge.Japanese:
+                proceedButtonText.text = multiplayTeamSelection_JP.GetLabelContent("ProceedButtonText");
+                proceedButtonText.fontStyle = FontStyle.Bold;
+                resetButtonText.text = multiplayTeamSelection_JP.GetLabelContent("ResetButtonText");
+                resetButtonText.fontStyle = FontStyle.Bold;
+                randomTeamButtonText.text = multiplayTeamSelection_JP.GetLabelContent("RandomTeamButtonText");
+                randomTeamButtonText.fontStyle = FontStyle.Bold;
+                selectTeamText.text = multiplayTeamSelection_JP.GetLabelContent("SelectTeamText");
+                teamNotSelectedFinishedYetText.text = multiplayTeamSelection_JP.GetLabelContent("TeamNotSelectedFinishedYetText");
+                pleaseWaitLabelText.text = multiplayTeamSelection_JP.GetLabelContent("PleaseWaitLabelText");
+                for (int i = 0; i < teamAButtonText.Length; i++)
+                {
+                    teamAButtonText[i].text = multiplayTeamSelection_JP.GetLabelContent("TeamAButtonText");
+                    teamAButtonText[i].fontStyle = FontStyle.Bold;
+                }
+                for (int i = 0; i < teamBButtonText.Length; i++)
+                {
+                    teamBButtonText[i].text = multiplayTeamSelection_JP.GetLabelContent("TeamBButtonText");
+                    teamBButtonText[i].fontStyle = FontStyle.Bold;
+                }
+                break;
+        }
     }
 
     public void SetTeam(string playerID_Team)
@@ -72,7 +119,15 @@ public class MultiplayTeamSelection : MonoBehaviour
         {
             if(MultiplayPlayerMode.TeamAPlayerIDs.Count >= 2)
             {
-                teamNotSelectedFinishedYetText.text = "Team A has already 2 members!";
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        teamNotSelectedFinishedYetText.text = "Team A " + multiplayTeamSelection_EN.GetLabelContent("FullMembersText");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        teamNotSelectedFinishedYetText.text = "チームA " + multiplayTeamSelection_JP.GetLabelContent("FullMembersText");
+                        break;
+                }
                 teamNotSelectedFinishedYetText.enabled = true;
             }
             else if(!MultiplayPlayerMode.TeamAPlayerIDs.Contains(playerID))
@@ -88,7 +143,15 @@ public class MultiplayTeamSelection : MonoBehaviour
         {
             if (MultiplayPlayerMode.TeamBPlayerIDs.Count >= 2)
             {
-                teamNotSelectedFinishedYetText.text = "Team B has already 2 members!";
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        teamNotSelectedFinishedYetText.text = "Team B " + multiplayTeamSelection_EN.GetLabelContent("FullMembersText");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        teamNotSelectedFinishedYetText.text = "チームB " + multiplayTeamSelection_JP.GetLabelContent("FullMembersText");
+                        break;
+                }
                 teamNotSelectedFinishedYetText.enabled = true;
             }
             else if (!MultiplayPlayerMode.TeamBPlayerIDs.Contains(playerID))

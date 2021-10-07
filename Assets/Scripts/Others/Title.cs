@@ -10,10 +10,10 @@ public class Title : MonoBehaviour
     [SerializeField] Localization title_EN, title_JP;
     [SerializeField] string soloPlayerInstructionSceneName;
     [SerializeField] string multiPlayerInstructionSceneName;
-    [SerializeField] string creditSceneName;
+    [SerializeField] string creditSceneName, optionSceneName;
     [SerializeField] float rotationSpeed = 20f;
     [SerializeField] GameObject rocketMesh;
-    [SerializeField] Text soloPlayerStartText, multiPlayerStartText, creditsText;
+    [SerializeField] Text soloPlayerStartText, multiPlayerStartText, creditsText, optionText;
 
     private void Start()
     {
@@ -52,6 +52,11 @@ public class Title : MonoBehaviour
         SceneManager.LoadScene(multiPlayerInstructionSceneName);
     }
 
+    public void Options()
+    {
+        SceneManager.LoadScene(optionSceneName);
+    }
+
     public void Credits()
     {
         SceneManager.LoadScene(creditSceneName);
@@ -74,6 +79,8 @@ public class Title : MonoBehaviour
                 multiPlayerStartText.fontStyle = FontStyle.Normal;
                 creditsText.text = title_EN.GetLabelContent("Credits");
                 creditsText.fontStyle = FontStyle.Normal;
+                optionText.text = title_EN.GetLabelContent("Option");
+                optionText.fontStyle = FontStyle.Normal;
                 break;
             case Language.DisplayLanauge.Japanese:
                 soloPlayerStartText.text = title_JP.GetLabelContent("SoloPlay");
@@ -82,6 +89,8 @@ public class Title : MonoBehaviour
                 multiPlayerStartText.fontStyle = FontStyle.Bold;
                 creditsText.text = title_JP.GetLabelContent("Credits");
                 creditsText.fontStyle = FontStyle.Bold;
+                optionText.text = title_JP.GetLabelContent("Option");
+                optionText.fontStyle = FontStyle.Bold;
                 break;
         }
     }

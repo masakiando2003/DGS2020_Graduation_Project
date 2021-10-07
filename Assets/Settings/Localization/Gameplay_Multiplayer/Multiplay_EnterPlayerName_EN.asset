@@ -22,6 +22,7 @@ MonoBehaviour:
   - Player2LabelText
   - Player3LabelText
   - Player4LabelText
+  - PlayerNamePlaceholderText
   labelText:
   - '''s name cannot be empty!'
   - 'Please enter your name:'
@@ -32,3 +33,4 @@ MonoBehaviour:
   - Player 2
   - Player 3
   - Player 4
+  - Enter your name here

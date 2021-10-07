@@ -84,9 +84,9 @@ public class Instructions_1P : MonoBehaviour
                 hint1ButtonText.text = instruction1P_EN.GetLabelContent("Hint1ButtonText");
                 hint2ButtonText.text = instruction1P_EN.GetLabelContent("Hint2ButtonText");
                 hint3ButtonText.text = instruction1P_EN.GetLabelContent("Hint3ButtonText");
-                hint1Text.text = instruction1P_EN.GetLabelContent("Hint1Text");
-                hint2Text.text = instruction1P_EN.GetLabelContent("Hint2Text");
-                hint3Text.text = instruction1P_EN.GetLabelContent("Hint3Text");
+                hint1Text.text = instruction1P_EN.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
+                hint2Text.text = instruction1P_EN.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
+                hint3Text.text = instruction1P_EN.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
                 startButtonText.text = instruction1P_EN.GetLabelContent("StartButtonText");
                 rankingButtonText.text = instruction1P_EN.GetLabelContent("RankingButtonText");
                 titleButtonText.text = instruction1P_EN.GetLabelContent("TitleButtonText");
@@ -117,9 +117,9 @@ public class Instructions_1P : MonoBehaviour
                 hint2ButtonText.fontStyle = FontStyle.Bold;
                 hint3ButtonText.text = instruction1P_JP.GetLabelContent("Hint3ButtonText");
                 hint3ButtonText.fontStyle = FontStyle.Bold;
-                hint1Text.text = instruction1P_JP.GetLabelContent("Hint1Text");
-                hint2Text.text = instruction1P_JP.GetLabelContent("Hint2Text");
-                hint3Text.text = instruction1P_JP.GetLabelContent("Hint3Text");
+                hint1Text.text = instruction1P_JP.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
+                hint2Text.text = instruction1P_JP.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
+                hint3Text.text = instruction1P_JP.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
                 startButtonText.text = instruction1P_JP.GetLabelContent("StartButtonText");
                 startButtonText.fontStyle = FontStyle.Bold;
                 rankingButtonText.text = instruction1P_JP.GetLabelContent("RankingButtonText");

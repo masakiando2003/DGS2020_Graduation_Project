@@ -26,6 +26,8 @@ MonoBehaviour:
   - TeamPlayButtonText
   - PleaseWaitLabelText
   - NotEnoughJoysticksText
+  - BattleRoyale
+  - TeamPlay
   labelText:
   - 2 Players
   - 3 Players
@@ -40,3 +42,5 @@ MonoBehaviour:
   - Team Play
   - Please wait
   - Please connect with more joysticks!
+  - Battle Royale
+  - Team Play

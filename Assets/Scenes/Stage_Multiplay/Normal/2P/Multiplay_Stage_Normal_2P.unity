@@ -1668,7 +1668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 340, y: -115}
+  m_AnchoredPosition: {x: 390, y: -115}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &118562054
@@ -1803,10 +1803,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 4
     m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -2239,7 +2239,7 @@ GameObject:
   - component: {fileID: 138598813}
   - component: {fileID: 138598812}
   m_Layer: 5
-  m_Name: TitleButton
+  m_Name: PauseTitleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4072,7 +4072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340, y: -65}
+  m_AnchoredPosition: {x: 390, y: -65}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &238754955
@@ -4387,7 +4387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -364.99988, y: -55}
+  m_AnchoredPosition: {x: -380, y: -55}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &251222155
@@ -9415,7 +9415,7 @@ GameObject:
   - component: {fileID: 288079346}
   - component: {fileID: 288079348}
   m_Layer: 5
-  m_Name: StageMiniSliderStartPointText
+  m_Name: Player2StageMiniSliderStartPointText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9829,7 +9829,7 @@ GameObject:
   - component: {fileID: 304599516}
   - component: {fileID: 304599515}
   m_Layer: 5
-  m_Name: ResumeButton
+  m_Name: PauseResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10596,7 +10596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -160}
+  m_AnchoredPosition: {x: 90, y: -160}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &383072252
@@ -10626,7 +10626,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 2
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -18313,7 +18313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -70, y: -65}
+  m_AnchoredPosition: {x: -220, y: -65}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &620461114
@@ -18343,7 +18343,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -18386,7 +18386,7 @@ GameObject:
   - component: {fileID: 621370177}
   - component: {fileID: 621370179}
   m_Layer: 5
-  m_Name: ResumeText
+  m_Name: PauseResumeButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24173,7 +24173,7 @@ GameObject:
   - component: {fileID: 741786991}
   - component: {fileID: 741786990}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: PauseRestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31296,7 +31296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -110}
+  m_AnchoredPosition: {x: 90, y: -110}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &943531559
@@ -31326,7 +31326,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 2
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -31418,10 +31418,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
-    m_FontSize: 80
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 6
     m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -31488,7 +31488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -220, y: -20}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &949506250
@@ -31518,7 +31518,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -32896,7 +32896,7 @@ GameObject:
   - component: {fileID: 1033027993}
   - component: {fileID: 1033027995}
   m_Layer: 5
-  m_Name: TitleText
+  m_Name: PauseTitleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33600,7 +33600,7 @@ GameObject:
   - component: {fileID: 1065469783}
   - component: {fileID: 1065469785}
   m_Layer: 5
-  m_Name: TitleText
+  m_Name: ClearTitleButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34314,7 +34314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -364.99988, y: -595}
+  m_AnchoredPosition: {x: -380, y: -595}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1135802962
@@ -34390,7 +34390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -20.000061, y: -70.00005}
+  m_AnchoredPosition: {x: -220, y: -70.00005}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1136928487
@@ -34420,7 +34420,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -34735,6 +34735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c840217f63cdc4ea405627ae0963de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManagerMultiplay_EN: {fileID: 11400000, guid: 953f9abb89b152240a722f472abe4e9a, type: 2}
+  gameManagerMultiplay_JP: {fileID: 11400000, guid: 508469bdcef114b47952229ace129f71, type: 2}
   rocketMesh: {fileID: 0}
   playerRockets:
   - {fileID: 1612263097}
@@ -34814,9 +34816,45 @@ MonoBehaviour:
   playerPositionTexts:
   - {fileID: 943531559}
   - {fileID: 383072252}
+  playerNameLabelTexts:
+  - {fileID: 1260773595}
+  - {fileID: 1761979611}
+  playerSpeedLabelTexts:
+  - {fileID: 620461114}
+  - {fileID: 1987522336}
+  playerCheckPointLabelTexts:
+  - {fileID: 1677425212}
+  - {fileID: 1419610558}
+  playerTimeElapsedLabelTexts:
+  - {fileID: 949506250}
+  - {fileID: 1136928487}
+  playerPositionLabelTexts:
+  - {fileID: 2110932566}
+  - {fileID: 1976385322}
+  playerItemLabelTexts:
+  - {fileID: 1826099841}
+  - {fileID: 224277135}
+  targetPlayerLabelTexts:
+  - {fileID: 298051077}
+  - {fileID: 60749401}
   finishText: {fileID: 1071411260}
+  pauseText: {fileID: 2116134103}
+  thankYouForPlayingText: {fileID: 126911456}
   winnerPlayerNameText: {fileID: 948953654}
   countDownTimeText: {fileID: 484751161}
+  clearRestartButtonText: {fileID: 1302828607}
+  clearTitleButtonText: {fileID: 1065469783}
+  pauseResumeButtonText: {fileID: 621370177}
+  pauseRestartButtonText: {fileID: 2023550040}
+  pauseTitleButtonText: {fileID: 1033027993}
+  winnerText: {fileID: 1836181775}
+  congradulationText: {fileID: 1480521671}
+  sliderStartTexts:
+  - {fileID: 4266923023123079106}
+  - {fileID: 288079346}
+  sliderGoalTexts:
+  - {fileID: 4266923023561964722}
+  - {fileID: 2146117087}
   teamAColor: {r: 0, g: 0, b: 0, a: 0}
   teamBColor: {r: 0, g: 0, b: 0, a: 0}
   startPointSpawnPositionOffsetY: 10
@@ -41826,7 +41864,7 @@ GameObject:
   - component: {fileID: 1302828607}
   - component: {fileID: 1302828609}
   m_Layer: 5
-  m_Name: RestartText
+  m_Name: ClearRestartButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43117,7 +43155,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 50.000122, y: -115}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1419610558
 MonoBehaviour:
@@ -44328,10 +44366,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
-    m_FontSize: 80
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 6
     m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -45899,7 +45937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1607102748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46268,7 +46306,7 @@ MonoBehaviour:
   thrustSppedNormalFactor: 1
   maxSpeed: 50
   slowDownSpeedFactor: 1.0005
-  speedDownImage: {fileID: 0}
+  speedDownImage: {fileID: 251222155}
   mainEngine: {fileID: 8300000, guid: d7914590cc5bf704fa6cd31af611de25, type: 3}
   boostParticles: {fileID: 4322454449824211376}
 --- !u!114 &1612263104
@@ -46300,7 +46338,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTime: 3
-  adjustPlayerRotationTime: 0.5
   playerCanControlTime: 1
   successSE: {fileID: 8300000, guid: 04b6c80adad8c0941a2f428b084a8708, type: 3}
   crash: {fileID: 8300000, guid: 2a0fc57d8d5746645b024748c64928b0, type: 3}
@@ -46317,7 +46354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
-  playerInvisibleTime: 3
   playerAttackItemOffsetX: 60
   playerDropBackItemOffsetX: -10
   waitToTakeItemSeconds: 3
@@ -56714,7 +56750,7 @@ MonoBehaviour:
   thrustSppedNormalFactor: 1
   maxSpeed: 50
   slowDownSpeedFactor: 1.0005
-  speedDownImage: {fileID: 0}
+  speedDownImage: {fileID: 1135802962}
   mainEngine: {fileID: 8300000, guid: d7914590cc5bf704fa6cd31af611de25, type: 3}
   boostParticles: {fileID: 651388259}
 --- !u!114 &1676015688
@@ -56966,7 +57002,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTime: 3
-  adjustPlayerRotationTime: 0.5
   playerCanControlTime: 1
   successSE: {fileID: 8300000, guid: 04b6c80adad8c0941a2f428b084a8708, type: 3}
   crash: {fileID: 8300000, guid: 2a0fc57d8d5746645b024748c64928b0, type: 3}
@@ -56983,7 +57018,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 2
-  playerInvisibleTime: 3
   playerAttackItemOffsetX: 53.6
   playerDropBackItemOffsetX: -10
   waitToTakeItemSeconds: 3
@@ -57125,7 +57159,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 50, y: -65}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1677425212
 MonoBehaviour:
@@ -59971,10 +60005,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
-    m_FontSize: 80
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 8
+    m_MinSize: 6
     m_MaxSize: 80
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -70829,7 +70863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -160}
+  m_AnchoredPosition: {x: -220, y: -160}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1976385322
@@ -70859,7 +70893,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -70924,7 +70958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -70.00018, y: -115}
+  m_AnchoredPosition: {x: -220, y: -115}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1987522336
@@ -70954,7 +70988,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -71427,7 +71461,7 @@ GameObject:
   - component: {fileID: 2023550040}
   - component: {fileID: 2023550042}
   m_Layer: 5
-  m_Name: RestartText
+  m_Name: PauseRestartButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72483,7 +72517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -110}
+  m_AnchoredPosition: {x: -220, y: -110}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2110932566
@@ -72513,7 +72547,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 2
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -73035,7 +73069,7 @@ GameObject:
   - component: {fileID: 2146117087}
   - component: {fileID: 2146117089}
   m_Layer: 5
-  m_Name: StageMiniSliderGoalPointText
+  m_Name: Player2StageMiniSliderGoalPointText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86216,7 +86250,7 @@ GameObject:
   - component: {fileID: 4266923023123079106}
   - component: {fileID: 4266923023123079105}
   m_Layer: 5
-  m_Name: StageMiniSliderStartPointText
+  m_Name: Player1StageMiniSliderStartPointText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86422,7 +86456,7 @@ GameObject:
   - component: {fileID: 4266923023561964722}
   - component: {fileID: 4266923023561964721}
   m_Layer: 5
-  m_Name: StageMiniSliderGoalPointText
+  m_Name: Player1StageMiniSliderGoalPointText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

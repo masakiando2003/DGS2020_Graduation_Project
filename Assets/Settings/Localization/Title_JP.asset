@@ -16,7 +16,9 @@ MonoBehaviour:
   - SoloPlay
   - MultiPlay
   - Credits
+  - Option
   labelText:
   - "\u30BD\u30ED\u30D7\u30EC\u30A4"
   - "\u30DE\u30EB\u30C1\u30D7\u30EC\u30A4"
   - "\u30AF\u30EC\u30B8\u30C3\u30C8"
+  - "\u30AA\u30D7\u30B7\u30E7\u30F3"

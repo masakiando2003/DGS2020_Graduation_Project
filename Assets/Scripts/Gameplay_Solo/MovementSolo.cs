@@ -6,14 +6,17 @@ using UnityEngine.UI;
 
 public class MovementSolo : MonoBehaviour
 {
+    [SerializeField] float maxSEVolume = 1f;
     [SerializeField] float thrustSpeed = 1500f, rotateThrust = 100;
     [SerializeField] float thrustSpeedUpFactor = 2f, thrustSppedNormalFactor = 1f;
     [SerializeField] float maxSpeed = 50f, slowDownSpeedFactor = 1.0005f;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioSource movementAudioSource;
 
     [SerializeField] ParticleSystem boostParticles;
 
     int playerID;
+    int seVolume;
     float speedFactor;
     Rigidbody rb;
     AudioSource audioSource;
@@ -35,6 +38,15 @@ public class MovementSolo : MonoBehaviour
         canResetRotation = false;
         speedFactor = thrustSppedNormalFactor;
         playerID = GetComponent<PlayerStatusSolo>().GetPlayerID();
+        if (PlayerPrefs.HasKey("SEVolume"))
+        {
+            seVolume = PlayerPrefs.GetInt("SEVolume");
+        }
+        else
+        {
+            seVolume = 100;
+        }
+        movementAudioSource.volume = maxSEVolume * seVolume / 100;
     }
 
     // Update is called once per frame

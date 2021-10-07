@@ -13,6 +13,7 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
     [SerializeField] GameObject enterPlayerNameCanvas, pleaseWaitCanvas;
     [SerializeField] GameObject[] playerNameObjects;
     [SerializeField] InputField[] playerNameInput;
+    [SerializeField] Text[] playerNamePlaceHolderText;
     [SerializeField] Text errorText, enterPlayerNameTitleText, proceedButtonText, titleButtonText, pleaseWaitLabelText;
     [SerializeField] Text player1LabelText, player2LabelText, player3LabelText, player4LabelText;
 
@@ -69,6 +70,18 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
                 player4LabelText.text = multiplay_enter_name_JP.GetLabelContent("Player4LabelText");
                 player4LabelText.fontStyle = FontStyle.Bold;
                 break;
+        }
+        for(int i = 0; i < playerNamePlaceHolderText.Length; i++)
+        {
+            switch (Language.gameDisplayLanguage)
+            {
+                case Language.DisplayLanauge.English:
+                    playerNamePlaceHolderText[i].text = multiplay_enter_name_EN.GetLabelContent("PlayerNamePlaceholderText");
+                    break;
+                case Language.DisplayLanauge.Japanese:
+                    playerNamePlaceHolderText[i].text = multiplay_enter_name_JP.GetLabelContent("PlayerNamePlaceholderText");
+                    break;
+            }
         }
     }
 

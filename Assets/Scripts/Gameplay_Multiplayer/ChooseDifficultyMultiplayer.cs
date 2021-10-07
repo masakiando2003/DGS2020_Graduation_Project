@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class ChooseDifficultyMultiplayer : MonoBehaviour
 {
+    [SerializeField] Localization chooseDifficultyMultiplay_EN, chooseDifficultyMultiplay_JP;
     [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
     [SerializeField] string introductionScene;
     [SerializeField] string titleMap;
     [SerializeField] string difficulty = "Easy";
-    [SerializeField] Text difficultyText;
+    [SerializeField] Text chooseDifficultyTitleText, difficultyText, pleaseWaitLabelText;
+    [SerializeField] Text easyButtonText, normalButtonText, hardButtonText, proceedButtonText, titleButtonText;
     [SerializeField] GameObject stageEasyViewImageObj, stageNormalViewImageObj, stageHardViewImageObj;
     [SerializeField] Image stageEasyViewImage, stageNormalViewImage, stageHardViewImage;
     [SerializeField] Image stageEasy2PViewImage, stageNormal2PViewImage, stageHard2PViewImage;
@@ -28,6 +30,37 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
     {
         difficultyCanvas.SetActive(true);
         pleaseWaitCanvas.SetActive(false);
+        if(Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                chooseDifficultyTitleText.text = chooseDifficultyMultiplay_EN.GetLabelContent("ChooseDifficultyTitleText");
+                pleaseWaitLabelText.text = chooseDifficultyMultiplay_EN.GetLabelContent("PleaseWaitLabelText");
+                easyButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("EasyButtonText");
+                normalButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("NormalButtonText");
+                hardButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("HardButtonText");
+                proceedButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("ProceedButtonText");
+                titleButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("TitleButtonText");
+                break;
+            case Language.DisplayLanauge.Japanese:
+                chooseDifficultyTitleText.text = chooseDifficultyMultiplay_JP.GetLabelContent("ChooseDifficultyTitleText");
+                pleaseWaitLabelText.text = chooseDifficultyMultiplay_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.fontStyle = FontStyle.Bold;
+                easyButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("EasyButtonText");
+                easyButtonText.fontStyle = FontStyle.Bold;
+                normalButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("NormalButtonText");
+                normalButtonText.fontStyle = FontStyle.Bold;
+                hardButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("HardButtonText");
+                hardButtonText.fontStyle = FontStyle.Bold;
+                proceedButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("ProceedButtonText");
+                proceedButtonText.fontStyle = FontStyle.Bold;
+                titleButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("TitleButtonText");
+                titleButtonText.fontStyle = FontStyle.Bold;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -39,7 +72,26 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
 
     private void UpdateDifficultyText()
     {
-        difficultyText.text = difficulty;
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                difficultyText.text = difficulty;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                switch (difficulty)
+                {
+                    case "Easy":
+                        difficultyText.text = chooseDifficultyMultiplay_JP.GetLabelContent("EasyButtonText");
+                        break;
+                    case "Normal":
+                        difficultyText.text = chooseDifficultyMultiplay_JP.GetLabelContent("NormalButtonText");
+                        break;
+                    case "Hard":
+                        difficultyText.text = chooseDifficultyMultiplay_JP.GetLabelContent("HardButtonText");
+                        break;
+                }
+                break;
+        }
     }
 
     private void UpdateStageImageView()
