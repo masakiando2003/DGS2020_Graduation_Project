@@ -21,6 +21,21 @@ MonoBehaviour:
   - BGMVolumeText
   - SEVolumeText
   - SoloPlayRankingDataText
+  - RankingTitleEasyLabelText
+  - RankingTitleNormalLabelText
+  - RankingTitleHardLabelText
+  - ReturnButtonText
+  - StartText
+  - CheckPointText
+  - GoalText
+  - PlayerNameText
+  - FinalPositionText
+  - RemainingTimeText
+  - TimeElapsedText
+  - ResetDataButtonText
+  - ConfirmResetDataText
+  - YesButtonText
+  - NoButtonText
   labelText:
   - "\u30AA\u30D7\u30B7\u30E7\u30F3"
   - "\u30BF\u30A4\u30C8\u30EB"
@@ -30,3 +45,18 @@ MonoBehaviour:
   - "BGM\u30DC\u30EA\u30E5\u30FC\u30E0"
   - "SE\u30DC\u30EA\u30E5\u30FC\u30E0"
   - "1\u4EBA\u30D7\u30EC\u30A4|\u30E9\u30F3\u30AD\u30F3\u30B0\u30C7\u30FC\u30BF"
+  - "\u30E9\u30F3\u30AD\u30F3\u30B0 - \u30A4\u30FC\u30B8\u30FC"
+  - "\u30E9\u30F3\u30AD\u30F3\u30B0 - \u30CE\u30FC\u30DE\u30EB"
+  - "\u30E9\u30F3\u30AD\u30F3\u30B0 - \u30CF\u30FC\u30C9"
+  - "\u623B\u308B"
+  - "\u30B9\u30BF\u30FC\u30C8"
+  - "\u30C1\u30A7\u30C3\u30AF\u30DD\u30A4\u30F3\u30C8"
+  - "\u30B4\u30FC\u30EB"
+  - "\u540D\u524D"
+  - "\u6700\u7D42\u4F4D\u7F6E"
+  - "\u6B8B\u308A\u6642\u9593"
+  - "\u7D4C\u904E\u6642\u9593"
+  - "\u30C7\u30FC\u30BF\u30EA\u30BB\u30C3\u30C8"
+  - "\u306E\u30E9\u30F3\u30AD\u30F3\u30B0\u30C7\u30FC\u30BF\u3092\u672C\u5F53\u306B\u524A\u9664\u3057\u305F\u3044\u3067\u3059\u304B"
+  - "\u306F\u3044"
+  - "\u3044\u3044\u3048"

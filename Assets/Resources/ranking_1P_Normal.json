@@ -1,32 +1,32 @@
 {
   "detail": [
     {
-      "playerName": "Daisuke",
+      "playerName": "DD_112",
       "finalPosition": "Goal",
       "checkPointIndex": 99,
-      "remainingTime": 180,
-      "timeElapsed": "02:00:00"
+      "remainingTime": 27,
+      "timeElapsed": "02:33:11"
     },
     {
-      "playerName": "Akane",
-      "finalPosition": "Check Point 5",
-      "checkPointIndex": 5,
-      "remainingTime": 0,
-      "timeElapsed": "05:00:00"
+      "playerName": "o_1",
+      "finalPosition": "Goal",
+      "checkPointIndex": 99,
+      "remainingTime": 11,
+      "timeElapsed": "02:49:45"
     },
     {
       "playerName": "Takeshi",
       "finalPosition": "Check Point 3",
       "checkPointIndex": 3,
       "remainingTime": 0,
-      "timeElapsed": "05:00:00"
+      "timeElapsed": "03:00:00"
     },
     {
       "playerName": "Saki",
-      "finalPosition": "Check Point 1",
-      "checkPointIndex": 1,
+      "finalPosition": "Check Point 2",
+      "checkPointIndex": 2,
       "remainingTime": 0,
-      "timeElapsed": "05:00:00"
+      "timeElapsed": "03:00:00"
     },
     {
       "playerName": "Haru",

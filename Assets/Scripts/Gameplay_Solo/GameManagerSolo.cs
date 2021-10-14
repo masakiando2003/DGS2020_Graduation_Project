@@ -907,7 +907,7 @@ public class GameManagerSolo : MonoBehaviour
         }
         string saveRankingData = JsonUtility.ToJson(rankingJson, true);
         Debug.Log(saveRankingData);
-        File.WriteAllText(Application.dataPath + "/Resources/ranking.json", saveRankingData);
+        File.WriteAllText(Application.dataPath + "/Resources/ranking_1P_"+Difficulty_1P_TempSave.chosenDifficulty+".json", saveRankingData);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }

@@ -21,6 +21,21 @@ MonoBehaviour:
   - BGMVolumeText
   - SEVolumeText
   - SoloPlayRankingDataText
+  - RankingTitleEasyLabelText
+  - RankingTitleNormalLabelText
+  - RankingTitleHardLabelText
+  - ReturnButtonText
+  - StartText
+  - CheckPointText
+  - GoalText
+  - PlayerNameText
+  - FinalPositionText
+  - RemainingTimeText
+  - TimeElapsedText
+  - ResetDataButtonText
+  - ConfirmResetDataText
+  - YesButtonText
+  - NoButtonText
   labelText:
   - Option
   - Title
@@ -30,3 +45,18 @@ MonoBehaviour:
   - BGM Volume
   - SE Volume
   - 1 Player|Ranking Data
+  - Ranking - Easy
+  - Ranking - Normal
+  - Ranking - Hard
+  - Return
+  - Start
+  - Check Point
+  - Goal
+  - Player Name
+  - Final Position
+  - Remaining TIme
+  - Time Elapsed
+  - Reset Data
+  - Are you sure to delete ranking data of
+  - Yes
+  - No

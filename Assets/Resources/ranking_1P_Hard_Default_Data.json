@@ -4,27 +4,27 @@
 			"playerName": "Daisuke",
 			"finalPosition": "Goal",
 			"checkPointIndex": 99,
-			"remainingTime": 180,
-			"timeElapsed": "02:00:00"
+			"remainingTime": 60,
+			"timeElapsed": "04:30:00"
 		},
 		{
 			"playerName": "Akane",
+			"finalPosition": "Check Point 8",
+			"checkPointIndex": 8,
+			"remainingTime": 0,
+			"timeElapsed": "05:00:00"
+		},
+		{
+			"playerName": "Takeshi",
 			"finalPosition": "Check Point 5",
 			"checkPointIndex": 5,
 			"remainingTime": 0,
 			"timeElapsed": "05:00:00"
 		},
 		{
-			"playerName": "Takeshi",
+			"playerName": "Saki",
 			"finalPosition": "Check Point 3",
 			"checkPointIndex": 3,
-			"remainingTime": 0,
-			"timeElapsed": "05:00:00"
-		},
-		{
-			"playerName": "Saki",
-			"finalPosition": "Check Point 1",
-			"checkPointIndex": 1,
 			"remainingTime": 0,
 			"timeElapsed": "05:00:00"
 		},
