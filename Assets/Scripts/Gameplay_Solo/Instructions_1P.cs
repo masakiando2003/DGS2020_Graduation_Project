@@ -15,7 +15,8 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] GameObject objectionSection, controlsSection, hintsSection;
     [SerializeField] GameObject keyboardSection, joystickSection;
     [SerializeField] GameObject hints1Section, hints2Section, hints3Section;
-    [SerializeField] GameObject stageEasyImage, stageNormalImage, stageHardImage;
+    [SerializeField] GameObject stageEasyImageEN, stageNormalImageEN, stageHardImageEN;
+    [SerializeField] GameObject stageEasyImageJP, stageNormalImageJP, stageHardImageJP;
     [SerializeField] string targetEasyMap, targetNormalMap, targetHardMap;
     [SerializeField] string titleMap;
     [SerializeField] Text instructionTitleText, missionButtonText, controlsButtonText, hintsButtonText;
@@ -28,7 +29,9 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] Text[] rankingFinalPositionText;
     [SerializeField] Text[] rankingRemainingTimeText;
     [SerializeField] Text[] rankingTimeElaspedText;
-    [SerializeField] TextAsset rankingDataFile;
+    [SerializeField] TextAsset rankingDataEasyFile, rankingDataNormalFile, rankingDataHardFile;
+
+    TextAsset rankingDataFile;
 
     private void Awake()
     {
@@ -37,6 +40,10 @@ public class Instructions_1P : MonoBehaviour
 
     private void Initialization()
     {
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+        }
         instructionCanvas.SetActive(true);
         rankingCanvas.SetActive(false);
         pleaseWaitCanvas.SetActive(false);
@@ -51,26 +58,61 @@ public class Instructions_1P : MonoBehaviour
         switch (Difficulty_1P_TempSave.chosenDifficulty)
         {
             case "Easy":
-                stageEasyImage.SetActive(true);
-                stageNormalImage.SetActive(false);
-                stageHardImage.SetActive(false);
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        stageEasyImageEN.SetActive(true);
+                        stageEasyImageJP.SetActive(false);
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        stageEasyImageJP.SetActive(true);
+                        stageEasyImageEN.SetActive(false);
+                        break;
+                }
+                stageNormalImageEN.SetActive(false);
+                stageNormalImageJP.SetActive(false);
+                stageHardImageEN.SetActive(false);
+                stageHardImageJP.SetActive(false);
+                rankingDataFile = rankingDataEasyFile;
                 break;
             case "Normal":
-                stageEasyImage.SetActive(false);
-                stageNormalImage.SetActive(true);
-                stageHardImage.SetActive(false);
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        stageNormalImageEN.SetActive(true);
+                        stageNormalImageJP.SetActive(false);
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        stageNormalImageJP.SetActive(true);
+                        stageNormalImageEN.SetActive(false);
+                        break;
+                }
+                stageEasyImageEN.SetActive(false);
+                stageEasyImageJP.SetActive(false);
+                stageHardImageEN.SetActive(false);
+                stageHardImageJP.SetActive(false);
+                rankingDataFile = rankingDataNormalFile;
                 break;
             case "Hard":
-                stageEasyImage.SetActive(false);
-                stageNormalImage.SetActive(false);
-                stageHardImage.SetActive(true);
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        stageHardImageEN.SetActive(true);
+                        stageHardImageJP.SetActive(false);
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        stageHardImageJP.SetActive(true);
+                        stageHardImageEN.SetActive(false);
+                        break;
+                }
+                stageEasyImageEN.SetActive(false);
+                stageEasyImageJP.SetActive(false);
+                stageNormalImageEN.SetActive(false);
+                stageNormalImageJP.SetActive(false);
+                rankingDataFile = rankingDataHardFile;
                 break;
         }
-        ReadRankingData();
-        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
-        {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
-        }
+        ReadRankingData(rankingDataFile);
         switch (Language.gameDisplayLanguage)
         {
             case Language.DisplayLanauge.English:
@@ -138,7 +180,7 @@ public class Instructions_1P : MonoBehaviour
         }
     }
 
-    private void ReadRankingData()
+    private void ReadRankingData(TextAsset rankingDataFile)
     {
         if (rankingDataFile == null) { return; }
         int index = 0;
@@ -146,7 +188,9 @@ public class Instructions_1P : MonoBehaviour
         foreach (RankingData data in rankingJson.detail)
         {
             rankingPlayerNameText[index].text = data.playerName;
+            rankingPlayerNameText[index].fontStyle = FontStyle.Bold;
             rankingFinalPositionText[index].text = data.finalPosition;
+            rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
             rankingRemainingTimeText[index].text = data.remainingTime.ToString();
             rankingTimeElaspedText[index].text = data.timeElapsed;
             index++;
