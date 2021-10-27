@@ -14,14 +14,17 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] GameObject pleaseWaitCanvas;
     [SerializeField] GameObject objectionSection, controlsSection, hintsSection;
     [SerializeField] GameObject keyboardSection, joystickSection;
-    [SerializeField] GameObject hints1Section, hints2Section, hints3Section;
+    [SerializeField] GameObject hints1Section, hints2Section, hints3Section, hints4Section;
+    [SerializeField] GameObject hint1ImageEN, hint2Image1EN, hint2Image2EN, hint3ImageEN, hint4ImageEN;
+    [SerializeField] GameObject hint1ImageJP, hint2Image1JP, hint2Image2JP, hint3ImageJP, hint4ImageJP;
     [SerializeField] GameObject stageEasyImageEN, stageNormalImageEN, stageHardImageEN;
     [SerializeField] GameObject stageEasyImageJP, stageNormalImageJP, stageHardImageJP;
+    [SerializeField] GameObject keyboardImageEN, keyboardImageJP, joystickImageEN, joystickImageJP;
     [SerializeField] string targetEasyMap, targetNormalMap, targetHardMap;
     [SerializeField] string titleMap;
     [SerializeField] Text instructionTitleText, missionButtonText, controlsButtonText, hintsButtonText;
     [SerializeField] Text missionText, keyboardButtonText, joystickButtonText;
-    [SerializeField] Text hint1ButtonText, hint2ButtonText, hint3ButtonText, hint1Text, hint2Text, hint3Text;
+    [SerializeField] Text hint1ButtonText, hint2ButtonText, hint3ButtonText, hint4ButtonText, hint1Text, hint2Text, hint3Text, hint4Text;
     [SerializeField] Text startButtonText, rankingButtonText, titleButtonText, returnButtonText;
     [SerializeField] Text rankingLabelText, rankingPlayerNameLabelText, rankingPlayerFinalPositionText;
     [SerializeField] Text rankingPlayerRemainingTimeText, rankingPlayerTimeElapsedText, pleaseWaitLabelText;
@@ -42,7 +45,7 @@ public class Instructions_1P : MonoBehaviour
     {
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
         instructionCanvas.SetActive(true);
         rankingCanvas.SetActive(false);
@@ -54,6 +57,7 @@ public class Instructions_1P : MonoBehaviour
         hints1Section.SetActive(true);
         hints2Section.SetActive(false);
         hints3Section.SetActive(false);
+        hints4Section.SetActive(false);
         hintsSection.SetActive(false);
         switch (Difficulty_1P_TempSave.chosenDifficulty)
         {
@@ -126,9 +130,25 @@ public class Instructions_1P : MonoBehaviour
                 hint1ButtonText.text = instruction1P_EN.GetLabelContent("Hint1ButtonText");
                 hint2ButtonText.text = instruction1P_EN.GetLabelContent("Hint2ButtonText");
                 hint3ButtonText.text = instruction1P_EN.GetLabelContent("Hint3ButtonText");
+                hint4ButtonText.text = instruction1P_EN.GetLabelContent("Hint4ButtonText");
                 hint1Text.text = instruction1P_EN.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
                 hint2Text.text = instruction1P_EN.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
                 hint3Text.text = instruction1P_EN.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
+                hint4Text.text = instruction1P_EN.GetLabelContent("Hint4Text").Replace("|", Environment.NewLine);
+                hint1ImageEN.SetActive(true);
+                hint2Image1EN.SetActive(true);
+                hint2Image2EN.SetActive(true);
+                hint3ImageEN.SetActive(true);
+                hint4ImageEN.SetActive(true);
+                hint1ImageJP.SetActive(false);
+                hint2Image1JP.SetActive(false);
+                hint2Image2JP.SetActive(false);
+                hint3ImageJP.SetActive(false);
+                hint4ImageJP.SetActive(false);
+                keyboardImageEN.SetActive(true);
+                keyboardImageJP.SetActive(false);
+                joystickImageEN.SetActive(true);
+                joystickImageJP.SetActive(false);
                 startButtonText.text = instruction1P_EN.GetLabelContent("StartButtonText");
                 rankingButtonText.text = instruction1P_EN.GetLabelContent("RankingButtonText");
                 titleButtonText.text = instruction1P_EN.GetLabelContent("TitleButtonText");
@@ -159,9 +179,26 @@ public class Instructions_1P : MonoBehaviour
                 hint2ButtonText.fontStyle = FontStyle.Bold;
                 hint3ButtonText.text = instruction1P_JP.GetLabelContent("Hint3ButtonText");
                 hint3ButtonText.fontStyle = FontStyle.Bold;
+                hint4ButtonText.text = instruction1P_JP.GetLabelContent("Hint4ButtonText");
+                hint4ButtonText.fontStyle = FontStyle.Bold;
                 hint1Text.text = instruction1P_JP.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
                 hint2Text.text = instruction1P_JP.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
                 hint3Text.text = instruction1P_JP.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
+                hint4Text.text = instruction1P_JP.GetLabelContent("Hint4Text").Replace("|", Environment.NewLine);
+                hint1ImageEN.SetActive(false);
+                hint2Image1EN.SetActive(false);
+                hint2Image2EN.SetActive(false);
+                hint3ImageEN.SetActive(false);
+                hint4ImageEN.SetActive(false);
+                hint1ImageJP.SetActive(true);
+                hint2Image1JP.SetActive(true);
+                hint2Image2JP.SetActive(true);
+                hint3ImageJP.SetActive(true);
+                hint4ImageJP.SetActive(true);
+                keyboardImageEN.SetActive(false);
+                keyboardImageJP.SetActive(true);
+                joystickImageEN.SetActive(false);
+                joystickImageJP.SetActive(true);
                 startButtonText.text = instruction1P_JP.GetLabelContent("StartButtonText");
                 startButtonText.fontStyle = FontStyle.Bold;
                 rankingButtonText.text = instruction1P_JP.GetLabelContent("RankingButtonText");
@@ -246,6 +283,7 @@ public class Instructions_1P : MonoBehaviour
         hints1Section.SetActive(true);
         hints2Section.SetActive(false);
         hints3Section.SetActive(false);
+        hints4Section.SetActive(false);
         hintsSection.SetActive(true);
     }
 
@@ -254,6 +292,7 @@ public class Instructions_1P : MonoBehaviour
         hints1Section.SetActive(true);
         hints2Section.SetActive(false);
         hints3Section.SetActive(false);
+        hints4Section.SetActive(false);
     }
 
     public void ShowHints2Section()
@@ -261,6 +300,7 @@ public class Instructions_1P : MonoBehaviour
         hints1Section.SetActive(false);
         hints2Section.SetActive(true);
         hints3Section.SetActive(false);
+        hints4Section.SetActive(false);
     }
 
     public void ShowHints3Section()
@@ -268,6 +308,14 @@ public class Instructions_1P : MonoBehaviour
         hints1Section.SetActive(false);
         hints2Section.SetActive(false);
         hints3Section.SetActive(true);
+        hints4Section.SetActive(false);
+    }
+    public void ShowHints4Section()
+    {
+        hints1Section.SetActive(false);
+        hints2Section.SetActive(false);
+        hints3Section.SetActive(false);
+        hints4Section.SetActive(true);
     }
 
     public void StartGame()

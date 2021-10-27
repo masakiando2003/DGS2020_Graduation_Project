@@ -321,6 +321,9 @@ public class GameManagerMultiplay : MonoBehaviour
                 break;
             case GameState.Finish:
                 break;
+            case GameState.Pause:
+                RespondToPauseGame();
+                break;
             default:
                 break;
         }
@@ -432,9 +435,28 @@ public class GameManagerMultiplay : MonoBehaviour
 
     private void RespondToPauseGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(currentGameState == GameState.Pause)
         {
-            PauseGame();
+            if (Input.GetKeyDown(KeyCode.Escape) ||
+                Input.GetButtonDown("1PPause") ||
+                Input.GetButtonDown("2PPause") ||
+                Input.GetButtonDown("3PPause") ||
+                Input.GetButtonDown("4PPause"))
+            {
+                PauseGame();
+            }
+        }
+        else if (currentGameState == GameState.Pause)
+        {
+
+            if (Input.GetKeyDown(KeyCode.Escape) ||
+                Input.GetButtonDown("1PPause") ||
+                Input.GetButtonDown("2PPause") ||
+                Input.GetButtonDown("3PPause") ||
+                Input.GetButtonDown("4PPause"))
+            {
+                ResumeGame();
+            }
         }
     }
 
