@@ -135,7 +135,7 @@ public class GameManagerSolo : MonoBehaviour
         UpdatePlayerBoostText(); // For Debug
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
         switch (Language.gameDisplayLanguage)
         {
@@ -284,6 +284,9 @@ public class GameManagerSolo : MonoBehaviour
             case GameState.Win:
                 break;
             case GameState.GameOver:
+                break;
+            case GameState.Pause:
+                RespondToPauseGame();
                 break;
             default:
                 break;
@@ -591,11 +594,23 @@ public class GameManagerSolo : MonoBehaviour
     }
     private void RespondToPauseGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if(currentGameState == GameState.GameStart)
         {
-            PauseGame();
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("1PPause"))
+            {
+                PauseGame();
+            }
+        }
+        else if (currentGameState == GameState.Pause)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("1PPause"))
+            {
+                ResumeGame();
+            }
         }
     }
+
 
     public void ResetPlayerToStartPosition(GameObject player)
     {
@@ -728,7 +743,7 @@ public class GameManagerSolo : MonoBehaviour
             {
                 if (rankingData.checkPointIndex == data.checkPointIndex)
                 {
-                    if (rankingData.remainingTime <= data.remainingTime)
+                    if (rankingData.remainingTime >= data.remainingTime)
                     {
                         for (int j = rankingJson.detail.Length - 1; j > index; j--)
                         {

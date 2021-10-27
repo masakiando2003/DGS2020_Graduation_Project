@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 5ab3d30949b28964db35a717ef4b4c6b, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0619e90538974ec4ab06dc7523f7e65f, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1394,9 +1394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Solo Ranking
-
-    Data'
+  m_Text: "1 Player \nRanking Data"
 --- !u!222 &124944420
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2444,6 +2442,7 @@ GameObject:
   - component: {fileID: 329316104}
   - component: {fileID: 329316106}
   - component: {fileID: 329316105}
+  - component: {fileID: 329316107}
   m_Layer: 5
   m_Name: SEVolumeText
   m_TagString: Untagged
@@ -2514,6 +2513,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329316103}
   m_CullTransparentMesh: 1
+--- !u!114 &329316107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329316103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &335028349
 GameObject:
   m_ObjectHideFlags: 0
@@ -11346,6 +11360,7 @@ GameObject:
   - component: {fileID: 1729687277}
   - component: {fileID: 1729687279}
   - component: {fileID: 1729687278}
+  - component: {fileID: 1729687280}
   m_Layer: 5
   m_Name: BGMVolumeText
   m_TagString: Untagged
@@ -11416,6 +11431,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729687276}
   m_CullTransparentMesh: 1
+--- !u!114 &1729687280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729687276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1733587131
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,11 +29,11 @@
             "timeElapsed": "02:00:00"
         },
         {
-            "playerName": "Haru",
-            "finalPosition": "Start",
+            "playerName": "Player 1",
+            "finalPosition": "Check Point 1",
             "checkPointIndex": 0,
-            "remainingTime": 0,
-            "timeElapsed": "02:00:00"
+            "remainingTime": -1,
+            "timeElapsed": "05:40:59"
         }
     ]
 }

@@ -21,6 +21,7 @@ MonoBehaviour:
   - Hint2ButtonText
   - Hint3ButtonText
   - Hint4ButtonText
+  - Hint5ButtonText
   - StartButtonText
   - TitleButtonText
   - PleaseWaitLabelText
@@ -29,6 +30,7 @@ MonoBehaviour:
   - Hint2Text
   - Hint3Text
   - Hint4Text
+  - Hint5Text
   - AttackItemText
   - DefenceItemText
   - AbnormalItemText
@@ -45,15 +47,18 @@ MonoBehaviour:
   - Hint 2
   - Hint 3
   - Hint 4
+  - Hint 5
   - Start
   - Title
   - Please wait
   - Win Condition:|Avoid the obstacle and walls and get to the goal point before
     other players!
   - Hint 1:|There are safezones and recover boost item
-  - Hint 2:|Use stage View to confirm your position
-  - Hint 3:|Control your Speed for rotating your rocket
-  - Hint 4:|Use item to take the lead !
+  - Hint 2:|You can reset your rocket rotation to upward in start point, check point
+    or safezones.
+  - Hint 3:|Use stage View to confirm your position
+  - Hint 4:|Control your Speed for rotating your rocket
+  - Hint 5:|Use item to take the lead !
   - 'Romaing Missile: Lock and shoot the nereast player'
   - 'Force Shield: Become invincible for a while'
   - 'Time Stoper: Stop other players movement for a while'
