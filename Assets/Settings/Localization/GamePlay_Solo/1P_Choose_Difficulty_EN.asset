@@ -20,6 +20,8 @@ MonoBehaviour:
   - ProceedText
   - TitleText
   - PleaseWaitLabelText
+  - EstimatedTimeLabelText
+  - EstimatedTimeText
   labelText:
   - 'Choose a difficulty:'
   - Easy
@@ -28,3 +30,5 @@ MonoBehaviour:
   - Proceed
   - Title
   - Please Wait
+  - 'Estimated:'
+  - minutes or above

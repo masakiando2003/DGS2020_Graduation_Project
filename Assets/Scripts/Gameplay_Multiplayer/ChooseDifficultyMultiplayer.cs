@@ -8,11 +8,13 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
 {
     [SerializeField] Localization chooseDifficultyMultiplay_EN, chooseDifficultyMultiplay_JP;
     [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
+    [SerializeField] int estimatedEasyTime = 2, estimatedNormalTime = 5, estimatedHardTime = 10;
     [SerializeField] string introductionScene;
     [SerializeField] string titleMap;
     [SerializeField] string difficulty = "Easy";
     [SerializeField] Text chooseDifficultyTitleText, difficultyText, pleaseWaitLabelText;
     [SerializeField] Text easyButtonText, normalButtonText, hardButtonText, proceedButtonText, titleButtonText;
+    [SerializeField] Text estimatedTimeLabelText, estimatedTimeText;
     [SerializeField] GameObject stageEasyViewImageObj, stageNormalViewImageObj, stageHardViewImageObj;
     [SerializeField] Image stageEasyViewImage, stageNormalViewImage, stageHardViewImage;
     [SerializeField] Image stageEasy2PViewImage, stageNormal2PViewImage, stageHard2PViewImage;
@@ -32,7 +34,7 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
         pleaseWaitCanvas.SetActive(false);
         if(Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
         switch (Language.gameDisplayLanguage)
         {
@@ -44,6 +46,8 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 hardButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("HardButtonText");
                 proceedButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("ProceedButtonText");
                 titleButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("TitleButtonText");
+                estimatedTimeLabelText.text = chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeLabelText");
+                estimatedTimeText.text = estimatedEasyTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
                 break;
             case Language.DisplayLanauge.Japanese:
                 chooseDifficultyTitleText.text = chooseDifficultyMultiplay_JP.GetLabelContent("ChooseDifficultyTitleText");
@@ -59,6 +63,10 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 proceedButtonText.fontStyle = FontStyle.Bold;
                 titleButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("TitleButtonText");
                 titleButtonText.fontStyle = FontStyle.Bold;
+                estimatedTimeLabelText.text = chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeLabelText");
+                estimatedTimeLabelText.fontStyle = FontStyle.Bold;
+                estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                estimatedTimeText.fontStyle = FontStyle.Bold;
                 break;
         }
     }
@@ -121,16 +129,46 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 stageNormalViewImageObj.SetActive(false);
                 stageHardViewImageObj.SetActive(false);
                 stageEasyViewImageObj.SetActive(true);
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        estimatedTimeText.text = estimatedEasyTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.fontStyle = FontStyle.Bold;
+                        break;
+                }
                 break;
             case "Normal":
                 stageEasyViewImageObj.SetActive(false);
                 stageHardViewImageObj.SetActive(false);
                 stageNormalViewImageObj.SetActive(true);
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        estimatedTimeText.text = estimatedNormalTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        estimatedTimeText.text = estimatedNormalTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.fontStyle = FontStyle.Bold;
+                        break;
+                }
                 break;
             case "Hard":
                 stageEasyViewImageObj.SetActive(false);
                 stageNormalViewImageObj.SetActive(false);
                 stageHardViewImageObj.SetActive(true);
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        estimatedTimeText.text = estimatedHardTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        estimatedTimeText.text = estimatedNormalTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.fontStyle = FontStyle.Bold;
+                        break;
+                }
                 break;
         }
     }
