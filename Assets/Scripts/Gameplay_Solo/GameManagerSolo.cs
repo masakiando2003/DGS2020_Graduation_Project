@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -282,8 +279,9 @@ public class GameManagerSolo : MonoBehaviour
                 RespondToPauseGame();
                 break;
             case GameState.Win:
-                break;
             case GameState.GameOver:
+                ShowFinalPosition();
+                UpdatePlayerSpeedText();
                 break;
             case GameState.Pause:
                 RespondToPauseGame();
@@ -309,6 +307,7 @@ public class GameManagerSolo : MonoBehaviour
         ShowCountTimeText(countDownTimer);
         if (countDownTimer <= 0.0f)
         {
+            PlayTimeTempSaveSolo.soloStageStartTime = Time.time;
             Invoke("HideCountDownText", hideCountDownTime);
             Instance.ChangeGameState(GameState.GameStart);
             playerRocket.GetComponent<MovementSolo>().EnablePlayerControl();
@@ -380,7 +379,7 @@ public class GameManagerSolo : MonoBehaviour
             remainingTimeText.text = Mathf.FloorToInt(remainingTime).ToString();
         }
 
-        float t = Time.time - PlayTimeTempSaveSolo.totalTimeElapsed - startCountDownTime;
+        float t = Time.time - PlayTimeTempSaveSolo.soloStageStartTime;
         string minutes = ((int)t / 60).ToString("00");
         string seconds = (t % 60).ToString("00");
         string miliseconds = (t * 60 % 60).ToString("00");
@@ -738,12 +737,18 @@ public class GameManagerSolo : MonoBehaviour
         RankingJson rankingJson = JsonUtility.FromJson<RankingJson>(rankingDataFile.text);
         foreach (RankingData data in rankingJson.detail)
         {
-            Debug.Log(rankingData.checkPointIndex+" --- "+data.checkPointIndex);
-            if(rankingData.checkPointIndex >= data.checkPointIndex)
+            Debug.Log("Index: " + index);
+            string playerCheckPointIndexKey = Difficulty_1P_TempSave.chosenDifficulty + "_CheckPointIndex_" + (index + 1).ToString();
+            int dataCheckPointIndex = PlayerPrefs.HasKey(playerCheckPointIndexKey) ? PlayerPrefs.GetInt(playerCheckPointIndexKey) : data.checkPointIndex;
+            Debug.Log(rankingData.checkPointIndex+" --- "+ dataCheckPointIndex);
+            if(rankingData.checkPointIndex >= dataCheckPointIndex)
             {
-                if (rankingData.checkPointIndex == data.checkPointIndex)
+                if (rankingData.checkPointIndex == dataCheckPointIndex)
                 {
-                    if (rankingData.remainingTime >= data.remainingTime)
+                    string playerRemainingTimeKey = Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + (index + 1).ToString();
+                    int dataRemainingTime = PlayerPrefs.HasKey(playerRemainingTimeKey) ? PlayerPrefs.GetInt(playerRemainingTimeKey) : data.remainingTime;
+                    // 
+                    if (rankingData.remainingTime >= dataRemainingTime)
                     {
                         for (int j = rankingJson.detail.Length - 1; j > index; j--)
                         {
@@ -775,6 +780,7 @@ public class GameManagerSolo : MonoBehaviour
                         break;
                     }
                 }
+                // 
                 else
                 {
                     for (int j = rankingJson.detail.Length - 1; j > index; j--)
@@ -810,7 +816,6 @@ public class GameManagerSolo : MonoBehaviour
             index++;
         }
 
-        Debug.Log("Index: " + index);
 
         if (index >= rankingJson.detail.Length)
         {
@@ -920,11 +925,36 @@ public class GameManagerSolo : MonoBehaviour
                     break;
             }
         }
+        /*
         string saveRankingData = JsonUtility.ToJson(rankingJson, true);
         Debug.Log(saveRankingData);
         File.WriteAllText(Application.dataPath + "/Resources/ranking_1P_"+Difficulty_1P_TempSave.chosenDifficulty+".json", saveRankingData);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        */
+        UpdateRankingByPlayerPref(rankingJson);
+    }
+
+    private void UpdateRankingByPlayerPref(RankingJson rankingJson)
+    {
+        Debug.Log("rankingJson.detail.Length: "+ rankingJson.detail.Length);
+        for (int i = 1; i <= rankingJson.detail.Length; i++)
+        {
+            string playerNameKey = Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + i.ToString();
+            PlayerPrefs.SetString(playerNameKey, rankingJson.detail[i-1].playerName);
+
+            string playerFinalPositionKey = Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + i.ToString();
+            PlayerPrefs.SetString(playerFinalPositionKey, rankingJson.detail[i-1].finalPosition);
+
+            string playerCheckPointIndexKey = Difficulty_1P_TempSave.chosenDifficulty + "_CheckPointIndex_" + i.ToString();
+            PlayerPrefs.SetInt(playerCheckPointIndexKey, rankingJson.detail[i-1].checkPointIndex);
+
+            string playerRemainingTimeKey = Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + i.ToString();
+            PlayerPrefs.SetInt(playerRemainingTimeKey, rankingJson.detail[i-1].remainingTime);
+
+            string playerTimeElapsedKey = Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + i.ToString();
+            PlayerPrefs.SetString(playerTimeElapsedKey, rankingJson.detail[i-1].timeElapsed);
+        }
     }
 
     public void ReturnFromRanking()
