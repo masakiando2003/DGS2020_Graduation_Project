@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 150}
+  m_AnchoredPosition: {x: 0, y: -120}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6554590337372669526
@@ -43384,7 +43384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063929032160336208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 60, y: 150, z: -575}
+  m_LocalPosition: {x: 100, y: 190, z: -575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9063929033062771873}
@@ -43415,7 +43415,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 45
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -43542,7 +43542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063929032815197617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -36.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9063929033062771873}
@@ -43571,11 +43571,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 105
+  near clip plane: 14.5
+  far clip plane: 20.5
+  field of view: 120
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 41.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -43604,7 +43604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 9063929033502015101}
-  cameraDistance: 20
+  cameraDistanceY: 15.85
+  cameraDistanceZ: 20
 --- !u!1 &9063929033017764856
 GameObject:
   m_ObjectHideFlags: 0
@@ -43762,6 +43763,7 @@ GameObject:
   - component: {fileID: 599216713348965109}
   - component: {fileID: 6105203387403518521}
   - component: {fileID: 1331337419805186612}
+  - component: {fileID: 1185786137}
   m_Layer: 6
   m_Name: Rocket_Solo
   m_TagString: Player
@@ -43777,8 +43779,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063929033502015097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -198, y: 10, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: -198, y: 0, z: -3.5}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children:
   - {fileID: 1181103717391838974}
   - {fileID: 4692423617607905943}
@@ -44030,6 +44032,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 1
   playerMaxLife: 3
+  playerMaxBoost: 100
+  boostFactor: 7
+  boostSlider: {fileID: 6554590337372669526}
+  currentBoostFillArea: {fileID: 1570418131305024361}
+  normalColor: {r: 0, g: 0, b: 0, a: 0}
+  explodedColor: {r: 0, g: 0, b: 0, a: 0}
+  playerMaterial: {fileID: 2100000, guid: 202f555683d2aef4b81352901e60fd1f, type: 2}
+  explosionVFX: {fileID: 4692423617588558749}
+--- !u!114 &1185786137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063929033502015097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5b3eb36b2a52a47aa8f9145de001fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 1
+  playerMaxLife: 5
   playerMaxBoost: 100
   boostFactor: 7
   boostSlider: {fileID: 6554590337372669526}

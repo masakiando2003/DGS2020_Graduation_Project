@@ -49,6 +49,7 @@ public class Option : MonoBehaviour
 
 
     string selectedDifficulty;
+    int numPlayers;
 
     private void Awake()
     {
@@ -57,6 +58,7 @@ public class Option : MonoBehaviour
 
     private void Initialization()
     {
+        numPlayers = 5;
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
             Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
@@ -386,13 +388,29 @@ public class Option : MonoBehaviour
                 rankingDataFile = rankingDefaultDataHardFile;
                 break;
         }
-
         RankingJson rankingJson = JsonUtility.FromJson<RankingJson>(rankingDataFile.text);
         string saveRankingData = JsonUtility.ToJson(rankingJson, true);
         Debug.Log(saveRankingData);
+        for (int i = 1; i <= numPlayers; i++)
+        {
+            string playerNameKey = Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + i.ToString();
+            PlayerPrefs.SetString(playerNameKey, rankingJson.detail[i - 1].playerName);
+            string playerFinalPositionKey = Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + i.ToString();
+            PlayerPrefs.SetString(playerFinalPositionKey, rankingJson.detail[i - 1].finalPosition);
+            string playerCheckPointIndexKey = Difficulty_1P_TempSave.chosenDifficulty + "_CheckPointIndex_" + i.ToString();
+            PlayerPrefs.SetInt(playerCheckPointIndexKey, rankingJson.detail[i - 1].checkPointIndex);
+            string playerRemainingTimeKey = Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + i.ToString();
+            PlayerPrefs.SetInt(playerRemainingTimeKey, rankingJson.detail[i - 1].remainingTime);
+            string playerTimeElapsedKey = Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + i.ToString();
+            PlayerPrefs.SetString(playerTimeElapsedKey, rankingJson.detail[i - 1].timeElapsed);
+        }
+        /*
         File.WriteAllText(Application.dataPath + "/Resources/ranking_1P_" + selectedDifficulty + ".json", saveRankingData);
+        #if UNITY_EDITOR
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        #endif
+        */
         resetRankingDataCanvas.SetActive(false);
         switch (selectedDifficulty)
         {

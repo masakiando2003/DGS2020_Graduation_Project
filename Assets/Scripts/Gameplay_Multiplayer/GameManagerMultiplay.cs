@@ -320,6 +320,16 @@ public class GameManagerMultiplay : MonoBehaviour
                 RespondToPauseGame();
                 break;
             case GameState.Finish:
+                for (int i = 0; i < playerRockets.Length; i++)
+                {
+                    if (playerRockets[i] != null)
+                    {
+                        if (playerRockets[i] != null)
+                        {
+                            ShowCheckPoint(i);
+                        }
+                    }
+                }
                 break;
             case GameState.Pause:
                 RespondToPauseGame();
@@ -435,7 +445,7 @@ public class GameManagerMultiplay : MonoBehaviour
 
     private void RespondToPauseGame()
     {
-        if(currentGameState == GameState.Pause)
+        if(currentGameState == GameState.GameStart)
         {
             if (Input.GetKeyDown(KeyCode.Escape) ||
                 Input.GetButtonDown("1PPause") ||

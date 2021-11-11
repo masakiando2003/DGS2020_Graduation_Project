@@ -224,12 +224,46 @@ public class Instructions_1P : MonoBehaviour
         RankingJson rankingJson = JsonUtility.FromJson<RankingJson>(rankingDataFile.text);
         foreach (RankingData data in rankingJson.detail)
         {
-            rankingPlayerNameText[index].text = data.playerName;
+            if(PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + (index + 1)))
+            {
+                rankingPlayerNameText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + (index + 1));
+            }
+            else
+            {
+                rankingPlayerNameText[index].text = data.playerName;
+                PlayerPrefs.SetString(Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + (index+1), data.playerName);
+            }
             rankingPlayerNameText[index].fontStyle = FontStyle.Bold;
-            rankingFinalPositionText[index].text = data.finalPosition;
+            if (PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1)))
+            {
+                rankingFinalPositionText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1));
+            }
+            else
+            {
+                rankingFinalPositionText[index].text = data.finalPosition;
+                PlayerPrefs.SetString(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1), data.finalPosition);
+            }
             rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
-            rankingRemainingTimeText[index].text = data.remainingTime.ToString();
-            rankingTimeElaspedText[index].text = data.timeElapsed;
+            if (PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + (index + 1)))
+            {
+                rankingRemainingTimeText[index].text = PlayerPrefs.GetInt(Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + (index + 1)).ToString();
+            }
+            else
+            {
+                rankingRemainingTimeText[index].text = data.remainingTime.ToString();
+                PlayerPrefs.SetInt(Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + (index + 1), data.remainingTime);
+            }
+            rankingRemainingTimeText[index].fontStyle = FontStyle.Bold;
+            if (PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + (index + 1)))
+            {
+                rankingTimeElaspedText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + (index + 1));
+            }
+            else
+            {
+                rankingTimeElaspedText[index].text = data.timeElapsed;
+                PlayerPrefs.SetString(Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + (index + 1), data.timeElapsed);
+            }
+            rankingTimeElaspedText[index].fontStyle = FontStyle.Bold;
             index++;
         }
     }

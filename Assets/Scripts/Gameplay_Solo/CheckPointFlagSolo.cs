@@ -24,7 +24,10 @@ public class CheckPointFlagSolo : MonoBehaviour
 
     public void PassCheckPoint()
     {
-        GetComponent<Renderer>().material = checkPointFlagMaterial;
+        if(checkPointName != "Start")
+        {
+            GetComponent<Renderer>().material = checkPointFlagMaterial;
+        }
         FindObjectOfType<GameManagerSolo>().UpdateFinalPosition(checkPointName, checkPointIndex);
     }
     public void PassGoal ()
