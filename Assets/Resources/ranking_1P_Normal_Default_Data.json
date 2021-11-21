@@ -9,24 +9,24 @@
 		},
 		{
 			"playerName": "Akane",
-			"finalPosition": "Check Point 5",
-			"checkPointIndex": 5,
-			"remainingTime": 0,
-			"timeElapsed": "05:00:00"
-		},
-		{
-			"playerName": "Takeshi",
 			"finalPosition": "Check Point 3",
 			"checkPointIndex": 3,
 			"remainingTime": 0,
 			"timeElapsed": "05:00:00"
 		},
 		{
-			"playerName": "Saki",
+			"playerName": "Takeshi",
 			"finalPosition": "Check Point 1",
 			"checkPointIndex": 1,
 			"remainingTime": 0,
 			"timeElapsed": "05:00:00"
+		},
+		{
+			"playerName": "Saki",
+			"finalPosition": "Start",
+			"checkPointIndex": 0,
+			"remainingTime": 90,
+			"timeElapsed": "03:30:00"
 		},
 		{
 			"playerName": "Haru",
