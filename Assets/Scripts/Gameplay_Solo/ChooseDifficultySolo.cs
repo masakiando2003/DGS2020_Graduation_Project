@@ -134,7 +134,7 @@ public class ChooseDifficultySolo : MonoBehaviour
                         estimatedTimeText.text = estimatedHardTime.ToString() + " " + chooseDifficultySolo_EN.GetLabelContent("EstimatedTimeText");
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        estimatedTimeText.text = estimatedNormalTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.text = estimatedHardTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }
