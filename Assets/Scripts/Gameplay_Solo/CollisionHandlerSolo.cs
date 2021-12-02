@@ -9,6 +9,7 @@ public class CollisionHandlerSolo : MonoBehaviour
     [SerializeField] float playerCanControlTime = 1f;
     [SerializeField] AudioClip successSE;
     [SerializeField] AudioClip crash;
+    [SerializeField] AudioClip triggerSE;
 
     AudioSource audioSource;
     MovementSolo playerMovement;
@@ -74,7 +75,7 @@ public class CollisionHandlerSolo : MonoBehaviour
                 StartSuccessSequence(other.gameObject);
                 break;
             default:
-                StartFailedSequence(other.gameObject.tag);
+                StartFailedSequence(other.gameObject);
                 break;
         }
     }
@@ -91,7 +92,7 @@ public class CollisionHandlerSolo : MonoBehaviour
                 GetComponent<MovementSolo>().EnableResetRotation();
                 break;
             default:
-                StartFailedSequence(other.gameObject.tag);
+                StartFailedSequence(other.gameObject);
                 break;
         }
     }
@@ -135,8 +136,12 @@ public class CollisionHandlerSolo : MonoBehaviour
         FindObjectOfType<GameManagerSolo>().Clear();
     }
 
-    private void StartFailedSequence(string gameObecjtTag)
+    private void StartFailedSequence(GameObject colliderObject)
     {
+        if (colliderObject.gameObject.tag.Equals("Fabrics"))
+        {
+            Destroy(colliderObject.gameObject);
+        }
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(crash);
@@ -166,5 +171,11 @@ public class CollisionHandlerSolo : MonoBehaviour
         yield return new WaitForSeconds(playerCanControlTime);
         playerMovement.EnablePlayerControl();
         isTransitioning = false;
+    }
+
+    public void PlayTriggerSE()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(triggerSE);
     }
 }
