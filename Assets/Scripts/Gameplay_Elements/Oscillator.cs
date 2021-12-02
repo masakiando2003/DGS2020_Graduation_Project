@@ -28,5 +28,26 @@ public class Oscillator : MonoBehaviour
 
         Vector3 offset = movementVector * movementFactor;
         transform.position = startingPosition + offset;
+
+        /*
+        if (movementFactor == 0f || movementFactor == 1f)
+        {
+            switch (gameObject.tag)
+            {
+                case "Robot":
+                    gameObject.GetComponent<Robot>().StartIdle();
+                    break;
+            }
+        }
+        else
+        {
+            switch (gameObject.tag)
+            {
+                case "Robot":
+                    gameObject.GetComponent<Robot>().StartWalking();
+                    break;
+            }
+        }
+        */
     }
 }

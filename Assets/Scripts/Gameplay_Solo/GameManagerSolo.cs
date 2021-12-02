@@ -642,6 +642,7 @@ public class GameManagerSolo : MonoBehaviour
 
     public void Clear()
     {
+        UpdateFinalPosition("Goal", 99);
         UpdateRanking();
         if (clearCanvas == null) { return; }
         clearCanvas.enabled = true;

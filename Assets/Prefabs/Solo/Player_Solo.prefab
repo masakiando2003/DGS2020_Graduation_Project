@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6554590337372669526
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 1496262153447513254}
   - component: {fileID: 1496262153447513255}
   - component: {fileID: 1496262153447513248}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: RocketMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 4692423617607904429}
   - component: {fileID: 4692423617588591131}
   - component: {fileID: 4692423617589986233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: particle burn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4968,7 +4968,7 @@ GameObject:
   - component: {fileID: 4692423617607965087}
   - component: {fileID: 4692423617588565135}
   - component: {fileID: 4692423617589995005}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: particle glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9743,7 +9743,7 @@ GameObject:
   - component: {fileID: 4692423617607920859}
   - component: {fileID: 4692423617588561125}
   - component: {fileID: 4692423617589973159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: particle pillar master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14645,7 +14645,7 @@ GameObject:
   - component: {fileID: 4692423617607961787}
   - component: {fileID: 4692423617588526053}
   - component: {fileID: 4692423617589979219}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: particle fireball glow slave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19357,7 +19357,7 @@ GameObject:
   - component: {fileID: 4692423617607963979}
   - component: {fileID: 4692423617588611941}
   - component: {fileID: 4692423617589962817}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: particle fireball slave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23966,7 +23966,7 @@ GameObject:
   - component: {fileID: 4692423617607943887}
   - component: {fileID: 4692423617588526281}
   - component: {fileID: 4692423617589971017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: particle fireball master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28698,7 +28698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4692423617607905943}
   - component: {fileID: 4692423617588558749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RocketExplosionVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33452,7 +33452,7 @@ GameObject:
   - component: {fileID: 4692423617608011561}
   - component: {fileID: 4692423617588541291}
   - component: {fileID: 4692423617590021677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: particle pillar slave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38043,7 +38043,7 @@ GameObject:
   - component: {fileID: 4970610834918966794}
   - component: {fileID: 5059224656619352432}
   - component: {fileID: 5059566032351595454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RocketBoostSmokeParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42857,7 +42857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4970457481144773278}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RocketBoostSmokeVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43000,7 +43000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5472162714971561728}
   - component: {fileID: 7126307346140529565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CurrentPositionArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43223,7 +43223,7 @@ GameObject:
   - component: {fileID: 9063929031877625337}
   - component: {fileID: 9063929031877625338}
   - component: {fileID: 9063929031877625336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CurrentPositionArrowImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43336,7 +43336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9063929032032707052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43369,7 +43369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9063929032160336209}
   - component: {fileID: 9063929032160336211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StageViewCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43384,7 +43384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063929032160336208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100, y: 190, z: -575}
+  m_LocalPosition: {x: 79.84, y: 75, z: -575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9063929033062771873}
@@ -43415,7 +43415,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 65
+  field of view: 46
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -43444,7 +43444,7 @@ GameObject:
   - component: {fileID: 9063929032502163850}
   - component: {fileID: 9063929032502163852}
   - component: {fileID: 9063929032502163851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43490,13 +43490,13 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 40
+  orthographic: 0
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 01ed473374a49de4798dd5f3426e86b7, type: 2}
   m_TargetDisplay: 0
@@ -43527,7 +43527,7 @@ GameObject:
   - component: {fileID: 9063929032815197620}
   - component: {fileID: 9063929032815197619}
   - component: {fileID: 9063929032815197621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -43542,7 +43542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063929032815197617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -36.9}
+  m_LocalPosition: {x: -170.6, y: 0, z: -36.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9063929033062771873}
@@ -43571,9 +43571,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 14.5
-  far clip plane: 20.5
-  field of view: 120
+  near clip plane: 0.01
+  far clip plane: 100
+  field of view: 80
   orthographic: 0
   orthographic size: 41.75
   m_Depth: -1
@@ -43604,8 +43604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 9063929033502015101}
-  cameraDistanceY: 15.85
-  cameraDistanceZ: 20
+  cameraDistanceY: 7.5
+  cameraDistanceZ: 45
 --- !u!1 &9063929033017764856
 GameObject:
   m_ObjectHideFlags: 0
@@ -43615,7 +43615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9063929033017764857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43646,9 +43646,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9063929033062771873}
-  m_Layer: 0
+  - component: {fileID: 560901040}
+  m_Layer: 6
   m_Name: Player_Solo
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43672,6 +43673,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &560901040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063929033062771872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9063929033494783202
 GameObject:
   m_ObjectHideFlags: 0
@@ -43683,7 +43697,7 @@ GameObject:
   - component: {fileID: 9063929033494783203}
   - component: {fileID: 9063929033494783205}
   - component: {fileID: 9063929033494783204}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: PlayerRocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43780,7 +43794,7 @@ Transform:
   m_GameObject: {fileID: 9063929033502015097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -198, y: 0, z: -3.5}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 1181103717391838974}
   - {fileID: 4692423617607905943}
@@ -43980,6 +43994,7 @@ MonoBehaviour:
   playerCanControlTime: 1
   successSE: {fileID: 8300000, guid: 04b6c80adad8c0941a2f428b084a8708, type: 3}
   crash: {fileID: 8300000, guid: 2a0fc57d8d5746645b024748c64928b0, type: 3}
+  triggerSE: {fileID: 0}
 --- !u!114 &599216713348965109
 MonoBehaviour:
   m_ObjectHideFlags: 0

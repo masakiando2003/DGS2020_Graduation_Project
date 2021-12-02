@@ -18,6 +18,14 @@ TagManager:
   - Stone
   - ReduceBoostItem
   - ReduceSpeedItem
+  - Enemy
+  - Trigger
+  - Robot
+  - Tubes
+  - MoveableWall
+  - Fabrics
+  - Trap
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -41,10 +49,10 @@ TagManager:
   - Missile
   - Environment
   - Stone
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Trigger
+  - Console
+  - Boundary
   - 
   - 
   - 

@@ -62,6 +62,8 @@ public class ChooseDifficultySolo : MonoBehaviour
                 titleText.text = chooseDifficultySolo_JP.GetLabelContent("TitleText");
                 titleText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = chooseDifficultySolo_JP.GetLabelContent("PleaseWaitLabelText");
+                estimatedTimeLabelText.text = chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeLabelText");
+                estimatedTimeLabelText.fontStyle = FontStyle.Bold;
                 estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
                 estimatedTimeText.fontStyle = FontStyle.Bold;
                 break;
@@ -132,7 +134,7 @@ public class ChooseDifficultySolo : MonoBehaviour
                         estimatedTimeText.text = estimatedHardTime.ToString() + " " + chooseDifficultySolo_EN.GetLabelContent("EstimatedTimeText");
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        estimatedTimeText.text = estimatedNormalTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.text = estimatedHardTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }
