@@ -26,6 +26,7 @@ TagManager:
   - Fabrics
   - Trap
   - Door
+  - CrossTube
   layers:
   - Default
   - TransparentFX
@@ -53,7 +54,7 @@ TagManager:
   - Trigger
   - Console
   - Boundary
-  - 
+  - StageCamera
   - 
   - 
   - 

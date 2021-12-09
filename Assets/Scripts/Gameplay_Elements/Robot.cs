@@ -11,10 +11,12 @@ public class Robot : MonoBehaviour
         Initialization();
     }
 
+
     private void Initialization()
     {
         animator = GetComponent<Animator>();
         animator.SetBool("IsWalking", false);
+        StartIdle();
     }
 
     private void ChangeAnimationState(string state)
@@ -38,5 +40,12 @@ public class Robot : MonoBehaviour
     public void StartIdle()
     {
         ChangeAnimationState("Idle");
+    }
+
+    public void ChangeFaceDirection()
+    {
+        var rotationVector = transform.rotation.eulerAngles;
+        rotationVector.y *= -1;
+        transform.rotation = Quaternion.Euler(rotationVector);
     }
 }

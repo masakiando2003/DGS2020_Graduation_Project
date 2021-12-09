@@ -32,7 +32,7 @@ public class CheckPointFlagSolo : MonoBehaviour
     }
     public void PassGoal ()
     {
-        GetComponent<Renderer>().material = checkPointFlagMaterial;
+        //GetComponent<Renderer>().material = checkPointFlagMaterial;
         FindObjectOfType<GameManagerSolo>().UpdateFinalPosition("Goal", 99);
     }
 
