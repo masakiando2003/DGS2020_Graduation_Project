@@ -10,7 +10,7 @@ public class PathMovement : MonoBehaviour
 
     List<Transform> waypoints;
     int waypointIndex;
-    bool canMove;
+    bool canMove, firstMove;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,7 @@ public class PathMovement : MonoBehaviour
         }
 
         transform.position = waypoints[waypointIndex].transform.position;
+        firstMove = true;
     }
 
     // Update is called once per frame
@@ -67,8 +68,24 @@ public class PathMovement : MonoBehaviour
     private IEnumerator WaitForMoveToNextTargetPosition()
     {
         canMove = false;
+        if (gameObject.tag.Equals("Robot"))
+        {
+            gameObject.GetComponent<Robot>().StartIdle();
+        }
         yield return new WaitForSeconds(waitForNextMovementTime);
         waypointIndex++;
         canMove = true;
+        if (gameObject.tag.Equals("Robot"))
+        {
+            gameObject.GetComponent<Robot>().StartWalking();
+            if (!firstMove)
+            {
+                gameObject.GetComponent<Robot>().ChangeFaceDirection();
+            }
+            else
+            {
+                firstMove = false;
+            }
+        }
     }
 }

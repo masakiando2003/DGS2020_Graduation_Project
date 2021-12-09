@@ -29,8 +29,8 @@ public class TrapTrigger : MonoBehaviour
                 switch (traps[i].gameObject.tag)
                 {
                     case "Robot":
-                        traps[i].gameObject.GetComponent<Oscillator>().enabled = true;
                         traps[i].gameObject.gameObject.GetComponent<Robot>().StartWalking();
+                        traps[i].gameObject.GetComponent<PathMovement>().enabled = true;
                         break;
                     case "MoveableWall":
                     case "Door":
@@ -41,6 +41,9 @@ public class TrapTrigger : MonoBehaviour
                          break;
                     case "Fabrics":
                         traps[i].gameObject.GetComponent<FlyFabrics>().StartToFly();
+                        break;
+                    case "CrossTube":
+                        traps[i].gameObject.GetComponent<Rotate360>().enabled = true;
                         break;
                 }
             }

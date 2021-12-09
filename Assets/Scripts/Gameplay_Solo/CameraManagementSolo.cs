@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class CameraManagementSolo : MonoBehaviour
 {
+    [SerializeField] Transform defaultStageViewCameraPos;
+    [SerializeField] float stageViewCameraMoveFactor = 50f, stageViewCameraZoomFactor = 10f;
+    [SerializeField] float stageViewCameraMinFOV = 10f;
+    [SerializeField] float stageViewCameraHorizontalBoundary = 20f, stageViewCameraVerticalBoundary = 20f;
     [SerializeField] Camera playerCamera, stageViewCamera;
-    [SerializeField] Canvas playerRocketCanvas;
+    [SerializeField] Canvas playerRocketCanvas, stageViewCanvas;
     [SerializeField] GameObject playerRocketCurrentPositionArrowObject;
 
     int playerID;
     bool stageViewFlag;
+    Transform defaultStageViewCameraPosition;
+    float defaultStageViewCameraFoV, stageCameraMaxFov;
 
     private void Awake()
     {
@@ -33,11 +39,15 @@ public class CameraManagementSolo : MonoBehaviour
         {
             playerRocketCurrentPositionArrowObject.SetActive(false);
         }
+        defaultStageViewCameraPosition = defaultStageViewCameraPos;
+        defaultStageViewCameraFoV = stageViewCamera.fieldOfView;
+        stageCameraMaxFov = stageViewCamera.fieldOfView;
     }
 
     private void Update()
     {
         ResponseToChangeCamera();
+        ResponseToMoveStageViewCamera();
     }
 
     private void ResponseToChangeCamera()
@@ -47,23 +57,65 @@ public class CameraManagementSolo : MonoBehaviour
         {
             return;
         }
-        if(Input.GetButton(playerID + "PChangeCamera"))
+        if(Input.GetButtonDown(playerID + "PChangeCamera"))
         {
-            stageViewFlag = true;
+            stageViewFlag = !stageViewFlag;
+            SwitchCamera();
         }
-        else
-        {
-            stageViewFlag = false;
-        }
+    }
+
+    private void SwitchCamera()
+    {
         if (stageViewFlag)
         {
             ChangeToStageViewCamera();
             ActiveCurrentPositionArrowObject();
+            GetComponent<MovementSolo>().DisablePlayerControl();
         }
         else
         {
+            ResetStageViewCamera();
             ChangeToPlayerCamera();
             DeactivateCurrentPositionArrowObject();
+            GetComponent<MovementSolo>().EnablePlayerControl();
+        }
+    }
+
+    private void ResetStageViewCamera()
+    {
+        stageViewCamera.transform.position = defaultStageViewCameraPosition.position;
+        stageViewCamera.fieldOfView = defaultStageViewCameraFoV;
+    }
+
+    private void ResponseToMoveStageViewCamera()
+    {
+        if (!stageViewFlag) { return; }
+        float horizontal = Input.GetAxis("1PHorizontal");
+        float vertical = Input.GetAxis("1PVertical");
+        /*
+        if(stageViewCamera.transform.position.x >= defaultStageViewCameraPosition.position.x - stageViewCameraHorizontalBoundary && 
+           stageViewCamera.transform.position.x <= defaultStageViewCameraPosition.position.x + stageViewCameraHorizontalBoundary &&
+           stageViewCamera.transform.position.y >= defaultStageViewCameraPosition.position.y - stageViewCameraVerticalBoundary &&
+           stageViewCamera.transform.position.y <= defaultStageViewCameraPosition.position.y + stageViewCameraVerticalBoundary)
+        {
+            stageViewCamera.transform.Translate(horizontal * stageViewCameraMoveFactor * Time.deltaTime, vertical * stageViewCameraMoveFactor * Time.deltaTime, 0f);
+        }
+        */
+        stageViewCamera.transform.Translate(horizontal * stageViewCameraMoveFactor * Time.deltaTime, vertical * stageViewCameraMoveFactor * Time.deltaTime, 0f);
+
+        if (Input.GetButton("1PZoomIn"))
+        {
+            stageViewCamera.fieldOfView -= stageViewCameraZoomFactor * Time.deltaTime;
+            stageViewCamera.fieldOfView = Mathf.Clamp(stageViewCamera.fieldOfView, stageViewCameraMinFOV, stageCameraMaxFov);
+        }
+        else if (Input.GetButton("1PZoomOut"))
+        {
+            stageViewCamera.fieldOfView += stageViewCameraZoomFactor * Time.deltaTime;
+            stageViewCamera.fieldOfView = Mathf.Clamp(stageViewCamera.fieldOfView, stageViewCameraMinFOV, stageCameraMaxFov);
+        }
+        else if (Input.GetButtonDown("1PZoomReset"))
+        {
+            ResetStageViewCamera();
         }
     }
 
@@ -82,8 +134,9 @@ public class CameraManagementSolo : MonoBehaviour
         if(playerCamera == null || stageViewCamera == null) { return; }
         playerCamera.enabled = true;
         stageViewCamera.enabled = false;
-        if(playerRocketCanvas == null) { return; }
+        if(playerRocketCanvas == null || stageViewCanvas == null) { return; }
         playerRocketCanvas.enabled = true;
+        stageViewCanvas.enabled = false;
     }
 
     public void ChangeToStageViewCamera()
@@ -91,7 +144,8 @@ public class CameraManagementSolo : MonoBehaviour
         if (playerCamera == null || stageViewCamera == null) { return; }
         stageViewCamera.enabled = true;
         playerCamera.enabled = false;
-        if (playerRocketCanvas == null) { return; }
+        if (playerRocketCanvas == null || stageViewCanvas == null) { return; }
         playerRocketCanvas.enabled = false;
+        stageViewCanvas.enabled = true;
     }
 }
