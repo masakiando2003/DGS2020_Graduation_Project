@@ -9127,7 +9127,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1331337419805186612, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
       propertyPath: playerMaxLife
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6105203387403518521, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
       propertyPath: stageViewCameraMoveFactor
