@@ -9,8 +9,9 @@ public class PlayerStatusMultiplay : MonoBehaviour
     [SerializeField] int playerID = 1;
     [SerializeField] float playerMaxBoost = 100f, boostFactor = 10f;
     [SerializeField] float cautionBlinkingMiniDuration = 1f, cannotTakeItemBlinkingMiniDuration = 1f;
-    [SerializeField] Slider boostSlider;
-    [SerializeField] Image currentBoostFillArea;
+    //[SerializeField] Slider boostSlider;
+    //[SerializeField] Image currentBoostFillArea;
+    [SerializeField] Image boostSliderFilter;
     [SerializeField] Image cautionLeftImage, cautionRightImage;
     [SerializeField] RawImage stopImage, itemBoxImage;
     [SerializeField] Color normalColor;
@@ -36,7 +37,8 @@ public class PlayerStatusMultiplay : MonoBehaviour
         isInvicible = false;
         playerMaterial.color = Color.white;
         playerCurrentBoost = playerMaxBoost;
-        currentBoostFillArea.color = Color.blue;
+        //currentBoostFillArea.color = Color.blue;
+        boostSliderFilter.fillAmount = GetBoostSliderValue();
         cautionLeftImage.enabled = false;
         cautionRightImage.enabled = false;
         stopImage.enabled = false;
@@ -93,7 +95,9 @@ public class PlayerStatusMultiplay : MonoBehaviour
 
     public void UpdatePlayerBoostSlider()
     {
-        boostSlider.value = GetBoostSliderValue();
+        //boostSlider.value = GetBoostSliderValue();
+        boostSliderFilter.fillAmount = GetBoostSliderValue();
+        ChangePlayerBoostSliderColor();
     }
 
     private float GetBoostSliderValue()
@@ -105,15 +109,18 @@ public class PlayerStatusMultiplay : MonoBehaviour
     {
         if (GetBoostSliderValue() >= 0.5)
         {
-            currentBoostFillArea.color = Color.blue;
+            //currentBoostFillArea.color = Color.blue;
+            boostSliderFilter.color = Color.blue;
         }
         else if (GetBoostSliderValue() >= 0.2)
         {
-            currentBoostFillArea.color = Color.yellow;
+            //currentBoostFillArea.color = Color.yellow;
+            boostSliderFilter.color = Color.yellow;
         }
         else
         {
-            currentBoostFillArea.color = Color.red;
+            //currentBoostFillArea.color = Color.red;
+            boostSliderFilter.color = Color.red;
         }
     }
 

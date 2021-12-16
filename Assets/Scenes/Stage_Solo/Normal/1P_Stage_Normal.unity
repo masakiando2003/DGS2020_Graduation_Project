@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 4e154bf235e41704bbd6bbc6fd6c63f6, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 16bc8a9d5451ca44d8f70575adbece3a, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -2535,7 +2535,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6086,7 +6086,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8408,7 +8408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1605635495
 Transform:
   m_ObjectHideFlags: 0
@@ -9129,6 +9129,14 @@ PrefabInstance:
       propertyPath: playerMaxLife
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6105203387403518521, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: stageViewCameraMoveFactor
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105203387403518521, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: stageViewCameraZoomFactor
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7551125822149929765, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9209,7 +9217,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 560901040, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
 --- !u!1 &1842843516
 GameObject:
@@ -10633,7 +10642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353909797070142034, guid: 98de9f7f49370e640bd155a2d9f49c74, type: 3}
       propertyPath: m_Name
-      value: Environements
+      value: Environments
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98de9f7f49370e640bd155a2d9f49c74, type: 3}

@@ -36,6 +36,7 @@ MonoBehaviour:
   - ConfirmResetDataText
   - YesButtonText
   - NoButtonText
+  - BackgroundLabelText
   labelText:
   - "\u30AA\u30D7\u30B7\u30E7\u30F3"
   - "\u30BF\u30A4\u30C8\u30EB"
@@ -60,3 +61,4 @@ MonoBehaviour:
   - "\u306E\u30E9\u30F3\u30AD\u30F3\u30B0\u30C7\u30FC\u30BF\u3092\u672C\u5F53\u306B\u524A\u9664\u3057\u305F\u3044\u3067\u3059\u304B"
   - "\u306F\u3044"
   - "\u3044\u3044\u3048"
+  - "\u80CC\u666F"

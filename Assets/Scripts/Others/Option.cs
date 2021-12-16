@@ -11,7 +11,7 @@ using static GameManagerSolo;
 public class Option : MonoBehaviour
 {
     [SerializeField] Localization option_EN, option_JP;
-    [SerializeField] Text optionTitleText, titleButtonText;
+    [SerializeField] Text optionTitleText, titleButtonText, backgroundLabelText, backgroundText;
     [SerializeField] Text easyButtonText, normalButtonText, hardButtonText;
     [SerializeField] Text bgmVolumeText, seVolumeText, soloPlayRankingDataText;
     [SerializeField] Text bgmVolumeValueText, seVolumeValueText;
@@ -29,6 +29,7 @@ public class Option : MonoBehaviour
     [SerializeField] Text[] rankingEasyPlayerNameText, rankingEasyFinalPositionText, rankingEasyRemainingTimeText, rankingEasyTimeElaspedText;
     [SerializeField] Text[] rankingNormalPlayerNameText, rankingNormalFinalPositionText, rankingNormalRemainingTimeText, rankingNormalTimeElaspedText;
     [SerializeField] Text[] rankingHardPlayerNameText, rankingHardFinalPositionText, rankingHardRemainingTimeText, rankingHardTimeElaspedText;
+    [SerializeField] string[] skyboxNames;
 
 
     [Serializable]
@@ -97,6 +98,7 @@ public class Option : MonoBehaviour
                 rankingHardResetDataButtonText.text = option_EN.GetLabelContent("ResetDataButtonText");
                 resetDataYesButtonText.text = option_EN.GetLabelContent("YesButtonText");
                 resetDataNoButtonText.text = option_EN.GetLabelContent("NoButtonText");
+                backgroundLabelText.text = option_EN.GetLabelContent("BackgroundLabelText");
                 break;
             case Language.DisplayLanauge.Japanese:
                 optionTitleText.text = option_JP.GetLabelContent("OptionTitleText");
@@ -142,6 +144,8 @@ public class Option : MonoBehaviour
                 resetDataYesButtonText.fontStyle = FontStyle.Bold;
                 resetDataNoButtonText.text = option_JP.GetLabelContent("NoButtonText");
                 resetDataNoButtonText.fontStyle = FontStyle.Bold;
+                backgroundLabelText.text = option_JP.GetLabelContent("BackgroundLabelText");
+                backgroundLabelText.fontStyle = FontStyle.Bold;
                 break;
         }
         if (PlayerPrefs.HasKey("BGMVolume"))
@@ -165,6 +169,15 @@ public class Option : MonoBehaviour
         soloHardRankingCanvas.SetActive(false);
         resetRankingDataCanvas.SetActive(false);
         selectedDifficulty = "Easy";
+        int skyboxIndex = 0;
+        if (PlayerPrefs.HasKey("BackgroundIndex"))
+        {
+            skyboxIndex = PlayerPrefs.GetInt("BackgroundIndex");
+        }
+        if (skyboxIndex >= 0 && skyboxIndex <= skyboxNames.Length - 1)
+        {
+            backgroundText.text = skyboxNames[skyboxIndex];
+        }
     }
 
     public void ToTitle(string titleMap)
@@ -432,6 +445,33 @@ public class Option : MonoBehaviour
                 soloNormalRankingCanvas.SetActive(false);
                 soloHardRankingCanvas.SetActive(true);
                 break;
+        }
+    }
+
+    public void ChangeSkybox(string direction)
+    {
+        int skyboxIndex = 0;
+        if (PlayerPrefs.HasKey("BackgroundIndex"))
+        {
+            skyboxIndex = PlayerPrefs.GetInt("BackgroundIndex");
+        }
+        if (skyboxIndex < 0 || skyboxIndex > skyboxNames.Length - 1)
+        {
+            skyboxIndex = 0;
+        }
+        if(direction.Equals("Left"))
+        {
+            skyboxIndex = (skyboxIndex - 1) < 0 ? skyboxNames.Length - 1 : skyboxIndex - 1;
+        }
+        else if (direction.Equals("Right"))
+        {
+            skyboxIndex = (skyboxIndex + 1) > (skyboxNames.Length - 1) ? 0 : skyboxIndex + 1;
+        }
+        Debug.Log("skyboxIndex: "+skyboxIndex);
+        PlayerPrefs.SetInt("BackgroundIndex", skyboxIndex);
+        if (skyboxIndex >= 0 && skyboxIndex <= skyboxNames.Length - 1)
+        {
+            backgroundText.text = skyboxNames[skyboxIndex];
         }
     }
 }

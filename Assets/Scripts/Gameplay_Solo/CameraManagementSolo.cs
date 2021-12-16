@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraManagementSolo : MonoBehaviour
 {
     [SerializeField] Transform defaultStageViewCameraPos;
+    [SerializeField] Text StageViewCameraControlsEN, StageViewCameraControlsJP;
     [SerializeField] float stageViewCameraMoveFactor = 50f, stageViewCameraZoomFactor = 10f;
     [SerializeField] float stageViewCameraMinFOV = 10f;
     [SerializeField] float stageViewCameraHorizontalBoundary = 20f, stageViewCameraVerticalBoundary = 20f;
@@ -35,7 +37,7 @@ public class CameraManagementSolo : MonoBehaviour
         }
         stageViewFlag = false;
         playerID = GetComponent<PlayerStatusSolo>().GetPlayerID();
-        if(playerRocketCurrentPositionArrowObject != null)
+        if (playerRocketCurrentPositionArrowObject != null)
         {
             playerRocketCurrentPositionArrowObject.SetActive(false);
         }
@@ -147,5 +149,22 @@ public class CameraManagementSolo : MonoBehaviour
         if (playerRocketCanvas == null || stageViewCanvas == null) { return; }
         playerRocketCanvas.enabled = false;
         stageViewCanvas.enabled = true;
+
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                StageViewCameraControlsEN.enabled = true;
+                StageViewCameraControlsJP.enabled = false;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                StageViewCameraControlsEN.enabled = false;
+                StageViewCameraControlsJP.enabled = true;
+                break;
+
+        }
     }
 }

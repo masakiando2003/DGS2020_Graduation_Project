@@ -36,6 +36,7 @@ MonoBehaviour:
   - ConfirmResetDataText
   - YesButtonText
   - NoButtonText
+  - BackgroundLabelText
   labelText:
   - Option
   - Title
@@ -60,3 +61,4 @@ MonoBehaviour:
   - Are you sure to delete ranking data of
   - Yes
   - No
+  - Background
