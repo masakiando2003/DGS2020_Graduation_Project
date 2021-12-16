@@ -422,7 +422,6 @@ MonoBehaviour:
   skyboxes:
   - {fileID: 2100000, guid: 16bc8a9d5451ca44d8f70575adbece3a, type: 2}
   - {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
-  - {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
   - {fileID: 2100000, guid: 4e154bf235e41704bbd6bbc6fd6c63f6, type: 2}
   - {fileID: 2100000, guid: 5d133deeaa66ed445853e946ff25e073, type: 2}
   - {fileID: 2100000, guid: 2039a0ad0a9d05549928b70362f54902, type: 2}
