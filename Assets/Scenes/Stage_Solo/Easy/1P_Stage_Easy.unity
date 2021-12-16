@@ -10261,6 +10261,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1331337419805186612, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: playerMaxLife
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9063929032160336211, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
       propertyPath: m_TargetTexture
       value: 
