@@ -417,6 +417,7 @@ public class GameManagerMultiplay : MonoBehaviour
     private void ShowCheckPoint(int playerIndex)
     {
         string currentCheckPoint = lastCheckPointPositions[playerIndex].gameObject.name;
+        Debug.Log("currentCheckPoint: " + currentCheckPoint);
         if (currentCheckPoint.Contains("Start"))
         {
             currentCheckPoint = "Start";
@@ -427,9 +428,12 @@ public class GameManagerMultiplay : MonoBehaviour
                 playerCheckPointTexts[playerIndex].text = currentCheckPoint;
                 break;
             case Language.DisplayLanauge.Japanese:
+                Debug.Log("playerIndex: " + playerIndex);
+                Debug.Log("CheckpointText: " + gameManagerMultiplay_JP.GetLabelContent("CheckpointText"));
                 playerCheckPointTexts[playerIndex].text = currentCheckPoint.Replace("Start", gameManagerMultiplay_JP.GetLabelContent("StartText"))
-                                                                           .Replace("Check Point", gameManagerMultiplay_JP.GetLabelContent("CheckpointText"))
+                                                                           .Replace("CheckPoint", gameManagerMultiplay_JP.GetLabelContent("CheckpointText"))
                                                                            .Replace("Goal", gameManagerMultiplay_JP.GetLabelContent("GoalText"));
+                Debug.Log("currentCheckPoint 2: " + currentCheckPoint);
                 break;
         }
     }
@@ -1067,7 +1071,6 @@ public class GameManagerMultiplay : MonoBehaviour
         }
         stageMiniSliders[playerIndex].minValue = 0;
         stageMiniSliders[playerIndex].maxValue = playerTotalDistance[playerIndex];
-        Debug.Log("Player Index: "+playerIndex+", "+ playerTotalDistance[playerIndex]);
         playerRemainingDistances.Add(playerIndex, playerTotalDistance[playerIndex]);
     }
 
@@ -1076,8 +1079,10 @@ public class GameManagerMultiplay : MonoBehaviour
         Dictionary<int, float> ToPlayerDistances = new Dictionary<int, float>();
         for (var i = 0; i < wayPoints.Length; i++)
         {
+            /*
             Debug.Log("i: " + i + ", Distance: " + Vector3.Distance(wayPoints[i].transform.position, playerRockets[playerIndex].transform.position) + 
                 ", Direction: " + (wayPoints[i].transform.position - playerRockets[playerIndex].transform.position).normalized);
+            */
             ToPlayerDistances.Add(i, Vector3.Distance(wayPoints[i].transform.position, playerRockets[playerIndex].transform.position));
         }
         int positionIndex = 0;
@@ -1161,7 +1166,7 @@ public class GameManagerMultiplay : MonoBehaviour
         }
         stageMiniSliders[playerIndex].value = totalMovedDistance;
         playerRemainingDistances[playerIndex] = playerTotalDistance[playerIndex] - totalMovedDistance;
-        Debug.Log("Player Index: " + playerIndex + ", playerRemainingDistances: " + playerRemainingDistances[playerIndex]);
+        //Debug.Log("Player Index: " + playerIndex + ", playerRemainingDistances: " + playerRemainingDistances[playerIndex]);
     }
 
     private void SortPositions()
