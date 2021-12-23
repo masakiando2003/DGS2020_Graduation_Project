@@ -152,6 +152,15 @@ public class PlayerItem : MonoBehaviour
     private void ResponseToUseItems()
     {
         if(playerItem == null) { return; }
+        // Disable keyboard Input
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
+            Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E) ||
+            Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.V) ||
+            Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Space) ||
+            Input.GetKey(KeyCode.Escape))
+        {
+            return;
+        }
         if (Input.GetButtonDown(playerID+"PUseItem"))
         {
             UseItem();

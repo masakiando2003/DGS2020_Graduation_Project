@@ -38,6 +38,8 @@ MonoBehaviour:
   - ReduceSpeedItemText
   - ReduceBoostItemText
   - InstructionTitleText
+  - Hint6ButtonText
+  - Hint6Text
   labelText:
   - Win Condition
   - Controls
@@ -56,9 +58,10 @@ MonoBehaviour:
   - Hint 1:|There are safezones and recover boost item
   - Hint 2:|You can reset your rocket rotation to upward in start point, check point
     or safezones.
-  - Hint 3:|Use stage View to confirm your position
+  - Hint 3:|Use Stage View camera to confirm your current place. When You switched
+    to Stage View Camera,  you can move the camera to view the details.
   - Hint 4:|Control your Speed for rotating your rocket
-  - Hint 5:|Use item to take the lead !
+  - Hint 5:|Use check points to set the latest respawn position.
   - 'Romaing Missile: Lock and shoot the nereast player'
   - 'Force Shield: Become invincible for a while'
   - 'Time Stoper: Stop other players movement for a while'
@@ -66,3 +69,5 @@ MonoBehaviour:
   - 'Reduce Spped Item: Slow down other player''s speed for a while'
   - 'Reduce Boost Item: Reduce other players'' boost immidiately'
   - Instruction
+  - Hint 6
+  - Hint 6:|Use item to take the lead !

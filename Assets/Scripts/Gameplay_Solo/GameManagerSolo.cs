@@ -132,7 +132,7 @@ public class GameManagerSolo : MonoBehaviour
         UpdatePlayerBoostText(); // For Debug
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
         }
         switch (Language.gameDisplayLanguage)
         {
@@ -652,16 +652,18 @@ public class GameManagerSolo : MonoBehaviour
 
     public void PauseGame()
     {
+        Time.timeScale = 0f;
         Instance.ChangeGameState(GameState.Pause);
         pauseCanvas.enabled = true;
-        Time.timeScale = 0f;
+        playerRocket.GetComponent<MovementSolo>().DisablePlayerControl();
     }
 
     public void ResumeGame()
     {
+        Time.timeScale = 1f;
         Instance.ChangeGameState(GameState.GameStart);
         pauseCanvas.enabled = false;
-        Time.timeScale = 1f;
+        playerRocket.GetComponent<MovementSolo>().EnablePlayerControl();
     }
     public void RestartGame()
     {

@@ -11,6 +11,7 @@ public class MultiplayTeamSelection : MonoBehaviour
 {
     [SerializeField] Localization multiplayTeamSelection_EN, multiplayTeamSelection_JP;
     [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
+    [SerializeField] Slider loadingSlider;
     [SerializeField] Text selectTeamText, teamNotSelectedFinishedYetText, pleaseWaitLabelText;
     [SerializeField] Text proceedButtonText, resetButtonText, randomTeamButtonText;
     [SerializeField] Text[] playerNameTexts;
@@ -254,7 +255,25 @@ public class MultiplayTeamSelection : MonoBehaviour
         if (chooseDifficultyScene.Equals("")) { return; }
         difficultyCanvas.SetActive(false);
         pleaseWaitCanvas.SetActive(true);
-        SceneManager.LoadScene(chooseDifficultyScene);
+        StartCoroutine(LoadLevelAsynchronously(chooseDifficultyScene));
+    }
+
+    IEnumerator LoadLevelAsynchronously(string targetMap)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetMap);
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < 0.9f)
+        {
+            //float progress = Mathf.Clamp01(operation.progress / .9f);
+            //Debug.Log("operation progress: "+operation.progress);
+            loadingSlider.value = operation.progress;
+
+            yield return 0;
+        }
+        operation.allowSceneActivation = true;
+        loadingSlider.value = 1f;
+        yield return operation;
     }
 
     private void ShowListContentsInTheDebugLog<T>(List<T> list)
