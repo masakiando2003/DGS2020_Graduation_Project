@@ -10,6 +10,7 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     [SerializeField] Localization multiplaySelectNumPlayers_EN, multiplaySelectNumPlayers_JP;
     [SerializeField] GameObject numberOfPlayersCanvas, battleModeCanvas, pleaseWaitCanvas;
     [SerializeField] GameObject threePlayersButton, fourPlayersButton, proceedButton;
+    [SerializeField] Slider loadingSlider;
     [SerializeField] Text numOfPlayersLabelText, numOfPlayersText;
     [SerializeField] Text joysticksConnectedLabelText, joysticksConnectedText;
     [SerializeField] Text notEnoughJoysticksText;
@@ -123,28 +124,12 @@ public class SelectMulitplayerNumbers : MonoBehaviour
                 numJoysticksConnected++;
             }
         }
-        if (numJoysticksConnected < 2)
+        if (numJoysticksConnected < numOfPlayers)
         {
             notEnoughJoysticksText.enabled = true;
             proceedButton.SetActive(false);
         }
         joysticksConnectedText.text = numJoysticksConnected.ToString();
-        if (numJoysticksConnected < 4)
-        {
-            fourPlayersButton.SetActive(false);
-            if(numJoysticksConnected < 3)
-            {
-                threePlayersButton.SetActive(false);
-            }
-            else
-            {
-                threePlayersButton.SetActive(true);
-            }
-        }
-        else
-        {
-            fourPlayersButton.SetActive(true);
-        }
     }
 
     private void UpdateNumOfPlayers()
@@ -210,7 +195,24 @@ public class SelectMulitplayerNumbers : MonoBehaviour
         numberOfPlayersCanvas.SetActive(false);
         battleModeCanvas.SetActive(false);
         pleaseWaitCanvas.SetActive(true);
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(LoadLevelAsynchronously(sceneName));
+    }
+    IEnumerator LoadLevelAsynchronously(string targetMap)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetMap);
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < 0.9f)
+        {
+            //float progress = Mathf.Clamp01(operation.progress / .9f);
+            //Debug.Log("operation progress: "+operation.progress);
+            loadingSlider.value = operation.progress;
+
+            yield return 0;
+        }
+        operation.allowSceneActivation = true;
+        loadingSlider.value = 1f;
+        yield return operation;
     }
 
     public void ToTitle()

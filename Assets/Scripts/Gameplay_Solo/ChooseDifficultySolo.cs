@@ -13,6 +13,7 @@ public class ChooseDifficultySolo : MonoBehaviour
     [SerializeField] string introductionScene;
     [SerializeField] string titleMap;
     [SerializeField] string difficulty = "Easy";
+    [SerializeField] Slider loadingSlider;
     [SerializeField] Text difficultyText, difficultyTitleText, easyText, normalText, hardText, proceedText, titleText, pleaseWaitLabelText;
     [SerializeField] Text estimatedTimeLabelText, estimatedTimeText;
     [SerializeField] Image stageEasyViewImage, stageNormalViewImage, stageHardViewImage;
@@ -153,7 +154,25 @@ public class ChooseDifficultySolo : MonoBehaviour
         if (introductionScene.Equals("")) { return; }
         difficultyCanvas.SetActive(false);
         pleaseWaitCanvas.SetActive(true);
-        SceneManager.LoadScene(introductionScene);
+        StartCoroutine(LoadLevelAsynchronously(introductionScene));
+    }
+
+    IEnumerator LoadLevelAsynchronously(string targetMap)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetMap);
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < 0.9f)
+        {
+            //float progress = Mathf.Clamp01(operation.progress / .9f);
+            //Debug.Log("operation progress: "+operation.progress);
+            loadingSlider.value = operation.progress;
+
+            yield return 0;
+        }
+        operation.allowSceneActivation = true;
+        loadingSlider.value = 1f;
+        yield return operation;
     }
 
     public void ToTitle()

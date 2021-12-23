@@ -11,6 +11,7 @@ public class EnterPlayerName1P : MonoBehaviour
     [SerializeField] GameObject playerNameCanvas, pleaseWaitCanvas;
     [SerializeField] string difficultyScene;
     [SerializeField] string titleMap;
+    [SerializeField] Slider loadingSlider;
     [SerializeField] InputField playerNameInput;
     [SerializeField] Text errorText, playerNameTitleText, placeholderText, pleaseWaitLabelText, proceedText, titleText;
 
@@ -72,9 +73,28 @@ public class EnterPlayerName1P : MonoBehaviour
             if (difficultyScene.Equals("")) { return; }
             playerNameCanvas.SetActive(false);
             pleaseWaitCanvas.SetActive(true);
-            SceneManager.LoadScene(difficultyScene);
+            StartCoroutine(LoadLevelAsynchronously(difficultyScene));
         }
     }
+
+    IEnumerator LoadLevelAsynchronously(string targetMap)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetMap);
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < 0.9f)
+        {
+            //float progress = Mathf.Clamp01(operation.progress / .9f);
+            //Debug.Log("operation progress: "+operation.progress);
+            loadingSlider.value = operation.progress;
+
+            yield return 0;
+        }
+        operation.allowSceneActivation = true;
+        loadingSlider.value = 1f;
+        yield return operation;
+    }
+
     public void ToTitle()
     {
         if (titleMap.Equals("")) { return; }

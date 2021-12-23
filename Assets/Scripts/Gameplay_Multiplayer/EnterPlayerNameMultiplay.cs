@@ -10,6 +10,7 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
     [SerializeField] string difficultyScene;
     [SerializeField] string teamSelectionScene;
     [SerializeField] string titleMap;
+    [SerializeField] Slider loadingSlider;
     [SerializeField] GameObject enterPlayerNameCanvas, pleaseWaitCanvas;
     [SerializeField] GameObject[] playerNameObjects;
     [SerializeField] InputField[] playerNameInput;
@@ -122,13 +123,31 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
             enterPlayerNameCanvas.SetActive(false);
             if (MultiplayPlayerMode.gameMode.Equals("BattleRoyale"))
             {
-                SceneManager.LoadScene(difficultyScene);
+                StartCoroutine(LoadLevelAsynchronously(difficultyScene));
             }
             else
             {
-                SceneManager.LoadScene(teamSelectionScene);
+                StartCoroutine(LoadLevelAsynchronously(teamSelectionScene));
             }
         }
+    }
+
+    IEnumerator LoadLevelAsynchronously(string targetMap)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetMap);
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < 0.9f)
+        {
+            //float progress = Mathf.Clamp01(operation.progress / .9f);
+            //Debug.Log("operation progress: "+operation.progress);
+            loadingSlider.value = operation.progress;
+
+            yield return 0;
+        }
+        operation.allowSceneActivation = true;
+        loadingSlider.value = 1f;
+        yield return operation;
     }
     public void ToTitle()
     {

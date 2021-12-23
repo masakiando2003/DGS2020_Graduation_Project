@@ -14,17 +14,19 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] GameObject pleaseWaitCanvas;
     [SerializeField] GameObject objectionSection, controlsSection, hintsSection;
     [SerializeField] GameObject keyboardSection, joystickSection;
-    [SerializeField] GameObject hints1Section, hints2Section, hints3Section, hints4Section;
-    [SerializeField] GameObject hint1ImageEN, hint2Image1EN, hint2Image2EN, hint3ImageEN, hint4ImageEN;
-    [SerializeField] GameObject hint1ImageJP, hint2Image1JP, hint2Image2JP, hint3ImageJP, hint4ImageJP;
+    [SerializeField] GameObject hints1Section, hints2Section, hints3Section, hints4Section, hints5Section;
+    [SerializeField] GameObject hint1ImageEN, hint2Image1EN, hint2Image2EN, hint3ImageEN, hint4ImageEN, hint5Image1EN, hint5Image2EN;
+    [SerializeField] GameObject hint1ImageJP, hint2Image1JP, hint2Image2JP, hint3ImageJP, hint4ImageJP, hint5Image1JP, hint5Image2JP;
     [SerializeField] GameObject stageEasyImageEN, stageNormalImageEN, stageHardImageEN;
     [SerializeField] GameObject stageEasyImageJP, stageNormalImageJP, stageHardImageJP;
     [SerializeField] GameObject keyboardImageEN, keyboardImageJP, joystickImageEN, joystickImageJP;
     [SerializeField] string targetEasyMap, targetNormalMap, targetHardMap;
     [SerializeField] string titleMap;
+    [SerializeField] Slider loadingSlider;
     [SerializeField] Text instructionTitleText, missionButtonText, controlsButtonText, hintsButtonText;
     [SerializeField] Text missionText, keyboardButtonText, joystickButtonText;
-    [SerializeField] Text hint1ButtonText, hint2ButtonText, hint3ButtonText, hint4ButtonText, hint1Text, hint2Text, hint3Text, hint4Text;
+    [SerializeField] Text hint1ButtonText, hint2ButtonText, hint3ButtonText, hint4ButtonText, hint5ButtonText;
+    [SerializeField] Text hint1Text, hint2Text, hint3Text, hint4Text, hint5Text;
     [SerializeField] Text startButtonText, rankingButtonText, titleButtonText, returnButtonText;
     [SerializeField] Text rankingLabelText, rankingPlayerNameLabelText, rankingPlayerFinalPositionText;
     [SerializeField] Text rankingPlayerRemainingTimeText, rankingPlayerTimeElapsedText, pleaseWaitLabelText;
@@ -58,6 +60,7 @@ public class Instructions_1P : MonoBehaviour
         hints2Section.SetActive(false);
         hints3Section.SetActive(false);
         hints4Section.SetActive(false);
+        hints5Section.SetActive(false);
         hintsSection.SetActive(false);
         switch (Difficulty_1P_TempSave.chosenDifficulty)
         {
@@ -131,20 +134,26 @@ public class Instructions_1P : MonoBehaviour
                 hint2ButtonText.text = instruction1P_EN.GetLabelContent("Hint2ButtonText");
                 hint3ButtonText.text = instruction1P_EN.GetLabelContent("Hint3ButtonText");
                 hint4ButtonText.text = instruction1P_EN.GetLabelContent("Hint4ButtonText");
+                hint5ButtonText.text = instruction1P_EN.GetLabelContent("Hint5ButtonText");
                 hint1Text.text = instruction1P_EN.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
                 hint2Text.text = instruction1P_EN.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
                 hint3Text.text = instruction1P_EN.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
                 hint4Text.text = instruction1P_EN.GetLabelContent("Hint4Text").Replace("|", Environment.NewLine);
+                hint5Text.text = instruction1P_EN.GetLabelContent("Hint5Text").Replace("|", Environment.NewLine);
                 hint1ImageEN.SetActive(true);
                 hint2Image1EN.SetActive(true);
                 hint2Image2EN.SetActive(true);
                 hint3ImageEN.SetActive(true);
                 hint4ImageEN.SetActive(true);
+                hint5Image1EN.SetActive(true);
+                hint5Image2EN.SetActive(true);
                 hint1ImageJP.SetActive(false);
                 hint2Image1JP.SetActive(false);
                 hint2Image2JP.SetActive(false);
                 hint3ImageJP.SetActive(false);
                 hint4ImageJP.SetActive(false);
+                hint5Image1JP.SetActive(false);
+                hint5Image2JP.SetActive(false);
                 keyboardImageEN.SetActive(true);
                 keyboardImageJP.SetActive(false);
                 joystickImageEN.SetActive(true);
@@ -181,20 +190,27 @@ public class Instructions_1P : MonoBehaviour
                 hint3ButtonText.fontStyle = FontStyle.Bold;
                 hint4ButtonText.text = instruction1P_JP.GetLabelContent("Hint4ButtonText");
                 hint4ButtonText.fontStyle = FontStyle.Bold;
+                hint5ButtonText.text = instruction1P_JP.GetLabelContent("Hint5ButtonText");
+                hint5ButtonText.fontStyle = FontStyle.Bold;
                 hint1Text.text = instruction1P_JP.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
                 hint2Text.text = instruction1P_JP.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
                 hint3Text.text = instruction1P_JP.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
                 hint4Text.text = instruction1P_JP.GetLabelContent("Hint4Text").Replace("|", Environment.NewLine);
+                hint5Text.text = instruction1P_JP.GetLabelContent("Hint5Text").Replace("|", Environment.NewLine);
                 hint1ImageEN.SetActive(false);
                 hint2Image1EN.SetActive(false);
                 hint2Image2EN.SetActive(false);
                 hint3ImageEN.SetActive(false);
                 hint4ImageEN.SetActive(false);
+                hint5Image1EN.SetActive(false);
+                hint5Image2EN.SetActive(false);
                 hint1ImageJP.SetActive(true);
                 hint2Image1JP.SetActive(true);
                 hint2Image2JP.SetActive(true);
                 hint3ImageJP.SetActive(true);
                 hint4ImageJP.SetActive(true);
+                hint5Image1JP.SetActive(true);
+                hint5Image2JP.SetActive(true);
                 keyboardImageEN.SetActive(false);
                 keyboardImageJP.SetActive(true);
                 joystickImageEN.SetActive(false);
@@ -318,6 +334,7 @@ public class Instructions_1P : MonoBehaviour
         hints2Section.SetActive(false);
         hints3Section.SetActive(false);
         hints4Section.SetActive(false);
+        hints5Section.SetActive(false);
         hintsSection.SetActive(true);
     }
 
@@ -327,6 +344,7 @@ public class Instructions_1P : MonoBehaviour
         hints2Section.SetActive(false);
         hints3Section.SetActive(false);
         hints4Section.SetActive(false);
+        hints5Section.SetActive(false);
     }
 
     public void ShowHints2Section()
@@ -335,6 +353,7 @@ public class Instructions_1P : MonoBehaviour
         hints2Section.SetActive(true);
         hints3Section.SetActive(false);
         hints4Section.SetActive(false);
+        hints5Section.SetActive(false);
     }
 
     public void ShowHints3Section()
@@ -343,6 +362,7 @@ public class Instructions_1P : MonoBehaviour
         hints2Section.SetActive(false);
         hints3Section.SetActive(true);
         hints4Section.SetActive(false);
+        hints5Section.SetActive(false);
     }
     public void ShowHints4Section()
     {
@@ -350,6 +370,15 @@ public class Instructions_1P : MonoBehaviour
         hints2Section.SetActive(false);
         hints3Section.SetActive(false);
         hints4Section.SetActive(true);
+        hints5Section.SetActive(false);
+    }
+    public void ShowHints5Section()
+    {
+        hints1Section.SetActive(false);
+        hints2Section.SetActive(false);
+        hints3Section.SetActive(false);
+        hints4Section.SetActive(false);
+        hints5Section.SetActive(true);
     }
 
     public void StartGame()
@@ -360,16 +389,35 @@ public class Instructions_1P : MonoBehaviour
         switch (Difficulty_1P_TempSave.chosenDifficulty)
         {
             case "Easy":
-                SceneManager.LoadScene(targetEasyMap);
+                StartCoroutine(LoadLevelAsynchronously(targetEasyMap));
                 break;
             case "Normal":
-                SceneManager.LoadScene(targetNormalMap);
+                StartCoroutine(LoadLevelAsynchronously(targetNormalMap));
                 break;
             case "Hard":
-                SceneManager.LoadScene(targetHardMap);
+                StartCoroutine(LoadLevelAsynchronously(targetHardMap));
                 break;
         }
     }
+
+    IEnumerator LoadLevelAsynchronously(string targetMap)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(targetMap);
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < 0.9f)
+        {
+            //float progress = Mathf.Clamp01(operation.progress / .9f);
+            //Debug.Log("operation progress: "+operation.progress);
+            loadingSlider.value = operation.progress;
+
+            yield return 0;
+        }
+        operation.allowSceneActivation = true;
+        loadingSlider.value = 1f;
+        yield return operation;
+    }
+
     public void ToTitle()
     {
         if (titleMap.Equals("")) { return; }

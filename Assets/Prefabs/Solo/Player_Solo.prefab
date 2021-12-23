@@ -554,9 +554,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "W / S / A/ D or \u2191 / \u2193 / \u2190 / \u2192: Move Camera\nQ / E
-    or L1 / R1: Camera Zoon IN / Out\nX or R2: Reset Camera Position\nV or \u25B3:
-    Change Camera"
+  m_Text: 'W / S / A / D or Joystick Up / Down / Left / Right: Move Camera
+
+    Q
+    / E or L1 / R1: Camera Zoon In / Out
+
+    X or R2: Reset Camera Position
+
+    V
+    or Triagnle: Change Camera'
 --- !u!114 &4755693131713940892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43236,9 +43242,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "W / S / A/ D \u307E\u305F\u306F \u2191 / \u2193 / \u2190 / \u2192: \u30AB\u30E1\u30E9\u79FB\u52D5\nQ
-    / E \u307E\u305F\u306F L1 / R1: \u30AB\u30E1\u30E9\u30BA\u30FC\u30E0\u30A4\u30F3
-    / \u30A2\u30A6\u30C8\nX \u307E\u305F\u306F R2: \u30AB\u30E1\u30E9\u4F4D\u7F6E\u30EA\u30BB\u30C3\u30C8\nV
+  m_Text: "W / S / A / D \u307E\u305F\u306F \u30B8\u30E7\u30A4\u30B9\u30C6\u30A3\u30C3\u30AF\u4E0A
+    / \u4E0B / \u5DE6 / \u53F3: \u30AB\u30E1\u30E9\u79FB\u52D5\nQ / E \u307E\u305F\u306F
+    L1 / R1: \u30AB\u30E1\u30E9\u30BA\u30FC\u30E0\u30A4\u30F3 / \u30A2\u30A6\u30C8\nX
+    \u307E\u305F\u306F R2: \u30AB\u30E1\u30E9\u4F4D\u7F6E\u30EA\u30BB\u30C3\u30C8\nV
     \u307E\u305F\u306F \u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4"
 --- !u!114 &3090634564755154336
 MonoBehaviour:
