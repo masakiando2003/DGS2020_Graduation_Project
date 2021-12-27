@@ -34,7 +34,6 @@ public class PlayerStatusSolo : MonoBehaviour
 
     public void UpdatePlayerBoostSlider()
     {
-        Debug.Log("Boost Value: "+GetBoostSliderValue());
         //boostSlider.value = GetBoostSliderValue();
         boostSliderFilter.fillAmount = GetBoostSliderValue();
         ChangePlayerBoostSliderColor();

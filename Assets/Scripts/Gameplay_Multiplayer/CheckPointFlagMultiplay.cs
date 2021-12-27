@@ -5,8 +5,7 @@ using UnityEngine;
 public class CheckPointFlagMultiplay : MonoBehaviour
 {
     [SerializeField] string checkPointName;
-    [SerializeField] int checkPointIndex, recoverPlayerLifes;
-    [SerializeField] float recoverRemainingTime;
+    [SerializeField] int checkPointIndex;
     [SerializeField] Material checkPointFlagMaterial;
     private Material originalMaterial;
     private bool isChecked;

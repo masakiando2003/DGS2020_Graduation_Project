@@ -20,7 +20,6 @@ public class Oscillator : MonoBehaviour
     {
         if(period <= Mathf.Epsilon) { return; }
         float cycles = Time.time / period; // continually growing over time
-        Debug.Log("cycles: "+ cycles);
 
         const float tau = Mathf.PI * 2; // constant value of 6.283
         float rawSinWave = Mathf.Sin(cycles * tau); // goging from -1 to 1

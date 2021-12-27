@@ -60,15 +60,6 @@ public class MovementSolo : MonoBehaviour
             {
                 ProcessResetRotation();
             }
-            ProcessPause();
-        }
-    }
-
-    private void ProcessPause()
-    {
-        if (Input.GetButton(playerID + "PPause"))
-        {
-            FindObjectOfType<GameManagerSolo>().PauseGame();
         }
     }
 
@@ -145,7 +136,6 @@ public class MovementSolo : MonoBehaviour
     private void StartThursting()
     {
         rb.AddRelativeForce(Vector3.up * thrustSpeed * Time.deltaTime * speedFactor);
-        Debug.Log("Speed: "+rb.velocity);
         if (!audioSource.isPlaying && mainEngine != null)
         {
             audioSource.PlayOneShot(mainEngine);

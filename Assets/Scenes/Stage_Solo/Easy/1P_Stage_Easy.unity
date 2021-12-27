@@ -2542,6 +2542,11 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!4 &431515968 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9140179020007604345, guid: d359c6519f15f1c49a2a46c52e14c98d, type: 3}
+  m_PrefabInstance: {fileID: 9140179019812365102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &449004471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,7 +5725,7 @@ MonoBehaviour:
   - {fileID: 6850346261495761607}
   - {fileID: 6850346261151161609}
   - {fileID: 6850346260366323253}
-  startPosition: {fileID: 4661590403101898871}
+  startPosition: {fileID: 431515968}
   checkPointPositions:
   - {fileID: 4661590403101898871}
   wayPoints:
@@ -10321,6 +10326,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1500910275709806498, guid: d359c6519f15f1c49a2a46c52e14c98d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9140179020634599304, guid: d359c6519f15f1c49a2a46c52e14c98d, type: 3}
       propertyPath: m_RootOrder
       value: 2

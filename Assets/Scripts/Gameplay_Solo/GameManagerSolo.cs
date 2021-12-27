@@ -598,6 +598,7 @@ public class GameManagerSolo : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("1PPause"))
             {
+                Debug.Log("Pause Game Test");
                 PauseGame();
             }
         }
@@ -605,6 +606,7 @@ public class GameManagerSolo : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("1PPause"))
             {
+                Debug.Log("Resume Game Test");
                 ResumeGame();
             }
         }

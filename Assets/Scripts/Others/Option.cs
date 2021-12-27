@@ -243,7 +243,15 @@ public class Option : MonoBehaviour
             switch (difficulty)
             {
                 case "Easy":
-                    rankingEasyPlayerNameText[index].text = data.playerName;
+                    if (PlayerPrefs.HasKey("Easy_PlayerName_" + (index + 1)))
+                    {
+                        rankingEasyPlayerNameText[index].text = PlayerPrefs.GetString("Easy_PlayerName_" + (index + 1));
+                    }
+                    else
+                    {
+                        rankingEasyPlayerNameText[index].text = data.playerName;
+                        PlayerPrefs.SetString("Easy_PlayerName_" + (index + 1), data.playerName);
+                    }
                     rankingEasyPlayerNameText[index].fontStyle = FontStyle.Bold;
                     switch (Language.gameDisplayLanguage)
                     {
@@ -263,7 +271,15 @@ public class Option : MonoBehaviour
                     rankingEasyTimeElaspedText[index].text = data.timeElapsed;
                     break;
                 case "Normal":
-                    rankingNormalPlayerNameText[index].text = data.playerName;
+                    if (PlayerPrefs.HasKey("Normal_PlayerName_" + (index + 1)))
+                    {
+                        rankingNormalPlayerNameText[index].text = PlayerPrefs.GetString("Normal_PlayerName_" + (index + 1));
+                    }
+                    else
+                    {
+                        rankingNormalPlayerNameText[index].text = data.playerName;
+                        PlayerPrefs.SetString("Normal_PlayerName_" + (index + 1), data.playerName);
+                    }
                     rankingNormalPlayerNameText[index].fontStyle = FontStyle.Bold;
                     switch (Language.gameDisplayLanguage)
                     {
@@ -283,7 +299,16 @@ public class Option : MonoBehaviour
                     rankingNormalTimeElaspedText[index].text = data.timeElapsed;
                     break;
                 case "Hard":
-                    rankingHardPlayerNameText[index].text = data.playerName;
+
+                    if (PlayerPrefs.HasKey("Hard_PlayerName_" + (index + 1)))
+                    {
+                        rankingHardPlayerNameText[index].text = PlayerPrefs.GetString("Hard_PlayerName_" + (index + 1));
+                    }
+                    else
+                    {
+                        rankingHardPlayerNameText[index].text = data.playerName;
+                        PlayerPrefs.SetString("Hard_PlayerName_" + (index + 1), data.playerName);
+                    }
                     rankingHardPlayerNameText[index].fontStyle = FontStyle.Bold;
                     switch (Language.gameDisplayLanguage)
                     {

@@ -72,12 +72,12 @@ public class CollisionHandlerMultiplay : MonoBehaviour
                 {
                     if (!GetComponent<PlayerStatusMultiplay>().IsInvicible())
                     {
-                        StartFailedSequence(other.gameObject.tag);
+                        StartFailedSequence(other.gameObject);
                     }
                 }
                 else
                 {
-                    StartFailedSequence(other.gameObject.tag);
+                    StartFailedSequence(other.gameObject);
                 }
                 break;
         }
@@ -101,12 +101,12 @@ public class CollisionHandlerMultiplay : MonoBehaviour
                 {
                     if (!GetComponent<PlayerStatusMultiplay>().IsInvicible())
                     {
-                        StartFailedSequence(other.gameObject.tag);
+                        StartFailedSequence(other.gameObject);
                     }
                 }
                 else
                 {
-                    StartFailedSequence(other.gameObject.tag);
+                    StartFailedSequence(other.gameObject);
                 }
                 break;
         }
@@ -159,8 +159,12 @@ public class CollisionHandlerMultiplay : MonoBehaviour
         }
     }
 
-    private void StartFailedSequence(string gameObecjtTag)
+    private void StartFailedSequence(GameObject colliderObject)
     {
+        if (colliderObject.gameObject.tag.Equals("Fabrics"))
+        {
+            Destroy(colliderObject.gameObject);
+        }
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(crash);
