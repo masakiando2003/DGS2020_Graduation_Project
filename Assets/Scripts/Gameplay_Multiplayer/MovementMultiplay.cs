@@ -78,14 +78,6 @@ public class MovementMultiplay : MonoBehaviour
             }
             else
             {
-                if (Input.GetButton(playerID + "PSpeedUp"))
-                {
-                    ResponseToBoostUp();
-                }
-                else
-                {
-                    ResetSpeedFactor();
-                }
                 StartThursting();
                 LimitMaxmimumSpeed();
             }

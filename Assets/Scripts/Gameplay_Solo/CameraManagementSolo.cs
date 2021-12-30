@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class CameraManagementSolo : MonoBehaviour
 {
     [SerializeField] Transform defaultStageViewCameraPos;
+    [SerializeField] Text playerControlsEN, playerControlsJP;
+    [SerializeField] Text playerControlsHintsEN, playerControlsHintsJP;
     [SerializeField] Text StageViewCameraControlsEN, StageViewCameraControlsJP;
     [SerializeField] float stageViewCameraMoveFactor = 50f, stageViewCameraZoomFactor = 10f;
     [SerializeField] float stageViewCameraMinFOV = 10f;
@@ -16,7 +18,7 @@ public class CameraManagementSolo : MonoBehaviour
     [SerializeField] GameObject playerRocketCurrentPositionArrowObject;
 
     int playerID;
-    bool stageViewFlag;
+    bool stageViewFlag, showHintsFlag;
     Transform defaultStageViewCameraPosition;
     float defaultStageViewCameraFoV, stageCameraMaxFov;
 
@@ -36,6 +38,7 @@ public class CameraManagementSolo : MonoBehaviour
             stageViewCamera.enabled = false;
         }
         stageViewFlag = false;
+        showHintsFlag = false;
         playerID = GetComponent<PlayerStatusSolo>().GetPlayerID();
         if (playerRocketCurrentPositionArrowObject != null)
         {
@@ -44,12 +47,74 @@ public class CameraManagementSolo : MonoBehaviour
         defaultStageViewCameraPosition = defaultStageViewCameraPos;
         defaultStageViewCameraFoV = stageViewCamera.fieldOfView;
         stageCameraMaxFov = stageViewCamera.fieldOfView;
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                playerControlsEN.enabled = false;
+                playerControlsJP.enabled = false;
+                playerControlsHintsEN.enabled = true;
+                playerControlsHintsJP.enabled = false;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                playerControlsEN.enabled = false;
+                playerControlsJP.enabled = true;
+                playerControlsHintsEN.enabled = false;
+                playerControlsHintsJP.enabled = true;
+                break;
+
+        }
     }
 
     private void Update()
     {
+        ResponseToShowHints();
         ResponseToChangeCamera();
         ResponseToMoveStageViewCamera();
+    }
+
+    private void ResponseToShowHints()
+    {
+        if (!stageViewFlag)
+        {
+            if (Input.GetButtonDown(playerID + "PShowHints"))
+            {
+                showHintsFlag = !showHintsFlag;
+                if (showHintsFlag)
+                {
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            playerControlsEN.enabled = true;
+                            playerControlsHintsEN.enabled = false;
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            playerControlsJP.enabled = true;
+                            playerControlsHintsJP.enabled = false;
+                            break;
+
+                    }
+                }
+                else
+                {
+                    switch (Language.gameDisplayLanguage)
+                    {
+                        case Language.DisplayLanauge.English:
+                            playerControlsEN.enabled = false;
+                            playerControlsHintsEN.enabled = true;
+                            break;
+                        case Language.DisplayLanauge.Japanese:
+                            playerControlsJP.enabled = false;
+                            playerControlsHintsJP.enabled = true;
+                            break;
+
+                    }
+                }
+            }
+        }
     }
 
     private void ResponseToChangeCamera()
@@ -139,6 +204,23 @@ public class CameraManagementSolo : MonoBehaviour
         if(playerRocketCanvas == null || stageViewCanvas == null) { return; }
         playerRocketCanvas.enabled = true;
         stageViewCanvas.enabled = false;
+
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+        }
+        switch (Language.gameDisplayLanguage)
+        {
+            case Language.DisplayLanauge.English:
+                playerControlsEN.enabled = true;
+                playerControlsJP.enabled = false;
+                break;
+            case Language.DisplayLanauge.Japanese:
+                playerControlsEN.enabled = false;
+                playerControlsEN.enabled = true;
+                break;
+
+        }
     }
 
     public void ChangeToStageViewCamera()

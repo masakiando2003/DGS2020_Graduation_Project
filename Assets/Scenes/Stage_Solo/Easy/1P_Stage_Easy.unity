@@ -10265,6 +10265,14 @@ PrefabInstance:
       propertyPath: playerMaxLife
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2557565347502794073, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063929032160336208, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9063929032160336211, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
       propertyPath: m_TargetTexture
       value: 

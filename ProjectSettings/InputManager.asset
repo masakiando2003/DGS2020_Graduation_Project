@@ -298,7 +298,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: q
+    positiveButton: a
     altNegativeButton: 
     altPositiveButton: joystick 1 button 4
     gravity: 1000
@@ -314,7 +314,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: e
+    positiveButton: d
     altNegativeButton: 
     altPositiveButton: joystick 1 button 5
     gravity: 1000
@@ -330,7 +330,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: space
+    positiveButton: w
     altNegativeButton: 
     altPositiveButton: joystick 1 button 2
     gravity: 1000
@@ -342,11 +342,11 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: 1PSpeedUp
+    m_Name: 1PShowHints
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: s
+    positiveButton: q
     altNegativeButton: 
     altPositiveButton: joystick 1 button 1
     gravity: 1000
@@ -362,7 +362,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: x
+    positiveButton: e
     altNegativeButton: 
     altPositiveButton: joystick 1 button 7
     gravity: 1000
@@ -442,7 +442,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: r
+    positiveButton: s
     altNegativeButton: 
     altPositiveButton: joystick 1 button 3
     gravity: 1000
@@ -458,7 +458,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: v
+    positiveButton: c
     altNegativeButton: 
     altPositiveButton: joystick 1 button 0
     gravity: 1000
@@ -518,7 +518,7 @@ InputManager:
     axis: 0
     joyNum: 2
   - serializedVersion: 3
-    m_Name: 2PSpeedUp
+    m_Name: 2PShowHints
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -614,7 +614,7 @@ InputManager:
     axis: 0
     joyNum: 3
   - serializedVersion: 3
-    m_Name: 3PSpeedUp
+    m_Name: 3PShowHints
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -694,7 +694,7 @@ InputManager:
     axis: 0
     joyNum: 4
   - serializedVersion: 3
-    m_Name: 4PSpeedUp
+    m_Name: 4PShowHints
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
