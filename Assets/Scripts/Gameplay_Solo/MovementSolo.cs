@@ -65,37 +65,81 @@ public class MovementSolo : MonoBehaviour
 
     private void ProcessThrust()
     {
-        if (Input.GetButton(playerID + "PBoost") && playerStatus.GetCurrentBoost() > 0)
+        switch (ControlType.chosenControlType)
         {
-            if (Input.GetButton(playerID + "PSlowDown"))
-            {
-                SlowDownSpeed();
-            }
-            else
-            {
-                StartThursting();
-                LimitMaxmimumSpeed();
-            }
-            playerStatus.ReducePlayerBoost(speedFactor);
-        }
-        else if (Input.GetButton(playerID + "PSlowDown"))
-        {
-            SlowDownSpeed();
-            playerStatus.ReducePlayerBoost(speedFactor);
-        }
-        else
-        {
-            StopThursting();
-            //playerStatus.RecoverBoost();
+            case "Type1":
+                if (Input.GetMouseButton(0) && playerStatus.GetCurrentBoost() > 0)
+                {
+                    if (Input.GetMouseButton(1))
+                    {
+                        SlowDownSpeed();
+                    }
+                    else
+                    {
+                        StartThursting();
+                        LimitMaxmimumSpeed();
+                    }
+                    playerStatus.ReducePlayerBoost(speedFactor);
+                }
+                else if (Input.GetMouseButton(1))
+                {
+                    SlowDownSpeed();
+                    playerStatus.ReducePlayerBoost(speedFactor);
+                }
+                else
+                {
+                    StopThursting();
+                    //playerStatus.RecoverBoost();
+                }
+                break;
+            case "Type2":
+                if (Input.GetButton(playerID + "PBoost2") && playerStatus.GetCurrentBoost() > 0)
+                {
+                    if (Input.GetButton(playerID + "PSlowDown2"))
+                    {
+                        SlowDownSpeed();
+                    }
+                    else
+                    {
+                        StartThursting();
+                        LimitMaxmimumSpeed();
+                    }
+                    playerStatus.ReducePlayerBoost(speedFactor);
+                }
+                else if (Input.GetButton(playerID + "PSlowDown2"))
+                {
+                    SlowDownSpeed();
+                    playerStatus.ReducePlayerBoost(speedFactor);
+                }
+                else
+                {
+                    StopThursting();
+                    //playerStatus.RecoverBoost();
+                }
+                break;
+            default:
+                break;
+
         }
         playerStatus.UpdatePlayerBoostSlider();
     }
 
     private void ProcessResetRotation()
     {
-        if (Input.GetButton(playerID + "PResetRotation"))
+        switch (ControlType.chosenControlType)
         {
-            ResetRotation();
+            case "Type1":
+                if (Input.GetMouseButtonDown(2))
+                {
+                    ResetRotation();
+                }
+                break;
+            case "Type2":
+                if (Input.GetButton(playerID + "PResetRotation2"))
+                {
+                    ResetRotation();
+                }
+                break;
         }
     }
 
@@ -163,13 +207,28 @@ public class MovementSolo : MonoBehaviour
 
     private void ProcessRotation()
     {
-        if (Input.GetButton(playerID + "PRotateLeft"))
+        switch (ControlType.chosenControlType)
         {
-            RotateLeft();
-        }
-        else if (Input.GetButton(playerID + "PRotateRight"))
-        {
-            RotateRight();
+            case "Type1":
+                if (Input.GetButton(playerID + "PRotateLeft"))
+                {
+                    RotateLeft();
+                }
+                else if (Input.GetButton(playerID + "PRotateRight"))
+                {
+                    RotateRight();
+                }
+                break;
+            case "Type2":
+                if (Input.GetButton(playerID + "PRotateLeft2"))
+                {
+                    RotateLeft();
+                }
+                else if (Input.GetButton(playerID + "PRotateRight2"))
+                {
+                    RotateRight();
+                }
+                break;
         }
     }
 

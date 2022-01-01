@@ -19,6 +19,8 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     [SerializeField] Text proceedButtonText, titleButtonText, pleaseWaitLabelText;
     [SerializeField] Text battleRoyaleButtonText, teamPlayButtonText;
     [SerializeField] bool debugFlag;
+    [SerializeField] Button btn2P, btn3P, btn4P;
+    [SerializeField] Color buttonNormalColor, buttonSelectedColor;
 
     int numOfPlayers;
 
@@ -31,6 +33,9 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     private void Initialization()
     {
         numOfPlayers = 2;
+        btn2P.GetComponent<Image>().color = buttonSelectedColor;
+        btn3P.GetComponent<Image>().color = buttonNormalColor;
+        btn4P.GetComponent<Image>().color = buttonNormalColor;
         notEnoughJoysticksText.enabled = false;
         numberOfPlayersCanvas.SetActive(true);
         battleModeCanvas.SetActive(false);
@@ -65,19 +70,25 @@ public class SelectMulitplayerNumbers : MonoBehaviour
                 players_4_Button_Text.text = multiplaySelectNumPlayers_JP.GetLabelContent("4PlayersText");
                 players_4_Button_Text.fontStyle = FontStyle.Bold;
                 joysticksConnectedLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("JoysticksConnectedLabelText");
+                joysticksConnectedLabelText.fontStyle = FontStyle.Bold;
                 notEnoughJoysticksText.text = multiplaySelectNumPlayers_JP.GetLabelContent("NotEnoughJoysticksText");
+                notEnoughJoysticksText.fontStyle = FontStyle.Bold;
                 selectGameModeText.text = multiplaySelectNumPlayers_JP.GetLabelContent("SelectGameModeText");
+                selectGameModeText.fontStyle = FontStyle.Bold;
                 gameModeLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("GameModeLabelText");
+                gameModeLabelText.fontStyle = FontStyle.Bold;
                 proceedButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("ProceedButtonText");
                 proceedButtonText.fontStyle = FontStyle.Bold;
                 titleButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("TitleButtonText");
                 titleButtonText.fontStyle = FontStyle.Bold;
                 numOfPlayersLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("NumOfPlayersLabelText");
+                numOfPlayersLabelText.fontStyle = FontStyle.Bold;
                 battleRoyaleButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("BattleRoyaleButtonText");
                 battleRoyaleButtonText.fontStyle = FontStyle.Bold;
                 teamPlayButtonText.text = multiplaySelectNumPlayers_JP.GetLabelContent("TeamPlayButtonText");
                 teamPlayButtonText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = multiplaySelectNumPlayers_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 break;
         }
     }
@@ -171,11 +182,26 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     public void SetNumOfPlayers(int numPlayers)
     {
         numOfPlayers = numPlayers;
-        if(numPlayers == 4)
+        switch (numOfPlayers)
         {
-            numberOfPlayersCanvas.SetActive(false);
-            pleaseWaitCanvas.SetActive(false);
-            battleModeCanvas.SetActive(true);
+            case 2:
+                btn2P.GetComponent<Image>().color = buttonSelectedColor;
+                btn3P.GetComponent<Image>().color = buttonNormalColor;
+                btn4P.GetComponent<Image>().color = buttonNormalColor;
+                break;
+            case 3:
+                btn2P.GetComponent<Image>().color = buttonNormalColor;
+                btn3P.GetComponent<Image>().color = buttonSelectedColor;
+                btn4P.GetComponent<Image>().color = buttonNormalColor;
+                break;
+            case 4:
+                btn2P.GetComponent<Image>().color = buttonNormalColor;
+                btn3P.GetComponent<Image>().color = buttonNormalColor;
+                btn4P.GetComponent<Image>().color = buttonSelectedColor;
+                numberOfPlayersCanvas.SetActive(false);
+                pleaseWaitCanvas.SetActive(false);
+                battleModeCanvas.SetActive(true);
+                break;
         }
     }
 

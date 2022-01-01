@@ -9,7 +9,7 @@ public class EnterPlayerName1P : MonoBehaviour
 {
     [SerializeField] Localization enterPlayerName1P_EN, enterPlayerName1P_JP;
     [SerializeField] GameObject playerNameCanvas, pleaseWaitCanvas;
-    [SerializeField] string difficultyScene;
+    [SerializeField] string controlTypeScene;
     [SerializeField] string titleMap;
     [SerializeField] Slider loadingSlider;
     [SerializeField] InputField playerNameInput;
@@ -57,7 +57,7 @@ public class EnterPlayerName1P : MonoBehaviour
         }
     }
 
-    public void Proceed()
+    public void Proceed(string controlTypeScene)
     {
         if (playerNameInput.text == "" || playerNameInput.text == null)
         {
@@ -70,10 +70,10 @@ public class EnterPlayerName1P : MonoBehaviour
             errorText.enabled = false;
             errorText.text = "";
             PlayerNameTempSaveSolo.playerName = playerNameInput.text.ToString();
-            if (difficultyScene.Equals("")) { return; }
+            if (controlTypeScene.Equals("")) { return; }
             playerNameCanvas.SetActive(false);
             pleaseWaitCanvas.SetActive(true);
-            StartCoroutine(LoadLevelAsynchronously(difficultyScene));
+            StartCoroutine(LoadLevelAsynchronously(controlTypeScene));
         }
     }
 
@@ -95,7 +95,7 @@ public class EnterPlayerName1P : MonoBehaviour
         yield return operation;
     }
 
-    public void ToTitle()
+    public void ToTitle(string titleMap)
     {
         if (titleMap.Equals("")) { return; }
         SceneManager.LoadScene(titleMap);

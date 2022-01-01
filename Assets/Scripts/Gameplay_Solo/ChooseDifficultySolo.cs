@@ -17,6 +17,8 @@ public class ChooseDifficultySolo : MonoBehaviour
     [SerializeField] Text difficultyText, difficultyTitleText, easyText, normalText, hardText, proceedText, titleText, pleaseWaitLabelText;
     [SerializeField] Text estimatedTimeLabelText, estimatedTimeText;
     [SerializeField] Image stageEasyViewImage, stageNormalViewImage, stageHardViewImage;
+    [SerializeField] Button btnEasy, btnNormal, btnHard;
+    [SerializeField] Color buttonNormalColor, buttonSelectedColor;
 
     Image stageView;
 
@@ -52,6 +54,7 @@ public class ChooseDifficultySolo : MonoBehaviour
                 break;
             case Language.DisplayLanauge.Japanese:
                 difficultyTitleText.text = chooseDifficultySolo_JP.GetLabelContent("ChosenDifficultyText");
+                difficultyTitleText.fontStyle = FontStyle.Bold;
                 easyText.text = chooseDifficultySolo_JP.GetLabelContent("EasyText");
                 easyText.fontStyle = FontStyle.Bold;
                 normalText.text = chooseDifficultySolo_JP.GetLabelContent("NormalText");
@@ -63,12 +66,16 @@ public class ChooseDifficultySolo : MonoBehaviour
                 titleText.text = chooseDifficultySolo_JP.GetLabelContent("TitleText");
                 titleText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = chooseDifficultySolo_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 estimatedTimeLabelText.text = chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeLabelText");
                 estimatedTimeLabelText.fontStyle = FontStyle.Bold;
                 estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
                 estimatedTimeText.fontStyle = FontStyle.Bold;
                 break;
         }
+        btnEasy.GetComponent<Image>().color = buttonSelectedColor;
+        btnNormal.GetComponent<Image>().color = buttonNormalColor;
+        btnHard.GetComponent<Image>().color = buttonNormalColor;
     }
 
     // Update is called once per frame
@@ -99,6 +106,9 @@ public class ChooseDifficultySolo : MonoBehaviour
                 stageEasyViewImage.enabled = true;
                 stageNormalViewImage.enabled = false;
                 stageHardViewImage.enabled = false;
+                btnEasy.GetComponent<Image>().color = buttonSelectedColor;
+                btnNormal.GetComponent<Image>().color = buttonNormalColor;
+                btnHard.GetComponent<Image>().color = buttonNormalColor;
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:
@@ -114,6 +124,9 @@ public class ChooseDifficultySolo : MonoBehaviour
                 stageNormalViewImage.enabled = true;
                 stageEasyViewImage.enabled = false;
                 stageHardViewImage.enabled = false;
+                btnEasy.GetComponent<Image>().color = buttonNormalColor;
+                btnNormal.GetComponent<Image>().color = buttonSelectedColor;
+                btnHard.GetComponent<Image>().color = buttonNormalColor;
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:
@@ -129,6 +142,9 @@ public class ChooseDifficultySolo : MonoBehaviour
                 stageHardViewImage.enabled = true;
                 stageEasyViewImage.enabled = false;
                 stageNormalViewImage.enabled = false;
+                btnEasy.GetComponent<Image>().color = buttonNormalColor;
+                btnNormal.GetComponent<Image>().color = buttonNormalColor;
+                btnHard.GetComponent<Image>().color = buttonSelectedColor;
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:

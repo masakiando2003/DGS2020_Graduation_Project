@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d4b3602e51dc74284830a34909c955, type: 3}
+  m_Name: 1P_Choose_Control_Type_EN
+  m_EditorClassIdentifier: 
+  labelName:
+  - ControlTypeTitleText
+  - Type1Text
+  - Type2Text
+  - Type1ButtonText
+  - Type2ButtonText
+  - ProceedText
+  - TitleText
+  - PleaseWaitLabelText
+  - JoystickHintText
+  labelText:
+  - 'Choose Control Type:'
+  - 'Type 1: Keyboard + Mouse'
+  - 'Type 2: Keyboard'
+  - Type 1
+  - Type 2
+  - Proceed
+  - Title
+  - Please Wait
+  - You can also use a jostick to play

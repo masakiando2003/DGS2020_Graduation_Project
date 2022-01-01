@@ -570,6 +570,113 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2861554825072868850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7206317293941772230}
+  - component: {fileID: 8737954564952767446}
+  - component: {fileID: 8697049086420650431}
+  - component: {fileID: 5514586697545838767}
+  m_Layer: 6
+  m_Name: PlayerControlsType2EN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7206317293941772230
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861554825072868850}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1181103717391838974}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 35, y: -265}
+  m_SizeDelta: {x: 1280, y: 480}
+  m_Pivot: {x: 0, y: 0}
+--- !u!222 &8737954564952767446
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861554825072868850}
+  m_CullTransparentMesh: 1
+--- !u!114 &8697049086420650431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861554825072868850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 80
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Up or Circle: Move(Boost)
+
+    Down: Reduce speed (Will fall after a while)
+
+    Left
+    / Right or L1 / R1: Rotate Left / Right
+
+    C or Triangle: Change Camera
+
+    Space
+    or R2: Reset Rotation
+
+    (Start point / Check point / Safe zone only)'
+--- !u!114 &5514586697545838767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861554825072868850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2950659276979953547
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +690,7 @@ GameObject:
   - component: {fileID: 4541819336526107576}
   - component: {fileID: 6375752863750030884}
   m_Layer: 6
-  m_Name: PlayerControlsJP
+  m_Name: PlayerControlsType1JP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,9 +756,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "W \u307E\u305F\u306F \u25CB: \u79FB\u52D5(\u30D6\u30FC\u30B9\u30C8)\nA
-    / D \u307E\u305F\u306F L1 / R1: \u5DE6/\u53F3\u56DE\u8EE2\nC \u307E\u305F\u306F
-    \u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4\nE \u307E\u305F\u306F R2: \u56DE\u8EE2\u30EA\u30BB\u30C3\u30C8\n(\u30B9\u30BF\u30FC\u30C8
+  m_Text: "\u30DE\u30A6\u30B9\u5DE6\u30AF\u30EA\u30C3\u30AF \u307E\u305F\u306F \u25CB:
+    \u79FB\u52D5(\u30D6\u30FC\u30B9\u30C8)\nA / D \u307E\u305F\u306F L1 / R1: \u5DE6/\u53F3\u56DE\u8EE2\nC
+    \u307E\u305F\u306F \u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4\n\u30DE\u30A6\u30B9\u30DB\u30A4\u30FC\u30EB(\u30AF\u30EA\u30C3\u30AF)
+    \u307E\u305F\u306F R2: \u56DE\u8EE2\u30EA\u30BB\u30C3\u30C8\n(\u30B9\u30BF\u30FC\u30C8
     / \u30C1\u30A7\u30C3\u30AF\u30DD\u30A4\u30F3\u30C8 / \u5B89\u5168\u30BE\u30FC\u30F3\u306E\u307F)"
 --- !u!114 &6375752863750030884
 MonoBehaviour:
@@ -771,6 +879,106 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!1 &3389920611500162682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778975251563081249}
+  - component: {fileID: 2957011737724948471}
+  - component: {fileID: 3921524972377812773}
+  - component: {fileID: 1033581960699940186}
+  m_Layer: 6
+  m_Name: PlayerControlsType2JP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1778975251563081249
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389920611500162682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1181103717391838974}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 35, y: -265}
+  m_SizeDelta: {x: 1280, y: 480}
+  m_Pivot: {x: 0, y: 0}
+--- !u!222 &2957011737724948471
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389920611500162682}
+  m_CullTransparentMesh: 1
+--- !u!114 &3921524972377812773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389920611500162682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 80
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u4E0A \u307E\u305F\u306F \u25CB: \u79FB\u52D5(\u30D6\u30FC\u30B9\u30C8)\nS
+    \u307E\u305F\u306F \u6B63\u65B9: \u6E1B\u901F(\u4E00\u5B9A\u6642\u9593\u306B\u843D\u3061\u308B)\n\u5DE6
+    / \u53F3 \u307E\u305F\u306F L1 / R1: \u5DE6/\u53F3\u56DE\u8EE2\nC \u307E\u305F\u306F
+    \u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4\n\u30B9\u30DA\u30FC\u30B9\u30D0\u30FC
+    \u307E\u305F\u306F R2: \u56DE\u8EE2\u30EA\u30BB\u30C3\u30C8\n(\u30B9\u30BF\u30FC\u30C8
+    / \u30C1\u30A7\u30C3\u30AF\u30DD\u30A4\u30F3\u30C8 / \u5B89\u5168\u30BE\u30FC\u30F3\u306E\u307F)"
+--- !u!114 &1033581960699940186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389920611500162682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3798771083398744391
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +992,7 @@ GameObject:
   - component: {fileID: 1417725393815654535}
   - component: {fileID: 8460437419026964460}
   m_Layer: 6
-  m_Name: PlayerControlsEN
+  m_Name: PlayerControlsType1EN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,17 +1058,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'W or Circle: Move(Boost)
+  m_Text: 'Mouse Left Click or Circle: Move(Boost)
+
+    Mouse Right Click: Reduce
+    speed (Will fall after a while)
 
     A / D or L1 / R1: Rotate Left / Right
 
     C
     or Triangle: Change Camera
 
-    E or R2: Reset Rotation
+    Mouse wheel(click) or R2: Reset Rotation
 
-    (Start point / Check
-    point / Safe zone only)'
+    (Start
+    point / Check point / Safe zone only)'
 --- !u!114 &8460437419026964460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43736,6 +43947,8 @@ RectTransform:
   - {fileID: 2045916070819621679}
   - {fileID: 3840712829450183144}
   - {fileID: 1175773973318169835}
+  - {fileID: 7206317293941772230}
+  - {fileID: 1778975251563081249}
   m_Father: {fileID: 9063929033502015101}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44611,8 +44824,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultStageViewCameraPos: {fileID: 268014078}
-  playerControlsEN: {fileID: 1417725393815654535}
-  playerControlsJP: {fileID: 4541819336526107576}
+  playerControlsType1EN: {fileID: 1417725393815654535}
+  playerControlsType1JP: {fileID: 4541819336526107576}
+  playerControlsType2EN: {fileID: 8697049086420650431}
+  playerControlsType2JP: {fileID: 3921524972377812773}
   playerControlsHintsEN: {fileID: 486554259623800551}
   playerControlsHintsJP: {fileID: 5606850156650277895}
   StageViewCameraControlsEN: {fileID: 6929036311663547165}

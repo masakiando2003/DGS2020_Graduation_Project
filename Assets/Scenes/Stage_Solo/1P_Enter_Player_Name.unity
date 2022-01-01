@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24379423, g: 0.24972856, b: 0.2521002, a: 1}
+  m_IndirectSpecularColor: {r: 0.4660946, g: 0.4657923, b: 0.46188927, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -905,13 +905,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1259122291}
         m_TargetAssemblyTypeName: EnterPlayerName1P, Assembly-CSharp
         m_MethodName: Proceed
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 1P_Choose_Control_Type
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1020510857
@@ -1246,7 +1246,7 @@ MonoBehaviour:
   enterPlayerName1P_JP: {fileID: 11400000, guid: fa6a8e8ec8cd1c24fa57dc5af2601ffc, type: 2}
   playerNameCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 726474940}
-  difficultyScene: 1P_Choose_Difficulty
+  controlTypeScene: 
   titleMap: Title
   loadingSlider: {fileID: 508512081}
   playerNameInput: {fileID: 1106533723}
@@ -1611,13 +1611,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1259122291}
         m_TargetAssemblyTypeName: EnterPlayerName1P, Assembly-CSharp
         m_MethodName: ToTitle
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1714475051

@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage_Solo/1P_Enter_Player_Name.unity
     guid: c6b0fdbad33602341a9b561ea78a02df
   - enabled: 1
-    path: Assets/Scenes/Stage_Solo/1P_Choose_Difficulty.unity
+    path: Assets/Scenes/Stage_Solo/1P_Choose_Control_Type.unity
     guid: 7364b5f2ef46b3e47a78d03919aa1f73
+  - enabled: 1
+    path: Assets/Scenes/Stage_Solo/1P_Choose_Difficulty.unity
+    guid: e8d0f14d04251b842a07d10266c66ba9
   - enabled: 1
     path: Assets/Scenes/Stage_Solo/1P_Instruction.unity
     guid: 94e1664b98bd1514090dfcf1893a5711

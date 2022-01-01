@@ -93,8 +93,11 @@ public class MultiplayTeamSelection : MonoBehaviour
                 randomTeamButtonText.text = multiplayTeamSelection_JP.GetLabelContent("RandomTeamButtonText");
                 randomTeamButtonText.fontStyle = FontStyle.Bold;
                 selectTeamText.text = multiplayTeamSelection_JP.GetLabelContent("SelectTeamText");
+                selectTeamText.fontStyle = FontStyle.Bold;
                 teamNotSelectedFinishedYetText.text = multiplayTeamSelection_JP.GetLabelContent("TeamNotSelectedFinishedYetText");
+                selectTeamText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = multiplayTeamSelection_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 for (int i = 0; i < teamAButtonText.Length; i++)
                 {
                     teamAButtonText[i].text = multiplayTeamSelection_JP.GetLabelContent("TeamAButtonText");
