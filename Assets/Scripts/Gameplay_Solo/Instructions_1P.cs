@@ -203,7 +203,7 @@ public class Instructions_1P : MonoBehaviour
                 controlsButtonText.text = instruction1P_JP.GetLabelContent("ControlsButtonText");
                 controlsButtonText.fontStyle = FontStyle.Bold;
                 hintsButtonText.text = instruction1P_JP.GetLabelContent("HintsButtonText");
-                hint1ButtonText.fontStyle = FontStyle.Bold;
+                hintsButtonText.fontStyle = FontStyle.Bold;
                 missionText.text = instruction1P_JP.GetLabelContent("MissionText").Replace("|", Environment.NewLine);
                 missionText.fontStyle = FontStyle.Bold;
                 keyboardButtonText.text = instruction1P_JP.GetLabelContent("KeyboardButtonText");

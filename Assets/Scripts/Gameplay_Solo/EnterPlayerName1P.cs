@@ -30,6 +30,7 @@ public class EnterPlayerName1P : MonoBehaviour
         {
             Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
+        playerNameInput.ActivateInputField();
     }
 
     private void SwitchLanguage()

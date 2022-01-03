@@ -64,7 +64,7 @@ public class CameraManagementSolo : MonoBehaviour
                 break;
             case Language.DisplayLanauge.Japanese:
                 playerControlsType1EN.enabled = false;
-                playerControlsType1JP.enabled = true;
+                playerControlsType1JP.enabled = false;
                 playerControlsType2EN.enabled = false;
                 playerControlsType2JP.enabled = false;
                 playerControlsHintsEN.enabled = false;
@@ -151,10 +151,22 @@ public class CameraManagementSolo : MonoBehaviour
         {
             return;
         }
-        if(Input.GetButtonDown(playerID + "PChangeCamera"))
+        switch (ControlType.chosenControlType)
         {
-            stageViewFlag = !stageViewFlag;
-            SwitchCamera();
+            case "Type1":
+                if (Input.GetButtonDown(playerID + "PChangeCamera"))
+                {
+                    stageViewFlag = !stageViewFlag;
+                    SwitchCamera();
+                }
+                break;
+            case "Type2":
+                if (Input.GetButtonDown(playerID + "PChangeCamera2"))
+                {
+                    stageViewFlag = !stageViewFlag;
+                    SwitchCamera();
+                }
+                break;
         }
     }
 
@@ -239,12 +251,20 @@ public class CameraManagementSolo : MonoBehaviour
         switch (Language.gameDisplayLanguage)
         {
             case Language.DisplayLanauge.English:
-                playerControlsType1EN.enabled = true;
+                playerControlsType1EN.enabled = false;
                 playerControlsType1JP.enabled = false;
+                StageViewCameraControlsEN.enabled = false;
+                StageViewCameraControlsJP.enabled = false;
+                playerControlsHintsEN.enabled = true;
+                playerControlsHintsJP.enabled = false;
                 break;
             case Language.DisplayLanauge.Japanese:
                 playerControlsType1EN.enabled = false;
-                playerControlsType1EN.enabled = true;
+                playerControlsType1JP.enabled = false;
+                StageViewCameraControlsEN.enabled = false;
+                StageViewCameraControlsJP.enabled = false;
+                playerControlsHintsEN.enabled = false;
+                playerControlsHintsJP.enabled = true;
                 break;
 
         }
@@ -268,10 +288,18 @@ public class CameraManagementSolo : MonoBehaviour
             case Language.DisplayLanauge.English:
                 StageViewCameraControlsEN.enabled = true;
                 StageViewCameraControlsJP.enabled = false;
+                playerControlsType1EN.enabled = false;
+                playerControlsType1JP.enabled = false;
+                playerControlsHintsEN.enabled = false;
+                playerControlsHintsJP.enabled = false;
                 break;
             case Language.DisplayLanauge.Japanese:
                 StageViewCameraControlsEN.enabled = false;
                 StageViewCameraControlsJP.enabled = true;
+                playerControlsType1EN.enabled = false;
+                playerControlsType1JP.enabled = false;
+                playerControlsHintsEN.enabled = false;
+                playerControlsHintsJP.enabled = false;
                 break;
 
         }

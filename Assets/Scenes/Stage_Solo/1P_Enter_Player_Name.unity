@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
   m_Text: 
   m_CaretBlinkRate: 0.85
-  m_CaretWidth: 1
+  m_CaretWidth: 3
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
 --- !u!114 &1106533724
@@ -1246,7 +1246,7 @@ MonoBehaviour:
   enterPlayerName1P_JP: {fileID: 11400000, guid: fa6a8e8ec8cd1c24fa57dc5af2601ffc, type: 2}
   playerNameCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 726474940}
-  controlTypeScene: 
+  controlTypeScene: 1P_Choose_Control_Type
   titleMap: Title
   loadingSlider: {fileID: 508512081}
   playerNameInput: {fileID: 1106533723}

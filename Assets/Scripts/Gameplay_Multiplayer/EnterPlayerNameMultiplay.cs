@@ -84,6 +84,7 @@ public class EnterPlayerNameMultiplay : MonoBehaviour
                     break;
             }
         }
+        playerNameInput[0].ActivateInputField();
     }
 
     public void Proceed()
