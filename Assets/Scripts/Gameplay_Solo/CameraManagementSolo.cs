@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class CameraManagementSolo : MonoBehaviour
 {
     [SerializeField] Transform defaultStageViewCameraPos;
-    [SerializeField] Text playerControlsEN, playerControlsJP;
+    [SerializeField] Text playerControlsType1EN, playerControlsType1JP;
+    [SerializeField] Text playerControlsType2EN, playerControlsType2JP;
     [SerializeField] Text playerControlsHintsEN, playerControlsHintsJP;
     [SerializeField] Text StageViewCameraControlsEN, StageViewCameraControlsJP;
     [SerializeField] float stageViewCameraMoveFactor = 50f, stageViewCameraZoomFactor = 10f;
@@ -54,14 +55,18 @@ public class CameraManagementSolo : MonoBehaviour
         switch (Language.gameDisplayLanguage)
         {
             case Language.DisplayLanauge.English:
-                playerControlsEN.enabled = false;
-                playerControlsJP.enabled = false;
+                playerControlsType1EN.enabled = false;
+                playerControlsType1JP.enabled = false;
+                playerControlsType2EN.enabled = false;
+                playerControlsType2JP.enabled = false;
                 playerControlsHintsEN.enabled = true;
                 playerControlsHintsJP.enabled = false;
                 break;
             case Language.DisplayLanauge.Japanese:
-                playerControlsEN.enabled = false;
-                playerControlsJP.enabled = true;
+                playerControlsType1EN.enabled = false;
+                playerControlsType1JP.enabled = true;
+                playerControlsType2EN.enabled = false;
+                playerControlsType2JP.enabled = false;
                 playerControlsHintsEN.enabled = false;
                 playerControlsHintsJP.enabled = true;
                 break;
@@ -88,11 +93,31 @@ public class CameraManagementSolo : MonoBehaviour
                     switch (Language.gameDisplayLanguage)
                     {
                         case Language.DisplayLanauge.English:
-                            playerControlsEN.enabled = true;
+                            switch (ControlType.chosenControlType)
+                            {
+                                case "Type1":
+                                    playerControlsType1EN.enabled = true;
+                                    playerControlsType2EN.enabled = false;
+                                    break;
+                                case "Type2":
+                                    playerControlsType2EN.enabled = true;
+                                    playerControlsType1EN.enabled = false;
+                                    break;
+                            }
                             playerControlsHintsEN.enabled = false;
                             break;
                         case Language.DisplayLanauge.Japanese:
-                            playerControlsJP.enabled = true;
+                            switch (ControlType.chosenControlType)
+                            {
+                                case "Type1":
+                                    playerControlsType1JP.enabled = true;
+                                    playerControlsType2JP.enabled = false;
+                                    break;
+                                case "Type2":
+                                    playerControlsType2JP.enabled = true;
+                                    playerControlsType1JP.enabled = false;
+                                    break;
+                            }
                             playerControlsHintsJP.enabled = false;
                             break;
 
@@ -103,11 +128,13 @@ public class CameraManagementSolo : MonoBehaviour
                     switch (Language.gameDisplayLanguage)
                     {
                         case Language.DisplayLanauge.English:
-                            playerControlsEN.enabled = false;
+                            playerControlsType1EN.enabled = false;
+                            playerControlsType2EN.enabled = false;
                             playerControlsHintsEN.enabled = true;
                             break;
                         case Language.DisplayLanauge.Japanese:
-                            playerControlsJP.enabled = false;
+                            playerControlsType1JP.enabled = false;
+                            playerControlsType2JP.enabled = false;
                             playerControlsHintsJP.enabled = true;
                             break;
 
@@ -212,12 +239,12 @@ public class CameraManagementSolo : MonoBehaviour
         switch (Language.gameDisplayLanguage)
         {
             case Language.DisplayLanauge.English:
-                playerControlsEN.enabled = true;
-                playerControlsJP.enabled = false;
+                playerControlsType1EN.enabled = true;
+                playerControlsType1JP.enabled = false;
                 break;
             case Language.DisplayLanauge.Japanese:
-                playerControlsEN.enabled = false;
-                playerControlsEN.enabled = true;
+                playerControlsType1EN.enabled = false;
+                playerControlsType1EN.enabled = true;
                 break;
 
         }

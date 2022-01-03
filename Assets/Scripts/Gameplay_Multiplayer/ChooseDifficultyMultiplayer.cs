@@ -21,6 +21,8 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
     [SerializeField] Image stageEasy2PViewImage, stageNormal2PViewImage, stageHard2PViewImage;
     [SerializeField] Image stageEasy3PViewImage, stageNormal3PViewImage, stageHard3PViewImage;
     [SerializeField] Image stageEasy4PViewImage, stageNormal4PViewImage, stageHard4PViewImage;
+    [SerializeField] Button btnEasy, btnNormal, btnHard;
+    [SerializeField] Color buttonNormalColor, buttonSelectedColor;
 
     Image stageView;
 
@@ -70,6 +72,9 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 estimatedTimeText.fontStyle = FontStyle.Bold;
                 break;
         }
+        btnEasy.GetComponent<Image>().color = buttonSelectedColor;
+        btnNormal.GetComponent<Image>().color = buttonNormalColor;
+        btnHard.GetComponent<Image>().color = buttonNormalColor;
     }
 
     // Update is called once per frame
@@ -130,6 +135,9 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 stageNormalViewImageObj.SetActive(false);
                 stageHardViewImageObj.SetActive(false);
                 stageEasyViewImageObj.SetActive(true);
+                btnEasy.GetComponent<Image>().color = buttonSelectedColor;
+                btnNormal.GetComponent<Image>().color = buttonNormalColor;
+                btnHard.GetComponent<Image>().color = buttonNormalColor;
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:
@@ -145,6 +153,9 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 stageEasyViewImageObj.SetActive(false);
                 stageHardViewImageObj.SetActive(false);
                 stageNormalViewImageObj.SetActive(true);
+                btnEasy.GetComponent<Image>().color = buttonNormalColor;
+                btnNormal.GetComponent<Image>().color = buttonSelectedColor;
+                btnHard.GetComponent<Image>().color = buttonNormalColor;
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:
@@ -160,6 +171,9 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 stageEasyViewImageObj.SetActive(false);
                 stageNormalViewImageObj.SetActive(false);
                 stageHardViewImageObj.SetActive(true);
+                btnEasy.GetComponent<Image>().color = buttonNormalColor;
+                btnNormal.GetComponent<Image>().color = buttonNormalColor;
+                btnHard.GetComponent<Image>().color = buttonSelectedColor;
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:

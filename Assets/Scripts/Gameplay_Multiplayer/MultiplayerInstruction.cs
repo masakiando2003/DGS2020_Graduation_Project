@@ -29,6 +29,9 @@ public class MultiplayerInstruction : MonoBehaviour
     [SerializeField] Text winConditionText, hint1Text, hint2Text, hint3Text, hint4Text, hint5Text, hint6Text;
     [SerializeField] Text attackItemText, defenceItemText, abnormalItemText;
     [SerializeField] Text boostCanItemText, reduceSpeedItemText, reduceBoostItemText;
+    [SerializeField] Button btnMission, btnControl, btnHints, btnKeyboard, btnJoystick;
+    [SerializeField] Button btnHints1, btnHints2, btnHints3, btnHints4, btnHints5, btnHints6;
+    [SerializeField] Color buttonNormalColor, buttonSelectedColor;
 
 
     private void Awake()
@@ -68,6 +71,17 @@ public class MultiplayerInstruction : MonoBehaviour
         stageEasy4PViewImageJP.SetActive(false);
         stageNormal4PViewImageJP.SetActive(false);
         stageHard4PViewImageJP.SetActive(false);
+        btnMission.GetComponent<Image>().color = buttonSelectedColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonNormalColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
             Language.gameDisplayLanguage = Language.DisplayLanauge.English;
@@ -251,6 +265,7 @@ public class MultiplayerInstruction : MonoBehaviour
                 titleButtonText.text = multiplayerInstruction_JP.GetLabelContent("TitleButtonText");
                 titleButtonText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = multiplayerInstruction_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 winConditionText.text = multiplayerInstruction_JP.GetLabelContent("WinConditionText").Replace("|", System.Environment.NewLine);
                 winConditionText.fontStyle = FontStyle.Bold;
                 hint1Text.text = multiplayerInstruction_JP.GetLabelContent("Hint1Text").Replace("|", System.Environment.NewLine);
@@ -319,6 +334,18 @@ public class MultiplayerInstruction : MonoBehaviour
     {
         pleaseWaitCanvas.SetActive(false);
         instructionCanvas.SetActive(true);
+
+        btnMission.GetComponent<Image>().color = buttonSelectedColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonNormalColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowObjectiveSection()
@@ -327,6 +354,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hintsSection.SetActive(false);
         itemsSection.SetActive(false);
         objectionSection.SetActive(true);
+
+        btnMission.GetComponent<Image>().color = buttonSelectedColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonNormalColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowControlsSection()
@@ -335,6 +374,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hintsSection.SetActive(false);
         itemsSection.SetActive(false);
         controlsSection.SetActive(true);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonSelectedColor;
+        btnHints.GetComponent<Image>().color = buttonNormalColor;
+        btnKeyboard.GetComponent<Image>().color = buttonSelectedColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowHintsSection()
@@ -349,6 +400,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hints5Section.SetActive(false);
         hints6Section.SetActive(false);
         hintsSection.SetActive(true);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonSelectedColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonSelectedColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowHints1Section()
@@ -359,6 +422,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hints4Section.SetActive(false);
         hints5Section.SetActive(false);
         hints6Section.SetActive(false);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonSelectedColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonSelectedColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowHints2Section()
@@ -369,6 +444,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hints4Section.SetActive(false);
         hints5Section.SetActive(false);
         hints6Section.SetActive(false);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonSelectedColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonSelectedColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowHints3Section()
@@ -379,6 +466,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hints4Section.SetActive(false);
         hints5Section.SetActive(false);
         hints6Section.SetActive(false);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonSelectedColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonSelectedColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowHints4Section()
@@ -389,6 +488,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hints4Section.SetActive(true);
         hints5Section.SetActive(false);
         hints6Section.SetActive(false);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonSelectedColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonSelectedColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowHints5Section()
@@ -399,6 +510,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hints1Section.SetActive(false);
         hints5Section.SetActive(true);
         hints6Section.SetActive(false);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonSelectedColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonSelectedColor;
+        btnHints6.GetComponent<Image>().color = buttonNormalColor;
     }
 
     public void ShowHints6Section()
@@ -409,6 +532,18 @@ public class MultiplayerInstruction : MonoBehaviour
         hints1Section.SetActive(false);
         hints5Section.SetActive(false);
         hints6Section.SetActive(true);
+
+        btnMission.GetComponent<Image>().color = buttonNormalColor;
+        btnControl.GetComponent<Image>().color = buttonNormalColor;
+        btnHints.GetComponent<Image>().color = buttonSelectedColor;
+        btnKeyboard.GetComponent<Image>().color = buttonNormalColor;
+        btnJoystick.GetComponent<Image>().color = buttonNormalColor;
+        btnHints1.GetComponent<Image>().color = buttonNormalColor;
+        btnHints2.GetComponent<Image>().color = buttonNormalColor;
+        btnHints3.GetComponent<Image>().color = buttonNormalColor;
+        btnHints4.GetComponent<Image>().color = buttonNormalColor;
+        btnHints5.GetComponent<Image>().color = buttonNormalColor;
+        btnHints6.GetComponent<Image>().color = buttonSelectedColor;
     }
 
     public void ShowItemsSection()

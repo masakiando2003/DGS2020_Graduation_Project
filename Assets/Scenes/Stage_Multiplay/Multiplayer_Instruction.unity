@@ -3386,7 +3386,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 80
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 80
@@ -7870,7 +7870,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 80
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 8
     m_MaxSize: 80
@@ -8369,6 +8369,19 @@ MonoBehaviour:
   boostCanItemText: {fileID: 566758476}
   reduceSpeedItemText: {fileID: 1405483637}
   reduceBoostItemText: {fileID: 564818378}
+  btnMission: {fileID: 0}
+  btnControl: {fileID: 0}
+  btnHints: {fileID: 0}
+  btnKeyboard: {fileID: 0}
+  btnJoystick: {fileID: 0}
+  btnHints1: {fileID: 0}
+  btnHints2: {fileID: 0}
+  btnHints3: {fileID: 0}
+  btnHints4: {fileID: 0}
+  btnHints5: {fileID: 0}
+  btnHints6: {fileID: 0}
+  buttonNormalColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonSelectedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1262172608
 GameObject:
   m_ObjectHideFlags: 0
@@ -9611,7 +9624,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 80
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 80
