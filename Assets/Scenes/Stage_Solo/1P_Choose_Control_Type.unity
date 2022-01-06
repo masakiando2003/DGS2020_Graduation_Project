@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 16793350}
   - component: {fileID: 16793349}
   m_Layer: 5
-  m_Name: ControlType1ImageEN
+  m_Name: ControlType1Keyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,14 +150,14 @@ RectTransform:
   m_GameObject: {fileID: 16793347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 1147829863}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -65}
+  m_AnchoredPosition: {x: 240, y: -65}
   m_SizeDelta: {x: 1229.977, y: 627}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &16793349
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 359999a0cf4bcd64c9c25a99d608202f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4bdf0fdf081b1214981d2eb9a795c32f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -234,81 +234,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.375, y: 0}
   m_SizeDelta: {x: -10.749989, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &216602965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 216602966}
-  - component: {fileID: 216602968}
-  - component: {fileID: 216602967}
-  m_Layer: 5
-  m_Name: ControlType2ImageJP
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &216602966
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216602965}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_Children: []
-  m_Father: {fileID: 1147829863}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -65}
-  m_SizeDelta: {x: 1227.6252, y: 627}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &216602967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216602965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1386b78b3872a1a498f58bda00ac3e85, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &216602968
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216602965}
-  m_CullTransparentMesh: 1
 --- !u!1 &446958748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1076,7 @@ GameObject:
   - component: {fileID: 1033310071}
   - component: {fileID: 1033310070}
   m_Layer: 5
-  m_Name: ControlType2ImageEN
+  m_Name: ControlType2Keyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1166,7 +1091,7 @@ RectTransform:
   m_GameObject: {fileID: 1033310068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1147829863}
   m_RootOrder: 9
@@ -1196,7 +1121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e62c7aabdf77184ab3de27b9b30e1b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4bdf0fdf081b1214981d2eb9a795c32f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1315,7 +1240,6 @@ RectTransform:
   - {fileID: 16793348}
   - {fileID: 2003919307}
   - {fileID: 1033310069}
-  - {fileID: 216602966}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1369,10 +1293,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlTypeEN: {fileID: 11400000, guid: fa3bf7b2bda12ea4d80ee2593fa19fb5, type: 2}
   controlTypeJP: {fileID: 11400000, guid: ca5dd931e675f154abba5c5ff779d2e2, type: 2}
-  contronType1ImageEN: {fileID: 16793347}
-  controlType1ImageJP: {fileID: 2003919306}
-  contronType2ImageEN: {fileID: 1033310068}
-  controlType2ImageJP: {fileID: 216602965}
+  controlTypeENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  controlTypeJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
+  contronType1Keyboard: {fileID: 16793347}
+  controlType1Mouse: {fileID: 2003919306}
+  controlType2Keyboard: {fileID: 1033310068}
   controlTypeCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 446958748}
   chooseDifficultyScene: 1P_Choose_Difficulty
@@ -2403,7 +2328,7 @@ GameObject:
   - component: {fileID: 2003919309}
   - component: {fileID: 2003919308}
   m_Layer: 5
-  m_Name: ControlType1ImageJP
+  m_Name: ControlType1Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2418,14 +2343,14 @@ RectTransform:
   m_GameObject: {fileID: 2003919306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 1147829863}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -65}
+  m_AnchoredPosition: {x: 685, y: -65}
   m_SizeDelta: {x: 1229.1908, y: 629}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2003919308
@@ -2448,7 +2373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aa49957d78f9ad34e87719ddfe635927, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc7b0e08d830bcc42b51d091cb6b08b1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

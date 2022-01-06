@@ -40,6 +40,9 @@ MonoBehaviour:
   - PleaseWaitText
   - Hint5ButtonText
   - Hint5Text
+  - GoalText
+  - StartText
+  - CheckPointText
   labelText:
   - Instruction
   - Mission
@@ -56,7 +59,8 @@ MonoBehaviour:
   - Hint 2:|You can reset your rocket rotation to upward in start point, check point
     or safezones.
   - Hint 3:|Use Stage View camera to confirm your current place. When You switched
-    to Stage View Camera,  you can move the camera to view the details.
+    to Stage View Camera,  you can move the camera to view the details.|*Recommended
+    for the first play
   - Hint 4:|Control your Speed for rotating your rocket easily.
   - Start
   - Ranking
@@ -70,3 +74,6 @@ MonoBehaviour:
   - Please Wait
   - Hint 5
   - Hint 5:|Use check points to set the latest respawn position.
+  - Goal
+  - Start
+  - Check Point

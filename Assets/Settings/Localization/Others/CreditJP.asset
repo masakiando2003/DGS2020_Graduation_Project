@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: CreditJP
   m_EditorClassIdentifier: 
   labelName:
+  - CreditsTitleText
   - DevelopersButtonText
   - UnityAssetsButtonText
   - OthersButtonText
   - ReturnButtonText
   labelText:
+  - "\u30AF\u30EC\u30B8\u30C3\u30C8"
   - "\u30C7\u30D9\u30ED\u30C3\u30D1\u30FC"
   - "Unity\u30A2\u30BB\u30C3\u30C8"
   - "\u4ED6"

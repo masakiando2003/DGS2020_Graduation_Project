@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Title : MonoBehaviour
 {
     [SerializeField] Localization title_EN, title_JP;
+    [SerializeField] Font titleENFont, titleJPFont;
     [SerializeField] string soloPlayerInstructionSceneName;
     [SerializeField] string multiPlayerInstructionSceneName;
     [SerializeField] string creditSceneName, optionSceneName;
@@ -74,22 +75,30 @@ public class Title : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 soloPlayerStartText.text = title_EN.GetLabelContent("SoloPlay");
+                soloPlayerStartText.font = titleENFont;
                 soloPlayerStartText.fontStyle = FontStyle.Normal;
                 multiPlayerStartText.text = title_EN.GetLabelContent("MultiPlay");
+                multiPlayerStartText.font = titleENFont;
                 multiPlayerStartText.fontStyle = FontStyle.Normal;
                 creditsText.text = title_EN.GetLabelContent("Credits");
+                creditsText.font = titleENFont;
                 creditsText.fontStyle = FontStyle.Normal;
                 optionText.text = title_EN.GetLabelContent("Option");
+                optionText.font = titleENFont;
                 optionText.fontStyle = FontStyle.Normal;
                 break;
             case Language.DisplayLanauge.Japanese:
                 soloPlayerStartText.text = title_JP.GetLabelContent("SoloPlay");
+                soloPlayerStartText.font = titleJPFont;
                 soloPlayerStartText.fontStyle = FontStyle.Bold;
                 multiPlayerStartText.text = title_JP.GetLabelContent("MultiPlay");
+                multiPlayerStartText.font = titleJPFont;
                 multiPlayerStartText.fontStyle = FontStyle.Bold;
                 creditsText.text = title_JP.GetLabelContent("Credits");
+                creditsText.font = titleJPFont;
                 creditsText.fontStyle = FontStyle.Bold;
                 optionText.text = title_JP.GetLabelContent("Option");
+                optionText.font = titleJPFont;
                 optionText.fontStyle = FontStyle.Bold;
                 break;
         }

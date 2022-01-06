@@ -13,6 +13,7 @@ public class GameManagerSolo : MonoBehaviour
     }
 
     [SerializeField] Localization gameplaySolo_EN, gameplaySolo_JP;
+    [SerializeField] Font gameplaySoloENFont, gameplaySoloJPFont;
     [SerializeField] GameObject playerRocket;
     [SerializeField] GameObject[] fuelObjects;
     [SerializeField] Transform startPosition;
@@ -132,7 +133,7 @@ public class GameManagerSolo : MonoBehaviour
         UpdatePlayerBoostText(); // For Debug
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
         switch (Language.gameDisplayLanguage)
         {
@@ -158,102 +159,166 @@ public class GameManagerSolo : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 playerNameLabelText.text = gameplaySolo_EN.GetLabelContent("PlayerNameLabelText");
+                playerNameLabelText.font = gameplaySoloENFont;
                 playerLifeLabelText.text = gameplaySolo_EN.GetLabelContent("PlayerLifeLabelText");
+                playerLifeLabelText.font = gameplaySoloENFont;
                 playerSpeedLabelText.text = gameplaySolo_EN.GetLabelContent("SpeedLabelText");
+                playerSpeedLabelText.font = gameplaySoloENFont;
                 remainingTimeLabelText.text = gameplaySolo_EN.GetLabelContent("RemainingTimeLabelText");
+                remainingTimeLabelText.font = gameplaySoloENFont;
                 timeElapsedLabelText.text = gameplaySolo_EN.GetLabelContent("TimeElapsedLabelText");
+                timeElapsedLabelText.font = gameplaySoloENFont;
                 finalPositionLabelText.text = gameplaySolo_EN.GetLabelContent("FinalPositionLabelText");
+                finalPositionLabelText.font = gameplaySoloENFont;
                 rankingLabelText.text = gameplaySolo_EN.GetLabelContent("RankingLabelText");
+                rankingLabelText.font = gameplaySoloENFont;
                 rankingPlayerNameLabelText.text = gameplaySolo_EN.GetLabelContent("RankingPlayerNameLabelText");
+                rankingPlayerNameLabelText.font = gameplaySoloENFont;
                 rankingFinalPositionLabelText.text = gameplaySolo_EN.GetLabelContent("RankingFinalPositionLabelText");
+                rankingFinalPositionLabelText.font = gameplaySoloENFont;
                 rankingRemainingTimeLabelText.text = gameplaySolo_EN.GetLabelContent("RankingRemainingTimeLabelText");
+                rankingRemainingTimeLabelText.font = gameplaySoloENFont;
                 rankingTimeElapsedLabelText.text = gameplaySolo_EN.GetLabelContent("RankingTimeElapsedLabelText");
+                rankingTimeElapsedLabelText.font = gameplaySoloENFont;
                 pauseLabelText.text = gameplaySolo_EN.GetLabelContent("PausedLabelText");
+                pauseLabelText.font = gameplaySoloENFont;
                 clearNotInRankingLabelText.text = gameplaySolo_EN.GetLabelContent("ClearNotInRankingText").Replace("|", Environment.NewLine);
+                clearNotInRankingLabelText.font = gameplaySoloENFont;
                 gameOverLabelText.text = gameplaySolo_EN.GetLabelContent("GameOverLabelText");
+                gameOverLabelText.font = gameplaySoloENFont;
                 sliderStartText.text = gameplaySolo_EN.GetLabelContent("SliderStartText");
+                sliderStartText.font = gameplaySoloENFont;
                 sliderGoalText.text = gameplaySolo_EN.GetLabelContent("SliderGoalText");
+                sliderGoalText.font = gameplaySoloENFont;
                 clearLabelText.text = gameplaySolo_EN.GetLabelContent("ClearLabelText");
+                clearLabelText.font = gameplaySoloENFont;
                 clearThankToyForPlayingLabelText.text = gameplaySolo_EN.GetLabelContent("ThankYouForPlayingText");
+                clearThankToyForPlayingLabelText.font = gameplaySoloENFont;
                 gameOverThankYouForPlayingLabelText.text = gameplaySolo_EN.GetLabelContent("ThankYouForPlayingText");
+                gameOverThankYouForPlayingLabelText.font = gameplaySoloENFont;
                 pauseResumeLabelText.text = gameplaySolo_EN.GetLabelContent("PauseResumeLabelText");
+                pauseResumeLabelText.font = gameplaySoloENFont;
                 pauseRestartLabelText.text = gameplaySolo_EN.GetLabelContent("PauseRestartLabelText");
+                pauseRestartLabelText.font = gameplaySoloENFont;
                 pauseTitleLabelText.text = gameplaySolo_EN.GetLabelContent("PauseTitleLabelText");
+                pauseTitleLabelText.font = gameplaySoloENFont;
                 gameOverNotInRankingLabelText.text = gameplaySolo_EN.GetLabelContent("GameOverNotInRankingLabelText").Replace("|", Environment.NewLine);
+                gameOverNotInRankingLabelText.font = gameplaySoloENFont;
                 gameOverRankedLabelText.text = gameplaySolo_EN.GetLabelContent("GameOverRankedLabelText");
+                gameOverRankedLabelText.font = gameplaySoloENFont;
                 gameOverRankingButtonText.text = gameplaySolo_EN.GetLabelContent("GameOverRankingButtonText");
+                gameOverRankingButtonText.font = gameplaySoloENFont;
                 gameOverRestartButtonText.text = gameplaySolo_EN.GetLabelContent("GameOverRestartButtonText");
+                gameOverRestartButtonText.font = gameplaySoloENFont;
                 gameOverTitleButtonText.text = gameplaySolo_EN.GetLabelContent("GameOverTitleButtonText");
+                gameOverTitleButtonText.font = gameplaySoloENFont;
                 clearRankedLabelText.text = gameplaySolo_EN.GetLabelContent("ClearRankedLabelText");
+                clearRankedLabelText.font = gameplaySoloENFont;
                 clearRankingButtonText.text = gameplaySolo_EN.GetLabelContent("ClearRankingButtonText");
+                clearRankingButtonText.font = gameplaySoloENFont;
                 clearRestartButtonText.text = gameplaySolo_EN.GetLabelContent("ClearRestartButtonText");
+                clearRestartButtonText.font = gameplaySoloENFont;
                 clearTitleButtonText.text = gameplaySolo_EN.GetLabelContent("ClearTitleButtonText");
+                clearTitleButtonText.font = gameplaySoloENFont;
                 clearRankingReturnLabelText.text = gameplaySolo_EN.GetLabelContent("ClearRankingReturnLabelText");
+                clearRankingReturnLabelText.font = gameplaySoloENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 playerNameLabelText.text = gameplaySolo_JP.GetLabelContent("PlayerNameLabelText");
+                playerNameLabelText.font = gameplaySoloJPFont;
                 playerNameLabelText.fontStyle = FontStyle.Bold;
                 playerLifeLabelText.text = gameplaySolo_JP.GetLabelContent("PlayerLifeLabelText");
+                playerLifeLabelText.font = gameplaySoloJPFont;
                 playerLifeLabelText.fontStyle = FontStyle.Bold;
                 playerSpeedLabelText.text = gameplaySolo_JP.GetLabelContent("SpeedLabelText");
+                playerSpeedLabelText.font = gameplaySoloJPFont;
                 playerSpeedLabelText.fontStyle = FontStyle.Bold;
                 remainingTimeLabelText.text = gameplaySolo_JP.GetLabelContent("RemainingTimeLabelText");
+                remainingTimeLabelText.font = gameplaySoloJPFont;
                 remainingTimeLabelText.fontStyle = FontStyle.Bold;
                 timeElapsedLabelText.text = gameplaySolo_JP.GetLabelContent("TimeElapsedLabelText");
+                timeElapsedLabelText.font = gameplaySoloJPFont;
                 timeElapsedLabelText.fontStyle = FontStyle.Bold;
                 finalPositionLabelText.text = gameplaySolo_JP.GetLabelContent("FinalPositionLabelText");
+                finalPositionLabelText.font = gameplaySoloJPFont;
                 finalPositionLabelText.fontStyle = FontStyle.Bold;
                 rankingLabelText.text = gameplaySolo_JP.GetLabelContent("RankingLabelText");
+                rankingLabelText.font = gameplaySoloJPFont;
                 rankingLabelText.fontStyle = FontStyle.Bold;
                 rankingPlayerNameLabelText.text = gameplaySolo_JP.GetLabelContent("RankingPlayerNameLabelText");
+                rankingPlayerNameLabelText.font = gameplaySoloJPFont;
                 rankingPlayerNameLabelText.fontStyle = FontStyle.Bold;
                 rankingFinalPositionLabelText.text = gameplaySolo_JP.GetLabelContent("RankingFinalPositionLabelText");
+                rankingFinalPositionLabelText.font = gameplaySoloJPFont;
                 rankingFinalPositionLabelText.fontStyle = FontStyle.Bold;
                 rankingRemainingTimeLabelText.text = gameplaySolo_JP.GetLabelContent("RankingRemainingTimeLabelText");
+                rankingRemainingTimeLabelText.font = gameplaySoloJPFont;
                 rankingRemainingTimeLabelText.fontStyle = FontStyle.Bold;
                 rankingTimeElapsedLabelText.text = gameplaySolo_JP.GetLabelContent("RankingTimeElapsedLabelText");
+                rankingTimeElapsedLabelText.font = gameplaySoloJPFont;
                 rankingTimeElapsedLabelText.fontStyle = FontStyle.Bold;
                 pauseLabelText.text = gameplaySolo_JP.GetLabelContent("PausedLabelText");
+                pauseLabelText.font = gameplaySoloJPFont;
                 pauseLabelText.fontStyle = FontStyle.Bold;
                 clearNotInRankingLabelText.text = gameplaySolo_JP.GetLabelContent("ClearNotInRankingText").Replace("|", Environment.NewLine);
+                clearNotInRankingLabelText.font = gameplaySoloJPFont;
                 clearNotInRankingLabelText.fontStyle = FontStyle.Bold;
                 gameOverLabelText.text = gameplaySolo_JP.GetLabelContent("GameOverLabelText");
+                gameOverLabelText.font = gameplaySoloJPFont;
                 gameOverLabelText.fontStyle = FontStyle.Bold;
                 sliderStartText.text = gameplaySolo_JP.GetLabelContent("SliderStartText");
+                sliderStartText.font = gameplaySoloJPFont;
                 sliderStartText.fontStyle = FontStyle.Bold;
                 sliderGoalText.text = gameplaySolo_JP.GetLabelContent("SliderGoalText");
+                sliderGoalText.font = gameplaySoloJPFont;
                 sliderGoalText.fontStyle = FontStyle.Bold;
                 clearLabelText.text = gameplaySolo_JP.GetLabelContent("ClearLabelText");
+                clearLabelText.font = gameplaySoloJPFont;
                 clearLabelText.fontStyle = FontStyle.Bold;
                 clearThankToyForPlayingLabelText.text = gameplaySolo_JP.GetLabelContent("ThankYouForPlayingText");
+                clearThankToyForPlayingLabelText.font = gameplaySoloJPFont;
                 clearThankToyForPlayingLabelText.fontStyle = FontStyle.Bold;
                 gameOverThankYouForPlayingLabelText.text = gameplaySolo_JP.GetLabelContent("ThankYouForPlayingText");
+                gameOverThankYouForPlayingLabelText.font = gameplaySoloJPFont;
                 gameOverThankYouForPlayingLabelText.fontStyle = FontStyle.Bold;
                 pauseResumeLabelText.text = gameplaySolo_JP.GetLabelContent("PauseResumeLabelText");
+                pauseResumeLabelText.font = gameplaySoloJPFont;
                 pauseResumeLabelText.fontStyle = FontStyle.Bold;
                 pauseRestartLabelText.text = gameplaySolo_JP.GetLabelContent("PauseRestartLabelText");
+                pauseRestartLabelText.font = gameplaySoloJPFont;
                 pauseRestartLabelText.fontStyle = FontStyle.Bold;
                 pauseTitleLabelText.text = gameplaySolo_JP.GetLabelContent("PauseTitleLabelText");
+                pauseTitleLabelText.font = gameplaySoloJPFont;
                 pauseTitleLabelText.fontStyle = FontStyle.Bold;
                 gameOverNotInRankingLabelText.text = gameplaySolo_JP.GetLabelContent("GameOverNotInRankingLabelText").Replace("|", Environment.NewLine);
+                gameOverNotInRankingLabelText.font = gameplaySoloJPFont;
                 gameOverNotInRankingLabelText.fontStyle = FontStyle.Bold;
                 gameOverRankedLabelText.text = gameplaySolo_JP.GetLabelContent("GameOverRankedLabelText");
+                gameOverRankedLabelText.font = gameplaySoloJPFont;
                 gameOverRankedLabelText.fontStyle = FontStyle.Bold;
                 gameOverRankingButtonText.text = gameplaySolo_JP.GetLabelContent("GameOverRankingButtonText");
+                gameOverRankingButtonText.font = gameplaySoloJPFont;
                 gameOverRankingButtonText.fontStyle = FontStyle.Bold;
                 gameOverRestartButtonText.text = gameplaySolo_JP.GetLabelContent("GameOverRestartButtonText");
+                gameOverRestartButtonText.font = gameplaySoloJPFont;
                 gameOverRestartButtonText.fontStyle = FontStyle.Bold;
                 gameOverTitleButtonText.text = gameplaySolo_JP.GetLabelContent("GameOverTitleButtonText");
+                gameOverTitleButtonText.font = gameplaySoloJPFont;
                 gameOverTitleButtonText.fontStyle = FontStyle.Bold;
                 clearRankedLabelText.text = gameplaySolo_JP.GetLabelContent("ClearRankedLabelText");
+                clearRankedLabelText.font = gameplaySoloJPFont;
                 clearRankedLabelText.fontStyle = FontStyle.Bold;
                 clearRankingButtonText.text = gameplaySolo_JP.GetLabelContent("ClearRankingButtonText");
+                clearRankingButtonText.font = gameplaySoloJPFont;
                 clearRankingButtonText.fontStyle = FontStyle.Bold;
                 clearRestartButtonText.text = gameplaySolo_JP.GetLabelContent("ClearRestartButtonText");
+                clearRestartButtonText.font = gameplaySoloJPFont;
                 clearRestartButtonText.fontStyle = FontStyle.Bold;
                 clearTitleButtonText.text = gameplaySolo_JP.GetLabelContent("ClearTitleButtonText");
+                clearTitleButtonText.font = gameplaySoloJPFont;
                 clearTitleButtonText.fontStyle = FontStyle.Bold;
                 clearRankingReturnLabelText.text = gameplaySolo_JP.GetLabelContent("ClearRankingReturnLabelText");
+                clearRankingReturnLabelText.font = gameplaySoloJPFont;
                 clearRankingReturnLabelText.fontStyle = FontStyle.Bold;
                 break;
         }
@@ -354,12 +419,14 @@ public class GameManagerSolo : MonoBehaviour
             {
                 case Language.DisplayLanauge.English:
                     rankingFinalPositionText[index].text = data.finalPosition.ToString();
+                    rankingFinalPositionText[index].font = gameplaySoloENFont;
                     break;
                 case Language.DisplayLanauge.Japanese:
                     rankingFinalPositionText[index].text = data.finalPosition.ToString()
                                                                 .Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
                                                                 .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
                                                                 .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                    rankingFinalPositionText[index].font = gameplaySoloJPFont;
                     rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
                     break;
             }
@@ -533,11 +600,13 @@ public class GameManagerSolo : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 finalPositionText.text = finalPosition;
+                finalPositionText.font = gameplaySoloENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 finalPositionText.text = finalPosition.Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
                                                       .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
                                                       .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                finalPositionText.font = gameplaySoloJPFont;
                 finalPositionText.fontStyle = FontStyle.Bold;
                 break;
         }
@@ -771,12 +840,14 @@ public class GameManagerSolo : MonoBehaviour
                         {
                             case Language.DisplayLanauge.English:
                                 rankingFinalPositionText[index].text = rankingData.finalPosition.ToString();
+                                rankingFinalPositionText[index].font = gameplaySoloENFont;
                                 break;
                             case Language.DisplayLanauge.Japanese:
                                 rankingFinalPositionText[index].text = rankingData.finalPosition.ToString()
                                                                         .Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
                                                                         .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
                                                                         .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                                rankingFinalPositionText[index].font = gameplaySoloJPFont;
                                 rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
                                 break;
                         }
@@ -804,12 +875,14 @@ public class GameManagerSolo : MonoBehaviour
                     {
                         case Language.DisplayLanauge.English:
                             rankingFinalPositionText[index].text = rankingData.finalPosition.ToString();
+                            rankingFinalPositionText[index].font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
                             rankingFinalPositionText[index].text = rankingData.finalPosition.ToString()
                                                                         .Replace("Start", gameplaySolo_JP.GetLabelContent("StartPositionText"))
                                                                         .Replace("Check Point", gameplaySolo_JP.GetLabelContent("CheckPointPositionText"))
                                                                         .Replace("Goal", gameplaySolo_JP.GetLabelContent("GoalPositionText"));
+                            rankingFinalPositionText[index].font = gameplaySoloJPFont;
                             rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
                             break;
                     }
@@ -848,7 +921,9 @@ public class GameManagerSolo : MonoBehaviour
                     {
                         case Language.DisplayLanauge.English:
                             clearRankedText.text = "1st";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "1st";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
                             clearRankedText.text = "1ˆÊ";
@@ -856,7 +931,9 @@ public class GameManagerSolo : MonoBehaviour
                             break;
                         default:
                             clearRankedText.text = "1st";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "1st";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                     }
                     break;
@@ -865,15 +942,20 @@ public class GameManagerSolo : MonoBehaviour
                     {
                         case Language.DisplayLanauge.English:
                             clearRankedText.text = "2nd";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "2nd";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
                             clearRankedText.text = "2ˆÊ";
+                            clearRankedText.font = gameplaySoloJPFont;
                             gameOverRankingPositionText.text = "2ˆÊ";
                             break;
                         default:
                             clearRankedText.text = "2nd";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "2nd";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                     }
                     break;
@@ -882,15 +964,21 @@ public class GameManagerSolo : MonoBehaviour
                     {
                         case Language.DisplayLanauge.English:
                             clearRankedText.text = "3rd";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "3rd";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
                             clearRankedText.text = "3ˆÊ";
+                            clearRankedText.font = gameplaySoloJPFont;
                             gameOverRankingPositionText.text = "3ˆÊ";
+                            gameOverRankingPositionText.font = gameplaySoloJPFont;
                             break;
                         default:
                             clearRankedText.text = "3rd";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "3rd";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                     }
                     break;
@@ -899,15 +987,21 @@ public class GameManagerSolo : MonoBehaviour
                     {
                         case Language.DisplayLanauge.English:
                             clearRankedText.text = "4th";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "4th";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
                             clearRankedText.text = "4ˆÊ";
+                            clearRankedText.font = gameplaySoloJPFont;
                             gameOverRankingPositionText.text = "4ˆÊ";
+                            gameOverRankingPositionText.font = gameplaySoloJPFont;
                             break;
                         default:
                             clearRankedText.text = "4th";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "4th";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                     }
                     break;
@@ -916,15 +1010,21 @@ public class GameManagerSolo : MonoBehaviour
                     {
                         case Language.DisplayLanauge.English:
                             clearRankedText.text = "5th";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "5th";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
                             clearRankedText.text = "5ˆÊ";
+                            clearRankedText.font = gameplaySoloJPFont;
                             gameOverRankingPositionText.text = "5ˆÊ";
+                            gameOverRankingPositionText.font = gameplaySoloJPFont;
                             break;
                         default:
                             clearRankedText.text = "5th";
+                            clearRankedText.font = gameplaySoloENFont;
                             gameOverRankingPositionText.text = "5th";
+                            gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                     }
                     break;

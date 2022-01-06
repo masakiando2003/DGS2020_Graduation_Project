@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24379423, g: 0.24972856, b: 0.2521002, a: 1}
+  m_IndirectSpecularColor: {r: 0.4660946, g: 0.4657923, b: 0.46188927, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -150,7 +150,7 @@ RectTransform:
   m_GameObject: {fileID: 16793347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 1147829863}
   m_RootOrder: 8
@@ -1186,7 +1186,7 @@ RectTransform:
   m_GameObject: {fileID: 1018397646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 1147829863}
   m_RootOrder: 10
@@ -1559,6 +1559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chooseDifficultySolo_EN: {fileID: 11400000, guid: 474a27778cfaa854ead210a8cd05609e, type: 2}
   chooseDifficultySolo_JP: {fileID: 11400000, guid: a846b156ff60b6247b6c2ed51502a312, type: 2}
+  chooseDifficultySoloENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  chooseDifficultySoloJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   difficultyCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 446958748}
   estimatedEasyTime: 1
@@ -2693,7 +2695,7 @@ RectTransform:
   m_GameObject: {fileID: 2003919306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
   m_Father: {fileID: 1147829863}
   m_RootOrder: 9

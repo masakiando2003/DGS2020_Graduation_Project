@@ -5954,6 +5954,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameplaySolo_EN: {fileID: 11400000, guid: eda2f4d174525654ca8a06bf37b6de9f, type: 2}
   gameplaySolo_JP: {fileID: 11400000, guid: 9b71dea4c1cddfb47b20406aa0ac9a95, type: 2}
+  gameplaySoloENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  gameplaySoloJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   playerRocket: {fileID: 954356215}
   fuelObjects:
   - {fileID: 2842152176463179573}

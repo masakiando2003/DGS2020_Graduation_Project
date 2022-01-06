@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 public class MultiplayTeamSelection : MonoBehaviour
 {
     [SerializeField] Localization multiplayTeamSelection_EN, multiplayTeamSelection_JP;
+    [SerializeField] Font multiplayTeamSelectionENFont, multiplayTeamSelectionJPFont;
     [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
     [SerializeField] Slider loadingSlider;
     [SerializeField] Text selectTeamText, teamNotSelectedFinishedYetText, pleaseWaitLabelText;
@@ -27,6 +28,10 @@ public class MultiplayTeamSelection : MonoBehaviour
 
     private void Initialization()
     {
+        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
+        {
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+        }
         difficultyCanvas.SetActive(true);
         pleaseWaitCanvas.SetActive(false);
         teamNotSelectedFinishedYetText.enabled = false;
@@ -36,6 +41,18 @@ public class MultiplayTeamSelection : MonoBehaviour
         for (int i = 0; i < playerNameTexts.Length; i++)
         {
             playerNameTexts[i].text = PlayerNameTempSaveMultiplay.playerName[i];
+            switch (Language.gameDisplayLanguage)
+            {
+                case Language.DisplayLanauge.English:
+                    playerNameTexts[i].font = multiplayTeamSelectionENFont;
+                    break;
+                case Language.DisplayLanauge.Japanese:
+                    playerNameTexts[i].font = multiplayTeamSelectionJPFont;
+                    playerNameTexts[i].fontStyle = FontStyle.Bold;
+                    break;
+                default:
+                    break;
+            }
         }
         for (int i = 0; i < teamAPlayerButtons.Length; i++)
         {
@@ -63,49 +80,61 @@ public class MultiplayTeamSelection : MonoBehaviour
                 teamBPlayerButtons[i].GetComponent<Image>().color = buttonNormalColor;
             }
         }
-        if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
-        {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
-        }
         switch (Language.gameDisplayLanguage)
         {
             case Language.DisplayLanauge.English:
                 proceedButtonText.text = multiplayTeamSelection_EN.GetLabelContent("ProceedButtonText");
+                proceedButtonText.font = multiplayTeamSelectionENFont;
                 resetButtonText.text = multiplayTeamSelection_EN.GetLabelContent("ResetButtonText");
+                resetButtonText.font = multiplayTeamSelectionENFont;
                 randomTeamButtonText.text = multiplayTeamSelection_EN.GetLabelContent("RandomTeamButtonText");
+                randomTeamButtonText.font = multiplayTeamSelectionENFont;
                 selectTeamText.text = multiplayTeamSelection_EN.GetLabelContent("SelectTeamText");
+                selectTeamText.font = multiplayTeamSelectionENFont;
                 teamNotSelectedFinishedYetText.text = multiplayTeamSelection_EN.GetLabelContent("TeamNotSelectedFinishedYetText");
+                teamNotSelectedFinishedYetText.font = multiplayTeamSelectionENFont;
                 pleaseWaitLabelText.text = multiplayTeamSelection_EN.GetLabelContent("PleaseWaitLabelText");
-                for(int i = 0; i < teamAButtonText.Length; i++)
+                pleaseWaitLabelText.font = multiplayTeamSelectionENFont;
+                for (int i = 0; i < teamAButtonText.Length; i++)
                 {
                     teamAButtonText[i].text = multiplayTeamSelection_EN.GetLabelContent("TeamAButtonText");
+                    teamAButtonText[i].font = multiplayTeamSelectionENFont;
                 }
                 for (int i = 0; i < teamBButtonText.Length; i++)
                 {
                     teamBButtonText[i].text = multiplayTeamSelection_EN.GetLabelContent("TeamBButtonText");
+                    teamBButtonText[i].font = multiplayTeamSelectionENFont;
                 }
                 break;
             case Language.DisplayLanauge.Japanese:
                 proceedButtonText.text = multiplayTeamSelection_JP.GetLabelContent("ProceedButtonText");
+                proceedButtonText.font = multiplayTeamSelectionJPFont;
                 proceedButtonText.fontStyle = FontStyle.Bold;
                 resetButtonText.text = multiplayTeamSelection_JP.GetLabelContent("ResetButtonText");
+                resetButtonText.font = multiplayTeamSelectionJPFont;
                 resetButtonText.fontStyle = FontStyle.Bold;
                 randomTeamButtonText.text = multiplayTeamSelection_JP.GetLabelContent("RandomTeamButtonText");
+                randomTeamButtonText.font = multiplayTeamSelectionJPFont;
                 randomTeamButtonText.fontStyle = FontStyle.Bold;
                 selectTeamText.text = multiplayTeamSelection_JP.GetLabelContent("SelectTeamText");
+                selectTeamText.font = multiplayTeamSelectionJPFont;
                 selectTeamText.fontStyle = FontStyle.Bold;
                 teamNotSelectedFinishedYetText.text = multiplayTeamSelection_JP.GetLabelContent("TeamNotSelectedFinishedYetText");
-                selectTeamText.fontStyle = FontStyle.Bold;
+                teamNotSelectedFinishedYetText.font = multiplayTeamSelectionJPFont;
+                teamNotSelectedFinishedYetText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = multiplayTeamSelection_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = multiplayTeamSelectionJPFont;
                 pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 for (int i = 0; i < teamAButtonText.Length; i++)
                 {
                     teamAButtonText[i].text = multiplayTeamSelection_JP.GetLabelContent("TeamAButtonText");
+                    teamAButtonText[i].font = multiplayTeamSelectionJPFont;
                     teamAButtonText[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < teamBButtonText.Length; i++)
                 {
                     teamBButtonText[i].text = multiplayTeamSelection_JP.GetLabelContent("TeamBButtonText");
+                    teamBButtonText[i].font = multiplayTeamSelectionJPFont;
                     teamBButtonText[i].fontStyle = FontStyle.Bold;
                 }
                 break;
@@ -127,9 +156,12 @@ public class MultiplayTeamSelection : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         teamNotSelectedFinishedYetText.text = "Team A " + multiplayTeamSelection_EN.GetLabelContent("FullMembersText");
+                        teamNotSelectedFinishedYetText.font = multiplayTeamSelectionENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         teamNotSelectedFinishedYetText.text = "チームA " + multiplayTeamSelection_JP.GetLabelContent("FullMembersText");
+                        teamNotSelectedFinishedYetText.font = multiplayTeamSelectionJPFont;
+                        teamNotSelectedFinishedYetText.fontStyle = FontStyle.Bold;
                         break;
                 }
                 teamNotSelectedFinishedYetText.enabled = true;
@@ -151,9 +183,12 @@ public class MultiplayTeamSelection : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         teamNotSelectedFinishedYetText.text = "Team B " + multiplayTeamSelection_EN.GetLabelContent("FullMembersText");
+                        teamNotSelectedFinishedYetText.font = multiplayTeamSelectionENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         teamNotSelectedFinishedYetText.text = "チームB " + multiplayTeamSelection_JP.GetLabelContent("FullMembersText");
+                        teamNotSelectedFinishedYetText.font = multiplayTeamSelectionJPFont;
+                        teamNotSelectedFinishedYetText.fontStyle = FontStyle.Bold;
                         break;
                 }
                 teamNotSelectedFinishedYetText.enabled = true;
@@ -291,6 +326,6 @@ public class MultiplayTeamSelection : MonoBehaviour
                 log += content.val.ToString() + ", ";
         }
 
-        Debug.Log(log);
+        //Debug.Log(log);
     }
 }

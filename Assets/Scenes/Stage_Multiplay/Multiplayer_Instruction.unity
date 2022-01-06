@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24379423, g: 0.24972856, b: 0.2521002, a: 1}
+  m_IndirectSpecularColor: {r: 0.4660946, g: 0.4657923, b: 0.46188927, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8289,6 +8289,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplayerInstruction_EN: {fileID: 11400000, guid: 1e7a250555f98de419c4f461fe1587a9, type: 2}
   multiplayerInstruction_JP: {fileID: 11400000, guid: 3f1e0dc792b61984fa93144b1b06a24a, type: 2}
+  multiplayerInstructionENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  multiplayerInstructionJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   instructionCanvas: {fileID: 1480168221}
   pleaseWaitCanvas: {fileID: 351881991}
   objectionSection: {fileID: 2081848797}
@@ -8369,19 +8371,17 @@ MonoBehaviour:
   boostCanItemText: {fileID: 566758476}
   reduceSpeedItemText: {fileID: 1405483637}
   reduceBoostItemText: {fileID: 564818378}
-  btnMission: {fileID: 0}
-  btnControl: {fileID: 0}
-  btnHints: {fileID: 0}
-  btnKeyboard: {fileID: 0}
-  btnJoystick: {fileID: 0}
-  btnHints1: {fileID: 0}
-  btnHints2: {fileID: 0}
-  btnHints3: {fileID: 0}
-  btnHints4: {fileID: 0}
-  btnHints5: {fileID: 0}
-  btnHints6: {fileID: 0}
-  buttonNormalColor: {r: 0, g: 0, b: 0, a: 0}
-  buttonSelectedColor: {r: 0, g: 0, b: 0, a: 0}
+  btnMission: {fileID: 1077923656}
+  btnControl: {fileID: 1179235597}
+  btnHints: {fileID: 1627237273}
+  btnHints1: {fileID: 295805145}
+  btnHints2: {fileID: 16637825}
+  btnHints3: {fileID: 593468502}
+  btnHints4: {fileID: 1666435291}
+  btnHints5: {fileID: 1989110067}
+  btnHints6: {fileID: 1496942434}
+  buttonNormalColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonSelectedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1262172608
 GameObject:
   m_ObjectHideFlags: 0

@@ -1459,6 +1459,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title_EN: {fileID: 11400000, guid: 7c7e53e3edc76864ca70744e58feb5e0, type: 2}
   title_JP: {fileID: 11400000, guid: b29c1273c9042b648ac52e8d7b5f573f, type: 2}
+  titleENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  titleJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   soloPlayerInstructionSceneName: 1P_Enter_Player_Name
   multiPlayerInstructionSceneName: Multiplayer_Num_of_Players
   creditSceneName: Credits
@@ -2044,7 +2046,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+    m_Font: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0

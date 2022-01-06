@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ChooseDifficultyMultiplayer : MonoBehaviour
 {
     [SerializeField] Localization chooseDifficultyMultiplay_EN, chooseDifficultyMultiplay_JP;
+    [SerializeField] Font chooseDifficultyMultiplayENFont, chooseDifficultyMultiplayJPFont;
     [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
     [SerializeField] int estimatedEasyTime = 2, estimatedNormalTime = 5, estimatedHardTime = 10;
     [SerializeField] string introductionScene;
@@ -43,32 +44,51 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 chooseDifficultyTitleText.text = chooseDifficultyMultiplay_EN.GetLabelContent("ChooseDifficultyTitleText");
+                chooseDifficultyTitleText.font = chooseDifficultyMultiplayENFont;
                 pleaseWaitLabelText.text = chooseDifficultyMultiplay_EN.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = chooseDifficultyMultiplayENFont;
                 easyButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("EasyButtonText");
+                easyButtonText.font = chooseDifficultyMultiplayENFont;
                 normalButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("NormalButtonText");
+                normalButtonText.font = chooseDifficultyMultiplayENFont;
                 hardButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("HardButtonText");
+                hardButtonText.font = chooseDifficultyMultiplayENFont;
                 proceedButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("ProceedButtonText");
+                proceedButtonText.font = chooseDifficultyMultiplayENFont;
                 titleButtonText.text = chooseDifficultyMultiplay_EN.GetLabelContent("TitleButtonText");
+                titleButtonText.font = chooseDifficultyMultiplayENFont;
                 estimatedTimeLabelText.text = chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeLabelText");
+                estimatedTimeLabelText.font = chooseDifficultyMultiplayENFont;
                 estimatedTimeText.text = estimatedEasyTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
+                estimatedTimeText.font = chooseDifficultyMultiplayENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 chooseDifficultyTitleText.text = chooseDifficultyMultiplay_JP.GetLabelContent("ChooseDifficultyTitleText");
+                chooseDifficultyTitleText.font = chooseDifficultyMultiplayJPFont;
+                chooseDifficultyTitleText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = chooseDifficultyMultiplay_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = chooseDifficultyMultiplayJPFont;
                 pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 easyButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("EasyButtonText");
+                easyButtonText.font = chooseDifficultyMultiplayJPFont;
                 easyButtonText.fontStyle = FontStyle.Bold;
                 normalButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("NormalButtonText");
+                normalButtonText.font = chooseDifficultyMultiplayJPFont;
                 normalButtonText.fontStyle = FontStyle.Bold;
                 hardButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("HardButtonText");
+                hardButtonText.font = chooseDifficultyMultiplayJPFont;
                 hardButtonText.fontStyle = FontStyle.Bold;
                 proceedButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("ProceedButtonText");
+                proceedButtonText.font = chooseDifficultyMultiplayJPFont;
                 proceedButtonText.fontStyle = FontStyle.Bold;
                 titleButtonText.text = chooseDifficultyMultiplay_JP.GetLabelContent("TitleButtonText");
+                titleButtonText.font = chooseDifficultyMultiplayJPFont;
                 titleButtonText.fontStyle = FontStyle.Bold;
                 estimatedTimeLabelText.text = chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeLabelText");
+                estimatedTimeLabelText.font = chooseDifficultyMultiplayJPFont;
                 estimatedTimeLabelText.fontStyle = FontStyle.Bold;
                 estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                estimatedTimeText.font = chooseDifficultyMultiplayJPFont;
                 estimatedTimeText.fontStyle = FontStyle.Bold;
                 break;
         }
@@ -90,6 +110,7 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 difficultyText.text = difficulty;
+                difficultyText.font = chooseDifficultyMultiplayENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 switch (difficulty)
@@ -104,6 +125,8 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                         difficultyText.text = chooseDifficultyMultiplay_JP.GetLabelContent("HardButtonText");
                         break;
                 }
+                difficultyText.font = chooseDifficultyMultiplayJPFont;
+                difficultyText.fontStyle = FontStyle.Bold;
                 break;
         }
     }
@@ -142,9 +165,11 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         estimatedTimeText.text = estimatedEasyTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultyMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultyMultiplayJPFont;
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }
@@ -160,9 +185,11 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         estimatedTimeText.text = estimatedNormalTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultyMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         estimatedTimeText.text = estimatedNormalTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultyMultiplayJPFont;
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }
@@ -178,9 +205,11 @@ public class ChooseDifficultyMultiplayer : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         estimatedTimeText.text = estimatedHardTime.ToString() + " " + chooseDifficultyMultiplay_EN.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultyMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         estimatedTimeText.text = estimatedNormalTime.ToString() + chooseDifficultyMultiplay_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultyMultiplayJPFont;
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }

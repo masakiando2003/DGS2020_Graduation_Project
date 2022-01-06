@@ -197,7 +197,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+    m_Font: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
     m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 60
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 222949084}
   - component: {fileID: 222949086}
   m_Layer: 5
-  m_Name: CreditsTitle
+  m_Name: CreditsTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 80
@@ -600,7 +600,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+    m_Font: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+    m_Font: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 80
@@ -1435,6 +1435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditEN: {fileID: 11400000, guid: a49d95f521142d24c9b9814c2b393a81, type: 2}
   creditJP: {fileID: 11400000, guid: 8245ce29caa69544eaae343afad4072c, type: 2}
+  creditENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  creditJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   developersSection: {fileID: 1767888251}
   unityAssetsSection: {fileID: 1082373432}
   othersSection: {fileID: 58292467}
@@ -1444,6 +1446,7 @@ MonoBehaviour:
   unityAssetsDetailTextJP: {fileID: 338416714}
   othersDetailTextEN: {fileID: 2048005558}
   othersDetailTextJP: {fileID: 641506668}
+  creditsTitleText: {fileID: 222949084}
   developersButtonText: {fileID: 997121480}
   unityAssetsButtonText: {fileID: 282065981}
   othersButtonText: {fileID: 1650689469}
@@ -1509,7 +1512,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 80
@@ -1721,7 +1724,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 80
@@ -2162,7 +2165,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
     m_FontSize: 30
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
