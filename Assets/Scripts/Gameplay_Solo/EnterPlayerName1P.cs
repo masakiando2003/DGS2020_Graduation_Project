@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class EnterPlayerName1P : MonoBehaviour
 {
     [SerializeField] Localization enterPlayerName1P_EN, enterPlayerName1P_JP;
+    [SerializeField] Font enterPlayerName1PENFont, enterPlayerName1PJPFont;
     [SerializeField] GameObject playerNameCanvas, pleaseWaitCanvas;
     [SerializeField] string controlTypeScene;
     [SerializeField] string titleMap;
@@ -39,21 +40,36 @@ public class EnterPlayerName1P : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 errorText.text = enterPlayerName1P_EN.GetLabelContent("ErrorText");
+                errorText.font = enterPlayerName1PENFont;
                 playerNameTitleText.text = enterPlayerName1P_EN.GetLabelContent("PlayerNameTitleText");
+                playerNameTitleText.font = enterPlayerName1PENFont;
                 placeholderText.text = enterPlayerName1P_EN.GetLabelContent("PlaceholderText");
+                placeholderText.font = enterPlayerName1PENFont;
                 pleaseWaitLabelText.text = enterPlayerName1P_EN.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = enterPlayerName1PENFont;
                 proceedText.text = enterPlayerName1P_EN.GetLabelContent("ProceedText");
+                proceedText.font = enterPlayerName1PENFont;
                 titleText.text = enterPlayerName1P_EN.GetLabelContent("TitleText");
+                titleText.font = enterPlayerName1PENFont;
+                playerNameInput.textComponent.font = enterPlayerName1PENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 errorText.text = enterPlayerName1P_JP.GetLabelContent("ErrorText");
+                errorText.font = enterPlayerName1PJPFont;
                 playerNameTitleText.text = enterPlayerName1P_JP.GetLabelContent("PlayerNameTitleText");
+                playerNameTitleText.font = enterPlayerName1PJPFont;
                 placeholderText.text = enterPlayerName1P_JP.GetLabelContent("PlaceholderText");
+                placeholderText.font = enterPlayerName1PJPFont;
                 pleaseWaitLabelText.text = enterPlayerName1P_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = enterPlayerName1PJPFont;
                 proceedText.text = enterPlayerName1P_JP.GetLabelContent("ProceedText");
+                proceedText.font = enterPlayerName1PJPFont;
                 proceedText.fontStyle = FontStyle.Bold;
                 titleText.text = enterPlayerName1P_JP.GetLabelContent("TitleText");
+                titleText.font = enterPlayerName1PJPFont;
                 titleText.fontStyle = FontStyle.Bold;
+                playerNameInput.textComponent.font = enterPlayerName1PJPFont;
+                playerNameInput.textComponent.fontStyle = FontStyle.Bold;
                 break;
         }
     }

@@ -24,6 +24,7 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] string targetEasyMap, targetNormalMap, targetHardMap;
     [SerializeField] string titleMap;
     [SerializeField] Slider loadingSlider;
+    [SerializeField] Font instructionENFont, instructionJPFont;
     [SerializeField] Text instructionTitleText, missionButtonText, controlsButtonText, hintsButtonText;
     [SerializeField] Text missionText, keyboardButtonText, joystickButtonText;
     [SerializeField] Text hint1ButtonText, hint2ButtonText, hint3ButtonText, hint4ButtonText, hint5ButtonText;
@@ -31,6 +32,7 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] Text startButtonText, rankingButtonText, titleButtonText, returnButtonText;
     [SerializeField] Text rankingLabelText, rankingPlayerNameLabelText, rankingPlayerFinalPositionText;
     [SerializeField] Text rankingPlayerRemainingTimeText, rankingPlayerTimeElapsedText, pleaseWaitLabelText;
+    [SerializeField] Text[] rankingPlayerPositionLabelTexts;
     [SerializeField] Text[] rankingPlayerNameText;
     [SerializeField] Text[] rankingFinalPositionText;
     [SerializeField] Text[] rankingRemainingTimeText;
@@ -138,22 +140,39 @@ public class Instructions_1P : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 instructionTitleText.text = instruction1P_EN.GetLabelContent("InstructionTitleText");
+                instructionTitleText.font = instructionENFont;
                 missionButtonText.text = instruction1P_EN.GetLabelContent("MissionButtonText");
+                missionButtonText.font = instructionENFont;
                 controlsButtonText.text = instruction1P_EN.GetLabelContent("ControlsButtonText");
+                controlsButtonText.font = instructionENFont;
                 hintsButtonText.text = instruction1P_EN.GetLabelContent("HintsButtonText");
+                hintsButtonText.font = instructionENFont;
                 missionText.text = instruction1P_EN.GetLabelContent("MissionText").Replace("|", Environment.NewLine);
+                missionText.font = instructionENFont;
                 keyboardButtonText.text = instruction1P_EN.GetLabelContent("KeyboardButtonText");
+                keyboardButtonText.font = instructionENFont;
                 joystickButtonText.text = instruction1P_EN.GetLabelContent("JoystickButtonText");
+                joystickButtonText.font = instructionENFont;
                 hint1ButtonText.text = instruction1P_EN.GetLabelContent("Hint1ButtonText");
+                hint1ButtonText.font = instructionENFont;
                 hint2ButtonText.text = instruction1P_EN.GetLabelContent("Hint2ButtonText");
+                hint2ButtonText.font = instructionENFont;
                 hint3ButtonText.text = instruction1P_EN.GetLabelContent("Hint3ButtonText");
+                hint3ButtonText.font = instructionENFont;
                 hint4ButtonText.text = instruction1P_EN.GetLabelContent("Hint4ButtonText");
+                hint4ButtonText.font = instructionENFont;
                 hint5ButtonText.text = instruction1P_EN.GetLabelContent("Hint5ButtonText");
+                hint5ButtonText.font = instructionENFont;
                 hint1Text.text = instruction1P_EN.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
+                hint1Text.font = instructionENFont;
                 hint2Text.text = instruction1P_EN.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
+                hint2Text.font = instructionENFont;
                 hint3Text.text = instruction1P_EN.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
+                hint3Text.font = instructionENFont;
                 hint4Text.text = instruction1P_EN.GetLabelContent("Hint4Text").Replace("|", Environment.NewLine);
+                hint4Text.font = instructionENFont;
                 hint5Text.text = instruction1P_EN.GetLabelContent("Hint5Text").Replace("|", Environment.NewLine);
+                hint5Text.font = instructionENFont;
                 hint1ImageEN.SetActive(true);
                 hint2Image1EN.SetActive(true);
                 hint2Image2EN.SetActive(true);
@@ -185,50 +204,81 @@ public class Instructions_1P : MonoBehaviour
                 joystickImageEN.SetActive(true);
                 joystickImageJP.SetActive(false);
                 startButtonText.text = instruction1P_EN.GetLabelContent("StartButtonText");
+                startButtonText.font = instructionENFont;
                 rankingButtonText.text = instruction1P_EN.GetLabelContent("RankingButtonText");
+                rankingButtonText.font = instructionENFont;
                 titleButtonText.text = instruction1P_EN.GetLabelContent("TitleButtonText");
+                titleButtonText.font = instructionENFont;
                 returnButtonText.text = instruction1P_EN.GetLabelContent("ReturnButtonText");
+                returnButtonText.font = instructionENFont;
                 rankingLabelText.text = instruction1P_EN.GetLabelContent("RankingLabelText");
+                rankingLabelText.font = instructionENFont;
                 rankingPlayerNameLabelText.text = instruction1P_EN.GetLabelContent("RankingPlayerNameLabelText");
+                rankingPlayerNameLabelText.font = instructionENFont;
                 rankingPlayerFinalPositionText.text = instruction1P_EN.GetLabelContent("RankingPlayerFinalPositionText");
+                rankingPlayerFinalPositionText.font = instructionENFont;
                 rankingPlayerRemainingTimeText.text = instruction1P_EN.GetLabelContent("RankingPlayerRemainingTimeText");
+                rankingPlayerRemainingTimeText.font = instructionENFont;
                 rankingPlayerTimeElapsedText.text = instruction1P_EN.GetLabelContent("RankingPlayerTimeElapsedText");
+                rankingPlayerTimeElapsedText.font = instructionENFont;
                 pleaseWaitLabelText.text = instruction1P_EN.GetLabelContent("PleaseWaitText");
+                pleaseWaitLabelText.font = instructionENFont;
+                for(int i = 0; i < rankingPlayerPositionLabelTexts.Length; i++)
+                {
+                    rankingPlayerPositionLabelTexts[i].font = instructionENFont;
+                }
                 break;
             case Language.DisplayLanauge.Japanese:
                 instructionTitleText.text = instruction1P_JP.GetLabelContent("InstructionTitleText");
+                instructionTitleText.font = instructionJPFont;
                 instructionTitleText.fontStyle = FontStyle.Bold;
                 missionButtonText.text = instruction1P_JP.GetLabelContent("MissionButtonText");
+                missionButtonText.font = instructionJPFont;
                 missionButtonText.fontStyle = FontStyle.Bold;
                 controlsButtonText.text = instruction1P_JP.GetLabelContent("ControlsButtonText");
+                controlsButtonText.font = instructionJPFont;
                 controlsButtonText.fontStyle = FontStyle.Bold;
                 hintsButtonText.text = instruction1P_JP.GetLabelContent("HintsButtonText");
+                hintsButtonText.font = instructionJPFont;
                 hintsButtonText.fontStyle = FontStyle.Bold;
                 missionText.text = instruction1P_JP.GetLabelContent("MissionText").Replace("|", Environment.NewLine);
+                missionText.font = instructionJPFont;
                 missionText.fontStyle = FontStyle.Bold;
                 keyboardButtonText.text = instruction1P_JP.GetLabelContent("KeyboardButtonText");
+                keyboardButtonText.font = instructionJPFont;
                 keyboardButtonText.fontStyle = FontStyle.Bold;
                 joystickButtonText.text = instruction1P_JP.GetLabelContent("JoystickButtonText");
+                joystickButtonText.font = instructionJPFont;
                 joystickButtonText.fontStyle = FontStyle.Bold;
                 hint1ButtonText.text = instruction1P_JP.GetLabelContent("Hint1ButtonText");
+                hint1ButtonText.font = instructionJPFont;
                 hint1ButtonText.fontStyle = FontStyle.Bold;
                 hint2ButtonText.text = instruction1P_JP.GetLabelContent("Hint2ButtonText");
+                hint2ButtonText.font = instructionJPFont;
                 hint2ButtonText.fontStyle = FontStyle.Bold;
                 hint3ButtonText.text = instruction1P_JP.GetLabelContent("Hint3ButtonText");
+                hint3ButtonText.font = instructionJPFont;
                 hint3ButtonText.fontStyle = FontStyle.Bold;
                 hint4ButtonText.text = instruction1P_JP.GetLabelContent("Hint4ButtonText");
+                hint4ButtonText.font = instructionJPFont;
                 hint4ButtonText.fontStyle = FontStyle.Bold;
                 hint5ButtonText.text = instruction1P_JP.GetLabelContent("Hint5ButtonText");
+                hint5ButtonText.font = instructionJPFont;
                 hint5ButtonText.fontStyle = FontStyle.Bold;
                 hint1Text.text = instruction1P_JP.GetLabelContent("Hint1Text").Replace("|", Environment.NewLine);
+                hint1Text.font = instructionJPFont;
                 hint1Text.fontStyle = FontStyle.Bold;
                 hint2Text.text = instruction1P_JP.GetLabelContent("Hint2Text").Replace("|", Environment.NewLine);
+                hint2Text.font = instructionJPFont;
                 hint2Text.fontStyle = FontStyle.Bold;
                 hint3Text.text = instruction1P_JP.GetLabelContent("Hint3Text").Replace("|", Environment.NewLine);
+                hint3Text.font = instructionJPFont;
                 hint3Text.fontStyle = FontStyle.Bold;
                 hint4Text.text = instruction1P_JP.GetLabelContent("Hint4Text").Replace("|", Environment.NewLine);
+                hint4Text.font = instructionJPFont;
                 hint4Text.fontStyle = FontStyle.Bold;
                 hint5Text.text = instruction1P_JP.GetLabelContent("Hint5Text").Replace("|", Environment.NewLine);
+                hint5Text.font = instructionJPFont;
                 hint5Text.fontStyle = FontStyle.Bold;
                 hint1ImageEN.SetActive(false);
                 hint2Image1EN.SetActive(false);
@@ -262,19 +312,40 @@ public class Instructions_1P : MonoBehaviour
                 joystickImageEN.SetActive(false);
                 joystickImageJP.SetActive(true);
                 startButtonText.text = instruction1P_JP.GetLabelContent("StartButtonText");
+                startButtonText.font = instructionJPFont;
                 startButtonText.fontStyle = FontStyle.Bold;
                 rankingButtonText.text = instruction1P_JP.GetLabelContent("RankingButtonText");
+                rankingButtonText.font = instructionJPFont;
                 rankingButtonText.fontStyle = FontStyle.Bold;
                 titleButtonText.text = instruction1P_JP.GetLabelContent("TitleButtonText");
+                titleButtonText.font = instructionJPFont;
                 titleButtonText.fontStyle = FontStyle.Bold;
                 returnButtonText.text = instruction1P_JP.GetLabelContent("ReturnButtonText");
+                returnButtonText.font = instructionJPFont;
                 returnButtonText.fontStyle = FontStyle.Bold;
                 rankingLabelText.text = instruction1P_JP.GetLabelContent("RankingLabelText");
+                rankingLabelText.font = instructionJPFont;
+                rankingLabelText.fontStyle = FontStyle.Bold;
                 rankingPlayerNameLabelText.text = instruction1P_JP.GetLabelContent("RankingPlayerNameLabelText");
+                rankingPlayerNameLabelText.font = instructionJPFont;
+                rankingPlayerNameLabelText.fontStyle = FontStyle.Bold;
                 rankingPlayerFinalPositionText.text = instruction1P_JP.GetLabelContent("RankingPlayerFinalPositionText");
+                rankingPlayerFinalPositionText.font = instructionJPFont;
+                rankingPlayerFinalPositionText.fontStyle = FontStyle.Bold;
                 rankingPlayerRemainingTimeText.text = instruction1P_JP.GetLabelContent("RankingPlayerRemainingTimeText");
+                rankingPlayerRemainingTimeText.font = instructionJPFont;
+                rankingPlayerRemainingTimeText.fontStyle = FontStyle.Bold;
                 rankingPlayerTimeElapsedText.text = instruction1P_JP.GetLabelContent("RankingPlayerTimeElapsedText");
+                rankingPlayerTimeElapsedText.font = instructionJPFont;
+                rankingPlayerTimeElapsedText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = instruction1P_JP.GetLabelContent("PleaseWaitText");
+                pleaseWaitLabelText.font = instructionJPFont;
+                pleaseWaitLabelText.fontStyle = FontStyle.Bold;
+                for (int i = 0; i < rankingPlayerPositionLabelTexts.Length; i++)
+                {
+                    rankingPlayerPositionLabelTexts[i].font = instructionJPFont;
+                    rankingPlayerPositionLabelTexts[i].fontStyle = FontStyle.Bold;
+                }
                 break;
         }
     }
@@ -289,43 +360,126 @@ public class Instructions_1P : MonoBehaviour
             if(PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + (index + 1)))
             {
                 rankingPlayerNameText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + (index + 1));
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingPlayerNameText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingPlayerNameText[index].font = instructionJPFont;
+                        rankingPlayerNameText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
             }
             else
             {
                 rankingPlayerNameText[index].text = data.playerName;
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingPlayerNameText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingPlayerNameText[index].font = instructionJPFont;
+                        rankingPlayerNameText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
                 PlayerPrefs.SetString(Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + (index+1), data.playerName);
             }
-            rankingPlayerNameText[index].fontStyle = FontStyle.Bold;
             if (PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1)))
             {
-                rankingFinalPositionText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1));
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingFinalPositionText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1))
+                                                                                                 .Replace("Goal", instruction1P_EN.GetLabelContent("GoalText"))
+                                                                                                 .Replace("Check Point", instruction1P_EN.GetLabelContent("CheckPointText"))
+                                                                                                 .Replace("Start", instruction1P_EN.GetLabelContent("StartText"));
+                        rankingFinalPositionText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingFinalPositionText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1))
+                                                                                                 .Replace("Goal", instruction1P_JP.GetLabelContent("GoalText"))
+                                                                                                 .Replace("Check Point", instruction1P_JP.GetLabelContent("CheckPointText"))
+                                                                                                 .Replace("Start", instruction1P_JP.GetLabelContent("StartText"));
+                        rankingFinalPositionText[index].font = instructionJPFont;
+                        rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
             }
             else
             {
                 rankingFinalPositionText[index].text = data.finalPosition;
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingFinalPositionText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingFinalPositionText[index].font = instructionJPFont;
+                        rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
                 PlayerPrefs.SetString(Difficulty_1P_TempSave.chosenDifficulty + "_FinalPosition_" + (index + 1), data.finalPosition);
             }
-            rankingFinalPositionText[index].fontStyle = FontStyle.Bold;
             if (PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + (index + 1)))
             {
                 rankingRemainingTimeText[index].text = PlayerPrefs.GetInt(Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + (index + 1)).ToString();
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingRemainingTimeText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingRemainingTimeText[index].font = instructionJPFont;
+                        rankingRemainingTimeText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
             }
             else
             {
                 rankingRemainingTimeText[index].text = data.remainingTime.ToString();
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingRemainingTimeText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingRemainingTimeText[index].font = instructionJPFont;
+                        rankingRemainingTimeText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
                 PlayerPrefs.SetInt(Difficulty_1P_TempSave.chosenDifficulty + "_RemainingTime_" + (index + 1), data.remainingTime);
             }
-            rankingRemainingTimeText[index].fontStyle = FontStyle.Bold;
             if (PlayerPrefs.HasKey(Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + (index + 1)))
             {
                 rankingTimeElaspedText[index].text = PlayerPrefs.GetString(Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + (index + 1));
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingTimeElaspedText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingTimeElaspedText[index].font = instructionJPFont;
+                        rankingTimeElaspedText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
             }
             else
             {
                 rankingTimeElaspedText[index].text = data.timeElapsed;
+                switch (Language.gameDisplayLanguage)
+                {
+                    case Language.DisplayLanauge.English:
+                        rankingTimeElaspedText[index].font = instructionENFont;
+                        break;
+                    case Language.DisplayLanauge.Japanese:
+                        rankingTimeElaspedText[index].font = instructionJPFont;
+                        rankingTimeElaspedText[index].fontStyle = FontStyle.Bold;
+                        break;
+                }
                 PlayerPrefs.SetString(Difficulty_1P_TempSave.chosenDifficulty + "_TimeElapsed_" + (index + 1), data.timeElapsed);
             }
-            rankingTimeElaspedText[index].fontStyle = FontStyle.Bold;
             index++;
         }
     }

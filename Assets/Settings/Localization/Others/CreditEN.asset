@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: CreditEN
   m_EditorClassIdentifier: 
   labelName:
+  - CreditsTitleText
   - DevelopersButtonText
   - UnityAssetsButtonText
   - OthersButtonText
   - ReturnButtonText
   labelText:
+  - Credits
   - Developers
   - Unity Assets
   - Others

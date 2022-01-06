@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ChooseDifficultySolo : MonoBehaviour
 {
     [SerializeField] Localization chooseDifficultySolo_EN, chooseDifficultySolo_JP;
+    [SerializeField] Font chooseDifficultySoloENFont, chooseDifficultySoloJPFont;
     [SerializeField] GameObject difficultyCanvas, pleaseWaitCanvas;
     [SerializeField] int estimatedEasyTime = 1, estimatedNormalTime = 3, estimatedHardTime = 7;
     [SerializeField] string introductionScene;
@@ -43,33 +44,51 @@ public class ChooseDifficultySolo : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 difficultyTitleText.text = chooseDifficultySolo_EN.GetLabelContent("ChosenDifficultyText");
+                difficultyTitleText.font = chooseDifficultySoloENFont;
                 easyText.text = chooseDifficultySolo_EN.GetLabelContent("EasyText");
+                easyText.font = chooseDifficultySoloENFont;
                 normalText.text = chooseDifficultySolo_EN.GetLabelContent("NormalText");
+                normalText.font = chooseDifficultySoloENFont;
                 hardText.text = chooseDifficultySolo_EN.GetLabelContent("HardText");
+                hardText.font = chooseDifficultySoloENFont;
                 proceedText.text = chooseDifficultySolo_EN.GetLabelContent("ProceedText");
+                proceedText.font = chooseDifficultySoloENFont;
                 titleText.text = chooseDifficultySolo_EN.GetLabelContent("TitleText");
-                pleaseWaitLabelText.text = chooseDifficultySolo_EN.GetLabelContent("PleaseWaitLabelText"); 
+                titleText.font = chooseDifficultySoloENFont;
+                pleaseWaitLabelText.text = chooseDifficultySolo_EN.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = chooseDifficultySoloENFont;
                 estimatedTimeLabelText.text = chooseDifficultySolo_EN.GetLabelContent("EstimatedTimeLabelText");
+                estimatedTimeLabelText.font = chooseDifficultySoloENFont;
                 estimatedTimeText.text = estimatedEasyTime.ToString() + " " + chooseDifficultySolo_EN.GetLabelContent("EstimatedTimeText");
+                estimatedTimeText.font = chooseDifficultySoloENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 difficultyTitleText.text = chooseDifficultySolo_JP.GetLabelContent("ChosenDifficultyText");
+                difficultyTitleText.font = chooseDifficultySoloJPFont;
                 difficultyTitleText.fontStyle = FontStyle.Bold;
                 easyText.text = chooseDifficultySolo_JP.GetLabelContent("EasyText");
+                easyText.font = chooseDifficultySoloJPFont;
                 easyText.fontStyle = FontStyle.Bold;
                 normalText.text = chooseDifficultySolo_JP.GetLabelContent("NormalText");
+                normalText.font = chooseDifficultySoloJPFont;
                 normalText.fontStyle = FontStyle.Bold;
                 hardText.text = chooseDifficultySolo_JP.GetLabelContent("HardText");
+                hardText.font = chooseDifficultySoloJPFont;
                 hardText.fontStyle = FontStyle.Bold;
                 proceedText.text = chooseDifficultySolo_JP.GetLabelContent("ProceedText");
+                proceedText.font = chooseDifficultySoloJPFont;
                 proceedText.fontStyle = FontStyle.Bold;
                 titleText.text = chooseDifficultySolo_JP.GetLabelContent("TitleText");
+                titleText.font = chooseDifficultySoloJPFont;
                 titleText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = chooseDifficultySolo_JP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = chooseDifficultySoloJPFont;
                 pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 estimatedTimeLabelText.text = chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeLabelText");
+                estimatedTimeLabelText.font = chooseDifficultySoloJPFont;
                 estimatedTimeLabelText.fontStyle = FontStyle.Bold;
                 estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
+                estimatedTimeText.font = chooseDifficultySoloJPFont;
                 estimatedTimeText.fontStyle = FontStyle.Bold;
                 break;
         }
@@ -91,9 +110,12 @@ public class ChooseDifficultySolo : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 difficultyText.text = chooseDifficultySolo_EN.GetLabelContent(difficulty+"Text");
+                difficultyText.font = chooseDifficultySoloENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 difficultyText.text = chooseDifficultySolo_JP.GetLabelContent(difficulty + "Text");
+                difficultyText.font = chooseDifficultySoloJPFont;
+                difficultyText.fontStyle = FontStyle.Bold;
                 break;
         }
     }
@@ -113,9 +135,11 @@ public class ChooseDifficultySolo : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         estimatedTimeText.text = estimatedEasyTime.ToString() + " " + chooseDifficultySolo_EN.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultySoloENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         estimatedTimeText.text = estimatedEasyTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultySoloJPFont;
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }
@@ -131,9 +155,11 @@ public class ChooseDifficultySolo : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         estimatedTimeText.text = estimatedNormalTime.ToString() + " " + chooseDifficultySolo_EN.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultySoloENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         estimatedTimeText.text = estimatedNormalTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultySoloJPFont;
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }
@@ -149,9 +175,11 @@ public class ChooseDifficultySolo : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         estimatedTimeText.text = estimatedHardTime.ToString() + " " + chooseDifficultySolo_EN.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultySoloENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         estimatedTimeText.text = estimatedHardTime.ToString() + chooseDifficultySolo_JP.GetLabelContent("EstimatedTimeText");
+                        estimatedTimeText.font = chooseDifficultySoloJPFont;
                         estimatedTimeText.fontStyle = FontStyle.Bold;
                         break;
                 }

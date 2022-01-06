@@ -2051,6 +2051,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplay_enter_name_EN: {fileID: 11400000, guid: cfd26e7d855af3f41a89659fc5d6d48c, type: 2}
   multiplay_enter_name_JP: {fileID: 11400000, guid: 6575ffff06837fd43b14bb380dcbe75d, type: 2}
+  multiplayEnterNameENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  multiplayEnterNameJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   difficultyScene: Multiplayer_Choose_Difficulty
   teamSelectionScene: Multiplayer_TeamSelection
   titleMap: Title

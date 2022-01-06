@@ -1244,6 +1244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enterPlayerName1P_EN: {fileID: 11400000, guid: 589b8d08346392146add2af64a6f95e0, type: 2}
   enterPlayerName1P_JP: {fileID: 11400000, guid: fa6a8e8ec8cd1c24fa57dc5af2601ffc, type: 2}
+  enterPlayerName1PENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  enterPlayerName1PJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   playerNameCanvas: {fileID: 1147829859}
   pleaseWaitCanvas: {fileID: 726474940}
   controlTypeScene: 1P_Choose_Control_Type

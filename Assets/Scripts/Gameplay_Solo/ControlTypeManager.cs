@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class ControlTypeManager : MonoBehaviour
 {
     [SerializeField] Localization controlTypeEN, controlTypeJP;
-    [SerializeField] GameObject contronType1ImageEN, controlType1ImageJP;
-    [SerializeField] GameObject contronType2ImageEN, controlType2ImageJP;
+    [SerializeField] Font controlTypeENFont, controlTypeJPFont;
+    [SerializeField] GameObject contronType1Keyboard, controlType1Mouse, controlType2Keyboard;
     [SerializeField] GameObject controlTypeCanvas, pleaseWaitCanvas;
     [SerializeField] string chooseDifficultyScene;
     [SerializeField] string titleMap;
@@ -37,27 +37,16 @@ public class ControlTypeManager : MonoBehaviour
             case "Type1":
                 btnType1.GetComponent<Image>().color = buttonSelectedColor;
                 btnType2.GetComponent<Image>().color = buttonNormalColor;
+                contronType1Keyboard.SetActive(true);
+                controlType1Mouse.SetActive(true);
+                controlType2Keyboard.SetActive(false);
                 break;
             case "Type2":
                 btnType1.GetComponent<Image>().color = buttonNormalColor;
                 btnType2.GetComponent<Image>().color = buttonSelectedColor;
-                break;
-        }
-
-
-        switch (Language.gameDisplayLanguage)
-        {
-            case Language.DisplayLanauge.English:
-                contronType1ImageEN.SetActive(true);
-                contronType2ImageEN.SetActive(false);
-                controlType1ImageJP.SetActive(false);
-                controlType2ImageJP.SetActive(false);
-                break;
-            case Language.DisplayLanauge.Japanese:
-                contronType1ImageEN.SetActive(false);
-                contronType2ImageEN.SetActive(false);
-                controlType1ImageJP.SetActive(true);
-                controlType2ImageJP.SetActive(false);
+                contronType1Keyboard.SetActive(false);
+                controlType1Mouse.SetActive(false);
+                controlType2Keyboard.SetActive(true);
                 break;
         }
 
@@ -66,30 +55,46 @@ public class ControlTypeManager : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 controlTypeTitleText.text = controlTypeEN.GetLabelContent("ControlTypeTitleText");
+                controlTypeTitleText.font = controlTypeENFont;
                 joystickHintText.text = "("+controlTypeEN.GetLabelContent("JoystickHintText")+")";
+                joystickHintText.font = controlTypeENFont;
                 proceedText.text = controlTypeEN.GetLabelContent("ProceedText");
+                proceedText.font = controlTypeENFont;
                 titleText.text = controlTypeEN.GetLabelContent("TitleText");
+                titleText.font = controlTypeENFont;
                 pleaseWaitLabelText.text = controlTypeEN.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = controlTypeENFont;
                 btnType1Text.text = controlTypeEN.GetLabelContent("Type1ButtonText");
+                btnType1Text.font = controlTypeENFont;
                 btnType2Text.text = controlTypeEN.GetLabelContent("Type2ButtonText");
+                btnType2Text.font = controlTypeENFont;
                 chosenControlTypeText.text = controlTypeEN.GetLabelContent("Type1Text");
+                chosenControlTypeText.font = controlTypeENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 controlTypeTitleText.text = controlTypeJP.GetLabelContent("ControlTypeTitleText");
+                controlTypeTitleText.font = controlTypeJPFont;
                 controlTypeTitleText.fontStyle = FontStyle.Bold;
                 joystickHintText.text = "(" + controlTypeJP.GetLabelContent("JoystickHintText") + ")";
+                joystickHintText.font = controlTypeJPFont;
                 joystickHintText.fontStyle = FontStyle.Bold;
                 proceedText.text = controlTypeJP.GetLabelContent("ProceedText");
+                proceedText.font = controlTypeJPFont;
                 proceedText.fontStyle = FontStyle.Bold;
                 titleText.text = controlTypeJP.GetLabelContent("TitleText");
+                titleText.font = controlTypeJPFont;
                 titleText.fontStyle = FontStyle.Bold;
                 pleaseWaitLabelText.text = controlTypeJP.GetLabelContent("PleaseWaitLabelText");
+                pleaseWaitLabelText.font = controlTypeJPFont;
                 pleaseWaitLabelText.fontStyle = FontStyle.Bold;
                 btnType1Text.text = controlTypeJP.GetLabelContent("Type1ButtonText");
+                btnType1Text.font = controlTypeJPFont;
                 btnType1Text.fontStyle = FontStyle.Bold;
                 btnType2Text.text = controlTypeJP.GetLabelContent("Type2ButtonText");
+                btnType2Text.font = controlTypeJPFont;
                 btnType2Text.fontStyle = FontStyle.Bold;
                 chosenControlTypeText.text = controlTypeJP.GetLabelContent("Type1Text");
+                chosenControlTypeText.font = controlTypeJPFont;
                 chosenControlTypeText.fontStyle = FontStyle.Bold;
                 break;
         }
@@ -103,21 +108,18 @@ public class ControlTypeManager : MonoBehaviour
                 ControlType.chosenControlType = "Type1";
                 btnType1.GetComponent<Image>().color = buttonSelectedColor;
                 btnType2.GetComponent<Image>().color = buttonNormalColor;
+                contronType1Keyboard.SetActive(true);
+                controlType1Mouse.SetActive(true);
+                controlType2Keyboard.SetActive(false);
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:
-                        contronType1ImageEN.SetActive(true);
-                        contronType2ImageEN.SetActive(false);
-                        controlType1ImageJP.SetActive(false);
-                        controlType2ImageJP.SetActive(false);
                         chosenControlTypeText.text = controlTypeEN.GetLabelContent("Type1Text");
+                        chosenControlTypeText.font = controlTypeENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        contronType1ImageEN.SetActive(false);
-                        contronType2ImageEN.SetActive(false);
-                        controlType1ImageJP.SetActive(true);
-                        controlType2ImageJP.SetActive(false);
                         chosenControlTypeText.text = controlTypeJP.GetLabelContent("Type1Text");
+                        chosenControlTypeText.font = controlTypeJPFont;
                         chosenControlTypeText.fontStyle = FontStyle.Bold;
                         break;
                 }
@@ -126,21 +128,18 @@ public class ControlTypeManager : MonoBehaviour
                 ControlType.chosenControlType = "Type2";
                 btnType1.GetComponent<Image>().color = buttonNormalColor;
                 btnType2.GetComponent<Image>().color = buttonSelectedColor;
+                contronType1Keyboard.SetActive(false);
+                controlType1Mouse.SetActive(false);
+                controlType2Keyboard.SetActive(true);
                 switch (Language.gameDisplayLanguage)
                 {
                     case Language.DisplayLanauge.English:
-                        contronType1ImageEN.SetActive(false);
-                        contronType2ImageEN.SetActive(true);
-                        controlType1ImageJP.SetActive(false);
-                        controlType2ImageJP.SetActive(false);
                         chosenControlTypeText.text = controlTypeEN.GetLabelContent("Type2Text");
+                        chosenControlTypeText.font = controlTypeENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        contronType1ImageEN.SetActive(false);
-                        contronType2ImageEN.SetActive(false);
-                        controlType1ImageJP.SetActive(false);
-                        controlType2ImageJP.SetActive(true);
                         chosenControlTypeText.text = controlTypeJP.GetLabelContent("Type2Text");
+                        chosenControlTypeText.font = controlTypeJPFont;
                         chosenControlTypeText.fontStyle = FontStyle.Bold;
                         break;
                 }
