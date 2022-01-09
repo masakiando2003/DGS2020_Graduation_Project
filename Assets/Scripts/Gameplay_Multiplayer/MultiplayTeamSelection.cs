@@ -30,7 +30,7 @@ public class MultiplayTeamSelection : MonoBehaviour
     {
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
         difficultyCanvas.SetActive(true);
         pleaseWaitCanvas.SetActive(false);

@@ -79,6 +79,11 @@ public class CameraManagementMultiplay : MonoBehaviour
     {
         if (!stageViewFlag)
         {
+            // Disable keyboard Input
+            if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Escape))
+            {
+                return;
+            }
             if (Input.GetButtonDown(playerID + "PShowHints"))
             {
                 showHintsFlag = !showHintsFlag;

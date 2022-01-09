@@ -83,7 +83,7 @@ public class MultiplayerInstruction : MonoBehaviour
         btnHints6.GetComponent<Image>().color = buttonNormalColor;
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
         switch (PlayerNameTempSaveMultiplay.numPlayers)
         {

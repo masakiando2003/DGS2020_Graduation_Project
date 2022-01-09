@@ -1846,6 +1846,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManagerMultiplay_EN: {fileID: 11400000, guid: 953f9abb89b152240a722f472abe4e9a, type: 2}
   gameManagerMultiplay_JP: {fileID: 11400000, guid: 508469bdcef114b47952229ace129f71, type: 2}
+  gameManagerMultiplayENFont: {fileID: 12800000, guid: 0fdb0e581527823429e26d506d75d426, type: 3}
+  gameManagerMultiplayJPFont: {fileID: 12800000, guid: 9e2b62f76d37585448a0b75bd7668e8a, type: 3}
   rocketMesh: {fileID: 730002158}
   playerRockets:
   - {fileID: 758673966}
@@ -3442,9 +3444,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4979491934297370609, guid: 3b92991f71a5ccd49a53caffcf704d4b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4979491934449898511, guid: 3b92991f71a5ccd49a53caffcf704d4b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979491934452560681, guid: 3b92991f71a5ccd49a53caffcf704d4b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4979491935843407544, guid: 3b92991f71a5ccd49a53caffcf704d4b, type: 3}
       propertyPath: m_IsActive
