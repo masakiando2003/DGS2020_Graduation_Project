@@ -13,6 +13,7 @@ public class MultiplayerInstruction : MonoBehaviour
     [SerializeField] GameObject objectionSection, controlsSection, hintsSection, itemsSection;
     [SerializeField] GameObject hints1Section, hints2Section, hints3Section, hints4Section, hints5Section, hints6Section;
     [SerializeField] GameObject joystickImageEN, joystickImageJP;
+    [SerializeField] GameObject joystickControlEN, joystickControlJP;
     [SerializeField] GameObject hint1ImageEN, hint2Image1EN, hint2Image2EN, hint3ImageEN, hint4ImageEN, hint5Image1EN, hint5Image2EN, hint6ImageEN;
     [SerializeField] GameObject hint1ImageJP, hint2Image1JP, hint2Image2JP, hint3ImageJP, hint4ImageJP, hint5Image1JP, hint5Image2JP, hint6ImageJP;
     [SerializeField] GameObject stageEasyViewImageObj, stageNormalViewImageObj, stageHardViewImageObj;
@@ -260,8 +261,8 @@ public class MultiplayerInstruction : MonoBehaviour
                 reduceSpeedItemText.font = multiplayerInstructionENFont;
                 reduceBoostItemText.text = multiplayerInstruction_EN.GetLabelContent("ReduceBoostItemText");
                 reduceBoostItemText.font = multiplayerInstructionENFont;
-                joystickImageEN.SetActive(true);
-                joystickImageJP.SetActive(false);
+                joystickControlEN.SetActive(true);
+                joystickControlJP.SetActive(false);
                 break;
             case Language.DisplayLanauge.Japanese:
                 instructionTitleText.text = multiplayerInstruction_JP.GetLabelContent("InstructionTitleText");
@@ -361,8 +362,8 @@ public class MultiplayerInstruction : MonoBehaviour
                 reduceBoostItemText.text = multiplayerInstruction_JP.GetLabelContent("ReduceBoostItemText");
                 reduceBoostItemText.font = multiplayerInstructionJPFont;
                 reduceBoostItemText.fontStyle = FontStyle.Bold;
-                joystickImageEN.SetActive(false);
-                joystickImageJP.SetActive(true);
+                joystickControlEN.SetActive(false);
+                joystickControlJP.SetActive(true);
                 break;
         }
     }

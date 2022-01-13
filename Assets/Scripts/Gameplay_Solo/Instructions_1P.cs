@@ -21,6 +21,8 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] GameObject stageEasyImageJP, stageNormalImageJP, stageHardImageJP;
     [SerializeField] GameObject keyboardControlType1ImageEN, keyboardControlType1ImageJP, joystickImageEN, joystickImageJP;
     [SerializeField] GameObject keyboardControlType2mageEN, keyboardControlType2ImageJP;
+    [SerializeField] GameObject keyboardControlType1EN, keyboardControlType1JP, keyboardControlType2EN, keyboardControlType2JP;
+    [SerializeField] GameObject joystickControlEN, joystickControlJP;
     [SerializeField] string targetEasyMap, targetNormalMap, targetHardMap;
     [SerializeField] string titleMap;
     [SerializeField] Slider loadingSlider;
@@ -43,6 +45,7 @@ public class Instructions_1P : MonoBehaviour
     [SerializeField] Color buttonNormalColor, buttonSelectedColor;
 
     TextAsset rankingDataFile;
+    bool view1Flag;
 
     private void Awake()
     {
@@ -53,8 +56,9 @@ public class Instructions_1P : MonoBehaviour
     {
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
         }
+        view1Flag = true;
         instructionCanvas.SetActive(true);
         rankingCanvas.SetActive(false);
         pleaseWaitCanvas.SetActive(false);
@@ -189,20 +193,21 @@ public class Instructions_1P : MonoBehaviour
                 hint5Image2JP.SetActive(false);
                 switch (ControlType.chosenControlType){
                     case "Type1":
-                        keyboardControlType1ImageEN.SetActive(true);
-                        keyboardControlType1ImageJP.SetActive(false);
-                        keyboardControlType2mageEN.SetActive(false);
-                        keyboardControlType2ImageJP.SetActive(false);
+                        keyboardControlType1EN.SetActive(true);
+                        keyboardControlType1JP.SetActive(false);
+                        keyboardControlType2EN.SetActive(false);
+                        keyboardControlType2JP.SetActive(false);
+
                         break;
                     case "Type2":
-                        keyboardControlType1ImageEN.SetActive(false);
-                        keyboardControlType1ImageJP.SetActive(false);
-                        keyboardControlType2mageEN.SetActive(true);
-                        keyboardControlType2ImageJP.SetActive(false);
+                        keyboardControlType1EN.SetActive(false);
+                        keyboardControlType1JP.SetActive(false);
+                        keyboardControlType2EN.SetActive(true);
+                        keyboardControlType2JP.SetActive(false);
                         break;
                 }
-                joystickImageEN.SetActive(true);
-                joystickImageJP.SetActive(false);
+                joystickControlEN.SetActive(true);
+                joystickControlJP.SetActive(false);
                 startButtonText.text = instruction1P_EN.GetLabelContent("StartButtonText");
                 startButtonText.font = instructionENFont;
                 rankingButtonText.text = instruction1P_EN.GetLabelContent("RankingButtonText");
@@ -297,20 +302,20 @@ public class Instructions_1P : MonoBehaviour
                 switch (ControlType.chosenControlType)
                 {
                     case "Type1":
-                        keyboardControlType1ImageEN.SetActive(false);
-                        keyboardControlType1ImageJP.SetActive(true);
-                        keyboardControlType2mageEN.SetActive(false);
-                        keyboardControlType2ImageJP.SetActive(false);
+                        keyboardControlType1EN.SetActive(false);
+                        keyboardControlType1JP.SetActive(true);
+                        keyboardControlType2EN.SetActive(false);
+                        keyboardControlType2JP.SetActive(false);
                         break;
                     case "Type2":
-                        keyboardControlType1ImageEN.SetActive(false);
-                        keyboardControlType1ImageJP.SetActive(false);
-                        keyboardControlType2mageEN.SetActive(false);
-                        keyboardControlType2ImageJP.SetActive(true);
+                        keyboardControlType1EN.SetActive(false);
+                        keyboardControlType1JP.SetActive(false);
+                        keyboardControlType2EN.SetActive(false);
+                        keyboardControlType2JP.SetActive(true);
                         break;
                 }
-                joystickImageEN.SetActive(false);
-                joystickImageJP.SetActive(true);
+                joystickControlEN.SetActive(false);
+                joystickControlJP.SetActive(true);
                 startButtonText.text = instruction1P_JP.GetLabelContent("StartButtonText");
                 startButtonText.font = instructionJPFont;
                 startButtonText.fontStyle = FontStyle.Bold;
