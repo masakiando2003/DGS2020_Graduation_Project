@@ -16,6 +16,7 @@ public class GameManagerMultiplay : MonoBehaviour
     }
 
     [SerializeField] Localization gameManagerMultiplay_EN, gameManagerMultiplay_JP;
+    [SerializeField] Font gameManagerMultiplayENFont, gameManagerMultiplayJPFont;
     [SerializeField] GameObject rocketMesh;
     [SerializeField] GameObject[] playerRockets;
     [SerializeField] GameObject[] fuelObjects;
@@ -166,7 +167,7 @@ public class GameManagerMultiplay : MonoBehaviour
         isPaused = false;
         if (Language.gameDisplayLanguage == Language.DisplayLanauge.None)
         {
-            Language.gameDisplayLanguage = Language.DisplayLanauge.Japanese;
+            Language.gameDisplayLanguage = Language.DisplayLanauge.English;
         }
         switch (Language.gameDisplayLanguage)
         {
@@ -174,115 +175,153 @@ public class GameManagerMultiplay : MonoBehaviour
                 for(int i = 0; i < playerNameLabelTexts.Length; i++)
                 {
                     playerNameLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerNameLabelText");
+                    playerNameLabelTexts[i].font = gameManagerMultiplayENFont;
                 }
                 for (int i = 0; i < playerSpeedLabelTexts.Length; i++)
                 {
                     playerSpeedLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerSpeedLabelText");
+                    playerSpeedLabelTexts[i].font = gameManagerMultiplayENFont;
                 }
                 for (int i = 0; i < playerCheckPointLabelTexts.Length; i++)
                 {
                     playerCheckPointLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerCheckPointLabelText");
+                    playerCheckPointLabelTexts[i].font = gameManagerMultiplayENFont;
                 }
                 for (int i = 0; i < playerTimeElapsedLabelTexts.Length; i++)
                 {
                     playerTimeElapsedLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerTimeElapsedLabelText");
+                    playerTimeElapsedLabelTexts[i].font = gameManagerMultiplayENFont;
                 }
                 for (int i = 0; i < playerPositionLabelTexts.Length; i++)
                 {
                     playerPositionLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerPositionLabelText");
+                    playerPositionLabelTexts[i].font = gameManagerMultiplayENFont;
                 }
                 for (int i = 0; i < playerItemLabelTexts.Length; i++)
                 {
                     playerItemLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("PlayerItemLabelText");
+                    playerItemLabelTexts[i].font = gameManagerMultiplayENFont;
                 }
                 for (int i = 0; i < targetPlayerLabelTexts.Length; i++)
                 {
                     targetPlayerLabelTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("TargetPlayerLabelText");
+                    targetPlayerLabelTexts[i].font = gameManagerMultiplayENFont;
                 }
                 finishText.text = gameManagerMultiplay_EN.GetLabelContent("FinishText");
+                finishText.font = gameManagerMultiplayENFont;
                 pauseText.text = gameManagerMultiplay_EN.GetLabelContent("PauseText");
+                pauseText.font = gameManagerMultiplayENFont;
                 thankYouForPlayingText.text = gameManagerMultiplay_EN.GetLabelContent("ThankYouForPlayingText");
+                thankYouForPlayingText.font = gameManagerMultiplayENFont;
                 clearRestartButtonText.text = gameManagerMultiplay_EN.GetLabelContent("ClearRestartButtonText");
+                clearRestartButtonText.font = gameManagerMultiplayENFont;
                 clearTitleButtonText.text = gameManagerMultiplay_EN.GetLabelContent("ClearTitleButtonText");
+                clearTitleButtonText.font = gameManagerMultiplayENFont;
                 pauseResumeButtonText.text = gameManagerMultiplay_EN.GetLabelContent("PauseResumeButtonText");
+                pauseResumeButtonText.font = gameManagerMultiplayENFont;
                 pauseRestartButtonText.text = gameManagerMultiplay_EN.GetLabelContent("PauseRestartButtonText");
+                pauseRestartButtonText.font = gameManagerMultiplayENFont;
                 pauseTitleButtonText.text = gameManagerMultiplay_EN.GetLabelContent("PauseTitleButtonText");
+                pauseTitleButtonText.font = gameManagerMultiplayENFont;
                 for (int i = 0; i < sliderStartTexts.Length; i++)
                 {
                     sliderStartTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("SliderStartText");
+                    sliderStartTexts[i].font = gameManagerMultiplayENFont;
                 }
                 for (int i = 0; i < sliderGoalTexts.Length; i++)
                 {
                     sliderGoalTexts[i].text = gameManagerMultiplay_EN.GetLabelContent("SliderGoalText");
+                    sliderGoalTexts[i].font = gameManagerMultiplayENFont;
                 }
                 winnerText.text = gameManagerMultiplay_EN.GetLabelContent("WinnerText");
+                winnerText.font = gameManagerMultiplayENFont;
                 congradulationText.text = gameManagerMultiplay_EN.GetLabelContent("CongradulationText");
+                congradulationText.font = gameManagerMultiplayENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 for (int i = 0; i < playerNameLabelTexts.Length; i++)
                 {
                     playerNameLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerNameLabelText");
+                    playerNameLabelTexts[i].font = gameManagerMultiplayJPFont;
                     playerNameLabelTexts[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < playerSpeedLabelTexts.Length; i++)
                 {
                     playerSpeedLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerSpeedLabelText");
+                    playerSpeedLabelTexts[i].font = gameManagerMultiplayJPFont;
                     playerSpeedLabelTexts[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < playerCheckPointLabelTexts.Length; i++)
                 {
                     playerCheckPointLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerCheckPointLabelText");
+                    playerCheckPointLabelTexts[i].font = gameManagerMultiplayJPFont;
                     playerCheckPointLabelTexts[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < playerTimeElapsedLabelTexts.Length; i++)
                 {
                     playerTimeElapsedLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerTimeElapsedLabelText");
+                    playerTimeElapsedLabelTexts[i].font = gameManagerMultiplayJPFont;
                     playerTimeElapsedLabelTexts[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < playerPositionLabelTexts.Length; i++)
                 {
                     playerPositionLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerPositionLabelText");
+                    playerPositionLabelTexts[i].font = gameManagerMultiplayJPFont;
                     playerPositionLabelTexts[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < playerItemLabelTexts.Length; i++)
                 {
                     playerItemLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("PlayerItemLabelText");
+                    playerItemLabelTexts[i].font = gameManagerMultiplayJPFont;
                     playerItemLabelTexts[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < targetPlayerLabelTexts.Length; i++)
                 {
                     targetPlayerLabelTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("TargetPlayerLabelText");
+                    targetPlayerLabelTexts[i].font = gameManagerMultiplayJPFont;
                     targetPlayerLabelTexts[i].fontStyle = FontStyle.Bold;
                 }
                 finishText.text = gameManagerMultiplay_JP.GetLabelContent("FinishText");
+                finishText.font = gameManagerMultiplayJPFont;
                 finishText.fontStyle = FontStyle.Bold;
                 pauseText.text = gameManagerMultiplay_JP.GetLabelContent("PauseText");
+                pauseText.font = gameManagerMultiplayJPFont;
                 pauseText.fontStyle = FontStyle.Bold;
                 thankYouForPlayingText.text = gameManagerMultiplay_JP.GetLabelContent("ThankYouForPlayingText");
+                thankYouForPlayingText.font = gameManagerMultiplayJPFont;
                 thankYouForPlayingText.fontStyle = FontStyle.Bold;
                 clearRestartButtonText.text = gameManagerMultiplay_JP.GetLabelContent("ClearRestartButtonText");
+                clearRestartButtonText.font = gameManagerMultiplayJPFont;
                 clearRestartButtonText.fontStyle = FontStyle.Bold;
                 clearTitleButtonText.text = gameManagerMultiplay_JP.GetLabelContent("ClearTitleButtonText");
+                clearTitleButtonText.font = gameManagerMultiplayJPFont;
                 clearTitleButtonText.fontStyle = FontStyle.Bold;
                 pauseResumeButtonText.text = gameManagerMultiplay_JP.GetLabelContent("PauseResumeButtonText");
+                pauseResumeButtonText.font = gameManagerMultiplayJPFont;
                 pauseResumeButtonText.fontStyle = FontStyle.Bold;
                 pauseRestartButtonText.text = gameManagerMultiplay_JP.GetLabelContent("PauseRestartButtonText");
+                pauseRestartButtonText.font = gameManagerMultiplayJPFont;
                 pauseRestartButtonText.fontStyle = FontStyle.Bold;
                 pauseTitleButtonText.text = gameManagerMultiplay_JP.GetLabelContent("PauseTitleButtonText");
+                pauseTitleButtonText.font = gameManagerMultiplayJPFont;
                 pauseTitleButtonText.fontStyle = FontStyle.Bold;
                 for (int i = 0; i < sliderStartTexts.Length; i++)
                 {
                     sliderStartTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("SliderStartText");
+                    sliderStartTexts[i].font = gameManagerMultiplayJPFont;
                     sliderStartTexts[i].fontStyle = FontStyle.Bold;
                 }
                 for (int i = 0; i < sliderGoalTexts.Length; i++)
                 {
                     sliderGoalTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("SliderGoalText");
+                    sliderGoalTexts[i].font = gameManagerMultiplayJPFont;
                     sliderGoalTexts[i].fontStyle = FontStyle.Bold;
                 }
                 winnerText.text = gameManagerMultiplay_JP.GetLabelContent("WinnerText");
+                winnerText.font = gameManagerMultiplayJPFont;
                 winnerText.fontStyle = FontStyle.Bold;
                 congradulationText.text = gameManagerMultiplay_JP.GetLabelContent("CongradulationText");
+                congradulationText.font = gameManagerMultiplayJPFont;
                 congradulationText.fontStyle = FontStyle.Bold;
                 for (int i = 0; i < playerPositionTexts.Length; i++)
                 {
@@ -290,21 +329,30 @@ public class GameManagerMultiplay : MonoBehaviour
                     {
                         case 0:
                             playerPositionTexts[i].text = "1ˆÊ";
+                            playerPositionTexts[i].font = gameManagerMultiplayJPFont;
+                            playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
                         case 1:
                             playerPositionTexts[i].text = "2ˆÊ";
+                            playerPositionTexts[i].font = gameManagerMultiplayJPFont;
+                            playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
                         case 2:
                             playerPositionTexts[i].text = "3ˆÊ";
+                            playerPositionTexts[i].font = gameManagerMultiplayJPFont;
+                            playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
                         case 3:
                             playerPositionTexts[i].text = "4ˆÊ";
+                            playerPositionTexts[i].font = gameManagerMultiplayJPFont;
+                            playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
                     }
                 }
                 for(int i = 0; i < playerCheckPointTexts.Length; i++)
                 {
                     playerCheckPointTexts[i].text = gameManagerMultiplay_JP.GetLabelContent("StartText");
+                    playerCheckPointTexts[i].font = gameManagerMultiplayJPFont;
                     playerCheckPointTexts[i].fontStyle = FontStyle.Bold;
                 }
                 break;
@@ -388,9 +436,12 @@ public class GameManagerMultiplay : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : gameManagerMultiplay_EN.GetLabelContent("GoText");
+                countDownTimeText.font = gameManagerMultiplayENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
                 countDownTimeText.text = (remainingSeconds > 0) ? remainingSeconds.ToString() : gameManagerMultiplay_JP.GetLabelContent("GoText");
+                countDownTimeText.font = gameManagerMultiplayJPFont;
+                countDownTimeText.fontStyle = FontStyle.Bold;
                 break;
         }
     }
@@ -426,14 +477,14 @@ public class GameManagerMultiplay : MonoBehaviour
         {
             case Language.DisplayLanauge.English:
                 playerCheckPointTexts[playerIndex].text = currentCheckPoint;
+                playerCheckPointTexts[playerIndex].font = gameManagerMultiplayENFont;
                 break;
             case Language.DisplayLanauge.Japanese:
-                Debug.Log("playerIndex: " + playerIndex);
-                Debug.Log("CheckpointText: " + gameManagerMultiplay_JP.GetLabelContent("CheckpointText"));
                 playerCheckPointTexts[playerIndex].text = currentCheckPoint.Replace("Start", gameManagerMultiplay_JP.GetLabelContent("StartText"))
                                                                            .Replace("CheckPoint", gameManagerMultiplay_JP.GetLabelContent("CheckpointText"))
                                                                            .Replace("Goal", gameManagerMultiplay_JP.GetLabelContent("GoalText"));
-                Debug.Log("currentCheckPoint 2: " + currentCheckPoint);
+                playerCheckPointTexts[playerIndex].font = gameManagerMultiplayJPFont;
+                playerCheckPointTexts[playerIndex].fontStyle = FontStyle.Bold;
                 break;
         }
     }
@@ -1184,9 +1235,12 @@ public class GameManagerMultiplay : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         playerPositionTexts[playerIndex].text = "1st";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         playerPositionTexts[playerIndex].text = "1ˆÊ";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
+                        playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;
                 }
                 break;
@@ -1195,9 +1249,12 @@ public class GameManagerMultiplay : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         playerPositionTexts[playerIndex].text = "2nd";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         playerPositionTexts[playerIndex].text = "2ˆÊ";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
+                        playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;
                 }
                 break;
@@ -1206,9 +1263,12 @@ public class GameManagerMultiplay : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         playerPositionTexts[playerIndex].text = "3rd";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         playerPositionTexts[playerIndex].text = "3ˆÊ";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
+                        playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;
                 }
                 break;
@@ -1217,9 +1277,12 @@ public class GameManagerMultiplay : MonoBehaviour
                 {
                     case Language.DisplayLanauge.English:
                         playerPositionTexts[playerIndex].text = "4th";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
                         playerPositionTexts[playerIndex].text = "4ˆÊ";
+                        playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
+                        playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;
                 }
                 break;

@@ -9139,6 +9139,10 @@ PrefabInstance:
       propertyPath: stageViewCameraZoomFactor
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 7457052399490533646, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7551125822149929765, guid: adc0a1ad2e3198342b7c9e947a942e9c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
