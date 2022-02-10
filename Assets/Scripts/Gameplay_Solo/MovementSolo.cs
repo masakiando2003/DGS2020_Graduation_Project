@@ -68,7 +68,7 @@ public class MovementSolo : MonoBehaviour
         switch (ControlType.chosenControlType)
         {
             case "Type1":
-                if (Input.GetMouseButton(0) && playerStatus.GetCurrentBoost() > 0)
+                if ((Input.GetMouseButton(0) || Input.GetButton(playerID + "PBoost")) && playerStatus.GetCurrentBoost() > 0)
                 {
                     if (Input.GetMouseButton(1))
                     {
@@ -129,7 +129,7 @@ public class MovementSolo : MonoBehaviour
         switch (ControlType.chosenControlType)
         {
             case "Type1":
-                if (Input.GetMouseButtonDown(2))
+                if (Input.GetMouseButtonDown(2) || Input.GetButton(playerID + "PResetRotation"))
                 {
                     ResetRotation();
                 }
