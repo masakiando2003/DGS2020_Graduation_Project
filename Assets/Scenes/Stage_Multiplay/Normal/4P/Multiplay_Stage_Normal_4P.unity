@@ -3625,10 +3625,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2533440750500913400, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533440750515935127, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
+      propertyPath: playerID
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2533440750593827837, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 47931c0ece5671c4fa9ac91b95868c15, type: 2}
+    - target: {fileID: 2533440750649992306, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
+      propertyPath: playerID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2533440750704119741, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

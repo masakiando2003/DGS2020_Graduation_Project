@@ -3781,6 +3781,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6434827192425730562, guid: 1db19cee40ddcb642854f25d792f2a22, type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6434827192436297991, guid: 1db19cee40ddcb642854f25d792f2a22, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -3797,6 +3801,10 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 47931c0ece5671c4fa9ac91b95868c15, type: 2}
+    - target: {fileID: 6434827193362781832, guid: 1db19cee40ddcb642854f25d792f2a22, type: 3}
+      propertyPath: playerID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6434827193424983336, guid: 1db19cee40ddcb642854f25d792f2a22, type: 3}
       propertyPath: m_TargetTexture
       value: 
