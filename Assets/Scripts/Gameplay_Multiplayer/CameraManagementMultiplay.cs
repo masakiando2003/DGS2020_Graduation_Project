@@ -218,12 +218,20 @@ public class CameraManagementMultiplay : MonoBehaviour
         switch (Language.gameDisplayLanguage)
         {
             case Language.DisplayLanauge.English:
-                playerControlsEN.enabled = true;
+                playerControlsEN.enabled = false;
                 playerControlsJP.enabled = false;
+                StageViewCameraControlsEN.enabled = false;
+                StageViewCameraControlsJP.enabled = false;
+                playerControlsHintsEN.enabled = true;
+                playerControlsHintsJP.enabled = false;
                 break;
             case Language.DisplayLanauge.Japanese:
                 playerControlsEN.enabled = false;
-                playerControlsEN.enabled = true;
+                playerControlsEN.enabled = false;
+                StageViewCameraControlsEN.enabled = false;
+                StageViewCameraControlsJP.enabled = false;
+                playerControlsHintsEN.enabled = false;
+                playerControlsHintsJP.enabled = true;
                 break;
 
         }
@@ -248,10 +256,18 @@ public class CameraManagementMultiplay : MonoBehaviour
             case Language.DisplayLanauge.English:
                 StageViewCameraControlsEN.enabled = true;
                 StageViewCameraControlsJP.enabled = false;
+                playerControlsEN.enabled = false;
+                playerControlsJP.enabled = false;
+                playerControlsHintsEN.enabled = false;
+                playerControlsHintsJP.enabled = false;
                 break;
             case Language.DisplayLanauge.Japanese:
                 StageViewCameraControlsEN.enabled = false;
                 StageViewCameraControlsJP.enabled = true;
+                playerControlsEN.enabled = false;
+                playerControlsJP.enabled = false;
+                playerControlsHintsEN.enabled = false;
+                playerControlsHintsJP.enabled = false;
                 break;
 
         }
