@@ -1635,7 +1635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 125, y: -305}
+  m_AnchoredPosition: {x: 125, y: -280}
   m_SizeDelta: {x: 1280, y: 480}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &156585152
@@ -1688,17 +1688,19 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Cross: Move(Boost)
 
-    L1 / R1: Rotate Left / Right
+    Square: Reduce Speed
 
-    Triangle: Change
-    Camera
+    L1 / R1: Rotate Left
+    / Right
+
+    Triangle: Change Camera
 
     R2: Reset Rotation
 
-    (Start point / Check point / Safe zone only)
+    (Start point
+    / Check point / Safe zone only)
 
-    L2:
-    Use Item'
+    L2: Use Item'
 --- !u!222 &156585154
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7944,8 +7946,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4E0A / \u4E0B / \u5DE6 / \u53F3: \u30AB\u30E1\u30E9\u79FB\u52D5\nL1
-    / R1: \u30AB\u30E1\u30E9\u30BA\u30FC\u30E0\u30A4\u30F3 / \u30A2\u30A6\u30C8\nR2:
+  m_Text: "L1 / R1 / \u30B9\u30AF\u30A8\u30A2 / \u30AF\u30ED\u30B9: \u30AB\u30E1\u30E9\u79FB\u52D5\nL2
+    / R2: \u30AB\u30E1\u30E9\u30BA\u30FC\u30E0\u30A4\u30F3 / \u30A2\u30A6\u30C8\n\u5186\u5F62:
     \u30AB\u30E1\u30E9\u4F4D\u7F6E\u30EA\u30BB\u30C3\u30C8\n\u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4"
 --- !u!222 &451638213
 CanvasRenderer:
@@ -8071,11 +8073,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Up / Down / Left / Right: Move Camera
+  m_Text: 'L1 / R1 / Square / Cross: Move Camera
 
-    L1 / R1: Camera Zoon In / Out
+    L2 / R2: Camera Zoon In / Out
 
-    R2:
+    Circle:
     Reset Camera Position
 
     Trinagle: Change Camera'
@@ -25042,11 +25044,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Up / Down / Left / Right: Move Camera
+  m_Text: 'L1 / R1 / Square / Cross: Move Camera
 
-    L1 / R1: Camera Zoon In / Out
+    L2 / R2: Camera Zoon In / Out
 
-    R2:
+    Circle:
     Reset Camera Position
 
     Trinagle: Change Camera'
@@ -25593,7 +25595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125, y: -65}
+  m_AnchoredPosition: {x: 125, y: -40}
   m_SizeDelta: {x: 1280, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107311857
@@ -25646,17 +25648,19 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Cross: Move(Boost)
 
-    L1 / R1: Rotate Left / Right
+    Square: Reduce Speed
 
-    Triangle: Change
-    Camera
+    L1 / R1: Rotate Left
+    / Right
+
+    Triangle: Change Camera
 
     R2: Reset Rotation
 
-    (Start point / Check point / Safe zone only)
+    (Start point
+    / Check point / Safe zone only)
 
-    L2:
-    Use Item'
+    L2: Use Item'
 --- !u!222 &1107311859
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32798,10 +32802,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30AF\u30ED\u30B9: \u79FB\u52D5(\u30D6\u30FC\u30B9\u30C8)\nL1 / R1: \u5DE6/\u53F3\u56DE\u8EE2\n\u4E09\u89D2:
-    \u30AB\u30E1\u30E9\u5909\u66F4\nR2: \u56DE\u8EE2\u30EA\u30BB\u30C3\u30C8\n(\u30B9\u30BF\u30FC\u30C8
-    / \u30C1\u30A7\u30C3\u30AF\u30DD\u30A4\u30F3\u30C8 / \u5B89\u5168\u30BE\u30FC\u30F3\u306E\u307F)\nL2:
-    \u30A2\u30A4\u30C6\u30E0\u3092\u4F7F\u3046"
+  m_Text: "\u30AF\u30ED\u30B9: \u79FB\u52D5(\u30D6\u30FC\u30B9\u30C8)\n\u30B9\u30AF\u30A8\u30A2:
+    \u6E1B\u901F\nL1 / R1: \u5DE6/\u53F3\u56DE\u8EE2\n\u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4\nR2:
+    \u56DE\u8EE2\u30EA\u30BB\u30C3\u30C8\n(\u30B9\u30BF\u30FC\u30C8 / \u30C1\u30A7\u30C3\u30AF\u30DD\u30A4\u30F3\u30C8
+    / \u5B89\u5168\u30BE\u30FC\u30F3\u306E\u307F)\nL2: \u30A2\u30A4\u30C6\u30E0\u3092\u4F7F\u3046"
 --- !u!222 &1422308687
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -55192,10 +55196,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30AF\u30ED\u30B9: \u79FB\u52D5(\u30D6\u30FC\u30B9\u30C8)\nL1 / R1: \u5DE6/\u53F3\u56DE\u8EE2\n\u4E09\u89D2:
-    \u30AB\u30E1\u30E9\u5909\u66F4\nR2: \u56DE\u8EE2\u30EA\u30BB\u30C3\u30C8\n(\u30B9\u30BF\u30FC\u30C8
-    / \u30C1\u30A7\u30C3\u30AF\u30DD\u30A4\u30F3\u30C8 / \u5B89\u5168\u30BE\u30FC\u30F3\u306E\u307F)\nL2:
-    \u30A2\u30A4\u30C6\u30E0\u3092\u4F7F\u3046"
+  m_Text: "\u30AF\u30ED\u30B9: \u79FB\u52D5(\u30D6\u30FC\u30B9\u30C8)\n\u30B9\u30AF\u30A8\u30A2:
+    \u6E1B\u901F\nL1 / R1: \u5DE6/\u53F3\u56DE\u8EE2\n\u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4\nR2:
+    \u56DE\u8EE2\u30EA\u30BB\u30C3\u30C8\n(\u30B9\u30BF\u30FC\u30C8 / \u30C1\u30A7\u30C3\u30AF\u30DD\u30A4\u30F3\u30C8
+    / \u5B89\u5168\u30BE\u30FC\u30F3\u306E\u307F)\nL2: \u30A2\u30A4\u30C6\u30E0\u3092\u4F7F\u3046"
 --- !u!222 &2044909827
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -55510,8 +55514,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4E0A / \u4E0B / \u5DE6 / \u53F3: \u30AB\u30E1\u30E9\u79FB\u52D5\nL1
-    / R1: \u30AB\u30E1\u30E9\u30BA\u30FC\u30E0\u30A4\u30F3 / \u30A2\u30A6\u30C8\nR2:
+  m_Text: "L1 / R1 / \u30B9\u30AF\u30A8\u30A2 / \u30AF\u30ED\u30B9: \u30AB\u30E1\u30E9\u79FB\u52D5\nL2
+    / R2: \u30AB\u30E1\u30E9\u30BA\u30FC\u30E0\u30A4\u30F3 / \u30A2\u30A6\u30C8\n\u5186\u5F62:
     \u30AB\u30E1\u30E9\u4F4D\u7F6E\u30EA\u30BB\u30C3\u30C8\n\u4E09\u89D2: \u30AB\u30E1\u30E9\u5909\u66F4"
 --- !u!222 &2080249383
 CanvasRenderer:
