@@ -1291,17 +1291,9 @@ public class GameManagerMultiplay : MonoBehaviour
 
     public RandomItemSettings GetPlayerRandomItemSettings(int playerID)
     {
-        int playerIndex = playerID - 1;
-        int position = 0;
-        foreach (KeyValuePair<int, float> posInfo in playerRemainingDistances)
-        {
-            if (posInfo.Key == playerIndex)
-            {
-                position = playerIndex;
-                break;
-            }
-        }
-        Debug.Log("position: "+position);
+        Debug.Log("position1: " + playerRemainingDistances.Keys.ToList().IndexOf(playerID-1));
+        int position = playerRemainingDistances.Keys.ToList().IndexOf(playerID) - 1 >= 0 ? playerRemainingDistances.Keys.ToList().IndexOf(playerID) - 1 : 0;
+        Debug.Log("position2: "+position);
         return playerRandomItemSettings[position];
     }
 }

@@ -339,7 +339,14 @@ public class PlayerItem : MonoBehaviour
                 break;
             case "Stone":
                 GameObject playerDropBackItem = Instantiate(playerItem);
-                playerDropBackItem.transform.position = gameObject.transform.position + new Vector3(playerDropBackItemOffsetX, 0f, 0f);
+                if (gameObject.GetComponent<Rigidbody>().velocity.x >= 0)
+                {
+                    playerDropBackItem.transform.position = gameObject.transform.position + new Vector3(playerDropBackItemOffsetX, 0f, 0f);
+                }
+                else
+                {
+                    playerDropBackItem.transform.position = gameObject.transform.position + new Vector3(-playerDropBackItemOffsetX, 0f, 0f);
+                }
                 break;
             case "ReduceSpeedItem":
                 FindObjectOfType<GameManagerMultiplay>().ReduceOtherPlayersSpeed(playerID);
