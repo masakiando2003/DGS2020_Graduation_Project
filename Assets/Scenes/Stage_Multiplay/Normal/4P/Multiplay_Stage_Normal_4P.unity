@@ -3621,6 +3621,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2533440750286991446, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
+      propertyPath: m_Text
+      value: 'L1 / R1 / Square / Cross: Move Camera
+
+        L2 / R2: Camera Zoon
+        In / Out
+
+        Circle: Reset Camera Position
+
+        Trinagle: Change
+        Camera'
+      objectReference: {fileID: 0}
     - target: {fileID: 2533440750437475003, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3649,6 +3661,18 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 47931c0ece5671c4fa9ac91b95868c15, type: 2}
+    - target: {fileID: 2533440750770985590, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
+      propertyPath: m_Text
+      value: 'L1 / R1 / Square / Cross: Move Camera
+
+        L2 / R2: Camera Zoon
+        In / Out
+
+        Circle: Reset Camera Position
+
+        Trinagle: Change
+        Camera'
+      objectReference: {fileID: 0}
     - target: {fileID: 2533440751032715727, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -3656,6 +3680,30 @@ PrefabInstance:
     - target: {fileID: 2533440751064574995, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533440751264609610, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
+      propertyPath: m_Text
+      value: 'L1 / R1 / Square / Cross: Move Camera
+
+        L2 / R2: Camera Zoon
+        In / Out
+
+        Circle: Reset Camera Position
+
+        Trinagle: Change
+        Camera'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2533440751285741209, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
+      propertyPath: m_Text
+      value: 'L1 / R1 / Square / Cross: Move Camera
+
+        L2 / R2: Camera Zoon
+        In / Out
+
+        Circle: Reset Camera Position
+
+        Trinagle: Change
+        Camera'
       objectReference: {fileID: 0}
     - target: {fileID: 2533440751563453099, guid: 9e0304a9269e4ac4b8c234a66f892798, type: 3}
       propertyPath: m_TargetTexture
