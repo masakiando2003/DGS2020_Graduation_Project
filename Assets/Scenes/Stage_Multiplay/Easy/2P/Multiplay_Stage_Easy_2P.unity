@@ -1802,6 +1802,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189439047}
   m_CullTransparentMesh: 1
+--- !u!4 &208994393 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1216447565952165948, guid: dbf359a8c87a51d45afbe24b62bedd72, type: 3}
+  m_PrefabInstance: {fileID: 1216447566322574997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &225309808
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,11 +7512,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &385617577 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1216447565952165948, guid: dbf359a8c87a51d45afbe24b62bedd72, type: 3}
-  m_PrefabInstance: {fileID: 1216447566322574997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &408464268
 GameObject:
   m_ObjectHideFlags: 0
@@ -24001,6 +24001,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!4 &806016855 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6714262173612421914, guid: dbf359a8c87a51d45afbe24b62bedd72, type: 3}
+  m_PrefabInstance: {fileID: 1216447566322574997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &835018376
 GameObject:
   m_ObjectHideFlags: 0
@@ -24570,7 +24575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchoredPosition: {x: 0, y: -165}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &948953654
@@ -26028,8 +26033,8 @@ MonoBehaviour:
   - {fileID: 274844051}
   - {fileID: 1611030635}
   startPositions:
-  - {fileID: 1944012448}
-  - {fileID: 385617577}
+  - {fileID: 806016855}
+  - {fileID: 208994393}
   checkPointPositions:
   - {fileID: 971971045997661871}
   goalPosition: {fileID: 5605971369886960429}
@@ -44836,7 +44841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836181775
@@ -54683,11 +54688,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!4 &1944012448 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6714262173612421914, guid: dbf359a8c87a51d45afbe24b62bedd72, type: 3}
-  m_PrefabInstance: {fileID: 1216447566322574997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976421170
 GameObject:
   m_ObjectHideFlags: 0
