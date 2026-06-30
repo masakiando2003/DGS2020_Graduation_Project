@@ -339,7 +339,7 @@ public class PlayerItem : MonoBehaviour
                 break;
             case "Stone":
                 GameObject playerDropBackItem = Instantiate(playerItem);
-                if (gameObject.GetComponent<Rigidbody>().velocity.x >= 0)
+                if (gameObject.GetComponent<Rigidbody>().linearVelocity.x >= 0)
                 {
                     playerDropBackItem.transform.position = gameObject.transform.position + new Vector3(playerDropBackItemOffsetX, 0f, 0f);
                 }

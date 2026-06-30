@@ -116,7 +116,7 @@ public class MovementMultiplay : MonoBehaviour
     private void ResetRotation()
     {
         gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
     }
 
     private void ResponseToBoostUp()
@@ -152,7 +152,7 @@ public class MovementMultiplay : MonoBehaviour
     }
     private void LimitMaxmimumSpeed()
     {
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, currentMaxSpeed);
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, currentMaxSpeed);
     }
 
     public void ReduceMaximumSpeed(float reduceMaximumSpeedFactor)
@@ -174,7 +174,7 @@ public class MovementMultiplay : MonoBehaviour
 
     private void SlowDownSpeed()
     {
-        rb.velocity = rb.velocity / slowDownSpeedFactor;
+        rb.linearVelocity = rb.linearVelocity / slowDownSpeedFactor;
         if (!audioSource.isPlaying && mainEngine != null)
         {
             audioSource.PlayOneShot(mainEngine);
@@ -246,7 +246,7 @@ public class MovementMultiplay : MonoBehaviour
 
     public void StopMovement()
     {
-        rb.velocity = new Vector3(0f, 0f, 0f);
+        rb.linearVelocity = new Vector3(0f, 0f, 0f);
         rb.angularVelocity = Vector3.zero;
     }
 
