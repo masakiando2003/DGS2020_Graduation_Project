@@ -19,7 +19,7 @@ public class TrapTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag.Equals("Player") && !isActiviated)
+        if (collider.gameObject.CompareTag("Player") && !isActiviated)
         {
             audioSource.Stop();
             audioSource.PlayOneShot(triggerSE);

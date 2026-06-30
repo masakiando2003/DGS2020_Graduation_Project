@@ -42,7 +42,7 @@ public class MovementMultiplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameManagerMultiplay.GameState currentGameState = FindObjectOfType<GameManagerMultiplay>().GetCurrentGameState();
+        GameManagerMultiplay.GameState currentGameState = GameManagerMultiplay.Instance.GetCurrentGameState();
         if(currentGameState == GameManagerMultiplay.GameState.Finish)
         {
             return;

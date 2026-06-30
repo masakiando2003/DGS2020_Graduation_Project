@@ -584,7 +584,7 @@ public class Option : MonoBehaviour
         }
         RankingJson rankingJson = JsonUtility.FromJson<RankingJson>(rankingDataFile.text);
         string saveRankingData = JsonUtility.ToJson(rankingJson, true);
-        Debug.Log(saveRankingData);
+        //Debug.Log(saveRankingData);
         for (int i = 1; i <= numPlayers; i++)
         {
             string playerNameKey = Difficulty_1P_TempSave.chosenDifficulty + "_PlayerName_" + i.ToString();
@@ -648,7 +648,7 @@ public class Option : MonoBehaviour
         {
             skyboxIndex = (skyboxIndex + 1) > (skyboxNames.Length - 1) ? 0 : skyboxIndex + 1;
         }
-        Debug.Log("skyboxIndex: "+skyboxIndex);
+        //Debug.Log("skyboxIndex: "+skyboxIndex);
         PlayerPrefs.SetInt("BackgroundIndex", skyboxIndex);
         if (skyboxIndex >= 0 && skyboxIndex <= skyboxNames.Length - 1)
         {

@@ -28,12 +28,12 @@ public class CheckPointFlagSolo : MonoBehaviour
         {
             GetComponent<Renderer>().material = checkPointFlagMaterial;
         }
-        FindObjectOfType<GameManagerSolo>().UpdateFinalPosition(checkPointName, checkPointIndex);
+        GameManagerSolo.Instance.UpdateFinalPosition(checkPointName, checkPointIndex);
     }
     public void PassGoal ()
     {
         //GetComponent<Renderer>().material = checkPointFlagMaterial;
-        FindObjectOfType<GameManagerSolo>().UpdateFinalPosition("Goal", 99);
+        GameManagerSolo.Instance.UpdateFinalPosition("Goal", 99);
     }
 
     public bool IsChecked()

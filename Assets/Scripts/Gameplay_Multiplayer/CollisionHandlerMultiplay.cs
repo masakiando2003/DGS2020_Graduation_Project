@@ -138,7 +138,7 @@ public class CollisionHandlerMultiplay : MonoBehaviour
             checkPoint.GetComponentInChildren<CheckPointFlagMultiplay>().PassCheckPoint();
         }
         int playerID = GetComponent<PlayerStatusMultiplay>().GetPlayerID();
-        FindObjectOfType<GameManagerMultiplay>().SaveLatestCheckPoint(playerID, checkPointPos);
+        GameManagerMultiplay.Instance.SaveLatestCheckPoint(playerID, checkPointPos);
         playerStatus.ResetBoostToFull();
     }
 
@@ -151,17 +151,17 @@ public class CollisionHandlerMultiplay : MonoBehaviour
         if (MultiplayPlayerMode.gameMode == "BattleRoyale")
         {
             int playerID = GetComponent<PlayerStatusMultiplay>().GetPlayerID();
-            FindObjectOfType<GameManagerMultiplay>().FinishBattleRoyale(playerID);
+            GameManagerMultiplay.Instance.FinishBattleRoyale(playerID);
         }
         else
         {
-            FindObjectOfType<GameManagerMultiplay>().FinishTeamPlay();
+            GameManagerMultiplay.Instance.FinishTeamPlay();
         }
     }
 
     private void StartFailedSequence(GameObject colliderObject)
     {
-        if (colliderObject.gameObject.tag.Equals("Fabrics"))
+        if (colliderObject.gameObject.CompareTag("Fabrics"))
         {
             Destroy(colliderObject.gameObject);
         }
@@ -181,8 +181,8 @@ public class CollisionHandlerMultiplay : MonoBehaviour
         yield return new WaitForSeconds(respawnTime);
         playerStatus.SetPlayerColorToNormal();
         int playerID = GetComponent<PlayerStatusMultiplay>().GetPlayerID();
-        FindObjectOfType<GameManagerMultiplay>().ResetPlayerToStartPosition(playerID, playerObject);
-        FindObjectOfType<GameManagerMultiplay>().ActiviateAllFuelObjects();
+        GameManagerMultiplay.Instance.ResetPlayerToStartPosition(playerID, playerObject);
+        GameManagerMultiplay.Instance.ActiviateAllFuelObjects();
         playerStatus.UpdatePlayerBoostSlider();
         yield return new WaitForSeconds(playerCanControlTime);
         playerMovement.EnablePlayerControl();

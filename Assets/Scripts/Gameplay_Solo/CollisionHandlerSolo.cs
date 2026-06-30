@@ -60,7 +60,7 @@ public class CollisionHandlerSolo : MonoBehaviour
                 {
                     other.gameObject.GetComponentInChildren<CheckPointFlagSolo>().SetToChecked();
                     playerStatus.RecoverPlayerLife(other.gameObject.GetComponentInChildren<CheckPointFlagSolo>().GetRecoverPlayerLifes());
-                    FindObjectOfType<GameManagerSolo>().RecoverRemainingTime(other.gameObject.GetComponentInChildren<CheckPointFlagSolo>().GetRecoverRemainingTime());
+                    GameManagerSolo.Instance.RecoverRemainingTime(other.gameObject.GetComponentInChildren<CheckPointFlagSolo>().GetRecoverRemainingTime());
                 }
                 StartSaveLatestCheckPointSequence(other.gameObject);
                 break;
@@ -122,7 +122,7 @@ public class CollisionHandlerSolo : MonoBehaviour
         {
             checkPoint.GetComponentInChildren<CheckPointFlagSolo>().PassCheckPoint();
         }
-        FindObjectOfType<GameManagerSolo>().SaveLatestCheckPoint(checkPointPos);
+        GameManagerSolo.Instance.SaveLatestCheckPoint(checkPointPos);
         playerStatus.ResetBoostToFull();
     }
 
@@ -133,12 +133,12 @@ public class CollisionHandlerSolo : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(successSE);
         playerMovement.enabled = false;
-        FindObjectOfType<GameManagerSolo>().Clear();
+        GameManagerSolo.Instance.Clear();
     }
 
     private void StartFailedSequence(GameObject colliderObject)
     {
-        if (colliderObject.gameObject.tag.Equals("Fabrics"))
+        if (colliderObject.gameObject.CompareTag("Fabrics"))
         {
             Destroy(colliderObject.gameObject);
         }
@@ -157,7 +157,7 @@ public class CollisionHandlerSolo : MonoBehaviour
         }
         else
         {
-            FindObjectOfType<GameManagerSolo>().GameOver();
+            GameManagerSolo.Instance.GameOver();
         }
     }
 
@@ -165,8 +165,8 @@ public class CollisionHandlerSolo : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnTime);
         playerStatus.SetPlayerColorToNormal();
-        FindObjectOfType<GameManagerSolo>().ResetPlayerToStartPosition(playerObject);
-        FindObjectOfType<GameManagerSolo>().ActiviateAllFuelObjects();
+        GameManagerSolo.Instance.ResetPlayerToStartPosition(playerObject);
+        GameManagerSolo.Instance.ActiviateAllFuelObjects();
         playerStatus.UpdatePlayerBoostSlider();
         yield return new WaitForSeconds(playerCanControlTime);
         playerMovement.EnablePlayerControl();

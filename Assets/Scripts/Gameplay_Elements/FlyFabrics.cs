@@ -26,7 +26,7 @@ public class FlyFabrics : MonoBehaviour
         fabricsIsFlying = true;
         foreach(Rigidbody rb in rigidBody)
         {
-            Debug.Log("rb Game object: "+rb.gameObject.name);
+            //Debug.Log("rb Game object: "+rb.gameObject.name);
             rb.velocity = new Vector3(0f, 0f, -flySpeed);
         }
     }
@@ -42,7 +42,7 @@ public class FlyFabrics : MonoBehaviour
         {
             if(rb != null)
             {
-                Debug.Log(rb.gameObject.name + " --- " + rb.velocity.normalized.z);
+                //Debug.Log(rb.gameObject.name + " --- " + rb.velocity.normalized.z);
             }
             if (fabricsIsFlying && rb != null && rb.velocity.normalized.z == 0f)
             {

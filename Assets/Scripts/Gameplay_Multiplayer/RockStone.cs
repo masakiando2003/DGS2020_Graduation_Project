@@ -6,7 +6,7 @@ public class RockStone : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Missile" || other.gameObject.tag == "Shield")
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Missile") || other.gameObject.CompareTag("Shield"))
         {
             Destroy(gameObject);
         }
