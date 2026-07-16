@@ -68,14 +68,14 @@ public class PathMovement : MonoBehaviour
     private IEnumerator WaitForMoveToNextTargetPosition()
     {
         canMove = false;
-        if (gameObject.tag.Equals("Robot"))
+        if (gameObject.CompareTag("Robot"))
         {
             gameObject.GetComponent<Robot>().StartIdle();
         }
         yield return new WaitForSeconds(waitForNextMovementTime);
         waypointIndex++;
         canMove = true;
-        if (gameObject.tag.Equals("Robot"))
+        if (gameObject.CompareTag("Robot"))
         {
             gameObject.GetComponent<Robot>().StartWalking();
             if (!firstMove)

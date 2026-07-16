@@ -328,22 +328,22 @@ public class GameManagerMultiplay : MonoBehaviour
                     switch (i)
                     {
                         case 0:
-                            playerPositionTexts[i].text = "1ˆÊ";
+                            playerPositionTexts[i].text = "1ï¿½ï¿½";
                             playerPositionTexts[i].font = gameManagerMultiplayJPFont;
                             playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
                         case 1:
-                            playerPositionTexts[i].text = "2ˆÊ";
+                            playerPositionTexts[i].text = "2ï¿½ï¿½";
                             playerPositionTexts[i].font = gameManagerMultiplayJPFont;
                             playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
                         case 2:
-                            playerPositionTexts[i].text = "3ˆÊ";
+                            playerPositionTexts[i].text = "3ï¿½ï¿½";
                             playerPositionTexts[i].font = gameManagerMultiplayJPFont;
                             playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
                         case 3:
-                            playerPositionTexts[i].text = "4ˆÊ";
+                            playerPositionTexts[i].text = "4ï¿½ï¿½";
                             playerPositionTexts[i].font = gameManagerMultiplayJPFont;
                             playerPositionTexts[i].fontStyle = FontStyle.Bold;
                             break;
@@ -510,7 +510,7 @@ public class GameManagerMultiplay : MonoBehaviour
     {
         if (playerSpeedTexts[playerIndex] == null) { return; }
         float currentSpeed;
-        currentSpeed = Mathf.FloorToInt(playerRockets[playerIndex].GetComponent<Rigidbody>().velocity.magnitude);
+        currentSpeed = Mathf.FloorToInt(playerRockets[playerIndex].GetComponent<Rigidbody>().linearVelocity.magnitude);
         playerSpeedTexts[playerIndex].text = currentSpeed.ToString() + "Km / s";
     }
 
@@ -1238,7 +1238,7 @@ public class GameManagerMultiplay : MonoBehaviour
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        playerPositionTexts[playerIndex].text = "1ˆÊ";
+                        playerPositionTexts[playerIndex].text = "1ï¿½ï¿½";
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
                         playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;
@@ -1252,7 +1252,7 @@ public class GameManagerMultiplay : MonoBehaviour
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        playerPositionTexts[playerIndex].text = "2ˆÊ";
+                        playerPositionTexts[playerIndex].text = "2ï¿½ï¿½";
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
                         playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;
@@ -1266,7 +1266,7 @@ public class GameManagerMultiplay : MonoBehaviour
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        playerPositionTexts[playerIndex].text = "3ˆÊ";
+                        playerPositionTexts[playerIndex].text = "3ï¿½ï¿½";
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
                         playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;
@@ -1280,7 +1280,7 @@ public class GameManagerMultiplay : MonoBehaviour
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayENFont;
                         break;
                     case Language.DisplayLanauge.Japanese:
-                        playerPositionTexts[playerIndex].text = "4ˆÊ";
+                        playerPositionTexts[playerIndex].text = "4ï¿½ï¿½";
                         playerPositionTexts[playerIndex].font = gameManagerMultiplayJPFont;
                         playerPositionTexts[playerIndex].fontStyle = FontStyle.Bold;
                         break;

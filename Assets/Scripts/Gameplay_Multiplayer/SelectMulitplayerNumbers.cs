@@ -198,7 +198,7 @@ public class SelectMulitplayerNumbers : MonoBehaviour
     private void DisplayGameMode()
     {
         if(gameModeText == null) { return; }
-        Debug.Log("Display Game Mode: " + MultiplayPlayerMode.gameMode);
+        //Debug.Log("Display Game Mode: " + MultiplayPlayerMode.gameMode);
         switch (MultiplayPlayerMode.gameMode)
         {
             case "BattleRoyale":

@@ -169,7 +169,7 @@ public class PlayerItem : MonoBehaviour
 
     public void RandomizeItem()
     {
-        RandomItemSettings playerRandomItemSetting = FindObjectOfType<GameManagerMultiplay>().GetPlayerRandomItemSettings(playerID);
+        RandomItemSettings playerRandomItemSetting = GameManagerMultiplay.Instance.GetPlayerRandomItemSettings(playerID);
         int randomizedItemCategoryIndex = 0;
         int randomAttackItemFactor = playerRandomItemSetting.GetAttackItemRandomRate();
         int randomDefenceItemFactor = playerRandomItemSetting.GetAttackItemRandomRate() + 
@@ -236,7 +236,7 @@ public class PlayerItem : MonoBehaviour
             playerItem = attackItem;
             if(MultiplayPlayerMode.gameMode == "TeamPlay")
             {
-                Debug.Log("Team Play CASE");
+                //Debug.Log("Team Play CASE");
                 //if (Array.IndexOf(MultiplayPlayerMode.TeamAPlayerIDs, playerID) >= 0)
                 if(MultiplayPlayerMode.TeamAPlayerIDs.Contains(playerID))
                 {
@@ -246,16 +246,16 @@ public class PlayerItem : MonoBehaviour
                 {
                     teamBelongsTo = "Team B";
                 }
-                targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketTeamPlay(playerID, teamBelongsTo);
-                targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameTeamPlay(playerID, teamBelongsTo);
-                targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDTeamPlay(playerID, teamBelongsTo);
+                targetPlayer = GameManagerMultiplay.Instance.GetClosetPlayerRocketTeamPlay(playerID, teamBelongsTo);
+                targetPlayerName = GameManagerMultiplay.Instance.GetClosetPlayerNameTeamPlay(playerID, teamBelongsTo);
+                targetPlayerID = GameManagerMultiplay.Instance.GetClosetPlayerIDTeamPlay(playerID, teamBelongsTo);
             }
             else
             {
-                Debug.Log("Battle Royale CASE");
-                targetPlayer = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerRocketBattleRoyale(playerID);
-                targetPlayerName = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerNameBattleRoyale(playerID);
-                targetPlayerID = FindObjectOfType<GameManagerMultiplay>().GetClosetPlayerIDBattleRoyale(playerID);
+                //Debug.Log("Battle Royale CASE");
+                targetPlayer = GameManagerMultiplay.Instance.GetClosetPlayerRocketBattleRoyale(playerID);
+                targetPlayerName = GameManagerMultiplay.Instance.GetClosetPlayerNameBattleRoyale(playerID);
+                targetPlayerID = GameManagerMultiplay.Instance.GetClosetPlayerIDBattleRoyale(playerID);
             }
             if (targetPlayer != null && targetPlayerName != "")
             {
@@ -304,7 +304,7 @@ public class PlayerItem : MonoBehaviour
             case "Missile":
                 GameObject playerAttackItem = Instantiate(playerItem);
                 playerAttackItem.GetComponent<Missile>().SetTargetPlayer(targetPlayer);
-                Debug.Log("Target Player ID: "+targetPlayerID);
+                //Debug.Log("Target Player ID: "+targetPlayerID);
                 Camera targetPlayerCamera = GameObject.Find("FollowPlayer" + targetPlayerID + "Camera").GetComponent<Camera>();
                 playerAttackItem.GetComponent<Missile>().SetTargetPlayerCamera(targetPlayerCamera);
                 if (playerAttackItem.transform.position.x >= targetPlayer.transform.position.x)
@@ -331,15 +331,15 @@ public class PlayerItem : MonoBehaviour
                 playerStatusMultiplay.AcitivateInvicibleMode();
                 break;
             case "Timer":
-                FindObjectOfType<GameManagerMultiplay>().StopOtherPlayersMovement(playerID);
-                FindObjectOfType<GameManagerMultiplay>().StopAllMissilesMovement();
+                GameManagerMultiplay.Instance.StopOtherPlayersMovement(playerID);
+                GameManagerMultiplay.Instance.StopAllMissilesMovement();
                 break;
             case "Fuel":
                 playerStatusMultiplay.RecoverHalfOfBoost();
                 break;
             case "Stone":
                 GameObject playerDropBackItem = Instantiate(playerItem);
-                if (gameObject.GetComponent<Rigidbody>().velocity.x >= 0)
+                if (gameObject.GetComponent<Rigidbody>().linearVelocity.x >= 0)
                 {
                     playerDropBackItem.transform.position = gameObject.transform.position + new Vector3(playerDropBackItemOffsetX, 0f, 0f);
                 }
@@ -349,10 +349,10 @@ public class PlayerItem : MonoBehaviour
                 }
                 break;
             case "ReduceSpeedItem":
-                FindObjectOfType<GameManagerMultiplay>().ReduceOtherPlayersSpeed(playerID);
+                GameManagerMultiplay.Instance.ReduceOtherPlayersSpeed(playerID);
                 break;
             case "ReduceBoostItem":
-                FindObjectOfType<GameManagerMultiplay>().ReduceOtherPlayersBoost(playerID);
+                GameManagerMultiplay.Instance.ReduceOtherPlayersBoost(playerID);
                 break;
         }
         playerTargetLabel.enabled = false;

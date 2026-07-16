@@ -6,7 +6,7 @@ public class FabricBoundary : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag.Equals("Fabrics"))
+        if (collider.gameObject.CompareTag("Fabrics"))
         {
             Destroy(collider.gameObject);
         }

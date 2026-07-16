@@ -123,7 +123,7 @@ public class CameraManagementMultiplay : MonoBehaviour
 
     private void ResponseToChangeCamera()
     {
-        if (FindObjectOfType<GameManagerMultiplay>().GetCurrentGameState()
+        if (GameManagerMultiplay.Instance.GetCurrentGameState()
             != GameManagerMultiplay.GameState.GameStart)
         {
             return;

@@ -307,8 +307,8 @@ public class SimpleHelvetica : MonoBehaviour {
 			Rigidbody thisRigidbody = child.gameObject.GetComponent<Rigidbody>();
 			if (thisRigidbody!=null){
 				thisRigidbody.mass = Mass;
-				thisRigidbody.drag = Drag;
-				thisRigidbody.angularDrag = AngularDrag;
+				thisRigidbody.linearDamping = Drag;
+				thisRigidbody.angularDamping = AngularDrag;
 				thisRigidbody.useGravity = UseGravity;
 				thisRigidbody.isKinematic = IsKinematic;
 				thisRigidbody.interpolation = Interpolation;
@@ -346,8 +346,8 @@ public class SimpleHelvetica : MonoBehaviour {
 			Rigidbody thisRigidbody = child.gameObject.GetComponent<Rigidbody>();
 			if (child.name!="_Alphabets" && thisRigidbody!=null){
 				thisRigidbody.mass = Mass;
-				thisRigidbody.drag = Drag;
-				thisRigidbody.angularDrag = AngularDrag;
+				thisRigidbody.linearDamping = Drag;
+				thisRigidbody.angularDamping = AngularDrag;
 				thisRigidbody.useGravity = UseGravity;
 				thisRigidbody.isKinematic = IsKinematic;
 				thisRigidbody.interpolation = Interpolation;

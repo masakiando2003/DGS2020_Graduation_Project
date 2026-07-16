@@ -146,7 +146,7 @@ public class MovementSolo : MonoBehaviour
     private void ResetRotation()
     {
         gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
     }
 
     private void ResponseToBoostUp()
@@ -161,7 +161,7 @@ public class MovementSolo : MonoBehaviour
 
     private void StopThursting()
     {
-        rb.velocity = rb.velocity / slowDownSpeedFactor;
+        rb.linearVelocity = rb.linearVelocity / slowDownSpeedFactor;
         audioSource.Stop();
         if(boostParticles != null && boostParticles.isPlaying)
         {
@@ -183,7 +183,7 @@ public class MovementSolo : MonoBehaviour
     }
     private void LimitMaxmimumSpeed()
     {
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
     }
 
     public float GetLimitedMaxSpeed()
@@ -193,7 +193,7 @@ public class MovementSolo : MonoBehaviour
 
     private void SlowDownSpeed()
     {
-        rb.velocity = rb.velocity / slowDownSpeedFactor;
+        rb.linearVelocity = rb.linearVelocity / slowDownSpeedFactor;
         if (!audioSource.isPlaying && mainEngine != null)
         {
             audioSource.PlayOneShot(mainEngine);
@@ -271,7 +271,7 @@ public class MovementSolo : MonoBehaviour
 
     public void StopMovement()
     {
-        rb.velocity = new Vector3(0f, 0f, 0f);
+        rb.linearVelocity = new Vector3(0f, 0f, 0f);
         rb.angularVelocity = Vector3.zero;
     }
 

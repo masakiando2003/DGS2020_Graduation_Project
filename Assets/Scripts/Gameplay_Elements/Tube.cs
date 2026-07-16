@@ -17,11 +17,11 @@ public class Tube : MonoBehaviour
     {
         foreach(Transform tube in tubes)
         {
-            Debug.Log("tube: " + tube.gameObject.name);
+            //Debug.Log("tube: " + tube.gameObject.name);
             yield return new WaitForSeconds(freeFallDelayTime);
             foreach (Rigidbody tubeDetail in tube.GetComponentsInChildren<Rigidbody>())
             {
-                Debug.Log("tubeDetail: " + tubeDetail.gameObject.name);
+                //Debug.Log("tubeDetail: " + tubeDetail.gameObject.name);
                 tubeDetail.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ |
                                         RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             }

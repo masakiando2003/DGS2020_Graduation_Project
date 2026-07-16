@@ -69,7 +69,7 @@ public class Missile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerStatusMultiplay>().SetCautionState("", false);
         }

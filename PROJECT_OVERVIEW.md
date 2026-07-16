@@ -1,25 +1,13 @@
-# DGS2020_Graduation_Project
-デジタルゲーム開発2020 卒業制作
+# DGS2020 卒業制作 プロジェクト概要
 
-Unity Version: 2020.3.4f1 → 6000.5.1f1
-
-Package パッケージ: Post Processing
-
-> **関連ドキュメント**: [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md)(概要）・ [IMPROVEMENTS.md](IMPROVEMENTS.md)(改善提案）・ [UNITY6_MIGRATION.md](UNITY6_MIGRATION.md)(Unity 6 移行手順）
-> 本 README は上記のうち概要と改善提案を統合したものです。
-
----
-
-## プロジェクト概要
-
-デジタルゲーム開発2020卒業制作。Unity 製の **ロケットレースゲーム**。
+デジタルゲーム開発2020 卒業制作。Unity 製の **ロケットレースゲーム**。
 プレイヤーはロケットを操縦し、燃料(ブースト)を管理しながらチェックポイントを通過してゴールを目指す。ソロプレイとマルチプレイ(対戦)の2モードを備える。
 
 ## 基本情報
 
 | 項目 | 内容 |
 | --- | --- |
-| エンジン | Unity 2020.3.4f1 → 6000.5.1f1(移行中) |
+| エンジン | Unity 2020.3.4f1 |
 | 言語 | C#(MonoBehaviour ベース) |
 | 主要パッケージ | Post Processing |
 | 対応言語 | 日本語 / 英語(ScriptableObject によるローカライズ) |
@@ -95,40 +83,7 @@ Title                         タイトル
 - **設定の永続化**: 音量・言語は `PlayerPrefs` に保存。`BGMController` は `DontDestroyOnLoad` でシーンを跨いで存続。
 - **GameManager**: ソロ/マルチとも各 GameManager がシングルトン(`Instance`)で進行・UI・チェックポイント・ランキングを統括。
 - **一時保存**: 難易度・プレイヤー名・プレイタイムをシーン間で受け渡すための TempSave スクリプト群。
+```
 
 ---
-
-# 改善提案
-
-> 完成済みプロジェクトに対する「次に手を入れるなら」という観点の提案です。致命的な不具合の指摘ではありません。詳細は [IMPROVEMENTS.md](IMPROVEMENTS.md) を参照。
-
-## 優先度: 高(設計・保守性)
-
-1. **巨大な God Class の分割** — `GameManagerMultiplay.cs`(約1300行)、`GameManagerSolo.cs`(約1100行)、`Instructions_1P.cs`(約750行)、`Option.cs`(約660行)が進行・UI・カメラ・アイテム・ランキング・ローカライズを抱え込んでいる。`UIManager` / `RankingService` などへ責務分離を推奨。
-2. **Solo と Multiplay の重複コード** — `MovementSolo`↔`MovementMultiplay`、`GameManagerSolo`↔`GameManagerMultiplay` など並行クラスが二重管理。共通部分を基底クラスへ抽出。
-3. **ローカライズ機構の堅牢化** — `Localization.GetLabelContent` が線形検索かつラベル未定義で例外。`Dictionary` 化とフォールバックを。
-
-## 優先度: 中(パフォーマンス・安定性)
-
-4. **`Update()` 内の `FindObjectOfType`** → シングルトン `Instance` を使用(✅ Step 1 で対応済み)。
-5. **文字列連結の `GameObject.Find`**(`"FollowPlayer"+id+"Camera"`)を配列参照に。
-6. **タグ比較を `CompareTag` に統一**(✅ 対応済み)。
-7. **エラーハンドリング不在** — JSON パースや PlayerPrefs にフォールバックを。
-8. **ランキング永続化の整理**(TextAsset + PlayerPrefs の二層構造)。
-
-## 優先度: 低(コード品質)
-
-9. 難易度 × 言語の switch/case 重複(`Option.cs`)をデータ駆動化。
-10. グローバルな `static` 可変状態(TempSave 群)の初期化・`ScriptableObject` 化。
-11. 命名タイプミス(`DisplayLanauge` / `Closet` / `Elasped` 等)の修正。
-12. 残存 `Debug.Log` の除去(✅ 対応済み)。
-13. コメントアウトされた死コードの削除。
-14. 自動テストの導入(Unity Test Framework)。
-
-## 補足(運用)
-
-15. リポジトリ衛生 — `.unitypackage` 等の大容量バイナリ、Git LFS 設定、`.gitattributes` の見直し。
-
----
-
-*本 README はコードベースの静的調査に基づく概要・提案です。実行時の挙動は別途検証してください。*
+*このファイルはコードベースの調査結果を基に自動生成した概要です。*

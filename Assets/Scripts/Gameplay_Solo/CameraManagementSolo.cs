@@ -146,7 +146,7 @@ public class CameraManagementSolo : MonoBehaviour
 
     private void ResponseToChangeCamera()
     {
-        if(FindObjectOfType<GameManagerSolo>().GetCurrentGameState() 
+        if(GameManagerSolo.Instance.GetCurrentGameState() 
             != GameManagerSolo.GameState.GameStart)
         {
             return;
