@@ -5,6 +5,8 @@ Unity Version: 6000.5.1f1
 
 Package パッケージ: Post Processing
 
+開発補助ツール: Claude Code
+
 ## プロジェクト概要
 
 デジタルゲーム開発2020 卒業制作。Unity 製の **ロケットレースゲーム**。
