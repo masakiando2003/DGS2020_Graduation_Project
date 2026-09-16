@@ -5,6 +5,8 @@ Unity Version: 2020.3.4f1 → 6000.5.1f1
 
 Package パッケージ: Post Processing
 
+開発補助ツール: Claude Code
+
 > **関連ドキュメント**: [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md)(概要）・ [IMPROVEMENTS.md](IMPROVEMENTS.md)(改善提案）・ [UNITY6_MIGRATION.md](UNITY6_MIGRATION.md)(Unity 6 移行手順）
 > 本 README は上記のうち概要と改善提案を統合したものです。
 
@@ -19,7 +21,7 @@ Package パッケージ: Post Processing
 
 | 項目 | 内容 |
 | --- | --- |
-| エンジン | Unity 2020.3.4f1 → 6000.5.1f1(移行中) |
+| エンジン | Unity 2020.3.4f1 → 6000.5.1f1 |
 | 言語 | C#(MonoBehaviour ベース) |
 | 主要パッケージ | Post Processing |
 | 対応言語 | 日本語 / 英語(ScriptableObject によるローカライズ) |
