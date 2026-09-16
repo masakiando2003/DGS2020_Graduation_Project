@@ -142,7 +142,7 @@ public class GameManagerSolo : MonoBehaviour
                 finalPositionText.text = finalPosition;
                 break;
             case Language.DisplayLanauge.Japanese:
-                finalPosition = "ÉXÉ^Å[Ég";
+                finalPosition = "ÔøΩXÔøΩ^ÔøΩ[ÔøΩg";
                 finalPositionText.text = finalPosition;
                 finalPositionText.fontStyle = FontStyle.Bold;
                 break;
@@ -636,7 +636,7 @@ public class GameManagerSolo : MonoBehaviour
     {
         if(playerSpeedText == null) { return; }
         float currentSpeed;
-        currentSpeed = Mathf.FloorToInt(playerRocket.GetComponent<Rigidbody>().velocity.magnitude);
+        currentSpeed = Mathf.FloorToInt(playerRocket.GetComponent<Rigidbody>().linearVelocity.magnitude);
         /*
         if (playerRocket.GetComponent<Rigidbody>().velocity.magnitude > playerRocket.GetComponent<Movement>().GetLimitedMaxVelocity())
         {
@@ -926,8 +926,8 @@ public class GameManagerSolo : MonoBehaviour
                             gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
-                            clearRankedText.text = "1à ";
-                            gameOverRankingPositionText.text = "1à ";
+                            clearRankedText.text = "1ÔøΩÔøΩ";
+                            gameOverRankingPositionText.text = "1ÔøΩÔøΩ";
                             break;
                         default:
                             clearRankedText.text = "1st";
@@ -947,9 +947,9 @@ public class GameManagerSolo : MonoBehaviour
                             gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
-                            clearRankedText.text = "2à ";
+                            clearRankedText.text = "2ÔøΩÔøΩ";
                             clearRankedText.font = gameplaySoloJPFont;
-                            gameOverRankingPositionText.text = "2à ";
+                            gameOverRankingPositionText.text = "2ÔøΩÔøΩ";
                             break;
                         default:
                             clearRankedText.text = "2nd";
@@ -969,9 +969,9 @@ public class GameManagerSolo : MonoBehaviour
                             gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
-                            clearRankedText.text = "3à ";
+                            clearRankedText.text = "3ÔøΩÔøΩ";
                             clearRankedText.font = gameplaySoloJPFont;
-                            gameOverRankingPositionText.text = "3à ";
+                            gameOverRankingPositionText.text = "3ÔøΩÔøΩ";
                             gameOverRankingPositionText.font = gameplaySoloJPFont;
                             break;
                         default:
@@ -992,9 +992,9 @@ public class GameManagerSolo : MonoBehaviour
                             gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
-                            clearRankedText.text = "4à ";
+                            clearRankedText.text = "4ÔøΩÔøΩ";
                             clearRankedText.font = gameplaySoloJPFont;
-                            gameOverRankingPositionText.text = "4à ";
+                            gameOverRankingPositionText.text = "4ÔøΩÔøΩ";
                             gameOverRankingPositionText.font = gameplaySoloJPFont;
                             break;
                         default:
@@ -1015,9 +1015,9 @@ public class GameManagerSolo : MonoBehaviour
                             gameOverRankingPositionText.font = gameplaySoloENFont;
                             break;
                         case Language.DisplayLanauge.Japanese:
-                            clearRankedText.text = "5à ";
+                            clearRankedText.text = "5ÔøΩÔøΩ";
                             clearRankedText.font = gameplaySoloJPFont;
-                            gameOverRankingPositionText.text = "5à ";
+                            gameOverRankingPositionText.text = "5ÔøΩÔøΩ";
                             gameOverRankingPositionText.font = gameplaySoloJPFont;
                             break;
                         default:

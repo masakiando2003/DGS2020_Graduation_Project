@@ -25,7 +25,7 @@
 
 		#if UNITY_EDITOR
 		void OnDrawGizmosSelected(){
-			if (waypointController != null) waypointController.OnDrawGizmosSelected (radius);
+			if (waypointController != null) waypointController.DrawGizmosSelected (radius);
 		}
 		#endif
 	}
